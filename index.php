@@ -16,14 +16,17 @@
         <img src="./images/banner1.jpg" alt="Coconut Farms"> <!-- Image size: 1920x600px -->
         <div class="hero-text">
             <h2>Welcome to L. M. Distributors</h2>
-            <p>Your trusted partner for high-quality coconut products.</p>
+            <p>Your trusted partner for high-quality<br> coconut products.</p>
             <a href="products.php" class="btn-primary">Explore Products</a>
         </div>
     </section>
 
     <section class="info">
-        <h3>Why Choose Us?</h3>
-        <p>We offer fresh, quality coconuts sourced from the best farms.</p>
+        <h2>Why Choose Us?</h2>
+        <p>At L. M. Distributors, we take pride in delivering, <strong>premium-quality coconuts</strong>  carefully sourced from the finest farms, 
+            ensuring unmatched taste and natural goodness. Whether you're a buyer, supplier, or coconut enthusiast, we guarantee an experience that 
+            prioritizes freshness, quality, and sustainability.</p>
+        <br>
 
         <div class="info-cards">
             <div class="card">
@@ -38,6 +41,13 @@
                 <img src="./images/tropical-coconut-cocktail-decorated-plumeria-table.jpg" alt="Quality Control">
                 <h4>Strict Quality Control</h4>
                 <p>Every coconut is carefully inspected before dispatch.</p>
+            </div>
+
+            <div class="card">
+                <!-- Expected image size: 150x150px -->
+                <img src="./images/firm-handshake.jpg" alt="Quality Control">
+                <h4>Trustworthy Partnership</h4>
+                <p>We are a reliable partner committed to your satisfaction.</p>
             </div>
         </div>
     </section>
