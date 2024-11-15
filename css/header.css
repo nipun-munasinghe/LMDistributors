@@ -1,0 +1,77 @@
+/* Import Poppins font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+body, h1, h3, p, a {
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    transition: color 0.3s, background-color 0.3s;
+}
+
+body.light-mode {
+    background-color: #FAF3E0;
+    color: #333;
+}
+
+body.dark-mode {
+    background-color: #333;
+    color: #FAF3E0;
+}
+
+.header {
+    background-color: #4CAF50;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.logo img {
+    width: 50px; /* Expected image size */
+    margin-right: 10px;
+}
+
+.nav-links a {
+    color: #FAF3E0;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #FFD700;
+}
+
+/* Mode Switch */
+.mode-switch {
+    display: flex;
+    align-items: center;
+}
+
+#theme-toggle {
+    display: none;
+}
+
+.mode-switch .fa-sun, .mode-switch .fa-moon {
+    color: #FFD700;
+    font-size: 1.2rem;
+}
+
+#theme-toggle:checked ~ .fa-sun {
+    display: none;
+}
+
+#theme-toggle:not(:checked) ~ .fa-moon {
+    display: none;
+}
