@@ -1,0 +1,47 @@
+/* Import Poppins font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+body, a {
+    font-family: 'Poppins', sans-serif;
+    transition: color 0.3s, background-color 0.3s;
+}
+
+.hero {
+    text-align: center;
+    position: relative;
+}
+
+.hero img {
+    width: 100%;
+    height: auto;
+}
+
+.card img {
+    width: 250px;
+}
+
+.hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #333;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    background-color: white;
+    border-radius: 10px;
+    padding: 30px;
+}
+
+.btn-primary {
+    background-color: #4CAF50;
+    color: #FAF3E0;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 8px;
+}
+
+.btn-primary:hover {
+    background-color: #228B22;
+}

@@ -1,9 +1,13 @@
 /* Import Poppins font */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
-body, h1, h3, p, a {
+body, a {
     font-family: 'Poppins', sans-serif;
     transition: color 0.3s, background-color 0.3s;
+}
+
+.footer-container h3 {
+    color: white;
 }
 
 body.light-mode {
@@ -32,6 +36,10 @@ body.dark-mode {
 .footer-section h3 {
     font-weight: 600;
     margin-bottom: 10px;
+}
+
+.footer-section p {
+    max-width: 800px;
 }
 
 .footer-section a {
