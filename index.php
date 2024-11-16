@@ -7,6 +7,10 @@
 
     <!-- link the stylesheet -->
     <link rel="stylesheet" href="./css/index.css">
+
+    
+    <!-- set the logo into title -->
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
 </head>
 <body>
 

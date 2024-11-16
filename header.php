@@ -21,14 +21,16 @@
                 <a id="lm" href="./index.php"><img src="./images/LMDistributors-logo2-01.png" alt="L. M. Distributors Logo"></a>
                 <h1><a id="lm" href="./index.php">L. M. Distributors</a></h1>
             </div>
-
-            <nav class="nav-links">
-                <a href="./index.php">Home</a>
-                <a href="./products.php">Products</a>
-                <a href="./about.php">About Us</a>
-                <a href="./contact.php">Contact Us</a>
-            </nav>
-
+            
+            <div class="bar">
+                <nav class="nav-links">
+                    <a href="./index.php">Home</a>
+                    <a href="./products.php">Products</a>
+                    <a href="./about.php">About Us</a>
+                    <a href="./contact.php">Contact Us</a>
+                </nav>
+            </div>
+            
             <div class="mode-switch">
                 <label for="theme-toggle">
                     <span class="fas fa-sun" id="sun-icon"></span>

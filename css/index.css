@@ -12,14 +12,14 @@ body, a {
 }
 
 .hero {
-    margin-top: 0px;
+    margin-top: -98px;
     width: 100%;
     height: 600px;
 }
 
 .hero-text {
     position: absolute;
-    top: 40%;
+    top: 28%;
     right: 50px;
     transform: translateY(-50%);
     color: #fff;
@@ -70,12 +70,16 @@ body, a {
 .btn-primary:hover {
     background-color: #218838;
     font-size: 1.09rem;
-    transition: 1s ease;
+    transition: 0.5s ease-out;
 }
 
 .info {
     margin-left: 25px;
     margin-right: 25px;
+}
+
+.info h2 {
+    font-size: 30px;
 }
 
 .info-cards {
@@ -90,6 +94,7 @@ body, a {
     box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
     text-align: center;
     margin: 0 20px;
+    transition: transform 1.5s ease;
 }
 
 .card img {
@@ -99,7 +104,6 @@ body, a {
 }
 
 .card:hover {
-    scale: 1.08;
+    transform: scale(1.08);
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
-    transition: 1.5s ease;
 }

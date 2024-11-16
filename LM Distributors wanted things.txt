@@ -1,0 +1,25 @@
+Color Theme
+Primary Color: Green (#4CAF50 or #228B22)
+Secondary Color: Brown (#8B4513) for elements representing coconuts or earthy tones.
+Accent Color: Yellow (#FFD700) to symbolize coconut husks or to highlight important elements.
+Background: Light beige or off-white (#FAF3E0) for a clean and minimalistic look.
+
+Font Style
+Header Fonts: Use bold, modern sans-serif fonts like Poppins or Montserrat for a clean, professional appearance.
+Body Text: Use simple and readable fonts like Open Sans or Roboto.
+Font weights for differentiation: Headers (600-700), body text (400-500).
+
+Design Elements
+Logo: A coconut graphic or a combination of coconut and a leaf to symbolize the business.
+Navbar: Use a sticky navbar with the primary green color and white text.
+Buttons: Rounded buttons with green backgrounds and white text, with hover effects (e.g., lighten the green slightly on hover).
+Icons: Use nature-inspired icons for features like "Buy," "Sell," and "Contact Us."
+Images: High-quality images of coconuts, coconut farms, and products to make the site visually appealing.
+
+Page Layout
+Hero Section: A large banner with an image of fresh coconuts, a tagline, and a prominent Call-to-Action button like "Start Selling" or "Explore Products."
+Cards: Use card components with drop shadows for showcasing products or services.
+Footer: A dark green footer with white text for contact information and quick links.
+Additional Features
+Use a subtle coconut leaf pattern as a background for certain sections.
+Add animations like a slight fade-in effect for elements when scrolling.
