@@ -83,6 +83,7 @@ input:focus {
 .showPwd {
     font-size: 14px;
     color: #4CAF50;
+    margin-top: 1.5px;
     cursor: pointer;
 }
   
@@ -92,7 +93,6 @@ input:focus {
     height: 18px;
 }
   
-
 button {
   background-color: #4CAF50;
   color: white;

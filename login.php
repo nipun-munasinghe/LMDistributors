@@ -31,6 +31,7 @@
         
                 <label for="password">Password</label>
                 <input type="password" id="password" placeholder="Enter your password" required>
+                
                 <div class="show-password-container">
                     <input type="checkbox" id="show-password" class="showPwd">
                     <label for="show-password" class="showPwd">Show Password</label>
@@ -45,6 +46,6 @@
     </div>
 
     <!-- link the script -->
-    <script src="login.js"></script>
+    <script src="./js/login.js"></script>
 </body>
 </html>
