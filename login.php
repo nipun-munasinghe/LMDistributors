@@ -20,7 +20,7 @@
     
         <!-- Login Form -->
         <div class="login-form">
-          <h1>HELLO!</h1>
+          <h1>Hello!</h1>
           <p>Welcome back! Please log in to your account.</p>
           
             <form>
