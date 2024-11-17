@@ -31,13 +31,13 @@
                 </nav>
             </div>
             
-            <div class="mode-switch">
+            <!-- <div class="mode-switch">
                 <label for="theme-toggle">
                     <span class="fas fa-sun" id="sun-icon"></span>
                     <input type="checkbox" id="theme-toggle">
                     <span class="fas fa-moon" id="moon-icon"></span>
                 </label>
-            </div>
+            </div> -->
         </div>
 
         <div class="loginBtns">
