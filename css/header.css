@@ -1,4 +1,3 @@
-/* Scoped Header Styling */
 .header {
     background: linear-gradient(to bottom, #4caf4fdd, rgba(76, 175, 79, 0));
     padding: 5px 20px 2px 20px;
@@ -92,7 +91,6 @@
 }
 
 .header #hLSignup:hover {
-    border-color: #FFD700;
     background-color: #FFD700;
-    color: white;
+    color: #4CAF50;
 }
