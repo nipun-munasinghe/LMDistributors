@@ -8,18 +8,23 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 .register-container {
     display: flex;
     max-width: 1000px;
     width: 90%;
-    height: fit-content;
+    margin: 40px auto;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
     border-radius: 15px;
     overflow: hidden;
     animation: fadeIn 1s ease-in-out;
+    background-color: #FFF;
+}
+
+.register-animation {
+    flex: 1;
 }
 
 .register-animation img {
@@ -29,19 +34,13 @@ body {
     animation: slideIn 2s ease-in-out;
 }
 
-.register-animation {
-    flex: 1;
-    background-color: #FAF3E0;
-}
-
 .register-form {
     flex: 1.2;
     padding: 30px 40px;
-    background-color: #FFF;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    max-width: 30px 20px;
+    background-color: #FFF;
 }
 
 h1 {
@@ -55,6 +54,7 @@ p {
     text-align: center;
     color: #8B4513;
     margin-bottom: 30px;
+    font-size: 16px;
 }
 
 .input-group {
@@ -81,6 +81,37 @@ input, select, textarea {
 input:focus, textarea:focus, select:focus {
     border-color: #4CAF50;
     background-color: #f1f9f2;
+}
+
+.checkbox-group label {
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-group input {
+    margin-right: 10px;
+    width: 16px;
+    height: 16px;
+}
+
+.checkbox-group a {
+    color: #4CAF50;
+    text-decoration: none;
+    margin-left: 5px;
+}
+
+.checkbox-group a:hover {
+    text-decoration: underline;
+}
+
+form a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+form a:hover{
+    text-decoration: underline;
 }
 
 button {

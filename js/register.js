@@ -1,4 +1,3 @@
-// Animation for Register Button
 const registerButton = document.getElementById("register-button");
 
 registerButton.addEventListener("click", (e) => {
