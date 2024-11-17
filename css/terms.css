@@ -1,0 +1,110 @@
+/* Updated Global Styling */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #FAF3E0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Changed from center to flex-start to avoid alignment issues */
+    min-height: 100vh;
+}
+
+/* Container Styling */
+.terms-container {
+    background-color: #FFF;
+    width: 90%;
+    max-width: 800px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    margin: 20px auto; /* Center it horizontally with auto margins */
+    padding-bottom: 20px; /* Avoid footer overlap */
+    overflow: hidden;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Updated Header Styling */
+.terms-header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 15px 15px 0 0;
+    animation: slideDown 1s ease-in-out;
+}
+
+.terms-header h1 {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.terms-header p {
+    margin: 10px 0 0;
+    font-size: 16px;
+}
+
+/* Main Content Styling */
+.terms-content {
+    padding: 30px;
+    box-sizing: border-box; /* Include padding in width calculations */
+}
+
+.terms-section {
+    margin-bottom: 20px;
+}
+
+.terms-section h2 {
+    color: #4CAF50;
+    font-size: 20px;
+    margin-bottom: 10px;
+    animation: fadeInLeft 0.8s ease-in-out;
+}
+
+.terms-section p {
+    color: #333;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Footer Section */
+.terms-footer {
+    text-align: center;
+    background-color: #FFF;
+    padding: 20px;
+    border-radius: 0 0 15px 15px;
+    animation: fadeIn 1.2s ease-in-out;
+}
+
+.terms-footer a {
+    color: #4CAF50;
+    font-weight: bold;
+    text-decoration: none;
+    margin-top: 10px;
+    display: inline-block;
+    padding: 10px 20px;
+    border: 2px solid #4CAF50;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.terms-footer a:hover {
+    background-color: #4CAF50;
+    color: #FFF;
+    transform: translateY(-5px);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeInLeft {
+    from { opacity: 0; transform: translateX(-50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}

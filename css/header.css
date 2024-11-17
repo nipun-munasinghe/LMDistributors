@@ -1,22 +1,4 @@
-/* Import Poppins font */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
-
-body, h1, h3, p, a {
-    font-family: 'Poppins', sans-serif;
-    color: #333;
-    transition: color 0.3s, background-color 0.3s ease-in-out;
-}
-
-body.light-mode {
-    background-color: #FAF3E0;
-    color: #333;
-}
-
-body.dark-mode {
-    background-color: #333;
-    color: #FAF3E0;
-}
-
+/* Scoped Header Styling */
 .header {
     background: linear-gradient(to bottom, #4caf4fdd, rgba(76, 175, 79, 0));
     padding: 5px 20px 2px 20px;
@@ -36,111 +18,82 @@ body.dark-mode {
     margin: auto;
 }
 
-.logo h1 a{
+.header .logo h1 a {
     color: #fff;
-    text-shadow: 0px 2px 4px 0px rgba(44, 223, 47, 0.53);
+    text-shadow: 0px 2px 4px rgba(44, 223, 47, 0.53);
+    text-decoration: none;
 }
 
-.logo {
+.header .logo {
     display: flex;
 }
 
-.bar {
-    border: 2px solid #fff;
-    background: linear-gradient(to bottom, #4caf4fed, rgba(76, 175, 79, 0));
-    border-radius: 10px;
-    padding-right: 25px ;
-    margin-left: 20px;
-}
-
-.logo img {
+.header .logo img {
     width: 50px;
     margin: auto;
     padding-right: 15px;
     padding-top: 20px;
 }
 
-#lm {
-    text-decoration: none;
-}
-
-.nav-links a {
+.header .nav-links a {
     color: #fff;
     text-decoration: none;
     margin: 0 15px;
     font-weight: 600;
     transition: color 0.3s;
-    padding-left: 30px;
 }
 
-.nav-links a:hover {
+.header .nav-links a:hover {
     color: #FFD700;
 }
 
-#hLogin, #hLSignup {
-    font-size: 16px;
-    padding: 10px;
+.header .bar {
+    border: 2px solid #fff;
+    background: linear-gradient(to bottom, #4caf4fed, rgba(76, 175, 79, 0));
+    border-radius: 10px;
+    padding-right: 25px;
+    margin-left: 20px;
 }
 
-#hLogin {
-    border: 2px solid white;
-    background-color: #4CAF50;
-    color: white;
-    border-radius: 8px;
-}
-
-#hLogin:hover {
-    border-color: #FFD700;
-    color: #FFD700;
-    cursor: pointer;
-}
-
-#hLSignup {
-    border: 2px solid white;
-    background-color: white;
-    color: #4CAF50;
-    border-radius: 8px;
-    margin-left: 5px;
-}
-
-#hLSignup:hover {
-    border-color: #FFD700;
-    background-color: #FFD700;
-    color: white;
-    cursor: pointer;
-}
-
-/* Mode Switch */
-.mode-switch {
+.header .mode-switch {
     display: flex;
     align-items: center;
 }
 
-#theme-toggle {
-    display: none;
-}
-
-/* Show sun icon when the theme toggle is not checked */
-#theme-toggle:not(:checked) + #sun-icon {
-    display: inline-block;
-}
-
-#theme-toggle:not(:checked) ~ #moon-icon {
-    display: none;
-}
-
-/* Show moon icon when the theme toggle is checked */
-#theme-toggle:checked + #sun-icon {
-    display: none;
-}
-
-#theme-toggle:checked ~ #moon-icon {
-    display: inline-block;
-}
-
-/* Set icon color */
-.mode-switch .fa-sun, .mode-switch .fa-moon {
+.header .mode-switch .fa-sun,
+.header .mode-switch .fa-moon {
     color: #FFD700;
     font-size: 1.2rem;
     cursor: pointer;
+}
+
+.header #hLogin, .header #hLSignup {
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.header #hLogin {
+    border: 2px solid white;
+    background-color: #4CAF50;
+    color: white;
+}
+
+.header #hLogin:hover {
+    border-color: #FFD700;
+    color: #FFD700;
+}
+
+.header #hLSignup {
+    border: 2px solid white;
+    background-color: white;
+    color: #4CAF50;
+    margin-left: 5px;
+}
+
+.header #hLSignup:hover {
+    border-color: #FFD700;
+    background-color: #FFD700;
+    color: white;
 }

@@ -1,52 +1,29 @@
-/* Import Poppins font */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
-
-body, a {
-    font-family: 'Poppins', sans-serif;
-    transition: color 0.3s, background-color 0.3s;
-}
-
-.footer-container h3 {
-    color: white;
-}
-
-body.light-mode {
-    background-color: #FAF3E0;
-    color: #333;
-}
-
-body.dark-mode {
-    background-color: #333;
-    color: #FAF3E0;
-}
-
+/* Scoped Footer Styling */
 .footer {
     background-color: #8B4513;
     padding: 20px;
     color: #FAF3E0;
 }
 
-.footer p {
-    color: #FAF3E0;
-}
-
-.footer-container {
+.footer .footer-container {
     display: flex;
     justify-content: space-between;
     max-width: 1200px;
     margin: auto;
 }
 
-.footer-section h3 {
+.footer .footer-section h3 {
     font-weight: 600;
     margin-bottom: 10px;
+    color: white;
 }
 
-.footer-section p {
+.footer .footer-section p {
     max-width: 800px;
+    color: #FAF3E0;
 }
 
-.footer-section a {
+.footer .footer-section a {
     color: #FFD700;
     text-decoration: none;
     display: block;
@@ -54,11 +31,11 @@ body.dark-mode {
     transition: color 0.3s;
 }
 
-.footer-section a:hover {
+.footer .footer-section a:hover {
     color: #4CAF50;
 }
 
-.footer-bottom {
+.footer .footer-bottom {
     text-align: center;
     padding-top: 15px;
     font-size: 0.9em;
