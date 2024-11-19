@@ -30,7 +30,7 @@
 
         <!-- Product Cards -->
         <div class="product-grid" id="productGrid">
-            <!-- Example Product Card -->
+            
             <div class="product-card">
                 <img src="./images/coconut1.jpg" alt="Coconut Premium Quality">
                 <h3>Premium Coconut</h3>

@@ -26,6 +26,7 @@
                 <img src="./images/sample-product.jpg" alt="Product Image" />
                 <!-- Image size: 500x500px -->
             </div>
+            
             <div class="product-info">
                 <h1>Premium Coconut Oil</h1>
                 <p class="product-description">
