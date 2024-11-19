@@ -1,0 +1,90 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #FAF3E0;
+    color: #333;
+}
+
+.faq-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.faq-container h1 {
+    color: #4CAF50;
+    margin-bottom: 10px;
+    animation: fadeInDown 1s;
+}
+
+.faq-container p {
+    color: #8B4513;
+    margin-bottom: 30px;
+}
+
+.faq-item {
+    border: 2px solid #FFD700;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.faq-question {
+    padding: 15px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #4CAF50;
+    color: #FAF3E0;
+    transition: background-color 0.3s ease;
+}
+
+.faq-question:hover {
+    background-color: #8B4513;
+}
+
+.faq-question i {
+    transition: transform 0.3s ease;
+}
+
+.faq-question i.rotate {
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    padding: 15px;
+    background-color: #FAF3E0;
+    color: #333;
+    display: none;
+    animation: fadeIn 0.5s;
+}
+
+.faq-answer p {
+    margin: 0;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
