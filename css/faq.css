@@ -31,7 +31,7 @@ body {
     border-radius: 10px;
     margin-bottom: 20px;
     overflow: hidden;
-    transition: all 0.3s ease;
+    transition: all 0.5s ease;
 }
 
 .faq-question {
@@ -50,7 +50,7 @@ body {
 }
 
 .faq-question i {
-    transition: transform 0.3s ease;
+    transition: transform 0.5s ease;
 }
 
 .faq-question i.rotate {
