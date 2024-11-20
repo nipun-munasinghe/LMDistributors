@@ -1,4 +1,3 @@
-/* General Styles */
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
@@ -62,29 +61,21 @@ input:focus, textarea:focus {
 
 /* Payment Options */
 h2 {
-    font-size: 18px;
+    font-size: 22px;
     font-weight: bold;
     margin-bottom: 10px;
-    color: #333;
+    color: #8B4513;
     text-align: left;
 }
 
 .payment-options {
     display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin-top: 10px;
+}
+
+#labels {
+    margin-top: -1.5px;
+    padding-left: 10px;
     text-align: left;
-}
-
-.payment-options label {
-    font-size: 16px;
-    color: #8B4513;
-    cursor: pointer;
-}
-
-.payment-options input[type="radio"] {
-    margin-right: 10px;
 }
 
 /* Card Details */
@@ -107,6 +98,7 @@ button {
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 5px;
 }
 
 button:hover {

@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const submitButton = document.getElementById('submit-btn');
 
     // Base price per unit
-    const basePrice = 25;
+    basePrice = 25;
 
     // Update price based on quantity
     quantityInput.addEventListener('input', () => {
