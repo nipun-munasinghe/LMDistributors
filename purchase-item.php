@@ -50,24 +50,25 @@
             <p class="price-display"> Total Price: Rs. <span id="price">25</span></p>
 
             <div class="form-group">
-                <h2>Select Payment Method<h2>
-                <div class="payment-options">
-                    <label>
-                        <input type="radio" name="payment-method" value="cod" checked> Cash on Delivery
-                    </label>
-                    <label>
-                        <input type="radio" name="payment-method" value="card"> Credit/Debit Card
-                    </label>
+                <h2>Select Payment Method</h2>
+                
+                <div class="payment-options"> 
+                    <input type="radio" name="payment-method" value="cod" checked>
+                    <label>Cash on Delivery</label>
+                    
+                    <input type="radio" name="payment-method" value="card">
+                    <label>Credit/Debit Card</label>
                 </div>
             </div>
 
+            <!-- Hidden Card Details -->
             <div class="card-details" id="card-details" style="display: none;">
                 <label for="card-number">Card Number</label>
-                <input type="text" id="card-number" placeholder="Enter card number" required>
+                <input type="text" id="card-number" placeholder="Enter card number">
                 <label for="expiry-date">Expiry Date</label>
-                <input type="text" id="expiry-date" placeholder="MM/YY" required>
+                <input type="text" id="expiry-date" placeholder="MM/YY">
                 <label for="cvv">CVV</label>
-                <input type="password" id="cvv" placeholder="CVV" required>
+                <input type="password" id="cvv" placeholder="CVV">
             </div>
 
             <button type="button" id="submit-btn">

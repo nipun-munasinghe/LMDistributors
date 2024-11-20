@@ -1,6 +1,4 @@
-/* Import Google Font */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
-
+/* General Styles */
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
@@ -8,6 +6,7 @@ body {
     color: #333;
 }
 
+/* Section Styles */
 .purchase-section {
     max-width: 600px;
     margin: 40px auto;
@@ -24,16 +23,17 @@ body {
     margin-bottom: 20px;
 }
 
+/* Form Group */
 .form-group {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     text-align: left;
 }
 
 label {
     font-weight: bold;
-    margin-bottom: 5px;
     display: block;
     color: #8B4513;
+    margin-bottom: 5px;
 }
 
 input, textarea {
@@ -52,6 +52,7 @@ input:focus, textarea:focus {
     border-color: #4CAF50;
 }
 
+/* Total Price */
 .price-display {
     font-size: 18px;
     font-weight: bold;
@@ -59,12 +60,43 @@ input:focus, textarea:focus {
     margin-bottom: 20px;
 }
 
-.payment-options label {
-    font-size: 16px;
-    margin: 5px 0;
-    align-self: auto;
+/* Payment Options */
+h2 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+    text-align: left;
 }
 
+.payment-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 10px;
+    text-align: left;
+}
+
+.payment-options label {
+    font-size: 16px;
+    color: #8B4513;
+    cursor: pointer;
+}
+
+.payment-options input[type="radio"] {
+    margin-right: 10px;
+}
+
+/* Card Details */
+.card-details {
+    background-color: #FAF3E0;
+    padding: 15px;
+    border-radius: 5px;
+    margin-top: 20px;
+    display: none;
+}
+
+/* Submit Button */
 button {
     background-color: #4CAF50;
     color: white;
@@ -89,13 +121,6 @@ button i {
 
 button.animate i {
     transform: translateX(100px);
-}
-
-.card-details {
-    background-color: #FAF3E0;
-    padding: 10px;
-    border-radius: 5px;
-    margin-top: 20px;
 }
 
 /* Animations */
