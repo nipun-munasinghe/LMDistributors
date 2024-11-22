@@ -54,6 +54,11 @@ body {
     align-items: center;
 }
 
+.sidebar-menu li a{
+    text-decoration: none;
+    color: #fff;
+}
+
 .sidebar-menu li:hover {
     background-color: #3E8E41;
 }

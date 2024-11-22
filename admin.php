@@ -13,7 +13,7 @@
 <body>
     <!-- Header -->
     <?php include 'header.php'; ?>
-    
+
     <!-- Main Container -->
     <div class="container">
         <!-- Hidden Sidebar -->
@@ -23,11 +23,11 @@
                 <i class="fas fa-times" id="close-sidebar"></i>
             </div>
             <ul class="sidebar-menu">
-                <li><i class="fas fa-user-tie"></i> Manage Managers</li>
-                <li><i class="fas fa-users"></i> View Users</li>
-                <li><i class="fas fa-cog"></i> Settings</li>
-                <li><i class="fas fa-chart-line"></i> View Income</li>
-                <li><i class="fas fa-sign-out-alt"></i> Logout</li>
+                <li><a href="./manageManagers.php"><i class="fas fa-user-tie"></i> Manage Managers</a></li>
+                <li><a href="./customer.php"><i class="fas fa-users"></i> View Users</a></li>
+                <li><a href="./accSettings.php"><i class="fas fa-cog"></i> Settings</a></li>
+                <li><a href="./viewIncome.php"><i class="fas fa-chart-line"></i> View Income</a></li>
+                <li><a href="./logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
             </ul>
         </aside>
 
@@ -36,18 +36,18 @@
             <!-- Topbar -->
             <div class="topbar">
                 <i class="fas fa-bars" id="toggle-sidebar"></i>
-                <h1>Welcome, Admin</h1>
+                <h1>Welcome AdminName!</h1>
             </div>
 
             <!-- Admin Profile -->
             <section class="admin-profile">
                 <h2>Your Profile</h2>
                 <div class="profile-card">
-                    <img src="https://via.placeholder.com/150" alt="Admin Profile Picture" class="profile-pic">
+                    <img src="images/default-profile.png" alt="Admin Profile Picture" class="profile-pic">
                     <div class="profile-info">
-                        <p><strong>Name:</strong> John Doe</p>
+                        <p><strong>Name:</strong> Admin Name</p>
                         <p><strong>Email:</strong> admin@example.com</p>
-                        <p><strong>Phone:</strong> +1 123 456 7890</p>
+                        <p><strong>Phone:</strong> +94 70 456 7890</p>
                         <button class="btn edit-profile">Edit Profile</button>
                     </div>
                 </div>
