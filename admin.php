@@ -29,9 +29,11 @@
 
             <ul class="sidebar-menu">
                 <li><a href="./manageManagers.php"><i class="fas fa-user-tie"></i> Manage Managers</a></li>
-                <li><a href="./customer.php"><i class="fas fa-users"></i> View Users</a></li>
-                <li><a href="./accSettings.php"><i class="fas fa-cog"></i> Settings</a></li>
+                <li><a href="./manageProducts.php"><i class="fa-solid fa-store"></i> Manage Products</a></li>
+                <li><a href="./manageOrders.php"><i class="fa-solid fa-cart-shopping"></i> Manage Orders</a></li>
+                <li><a href="./todayPrice.php"><i class="fa-solid fa-money-bill-1-wave"></i> Today's Price List</a></li>
                 <li><a href="./viewIncome.php"><i class="fas fa-chart-line"></i> View Income</a></li>
+                <li><a href="./accSettings.php"><i class="fas fa-cog"></i> Settings</a></li>
                 <li><a href="./logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
             </ul>
         </aside>
@@ -51,14 +53,38 @@
                     <img src="images/default-profile.png" alt="Admin Profile Picture" class="profile-pic">
                     <div class="profile-info">
                         <p><strong>Name:</strong> Admin Name</p>
-                        <p><strong>Email:</strong> admin@example.com</p>
+                        <p><strong>Email:</strong> admin@gmail.com</p>
                         <p><strong>Phone:</strong> +94 70 456 7890</p>
-                        <button class="btn edit-profile">Edit Profile</button>
+                        <button class="btn edit-profile" onclick="window.location.href='./accSettings.php'">Edit Profile</button>
                     </div>
                 </div>
             </section>
+
+            <h2 class="quickH2">Quick Actions</h2>
+            <div class="quick">
+                <div class="card">
+                    <a href="./manageManagers.php"><i class="fas fa-user-tie"></i><br>Manage Managers</a>
+                </div>
+                <div class="card">
+                    <a href="./manageProducts.php"><i class="fa-solid fa-store"></i><br>Manage Products</a>
+                </div>
+                <div class="card">
+                    <a href="./manageOrders.php"><i class="fa-solid fa-cart-shopping"></i><br>Manage Orders</a>
+                </div>
+                <div class="card">
+                    <a href="./todayPrice.php"><i class="fa-solid fa-money-bill-1-wave"></i><br>Today's Price List</a>
+                </div>
+                <div class="card">
+                    <a href="./viewIncome.php"><i class="fas fa-chart-line"></i><br>View Income</a>
+                </div>
+                <div class="card">
+                    <a href="./accSettings.php"><i class="fas fa-cog"></i><br>Settings</a>
+                </div>
+            </div>
         </div>
     </div>
+
+    <!-- link script -->
     <script src="./js/sideBar.js"></script>
 </body>
 </html>

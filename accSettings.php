@@ -52,7 +52,7 @@
                     <label for="last-name">Last Name</label>
                     <input type="text" id="last-name" name="last-name" placeholder="Enter your last name" required>
                 </div>
-                <div class="input-group">
+                <div class="form-group">
                     <label for="birthday">Date of Birth</label>
                     <input type="date" id="birthday" name="birthday" placeholder="dd/mm/yyyy" required>
                 </div>
