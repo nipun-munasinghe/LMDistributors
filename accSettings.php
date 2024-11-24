@@ -18,30 +18,30 @@
     <!-- Header -->
     <?php include 'header.php'; ?>
 
-    <!-- Sidebar -->
-    <div class="sidebar" id="sidebar">
-        <div class="sidebar-header">
-            <h2>Customer Dashboard</h2>
-            <i class="fas fa-times" id="close-sidebar"></i>
-        </div>
-        <ul>
-            <li><a href="./customer.php"><i class="fas fa-user"></i> Profile</a></li>
-            <li><a href="#orders"><i class="fas fa-shopping-cart"></i> Orders</a></li>
-            <li><a href="./products.php"><i class="fas fa-box-open"></i> Products</a></li>
-            <li><a href="./accSettings.php"><i class="fa-solid fa-wrench"></i> Account Settings</a></li>
-            <li><a href="./logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
-        </ul>
-    </div>
-
     <!-- Main Content -->
     <div class="main-content">
-        <i class="fas fa-bars" id="open-sidebar"></i>
+        <!-- Hidden Sidebar -->
+        <aside id="sidebar" class="sidebar">
+            <div class="sidebar-header">
+                <h2>Customer Profile</h2>
+                <i class="fas fa-times" id="close-sidebar"></i>
+            </div>
+            <ul class="sidebar-menu">
+                <li><a href="./customer.php"><i class="fas fa-user"></i> Profile</a></li>
+                <li><a href="./products.php"><i class="fas fa-box-open"></i> Products</a></li>
+                <li><a href="./accSettings.php"><i class="fa-solid fa-wrench"></i> Account Settings</a></li>
+                <li><a href="./logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            </ul>
+        </aside>
+        <i class="fas fa-bars" id="toggle-sidebar"></i>
 
         <section class="profile-section">
             <h2>Profile Details</h2>
             <form id="profile-form">
                 <div class="form-group">
-                    <center><img src="images/default-profile.png" alt="Profile Picture" class="profile-pic" id="profile-pic-preview"></center>
+                    <center>
+                        <img src="images/default-profile.png" alt="Profile Picture" class="profile-pic" id="profile-pic-preview">
+                    </center>
                     <input type="file" id="profile-pic" accept="image/*">
                 </div>
                 <div class="form-group">
@@ -95,7 +95,7 @@
                 </div>
 
                 <center>
-                    <button type="submit" id="pwdBtn" name="pwdBtn">Update Password</button>
+                    <button type="submit" id="pwdBtn" name="pwdBtn">Change Password</button>
                 </center>
             </form>
         </section>
@@ -105,6 +105,7 @@
     <?php include 'footer.php'; ?>
 
     <!-- JavaScript -->
-    <script src="./js/customer.js"></script>
+    <script src="./js/sideBar.js"></script>
+    <script src="./js/profilePicPreview.js"></script>
 </body>
 </html>

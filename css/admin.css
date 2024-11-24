@@ -72,6 +72,11 @@ body {
     cursor: pointer;
 }
 
+/* Sidebar Toggle Styling */
+.sidebar.active {
+    left: 0;
+}
+
 /* Main Content Styling */
 .main-content {
     flex-grow: 1;
@@ -159,9 +164,4 @@ body {
         opacity: 1;
         transform: translateY(0);
     }
-}
-
-/* Sidebar Toggle Styling */
-.sidebar.active {
-    left: 0;
 }

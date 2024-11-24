@@ -73,9 +73,19 @@ h2 {
     margin-right: 10px;
 }
 
+/* Sidebar Toggle Styling */
+.sidebar.active {
+    left: 0;
+}
+
 /* Close Icon */
 #close-sidebar {
     cursor: pointer;
+}
+
+/* Sidebar Toggle Styling */
+.sidebar.active {
+    left: 0;
 }
 
 /* Main Content Styling */
@@ -159,11 +169,6 @@ h2 {
         opacity: 1;
         transform: translateY(0);
     }
-}
-
-/* Sidebar Toggle Styling */
-.sidebar.active {
-    left: 0;
 }
 
 /* Slideshow container */
