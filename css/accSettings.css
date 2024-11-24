@@ -67,7 +67,7 @@ h1, h2 {
 }
 
 /* Close Icon */
-#close-sidebar {
+#close-sidebar, #toggle-sidebar {
     cursor: pointer;
 }
 
