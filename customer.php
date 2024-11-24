@@ -5,51 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Customer Profile</title>
 
-    <!-- Link the stylesheet -->
+    <!-- link css -->
     <link rel="stylesheet" href="./css/customer.css">
 
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-    <!-- Set the logo into title -->
-    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
 </head>
 <body>
     <!-- Header -->
     <?php include 'header.php'; ?>
 
-    <!-- Sidebar -->
-    <div class="sidebar" id="sidebar">
-        <div class="sidebar-header">
-            <h2>Customer Dashboard</h2>
-            <i class="fas fa-times" id="close-sidebar"></i>
-        </div>
-        <ul>
-            <li><a href="./customer.php"><i class="fas fa-user"></i> Profile</a></li>
-            <li><a href="#orders"><i class="fas fa-shopping-cart"></i> Orders</a></li>
-            <li><a href="./products.php"><i class="fas fa-box-open"></i> Products</a></li>
-            <li><a href="./accSettings.php"><i class="fa-solid fa-wrench"></i> Account Settings</a></li>
-            <li><a href="./logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
-        </ul>
-    </div>
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Hidden Sidebar -->
+        <aside id="sidebar" class="sidebar">
+            <div class="sidebar-header">
+                <h2>Customer Profile</h2>
+                <i class="fas fa-times" id="close-sidebar"></i>
+            </div>
+            <ul class="sidebar-menu">
+                <li><a href="./customer.php"><i class="fas fa-user"></i> Profile</a></li>
+                <li><a href="./products.php"><i class="fas fa-box-open"></i> Products</a></li>
+                <li><a href="./accSettings.php"><i class="fa-solid fa-wrench"></i> Account Settings</a></li>
+                <li><a href="./logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            </ul>
+        </aside>
 
-    <!-- Main Content -->
-    <div class="main-content">
-            <i class="fas fa-bars" id="open-sidebar"></i>
-            <h1>Welcome FirstName!</h1>
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Topbar -->
+            <div class="topbar">
+                <i class="fas fa-bars" id="toggle-sidebar"></i>
+                <h1>Welcome CustomerName!</h1>
+            </div>
 
-            <section class="profileDetails">
-                <div>
-                    <img src="images/default-profile.png" alt="Profile Picture" class="profile-pic" id="profile-pic-preview">
-                </div>
-                <div class="nameType">
-                    <h3>First LastName</h3>
-                    <p>Customer</p>
+            <!-- Customer Profile -->
+            <section class="customer-profile">
+                <h2>Your Profile</h2>
+                <div class="profile-card">
+                    <img src="images/default-profile.png" alt="Admin Profile Picture" class="profile-pic">
+                    <div class="profile-info">
+                        <p><strong>Name:</strong> Customer Name</p>
+                        <p><strong>Email:</strong> customer@gmail.com</p>
+                        <p><strong>Phone:</strong> +94 78 456 7880</p>
+                        <button class="btn edit-profile" onclick="window.location.href='./accSettings.php'">Edit Profile</button>
+                    </div>
                 </div>
             </section>
 
-            <br>
-
+            <h2>Some of Our Products</h2>
             <div class="slideshow-container">
                 <!-- Slide 1 -->
                 <div class="slide fade">
@@ -69,6 +76,7 @@
                 </div>
             </div>
 
+            <h2>Quick Actions</h2>
             <div class="cards">
                 <div class="products">
                     <a href="./products.php"><i class="fas fa-box-open"></i><br>Products</a>
@@ -78,12 +86,12 @@
                     <a href="./accSettings.php"><i class="fa-solid fa-wrench"></i><br>Account Settings</a>
                 </div>
             </div>
+
+            <br>
+        </div>
     </div>
+    
+    <script src="./js/sideBar.js"></script>
 
-    <!-- Footer -->
-    <?php include 'footer.php'; ?>
-
-    <!-- JavaScript -->
-    <script src="./js/customer.js"></script>
 </body>
 </html>
