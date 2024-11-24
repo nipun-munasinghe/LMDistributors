@@ -44,6 +44,7 @@ h2 {
 
 .sidebar-header h2 {
     font-size: 18px;
+    color: #fff;
 }
 
 .sidebar-menu {
@@ -81,11 +82,6 @@ h2 {
 /* Close Icon */
 #close-sidebar {
     cursor: pointer;
-}
-
-/* Sidebar Toggle Styling */
-.sidebar.active {
-    left: 0;
 }
 
 /* Main Content Styling */

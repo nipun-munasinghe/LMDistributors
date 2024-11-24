@@ -45,6 +45,11 @@
                 </div>
 
                 <div class="input-group">
+                    <label for="birthday">Date of Birth</label>
+                    <input type="date" id="birthday" name="birthday" placeholder="dd/mm/yyyy" required>
+                </div>
+
+                <div class="input-group">
                     <label for="email">Email</label>
                     <input type="email" id="email" name="email" placeholder="Enter your email" required>
                 </div>

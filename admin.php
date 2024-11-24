@@ -3,10 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
+    <title>Admin Profile</title>
+
+    <!-- link stylesheet -->
     <link rel="stylesheet" href="./css/admin.css">
+
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <!-- Favicon -->
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
 </head>
@@ -22,6 +26,7 @@
                 <h2>Admin Dashboard</h2>
                 <i class="fas fa-times" id="close-sidebar"></i>
             </div>
+
             <ul class="sidebar-menu">
                 <li><a href="./manageManagers.php"><i class="fas fa-user-tie"></i> Manage Managers</a></li>
                 <li><a href="./customer.php"><i class="fas fa-users"></i> View Users</a></li>
@@ -54,6 +59,6 @@
             </section>
         </div>
     </div>
-    <script src="./js/admin.js"></script>
+    <script src="./js/sideBar.js"></script>
 </body>
 </html>

@@ -51,7 +51,11 @@
                 <div class="form-group">
                     <label for="last-name">Last Name</label>
                     <input type="text" id="last-name" name="last-name" placeholder="Enter your last name" required>
-                </div> 
+                </div>
+                <div class="input-group">
+                    <label for="birthday">Date of Birth</label>
+                    <input type="date" id="birthday" name="birthday" placeholder="dd/mm/yyyy" required>
+                </div>
                 <div class="form-group">
                     <label for="email">Email</label>
                     <input type="email" id="email" name="email" placeholder="Enter your email" required>
