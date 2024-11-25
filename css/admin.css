@@ -168,12 +168,18 @@ body {
     background-color: #4CAF50;
     cursor: pointer;
     text-align: center;
+    transition: transform 1s ease;
 }
 
 .card a, .card i {
     text-decoration: none;
     font-size: 25px;
     color: #fff;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    background-color: #3E8E41;
 }
 
 /* Animations */
