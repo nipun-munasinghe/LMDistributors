@@ -72,24 +72,24 @@
                         </div>
                         
                         <center>
-                            <button type="submit" id="addBtn" name="addBtn" >Add Manager</button>
+                            <button type="submit" id="addBtn" name="addBtn" ><i class="fa-solid fa-user-plus"></i> Add Manager</button>
                         </center>
                     </form>
                 </div>
 
                 <div class="checkManager">
-                    <h2>Check, Activate and Remove Managers</h2>
+                    <h2>Check, Activate, Deactivate and Remove Managers</h2>
                     <div class="checkCard">
                         <form action="#" method="POST">
                             <input type="text" id="checkmail" name="checkmail" placeholder="Enter email" required>
-                            <button id="checkMailBtn" name="checkMailBtn">Check</button>
+                            <button id="checkMailBtn" name="checkMailBtn"><i class="fa-solid fa-magnifying-glass"></i> Check</button>
                             <div class="status">
                                 <label for="status"><strong>Status: </strong>Active</label>
                             </div>
                             <div class="btns">
-                                <button id="activate" name="activate">Activate</button>
-                                <button id="deactivate" name="deactivate">Deactivate</button>
-                                <button id="remove" name="remove">Remove</button>
+                                <button id="activate" name="activate">Activate <i class="fa-regular fa-thumbs-up"></i></button>
+                                <button id="deactivate" name="deactivate">Deactivate <i class="fa-solid fa-user-lock"></i></button>
+                                <button id="remove" name="remove">Remove <i class="fa-regular fa-trash-can"></i></button>
                             </div>
                         </form>
                     </div>
