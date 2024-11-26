@@ -196,19 +196,19 @@ h2 {
 }
 
 /* styles for quick action buttons */
-.cards {
+.actions {
     display: flex;
     margin-top: 30px;
     justify-content: space-between;
 }
 
-.cards a {
+.actions a {
     color: #FAF3E0;
     text-decoration: none;
 }
 
-.products, .settings {
-    width: 46%;
+.card {
+    width: 29%;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     padding: 25px;
@@ -218,9 +218,13 @@ h2 {
     transition: transform 1.5s ease;
 }
 
-.products:hover, .settings:hover {
+.card:hover {
     transform: scale(1.03);
-    background-color: #8B4513;
+    background-color: #3E8E41;
+}
+
+.card a:hover {
+    color: #FFD700;
 }
 
 /* Animation keyframes */

@@ -77,13 +77,15 @@
             </div>
 
             <h2>Quick Actions</h2>
-            <div class="cards">
-                <div class="products">
+            <div class="actions">
+                <div class="card">
                     <a href="./products.php"><i class="fas fa-box-open"></i><br>Products</a>
                 </div>
-
-                <div class="settings">
+                <div class="card">
                     <a href="./accSettings.php"><i class="fa-solid fa-wrench"></i><br>Account Settings</a>
+                </div>
+                <div class="card">
+                    <a href="./logout.php"><i class="fas fa-sign-out-alt"></i><br>Logout</a>
                 </div>
             </div>
 
