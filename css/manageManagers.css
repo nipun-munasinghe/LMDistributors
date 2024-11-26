@@ -105,9 +105,19 @@ body {
     color: #fff;
 }
 
-/* .mainSeparation {
+/* main content */
+.mainSeparation {
     display: flex;
-} */
+    justify-content: space-between;
+}
+
+.addManager, .checkManager{
+    width: 50%;
+}
+
+.mainSeparation h2 {
+    color: #8B4513;
+}
 
 /* managers add form */
 .addForm {
@@ -153,11 +163,96 @@ body {
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: transform 0.4s ease;
 }
 
 #addBtn:hover {
     background-color: #3E8E41;
+    transform: scale(1.02);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Check, activate and remove managers */
+.checkCard {
+    border: none;
+    border-radius: 10px;
+    background-color: #fff;
+    height: fit-content;
+    padding: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1s ease-in-out;
+}
+
+#checkmail {
+    padding: 10px;
+    width: 80%;
+    border: 2px solid #FFD700;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+#checkMailBtn {
+    padding: 10px;
+    border: none;
+    width: 19%;
+    border-radius: 8px;
+    background-color: #4CAF50;
+    font-weight: bold;
+    font-size: 16px;
+    color: #fff;
+}
+
+#checkMailBtn:hover {
+    background-color: #3E8E41;
+    cursor: pointer;
+    transform: scale(1.015);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.status {
+    margin: 10px 0;
+}
+
+.btns {
+    display: flex;
+    justify-content: space-between;
+}
+
+#activate, #deactivate, #remove {
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    width: 30%;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    transition: transform 0.4s ease;
+}
+#activate:hover, #deactivate:hover, #remove:hover {
+    cursor: pointer;
+    transform: scale(1.02);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+#activate {
+    background-color: #4CAF50;
+}
+#activate:hover {
+    background-color: #3E8E41;
+}
+
+#deactivate {
+    background-color: rgb(76, 76, 221);
+}
+#deactivate:hover {
+    background-color: rgb(20, 20, 185)
+}
+
+#remove {
+    background-color: red;
+}
+#remove:hover {
+    background-color: rgb(210, 16, 16);
 }
 
 /* quick action cards */
@@ -178,13 +273,13 @@ body {
     transition: transform 1s ease;
 }
 
-.card a, .card i {
+.card a {
     text-decoration: none;
     font-size: 25px;
     color: #fff;
 }
 
-.card a:hover, .card i:hover {
+.card a:hover {
     color: #FFD700;
 }
 

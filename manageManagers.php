@@ -79,13 +79,27 @@
 
                 <div class="checkManager">
                     <h2>Check, Activate and Remove Managers</h2>
+                    <div class="checkCard">
+                        <form action="#" method="POST">
+                            <input type="text" id="checkmail" name="checkmail" placeholder="Enter email" required>
+                            <button id="checkMailBtn" name="checkMailBtn">Check</button>
+                            <div class="status">
+                                <label for="status"><strong>Status: </strong>Active</label>
+                            </div>
+                            <div class="btns">
+                                <button id="activate" name="activate">Activate</button>
+                                <button id="deactivate" name="deactivate">Deactivate</button>
+                                <button id="remove" name="remove">Remove</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </section>
 
             <h2 class="quickH2">Quick Actions</h2>
             <div class="quick">
                 <div class="card">
-                    <a href="./manageManagers.php"><i class="fas fa-user-tie"></i><br>Manage Managers</a>
+                    <a href="./admin.php"><i class="fa-solid fa-user"></i><br>My Profile</a>
                 </div>
                 <div class="card">
                     <a href="./manageProducts.php"><i class="fa-solid fa-store"></i><br>Manage Products</a>
