@@ -27,7 +27,7 @@
                 <i class="fas fa-times" id="close-sidebar"></i>
             </div>
             <ul class="sidebar-menu">
-                <li><a href="./customer.php"><i class="fas fa-user"></i> Profile</a></li>
+                <li><a href="./customer.php"><i class="fas fa-user"></i> My Profile</a></li>
                 <li><a href="./products.php"><i class="fas fa-box-open"></i> Products</a></li>
                 <li><a href="./accSettings.php"><i class="fa-solid fa-wrench"></i> Account Settings</a></li>
                 <li><a href="./logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
@@ -51,7 +51,7 @@
                         <p><strong>Name:</strong> Customer Name</p>
                         <p><strong>Email:</strong> customer@gmail.com</p>
                         <p><strong>Phone:</strong> +94 78 456 7880</p>
-                        <button class="btn edit-profile" onclick="window.location.href='./accSettings.php'">Edit Profile</button>
+                        <button class="btn edit-profile" onclick="window.location.href='./accSettings.php'"><i class="fa-solid fa-pen"></i> Edit Profile</button>
                     </div>
                 </div>
             </section>

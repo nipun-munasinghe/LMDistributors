@@ -28,6 +28,7 @@
             </div>
 
             <ul class="sidebar-menu">
+                <li><a href="./admin.php"><i class="fa-solid fa-user"></i> My Profile</a></li>
                 <li><a href="./manageManagers.php"><i class="fas fa-user-tie"></i> Manage Managers</a></li>
                 <li><a href="./manageProducts.php"><i class="fa-solid fa-store"></i> Manage Products</a></li>
                 <li><a href="./manageOrders.php"><i class="fa-solid fa-cart-shopping"></i> Manage Orders</a></li>
@@ -55,7 +56,7 @@
                         <p><strong>Name:</strong> Admin Name</p>
                         <p><strong>Email:</strong> admin@gmail.com</p>
                         <p><strong>Phone:</strong> +94 70 456 7890</p>
-                        <button class="btn edit-profile" onclick="window.location.href='./accSettings.php'">Edit Profile</button>
+                        <button class="btn edit-profile" onclick="window.location.href='./accSettings.php'"><i class="fa-solid fa-pen"></i> Edit Profile</button>
                     </div>
                 </div>
             </section>
