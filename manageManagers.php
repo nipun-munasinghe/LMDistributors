@@ -59,6 +59,10 @@
                             <input type="text" id="last-name" name="last-name" placeholder="Enter your last name">
                         </div>
                         <div class="form-group">
+                            <label for="assignWork">Assigned Work</label>
+                            <input type="text" id="assignWork" name="assignWork" placeholder="Enter the assigned work for manager">
+                        </div>
+                        <div class="form-group">
                             <label for="email">Email</label>
                             <input type="email" id="email" name="email" placeholder="Enter your email" required>
                         </div>
@@ -77,21 +81,66 @@
                     </form>
                 </div>
 
-                <div class="checkManager">
-                    <h2>Check, Activate, Deactivate and Remove Managers</h2>
-                    <div class="checkCard">
-                        <form action="#" method="POST">
-                            <input type="text" id="checkmail" name="checkmail" placeholder="Enter email" required>
-                            <button id="checkMailBtn" name="checkMailBtn"><i class="fa-solid fa-magnifying-glass"></i> Check</button>
-                            <div class="status">
-                                <label for="status"><strong>Status: </strong>Active</label>
+                <div class="rightSide">
+                    <div class="checkManager">
+                        <h2>Check, Activate, Deactivate and Remove Managers</h2>
+                        <div class="checkCard">
+                            <form action="#" method="POST">
+                                <input type="text" id="checkmail" name="checkmail" placeholder="Enter email" required>
+                                <button id="checkMailBtn" name="checkMailBtn"><i class="fa-solid fa-magnifying-glass"></i> Check</button>
+                                <div class="status">
+                                    <label for="status"><strong>Status: </strong>Active</label>
+                                </div>
+                                <div class="btns">
+                                    <button id="activate" name="activate">Activate <i class="fa-regular fa-thumbs-up"></i></button>
+                                    <button id="deactivate" name="deactivate">Deactivate <i class="fa-solid fa-user-lock"></i></button>
+                                    <button id="remove" name="remove">Remove <i class="fa-regular fa-trash-can"></i></button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="managerList">
+                        <h2>Manager List</h2>
+
+                        <div class="custom-scroll">
+                            <div class="content" id="scrollable-content">
+                                <table class="listTable" border="1px">
+                                    <tr>
+                                        <th class="tFName">First Name</th>
+                                        <th class="tLName">Last Name</th>
+                                        <th class="tType">Assign Type</th>
+                                        <th class="tMail">Email</th>
+                                        <th class="tPhone">Phone Number</th>
+                                        <th class="tStatus">Status</th>
+                                    </tr>
+                                    <tr>
+                                        <td>Susantha</td>
+                                        <td>Perera</td>
+                                        <td>Product Manager</td>
+                                        <td>manager.susantha@gmail.com</td>
+                                        <td>0772274083</td>
+                                        <td>Active</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Siriwardhana</td>
+                                        <td>Silvage</td>
+                                        <td>Supply Manager</td>
+                                        <td>manager.silvas@gmail.com</td>
+                                        <td>0712514562</td>
+                                        <td>Non-Active</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ishini</td>
+                                        <td>Maneesha</td>
+                                        <td>Order Manager</td>
+                                        <td>manager.ishini@gmail.com</td>
+                                        <td>0712512587</td>
+                                        <td>Active</td>
+                                    </tr>
+                                </table>
                             </div>
-                            <div class="btns">
-                                <button id="activate" name="activate">Activate <i class="fa-regular fa-thumbs-up"></i></button>
-                                <button id="deactivate" name="deactivate">Deactivate <i class="fa-solid fa-user-lock"></i></button>
-                                <button id="remove" name="remove">Remove <i class="fa-regular fa-trash-can"></i></button>
-                            </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -122,5 +171,6 @@
 
     <!-- link script -->
     <script src="./js/sideBar.js"></script>
+    <script src="./js/scrollBar.js"></script>
 </body>
 </html>

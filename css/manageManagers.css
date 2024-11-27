@@ -84,7 +84,7 @@ body {
     margin-left: 60px;
 }
 
-/* Topbar Styling */
+/* Top bar Styling */
 .topbar {
     display: flex;
     align-items: center;
@@ -112,10 +112,10 @@ body {
 }
 
 .addManager, .checkManager{
-    width: 50%;
+    width: 95%;
 }
 
-.mainSeparation h2 {
+.mainSeparation h2, .quickH2 {
     color: #8B4513;
 }
 
@@ -172,7 +172,16 @@ body {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
+/* right side of the page */
+.rightSide {
+    margin-left: 30px;
+}
+
 /* Check, activate and remove managers */
+.checkManager {
+    width: 95%;
+}
+
 .checkCard {
     border: none;
     border-radius: 10px;
@@ -253,6 +262,63 @@ body {
 }
 #remove:hover {
     background-color: rgb(210, 16, 16);
+}
+
+/* scroll bars */
+.custom-scroll {
+    padding-top: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: #fff;
+    width: 95%;
+    height: 360px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1s ease-in-out;
+}
+
+.content {
+    height: 360px;
+    overflow-y: scroll; /* Enable vertical scrolling */
+    overflow-x: scroll; /* Enable horizontal scrolling */
+    padding-right: 10px;
+    padding-left: 13px;
+    box-sizing: content-box;
+}
+
+.scrollbar {
+    width: 10px;
+    height: 100%;
+    background: #fff;
+    position: absolute;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+}
+
+.listTable {
+    border-collapse: collapse;
+    border: 1px solid #3E8E41;
+}
+
+.listTable th {
+    background-color: #4CAF50;
+    color: #fff;
+}
+
+.listTable td {
+    background-color: #fff;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.tStatus {
+    min-width: 100px;
+}
+
+.tType {
+    min-width: 100px;
 }
 
 /* quick action cards */
