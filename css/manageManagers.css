@@ -282,6 +282,7 @@ body {
     height: 360px;
     overflow-y: scroll; /* Enable vertical scrolling */
     overflow-x: scroll; /* Enable horizontal scrolling */
+    scroll-behavior: smooth;
     padding-right: 10px;
     padding-left: 13px;
     box-sizing: content-box;
