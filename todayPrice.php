@@ -6,7 +6,7 @@
     <title>Today's Prices List</title>
 
     <!-- link stylesheet -->
-    <link rel="stylesheet" href="./css/commonProfile.css">
+    <link rel="stylesheet" href="./css/todayPrice.css">
 
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -24,7 +24,7 @@
         <aside id="sidebar" class="sidebar">
             <div class="sidebar-header">
                 <h2>Admin Dashboard</h2>
-                <i class="fas fa-times" id="close-sidebar"></i>
+                <i class="fas fa-times" id="close-sidebar" title="Close Side Bar"></i>
             </div>
 
             <ul class="sidebar-menu">
@@ -43,40 +43,41 @@
         <div class="main-content">
             <!-- Topbar -->
             <div class="topbar">
-                <i class="fas fa-bars" id="toggle-sidebar"></i>
+                <i class="fas fa-bars" id="toggle-sidebar" title="Open Side Bar"></i>
                 <h1>Welcome AdminName!</h1>
             </div>
 
             <div class="bodySeparation">
                 <div class="toBuyers">
-                    <h2>Price For Buyers</h2>
+                    <h2><i class="fa-regular fa-handshake"></i> Price For Buyers</h2>
                     <div class="inputCard">
-                        <input type="number" min="0" step="0.01" id="buyerPrice" name="buyerPrice" placeholder="Enter Today's Price...">
-                        <button class="addBtn" id="buyerPriceBtn" name="buyerPriceBtn" type="submit">Add Buyer's Price</button>
+                        <form action="#" method="POST">
+                            <input type="number" min="0" step="0.01" id="buyerPrice" name="buyerPrice" placeholder="Enter Today's Price for Buyers..." required>
+                            <button class="addBtn" id="buyerPriceBtn" name="buyerPriceBtn" type="submit" title="Add Price">Add Buyer's Price</button>
+                        </form>
                     </div>
+                    <br>
                     <div class="displayCard">
-                        <p>Today's Price for Buyers:</p>
-                        <br>
-                        <div id="displayPrices"><p>Rs. <strong>150.00</strong> Per kg</p></div>
+                        <p class="priceLabel">Today's Price for Buyers:</p>
+                        <div class="displayPrices"><p>Rs. <strong>150.00</strong> Per kg</p></div>
                     </div>
                 </div>
 
                 <div class="toSuppliers">
-                    <h2>Price For Suppliers</h2>
+                    <h2><i class="fa-solid fa-cubes"></i> Price For Suppliers</h2>
                     <div class="inputCard">
-                        <input type="number" min="0" step="0.01" id="supplierPrice" name="supplierPrice" placeholder="Enter Today's Price...">
-                        <button class="addBtn" id="supplierPriceBtn" name="supplierPriceBtn" type="submit">Add Supplier's Price</button>
+                        <form action="#" method="POST">
+                            <input type="number" min="0" step="0.01" id="supplierPrice" name="supplierPrice" placeholder="Enter Today's Price foe Suppliers..." required>
+                            <button class="addBtn" id="supplierPriceBtn" name="supplierPriceBtn" type="submit" title="Add Price">Add Supplier's Price</button>
+                        </form>
                     </div>
+                    <br>
                     <div class="displayCard">
-                        <p>Today's Price for Suppliers:</p>
-                        <br>
-                        <div id="displayPrices"><p>Rs. <strong>140.50</strong> Per kg</p></div>
+                        <p class="priceLabel">Today's Price for Suppliers:</p>
+                        <div class="displayPrices"><p>Rs. <strong>140.50</strong> Per kg</p></div>
                     </div>
                 </div>
             </div>
-
-
-
 
             <h2 class="quickH2">Quick Actions</h2>
             <div class="quick">
@@ -101,9 +102,6 @@
             </div>
         </div>
     </div>
-
-    <!-- Header -->
-    <?php include 'footer.php'; ?>
 
     <!-- link script -->
     <script src="./js/sideBar.js"></script>

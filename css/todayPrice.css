@@ -105,10 +105,72 @@ body {
     color: #fff;
 }
 
+/* bodySeparation styles */
+.bodySeparation {
+    margin-top: 25px;
+    display: flex;
+    justify-content: space-between;
+}
 
+.bodySeparation h2, .quickH2 {
+    color: #8B4513;
+}
 
+.toBuyers, .toSuppliers {
+    flex-grow: 1;
+    border: none;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+}
 
+.toBuyers {
+    margin: 20px 10px 20px 0;
+}
 
+.toSuppliers {
+    margin: 20px 0px 20px 10px;
+}
+
+.toBuyers input, .toSuppliers input {
+    width: 75%;
+    padding: 10px;
+    border: 2px solid #FFD700;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.inputCard button, .inputCard button {
+    padding: 9px 5px;
+    color: #fff;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 7px;
+    font-size: 16px !important;
+    cursor: pointer;
+}
+
+.inputCard button:hover, .inputCard button:hover {
+    background-color: #3E8E41;
+}
+
+.displayPrices {
+    text-align: center;
+    font-size: 25px;
+}
+
+.displayPrices strong {
+    color: #4CAF50;
+    border: none;
+    border-radius: 8px;
+    padding: 5px 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.displayCard .priceLabel {
+    font-size: 20px;
+}
 
 
 
