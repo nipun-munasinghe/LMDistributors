@@ -1,0 +1,2 @@
+- Remember to remove commonProfile .php and .css files
+- Remember to remove hiddenform .html, .css and .js files

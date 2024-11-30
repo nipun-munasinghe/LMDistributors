@@ -47,10 +47,42 @@
                 <h1>Welcome AdminName!</h1>
             </div>
 
+            <h2 class="hiddenFormH2">Looking for add a new product? </h2>
+            <center>
+                <button type="submit" class="hiddenFormBtn" id="hiddenFormBtn" name="hiddenFormBtn">Add a new Product</button>
+            </center>
 
+            <h2 class="displayProductH2">Products we already published</h2>
 
+            <div class="displayProducts">
+                <div class="custom-scroll">
+                    <div class="content" id="scrollable-content">
+                        <table class="listTable" border="1px">
+                            <tr>
+                                <th class="productID">Product ID</th>
+                                <th class="tName">Product Name</th>
+                                <th class="tDescription">Product Description</th>
+                                <th class="tPrice">Price (Rs. )</th>
+                                <th class="tProductImg">Product Image</th>
+                                <th class="tCategory">Category</th>
+                                <th class="tQuantity">Quantity</th>
+                                <th class="tAction">Action</th>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>White Coconut Oil</td>
+                                <td>High-quality white coconut oil</td>
+                                <td>250.00</td>
+                                <td><img src="ProductImg.jpg" alt="Product Image" class="productImg"></td>
+                                <td>Coconut Oil</td>
+                                <td>100 liters</td>
+                                <td><a href="#"><i class="fa-solid fa-edit"></i></a> | <a href="#"><i class="fa-solid fa-trash"></i></a></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
             
-
             <h2 class="quickH2">Quick Actions</h2>
             <div class="quick">
                 <div class="card">
