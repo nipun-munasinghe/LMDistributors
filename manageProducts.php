@@ -52,6 +52,25 @@
                 <button type="submit" class="hiddenFormBtn" id="hiddenFormBtn" name="hiddenFormBtn">Add New Product</button>
             </center>
 
+            <div id="formContainer" class="hidden">
+                <form id="hiddenForm">
+                    <h2>Add Product</h2>
+                    <label for="productName">Product Name:</label>
+                    <input type="text" id="productName" name="productName" placeholder="Enter product name" required>
+
+                    <label for="description">Description:</label>
+                    <textarea id="description" name="description" rows="3" placeholder="Enter small description"></textarea>
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" placeholder="Enter your email" required>
+
+                    <div class="buttons">
+                        <button type="submit">Submit</button>
+                        <button type="button" id="cancelBtn">Cancel</button>
+                    </div>
+                </form>
+            </div>
+
             <h2 class="displayProductH2">Products we already published</h2>
 
             <center>
