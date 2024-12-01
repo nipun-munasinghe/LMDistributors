@@ -105,6 +105,82 @@ body {
     color: #fff;
 }
 
+/* hidden button styles */
+.hiddenFormBtn {
+    border: none;
+    border-radius: 8px;
+    padding: 8px 16px;
+    margin-bottom: 40px;
+    font-size: 20px;
+    color: #fff;
+    background-color: #4CAF50;
+}
+
+.hiddenFormBtn:hover {
+    background-color: #3E8E41;
+}
+
+/* scroll bars */
+.custom-scroll {
+    border: none;
+    border-radius: 10px;
+    background-color: #fff;
+    width: fit-content;
+    height: 600px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1s ease-in-out;
+}
+
+.content {
+    height: 600px;
+    overflow-y: scroll; /* Enable vertical scrolling */
+    overflow-x: scroll; /* Enable horizontal scrolling */
+    scroll-behavior: smooth;
+    padding: 10px;
+    box-sizing: content-box;
+}
+
+.scrollbar {
+    width: 10px;
+    height: 100%;
+    background: #fff;
+    position: absolute;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+}
+
+/* table styles */
+.listTable {
+    border-collapse: collapse;
+    border: 1px solid #3E8E41;
+}
+
+.listTable th {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 5px;
+}
+
+.listTable td {
+    text-align: center;
+    background-color: #fff;
+    padding: 5px;
+}
+
+.listTable td img {
+    max-width: 250px;
+}
+
+.tDescription {
+    max-width: 250px;
+}
+
+.tAction {
+    width: 80px;
+}
 
 
 

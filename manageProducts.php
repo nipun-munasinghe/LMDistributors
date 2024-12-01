@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Common Profile</title>
+    <title>Manage Products</title>
 
     <!-- link stylesheet -->
-    <link rel="stylesheet" href="./css/commonProfile.css">
+    <link rel="stylesheet" href="./css/manageProducts.css">
 
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -49,17 +49,18 @@
 
             <h2 class="hiddenFormH2">Looking for add a new product? </h2>
             <center>
-                <button type="submit" class="hiddenFormBtn" id="hiddenFormBtn" name="hiddenFormBtn">Add a new Product</button>
+                <button type="submit" class="hiddenFormBtn" id="hiddenFormBtn" name="hiddenFormBtn">Add New Product</button>
             </center>
 
             <h2 class="displayProductH2">Products we already published</h2>
 
+            <center>
             <div class="displayProducts">
                 <div class="custom-scroll">
                     <div class="content" id="scrollable-content">
                         <table class="listTable" border="1px">
                             <tr>
-                                <th class="productID">Product ID</th>
+                                <th class="productID">Product Number</th>
                                 <th class="tName">Product Name</th>
                                 <th class="tDescription">Product Description</th>
                                 <th class="tPrice">Price (Rs. )</th>
@@ -69,19 +70,50 @@
                                 <th class="tAction">Action</th>
                             </tr>
                             <tr>
-                                <td>1</td>
-                                <td>White Coconut Oil</td>
-                                <td>High-quality white coconut oil</td>
-                                <td>250.00</td>
-                                <td><img src="ProductImg.jpg" alt="Product Image" class="productImg"></td>
-                                <td>Coconut Oil</td>
-                                <td>100 liters</td>
-                                <td><a href="#"><i class="fa-solid fa-edit"></i></a> | <a href="#"><i class="fa-solid fa-trash"></i></a></td>
+                                <td class="productID">1</td>
+                                <td class="tName">Coconut Oil</td>
+                                <td class="tDescription">High-quality coconut oil</td>
+                                <td class="tPrice">550.00</td>
+                                <td class="tProductImg"><img src="./images/slide1.jpg" alt="Product Image" class="productImg"></td>
+                                <td class="tCategory">Coconut Oil</td>
+                                <td class="tQuantity">100 liters</td>
+                                <td class="tAction"><a href="#"><i class="fa-solid fa-edit"></i></a> | <a href="#"><i class="fa-solid fa-trash"></i></a></td>
+                            </tr>
+                            <tr>
+                                <td class="productID">2</td>
+                                <td class="tName">White Coconut Oil</td>
+                                <td class="tDescription">High-quality white coconut oil</td>
+                                <td class="tPrice">650.00</td>
+                                <td class="tProductImg"><img src="./images/slide3.jpg" alt="Product Image" class="productImg"></td>
+                                <td class="tCategory">Coconut Oil</td>
+                                <td class="tQuantity">160 liters</td>
+                                <td class="tAction"><a href="#"><i class="fa-solid fa-edit"></i></a> | <a href="#"><i class="fa-solid fa-trash"></i></a></td>
+                            </tr>
+                            <tr>
+                                <td class="productID">3</td>
+                                <td class="tName">Coconut Spoon</td>
+                                <td class="tDescription">High-quality coconut spoon</td>
+                                <td class="tPrice">100.00</td>
+                                <td class="tProductImg"><img src="./images/slide2.jpg" alt="Product Image" class="productImg"></td>
+                                <td class="tCategory">Coconut Products</td>
+                                <td class="tQuantity">238 quantities</td>
+                                <td class="tAction"><a href="#"><i class="fa-solid fa-edit"></i></a> | <a href="#"><i class="fa-solid fa-trash"></i></a></td>
+                            </tr>
+                            <tr>
+                                <td class="productID">4</td>
+                                <td class="tName">Coconut Leaf Mat</td>
+                                <td class="tDescription">High-quality coconut Mat</td>
+                                <td class="tPrice">950.00</td>
+                                <td class="tProductImg"><img src="./images/beach-background-with-two-coconuts.jpg" alt="Product Image" class="productImg"></td>
+                                <td class="tCategory">Coconut Products</td>
+                                <td class="tQuantity">100 quantities</td>
+                                <td class="tAction"><a href="#"><i class="fa-solid fa-edit"></i></a> | <a href="#"><i class="fa-solid fa-trash"></i></a></td>
                             </tr>
                         </table>
                     </div>
                 </div>
             </div>
+            </center>
             
             <h2 class="quickH2">Quick Actions</h2>
             <div class="quick">
@@ -109,5 +141,6 @@
 
     <!-- link script -->
     <script src="./js/sideBar.js"></script>
+    <script src="./js/scrollBar.js"></script>
 </body>
 </html>
