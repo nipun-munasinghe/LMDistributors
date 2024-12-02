@@ -120,6 +120,40 @@ body {
     background-color: #3E8E41;
 }
 
+/* hidden Form */
+
+.hidden {
+    display: none;
+}
+
+#formContainer {
+    margin: 20px auto;
+    max-width: 400px;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+}
+
+#hiddenForm label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+}
+
+#hiddenForm input, #hiddenForm textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#hiddenForm .buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
 /* scroll bars */
 .custom-scroll {
     border: none;

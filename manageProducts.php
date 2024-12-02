@@ -59,10 +59,19 @@
                     <input type="text" id="productName" name="productName" placeholder="Enter product name" required>
 
                     <label for="description">Description:</label>
-                    <textarea id="description" name="description" rows="3" placeholder="Enter small description"></textarea>
+                    <textarea id="description" name="description" rows="3" placeholder="Enter a small description"></textarea>
 
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" placeholder="Enter your email" required>
+                    <label for="price">Price:</label>
+                    <input type="number" id="price" name="price" placeholder="Enter product price" min="0" step="0.01" required>
+
+                    <label for="productImg">Product Image:</label>
+                    <input type="file" id="productImg" name="productImg" required>
+
+                    <label for="category">Category:</label>
+                    <input type="text" id="category" name="category" placeholder="Enter product category">
+
+                    <label for="quantity">Available Product Quantity:</label>
+                    <input type="number" id="quantity" name="quantity" min="0" placeholder="Enter available product quantity" required>
 
                     <div class="buttons">
                         <button type="submit">Submit</button>
@@ -160,6 +169,7 @@
 
     <!-- link script -->
     <script src="./js/sideBar.js"></script>
+    <script src="./js/manageManagers.js"></script>
     <script src="./js/scrollBar.js"></script>
 </body>
 </html>
