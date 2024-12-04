@@ -12,6 +12,10 @@ body {
     height: 100vh;
 }
 
+#hiddenForm .formUpper h2, .main-content h2 {
+    color: #8B4513;
+}
+
 /* Sidebar Styling */
 .sidebar {
     position: fixed;
@@ -121,14 +125,22 @@ body {
 }
 
 /* hidden Form */
-
 .hidden {
     display: none;
 }
 
+#hiddenForm .formUpper {
+    display: flex;
+    justify-content: space-between;
+}
+
+#cancelForm:hover {
+    cursor: pointer;
+}
+
 #formContainer {
     margin: 20px auto;
-    max-width: 400px;
+    max-width: 550px;
     padding: 20px;
     background-color: white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -136,22 +148,42 @@ body {
 }
 
 #hiddenForm label {
+    color: #8B4513;
     display: block;
     margin: 10px 0 5px;
     font-weight: bold;
 }
 
 #hiddenForm input, #hiddenForm textarea {
-    width: 100%;
+    width: 96%;
     padding: 8px;
     margin-bottom: 15px;
-    border: 1px solid #ccc;
+    border: 2px solid #FFD700;
     border-radius: 5px;
+    box-sizing: border-box;
 }
 
-#hiddenForm .buttons {
-    display: flex;
-    justify-content: space-between;
+#hiddenForm textarea {
+    resize: none;
+}
+
+#submitBtn {
+    border: none;
+    border-radius: 8px;
+    padding: 8px 16px;
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #4CAF50;
+    transition: transform 0.8s ease;
+}
+
+#submitBtn:hover {
+    cursor: pointer;
+    color: #FFD700;
+    background-color: #3E8E41;
+    transform: scale(1.1);
 }
 
 /* scroll bars */
@@ -215,10 +247,6 @@ body {
 .tAction {
     width: 80px;
 }
-
-
-
-
 
 /* quick action cards */
 .quick {

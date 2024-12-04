@@ -1,7 +1,7 @@
 // Get elements
 const showFormBtn = document.getElementById('hiddenFormBtn');
 const formContainer = document.getElementById('formContainer');
-const cancelBtn = document.getElementById('cancelBtn');
+const cancelBtn = document.getElementById('cancelForm');
 
 // Show form on button click
 showFormBtn.addEventListener('click', () => {

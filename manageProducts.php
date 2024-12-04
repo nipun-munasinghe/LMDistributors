@@ -54,7 +54,11 @@
 
             <div id="formContainer" class="hidden">
                 <form id="hiddenForm">
-                    <h2>Add Product</h2>
+                    <div class="formUpper">
+                        <h2>Add Product</h2>
+                        <i class="fas fa-times" id="cancelForm"></i>
+                    </div>
+
                     <label for="productName">Product Name:</label>
                     <input type="text" id="productName" name="productName" placeholder="Enter product name" required>
 
@@ -73,10 +77,9 @@
                     <label for="quantity">Available Product Quantity:</label>
                     <input type="number" id="quantity" name="quantity" min="0" placeholder="Enter available product quantity" required>
 
-                    <div class="buttons">
-                        <button type="submit">Submit</button>
-                        <button type="button" id="cancelBtn">Cancel</button>
-                    </div>
+                    <center>
+                        <button type="submit" id="submitBtn">Submit</button>
+                    </center>
                 </form>
             </div>
 
@@ -169,7 +172,7 @@
 
     <!-- link script -->
     <script src="./js/sideBar.js"></script>
-    <script src="./js/manageManagers.js"></script>
+    <script src="./js/manageProducts.js"></script>
     <script src="./js/scrollBar.js"></script>
 </body>
 </html>
