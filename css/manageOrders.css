@@ -1,0 +1,294 @@
+/* General Styles */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #FAF3E0;
+    color: #333;
+}
+
+/* Container Styling */
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+#hiddenForm .formUpper h2, .main-content h2 {
+    color: #8B4513;
+}
+
+/* Sidebar Styling */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background: #4CAF50;
+    color: #fff;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.sidebar-header {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sidebar-header h2 {
+    font-size: 18px;
+}
+
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-menu li {
+    padding: 15px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar-menu li a{
+    text-decoration: none;
+    color: #fff;
+}
+
+.sidebar-menu li:hover {
+    background-color: #3E8E41;
+}
+
+.sidebar-menu i {
+    margin-right: 10px;
+}
+
+/* Close Icon */
+#close-sidebar {
+    cursor: pointer;
+}
+
+/* Sidebar Toggle Styling */
+.sidebar.active {
+    left: 0;
+}
+
+/* Main Content Styling */
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+    margin-left: 60px;
+}
+
+/* Top bar Styling */
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.topbar i {
+    font-size: 24px;
+    cursor: pointer;
+    color: #fff;
+}
+
+.topbar h1 {
+    color: #fff;
+}
+
+/* hidden button styles */
+.hiddenFormBtn {
+    border: none;
+    border-radius: 8px;
+    padding: 8px 16px;
+    margin-bottom: 40px;
+    font-size: 20px;
+    color: #fff;
+    background-color: #4CAF50;
+}
+
+.hiddenFormBtn:hover {
+    background-color: #3E8E41;
+}
+
+/* hidden Form */
+.hidden {
+    display: none;
+}
+
+#hiddenForm .formUpper {
+    display: flex;
+    justify-content: space-between;
+}
+
+#cancelForm:hover {
+    cursor: pointer;
+}
+
+#formContainer {
+    margin: 20px auto;
+    max-width: 550px;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+}
+
+#hiddenForm label {
+    color: #8B4513;
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+}
+
+#hiddenForm input, #hiddenForm textarea {
+    width: 96%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 2px solid #FFD700;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+#hiddenForm textarea {
+    resize: none;
+}
+
+#submitBtn {
+    border: none;
+    border-radius: 8px;
+    padding: 8px 16px;
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #4CAF50;
+    transition: transform 0.8s ease;
+}
+
+#submitBtn:hover {
+    cursor: pointer;
+    color: #FFD700;
+    background-color: #3E8E41;
+    transform: scale(1.1);
+}
+
+/* scroll bars */
+.custom-scroll {
+    border: none;
+    border-radius: 10px;
+    background-color: #fff;
+    width: fit-content;
+    height: 600px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1s ease-in-out;
+}
+
+.content {
+    height: 600px;
+    overflow-y: scroll; /* Enable vertical scrolling */
+    overflow-x: scroll; /* Enable horizontal scrolling */
+    scroll-behavior: smooth;
+    padding: 10px;
+    box-sizing: content-box;
+}
+
+.scrollbar {
+    width: 10px;
+    height: 100%;
+    background: #fff;
+    position: absolute;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+}
+
+/* table styles */
+.listTable {
+    border-collapse: collapse;
+    border: 1px solid #3E8E41;
+}
+
+.listTable th {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 5px;
+}
+
+.listTable td {
+    text-align: center;
+    background-color: #fff;
+    padding: 5px;
+}
+
+.listTable td img {
+    max-width: 250px;
+}
+
+.tDescription {
+    max-width: 250px;
+}
+
+.tAction {
+    width: 80px;
+}
+
+/* quick action cards */
+.quick {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card {
+    border: none;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px;
+    width: 170px;
+    background-color: #4CAF50;
+    cursor: pointer;
+    text-align: center;
+    transition: transform 1s ease;
+}
+
+.card a {
+    text-decoration: none;
+    font-size: 25px;
+    color: #fff;
+}
+
+.card a:hover {
+    color: #FFD700;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    background-color: #3E8E41;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
