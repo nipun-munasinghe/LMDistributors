@@ -192,7 +192,8 @@ body {
     border-radius: 10px;
     background-color: #fff;
     width: fit-content;
-    height: 600px;
+    max-height: 600px;
+    height: fit-content;
     overflow: hidden;
     position: relative;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
@@ -200,7 +201,8 @@ body {
 }
 
 .content {
-    height: 600px;
+    max-height: 600px;
+    height: fit-content;
     overflow-y: scroll; /* Enable vertical scrolling */
     overflow-x: scroll; /* Enable horizontal scrolling */
     scroll-behavior: smooth;

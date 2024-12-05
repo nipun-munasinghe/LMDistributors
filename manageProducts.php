@@ -49,7 +49,7 @@
 
             <h2 class="hiddenFormH2">Looking for add a new product? </h2>
             <center>
-                <button type="submit" class="hiddenFormBtn" id="hiddenFormBtn" name="hiddenFormBtn">Add New Product</button>
+                <button type="submit" class="hiddenFormBtn" id="hiddenFormBtn" name="hiddenFormBtn"><i class="fa-solid fa-plus"></i> Add New Product</button>
             </center>
 
             <div id="formContainer" class="hidden">
@@ -78,7 +78,7 @@
                     <input type="number" id="quantity" name="quantity" min="0" placeholder="Enter available product quantity" required>
 
                     <center>
-                        <button type="submit" id="submitBtn">Submit</button>
+                        <button type="submit" id="submitBtn">Add</button>
                     </center>
                 </form>
             </div>

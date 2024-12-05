@@ -47,7 +47,7 @@
                 <h1>Welcome AdminName!</h1>
             </div>
 
-            <h2 class="displayProductH2">All orders</h2>
+            <h2 class="displayProductH2">All orders <i class="fa-solid fa-box-open"></i></h2>
 
             <center>
             <div class="displayProducts">
