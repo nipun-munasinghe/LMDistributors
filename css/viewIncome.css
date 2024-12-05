@@ -1,0 +1,41 @@
+/* Income Table Section */
+.income-section {
+    margin-top: 20px;
+}
+
+.income-section h2 {
+    color: #8B4513;
+}
+
+.income-table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 20px 0;
+    font-size: 16px;
+}
+
+.income-table th, .income-table td {
+    border: 1px solid #3E8E41;
+    padding: 10px;
+    text-align: center;
+}
+
+.income-table th {
+    background-color: #4CAF50;
+    color: #FFF;
+}
+
+.income-table td {
+    background-color: #FFF;
+}
+
+.income-table .view-details {
+    color: #4CAF50;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.income-table .view-details:hover {
+    color: #FFD700;
+}
