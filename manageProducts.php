@@ -152,7 +152,7 @@
                     <a href="./admin.php"><i class="fa-solid fa-user"></i><br>My Profile</a>
                 </div>
                 <div class="card">
-                    <a href="./manageProducts.php"><i class="fa-solid fa-store"></i><br>Manage Products</a>
+                    <a href="./manageManagers.php"><i class="fas fa-user-tie"></i><br>Manage Managers</a>
                 </div>
                 <div class="card">
                     <a href="./manageOrders.php"><i class="fa-solid fa-cart-shopping"></i><br>Manage Orders</a>
