@@ -1,41 +1,188 @@
-/* Income Table Section */
-.income-section {
-    margin-top: 20px;
+/* General Styles */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #FAF3E0;
+    color: #333;
 }
 
-.income-section h2 {
+/* Container Styling */
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+/* Sidebar Styling */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background: #4CAF50;
+    color: #fff;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.sidebar-header {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sidebar-header h2 {
+    font-size: 18px;
+}
+
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-menu li {
+    padding: 15px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar-menu li a{
+    text-decoration: none;
+    color: #fff;
+}
+
+.sidebar-menu li:hover {
+    background-color: #3E8E41;
+}
+
+.sidebar-menu i {
+    margin-right: 10px;
+}
+
+/* Close Icon */
+#close-sidebar {
+    cursor: pointer;
+}
+
+/* Sidebar Toggle Styling */
+.sidebar.active {
+    left: 0;
+}
+
+/* Main Content Styling */
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+    margin-left: 60px;
+}
+
+/* Top bar Styling */
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.topbar i {
+    font-size: 24px;
+    cursor: pointer;
+    color: #fff;
+}
+
+.topbar h1 {
+    color: #fff;
+}
+
+/* middle container styles */
+.analyzeOutContainer {
+    max-width: 45%;
+    padding: 20px;
+    background-color: #fff;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.analyzeContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.analyzeLabel {
+    font-size: 18px;
+}
+
+.analyzeDisplay {
+    font-weight: bold;
+    color: #3E8E41;
+}
+
+.middleContent h2, .quickH2{
     color: #8B4513;
 }
 
-.income-table {
-    border-collapse: collapse;
-    width: 100%;
-    margin: 20px 0;
-    font-size: 16px;
+.analyzeOutContainer {
+    margin: 20px auto;
 }
 
-.income-table th, .income-table td {
-    border: 1px solid #3E8E41;
-    padding: 10px;
-    text-align: center;
+.analyzeOutContainer h2 {
+    padding-top: 0;
+    margin-top: 0;
 }
 
-.income-table th {
+/* quick action cards */
+.quick {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card {
+    border: none;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px;
+    width: 170px;
     background-color: #4CAF50;
-    color: #FFF;
+    cursor: pointer;
+    text-align: center;
+    transition: transform 1s ease;
 }
 
-.income-table td {
-    background-color: #FFF;
-}
-
-.income-table .view-details {
-    color: #4CAF50;
+.card a {
     text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s;
+    font-size: 25px;
+    color: #fff;
 }
 
-.income-table .view-details:hover {
+.card a:hover {
     color: #FFD700;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    background-color: #3E8E41;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
