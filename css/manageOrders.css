@@ -12,7 +12,7 @@ body {
     height: 100vh;
 }
 
-#hiddenForm .formUpper h2, .main-content h2 {
+.main-content h2 {
     color: #8B4513;
 }
 
@@ -109,90 +109,14 @@ body {
     color: #fff;
 }
 
-/* hidden button styles */
-.hiddenFormBtn {
-    border: none;
-    border-radius: 8px;
-    padding: 8px 16px;
-    margin-bottom: 40px;
-    font-size: 20px;
-    color: #fff;
-    background-color: #4CAF50;
-}
-
-.hiddenFormBtn:hover {
-    background-color: #3E8E41;
-}
-
-/* hidden Form */
-.hidden {
-    display: none;
-}
-
-#hiddenForm .formUpper {
-    display: flex;
-    justify-content: space-between;
-}
-
-#cancelForm:hover {
-    cursor: pointer;
-}
-
-#formContainer {
-    margin: 20px auto;
-    max-width: 550px;
-    padding: 20px;
-    background-color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
-}
-
-#hiddenForm label {
-    color: #8B4513;
-    display: block;
-    margin: 10px 0 5px;
-    font-weight: bold;
-}
-
-#hiddenForm input, #hiddenForm textarea {
-    width: 96%;
-    padding: 8px;
-    margin-bottom: 15px;
-    border: 2px solid #FFD700;
-    border-radius: 5px;
-    box-sizing: border-box;
-}
-
-#hiddenForm textarea {
-    resize: none;
-}
-
-#submitBtn {
-    border: none;
-    border-radius: 8px;
-    padding: 8px 16px;
-    margin-top: 20px;
-    font-size: 20px;
-    font-weight: bold;
-    color: #fff;
-    background-color: #4CAF50;
-    transition: transform 0.8s ease;
-}
-
-#submitBtn:hover {
-    cursor: pointer;
-    color: #FFD700;
-    background-color: #3E8E41;
-    transform: scale(1.1);
-}
-
 /* scroll bars */
 .custom-scroll {
     border: none;
     border-radius: 10px;
     background-color: #fff;
     width: fit-content;
-    height: 600px;
+    max-height: 600px;
+    height: fit-content;
     overflow: hidden;
     position: relative;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
@@ -200,7 +124,8 @@ body {
 }
 
 .content {
-    height: 600px;
+    max-height: 600px;
+    height: fit-content;
     overflow-y: scroll; /* Enable vertical scrolling */
     overflow-x: scroll; /* Enable horizontal scrolling */
     scroll-behavior: smooth;
@@ -234,10 +159,6 @@ body {
     text-align: center;
     background-color: #fff;
     padding: 5px;
-}
-
-.listTable td img {
-    max-width: 250px;
 }
 
 .tDescription {

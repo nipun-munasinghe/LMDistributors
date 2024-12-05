@@ -47,43 +47,7 @@
                 <h1>Welcome AdminName!</h1>
             </div>
 
-            <h2 class="hiddenFormH2">Looking for add a new product? </h2>
-            <center>
-                <button type="submit" class="hiddenFormBtn" id="hiddenFormBtn" name="hiddenFormBtn">Add New Product</button>
-            </center>
-
-            <div id="formContainer" class="hidden">
-                <form id="hiddenForm">
-                    <div class="formUpper">
-                        <h2>Add Product</h2>
-                        <i class="fas fa-times" id="cancelForm"></i>
-                    </div>
-
-                    <label for="productName">Product Name:</label>
-                    <input type="text" id="productName" name="productName" placeholder="Enter product name" required>
-
-                    <label for="description">Description:</label>
-                    <textarea id="description" name="description" rows="3" placeholder="Enter a small description"></textarea>
-
-                    <label for="price">Price:</label>
-                    <input type="number" id="price" name="price" placeholder="Enter product price" min="0" step="0.01" required>
-
-                    <label for="productImg">Product Image:</label>
-                    <input type="file" id="productImg" name="productImg" required>
-
-                    <label for="category">Category:</label>
-                    <input type="text" id="category" name="category" placeholder="Enter product category">
-
-                    <label for="quantity">Available Product Quantity:</label>
-                    <input type="number" id="quantity" name="quantity" min="0" placeholder="Enter available product quantity" required>
-
-                    <center>
-                        <button type="submit" id="submitBtn">Submit</button>
-                    </center>
-                </form>
-            </div>
-
-            <h2 class="displayProductH2">Products we already published</h2>
+            <h2 class="displayProductH2">All orders</h2>
 
             <center>
             <div class="displayProducts">
@@ -91,53 +55,87 @@
                     <div class="content" id="scrollable-content">
                         <table class="listTable" border="1px">
                             <tr>
-                                <th class="productID">Product Number</th>
+                                <th class="orderID">Order Number</th>
+                                <th class="orderDate">Order Date</th>
+                                <th class="customerName">Customer Name</th>
+                                <th class="customerPhone1">Phone 1</th>
+                                <th class="customerPhone2">Phone 2</th>
+                                <th class="customerAddress">Address</th>
                                 <th class="tName">Product Name</th>
-                                <th class="tDescription">Product Description</th>
-                                <th class="tPrice">Price (Rs. )</th>
-                                <th class="tProductImg">Product Image</th>
-                                <th class="tCategory">Category</th>
                                 <th class="tQuantity">Quantity</th>
+                                <th class="tPrice">Price (Rs. )</th>
+                                <th class="totalPrice">Total Price(Rs.)</th>
+                                <th class="tStatus">Status</th>
                                 <th class="tAction">Action</th>
                             </tr>
                             <tr>
-                                <td class="productID">1</td>
+                                <td class="orderID">1</td>
+                                <td class="orderDate">2024-05-15</td>
+                                <td class="customerName">Shehara Gihethmi</td>
+                                <td class="customerPhone1">0777431661</td>
+                                <td class="customerPhone2">0718567899</td>
+                                <td class="customerAddress">no 125/A, big brain road, Kollupitiya, Sri Lanka.</td>
                                 <td class="tName">Coconut Oil</td>
-                                <td class="tDescription">High-quality coconut oil</td>
-                                <td class="tPrice">550.00</td>
-                                <td class="tProductImg"><img src="./images/slide1.jpg" alt="Product Image" class="productImg"></td>
-                                <td class="tCategory">Coconut Oil</td>
-                                <td class="tQuantity">100 liters</td>
+                                <td class="tQuantity">5</td>
+                                <td class="tPrice">500.00</td>
+                                <td class="totalPrice">2500.00</td>
+                                <td class="tStatus">Pending</td>
                                 <td class="tAction"><a href="#"><i class="fa-solid fa-edit"></i></a> | <a href="#"><i class="fa-solid fa-trash"></i></a></td>
                             </tr>
                             <tr>
-                                <td class="productID">2</td>
-                                <td class="tName">White Coconut Oil</td>
-                                <td class="tDescription">High-quality white coconut oil</td>
-                                <td class="tPrice">650.00</td>
-                                <td class="tProductImg"><img src="./images/slide3.jpg" alt="Product Image" class="productImg"></td>
-                                <td class="tCategory">Coconut Oil</td>
-                                <td class="tQuantity">160 liters</td>
-                                <td class="tAction"><a href="#"><i class="fa-solid fa-edit"></i></a> | <a href="#"><i class="fa-solid fa-trash"></i></a></td>
-                            </tr>
-                            <tr>
-                                <td class="productID">3</td>
-                                <td class="tName">Coconut Spoon</td>
-                                <td class="tDescription">High-quality coconut spoon</td>
+                                <td class="orderID">2</td>
+                                <td class="orderDate">2024-08-15</td>
+                                <td class="customerName">Shehan Gihethma</td>
+                                <td class="customerPhone1">077 2431661</td>
+                                <td class="customerPhone2">071 4567899</td>
+                                <td class="customerAddress">no 15/A, Nelum Uyana road, Kuliyapitiya, Sri Lanka.</td>
+                                <td class="tName">Coconut spoon</td>
+                                <td class="tQuantity">10</td>
                                 <td class="tPrice">100.00</td>
-                                <td class="tProductImg"><img src="./images/slide2.jpg" alt="Product Image" class="productImg"></td>
-                                <td class="tCategory">Coconut Products</td>
-                                <td class="tQuantity">238 quantities</td>
+                                <td class="totalPrice">1000.00</td>
+                                <td class="tStatus">Completed</td>
                                 <td class="tAction"><a href="#"><i class="fa-solid fa-edit"></i></a> | <a href="#"><i class="fa-solid fa-trash"></i></a></td>
                             </tr>
                             <tr>
-                                <td class="productID">4</td>
-                                <td class="tName">Coconut Leaf Mat</td>
-                                <td class="tDescription">High-quality coconut Mat</td>
-                                <td class="tPrice">950.00</td>
-                                <td class="tProductImg"><img src="./images/beach-background-with-two-coconuts.jpg" alt="Product Image" class="productImg"></td>
-                                <td class="tCategory">Coconut Products</td>
-                                <td class="tQuantity">100 quantities</td>
+                                <td class="orderID">3</td>
+                                <td class="orderDate">2024-09-25</td>
+                                <td class="customerName">Nurawi Gihethmini</td>
+                                <td class="customerPhone1">077 2430661</td>
+                                <td class="customerPhone2">071 9567899</td>
+                                <td class="customerAddress">no 125/A, Keselgas mawatha, Chilaw, Sri Lanka.</td>
+                                <td class="tName">Coconut Mat</td>
+                                <td class="tQuantity">1</td>
+                                <td class="tPrice">500.00</td>
+                                <td class="totalPrice">500.00</td>
+                                <td class="tStatus">Shipped</td>
+                                <td class="tAction"><a href="#"><i class="fa-solid fa-edit"></i></a> | <a href="#"><i class="fa-solid fa-trash"></i></a></td>
+                            </tr>
+                            <tr>
+                                <td class="orderID">4</td>
+                                <td class="orderDate">2024-09-28</td>
+                                <td class="customerName">Sumudi Samarakoon</td>
+                                <td class="customerPhone1">+94772431610</td>
+                                <td class="customerPhone2">+94714567949</td>
+                                <td class="customerAddress">No 12, Kaludiya pokuna road, Hiripitiya, Nugegoda, Sri Lanka.</td>
+                                <td class="tName">White Coconut Oil</td>
+                                <td class="tQuantity">5</td>
+                                <td class="tPrice">600.00</td>
+                                <td class="totalPrice">3000.00</td>
+                                <td class="tStatus">Pending</td>
+                                <td class="tAction"><a href="#"><i class="fa-solid fa-edit"></i></a> | <a href="#"><i class="fa-solid fa-trash"></i></a></td>
+                            </tr>
+                            <tr>
+                                <td class="orderID">5</td>
+                                <td class="orderDate">2024-11-11</td>
+                                <td class="customerName">Sihali Weerarathna</td>
+                                <td class="customerPhone1">077 2431661</td>
+                                <td class="customerPhone2">071 4567899</td>
+                                <td class="customerAddress">18/5, A1 road, Negombo, Sri Lanka.</td>
+                                <td class="tName">Coconut water 200ml</td>
+                                <td class="tQuantity">50</td>
+                                <td class="tPrice">80.00</td>
+                                <td class="totalPrice">4000.00</td>
+                                <td class="tStatus">Shipped</td>
                                 <td class="tAction"><a href="#"><i class="fa-solid fa-edit"></i></a> | <a href="#"><i class="fa-solid fa-trash"></i></a></td>
                             </tr>
                         </table>
@@ -152,10 +150,10 @@
                     <a href="./admin.php"><i class="fa-solid fa-user"></i><br>My Profile</a>
                 </div>
                 <div class="card">
-                    <a href="./manageProducts.php"><i class="fa-solid fa-store"></i><br>Manage Products</a>
+                    <a href="./manageManagers.php"><i class="fas fa-user-tie"></i><br>Manage Managers</a>
                 </div>
                 <div class="card">
-                    <a href="./manageOrders.php"><i class="fa-solid fa-cart-shopping"></i><br>Manage Orders</a>
+                    <a href="./manageProducts.php"><i class="fa-solid fa-store"></i><br>Manage Products</a>
                 </div>
                 <div class="card">
                     <a href="./todayPrice.php"><i class="fa-solid fa-money-bill-1-wave"></i><br>Today's Price List</a>
@@ -172,7 +170,6 @@
 
     <!-- link script -->
     <script src="./js/sideBar.js"></script>
-    <script src="./js/manageProducts.js"></script>
     <script src="./js/scrollBar.js"></script>
 </body>
 </html>
