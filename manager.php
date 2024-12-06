@@ -60,9 +60,6 @@
                 </div>
             </section>
 
-
-            
-
             <h2 class="quickH2">Quick Actions</h2>
             <div class="quick">
                 <div class="card">
