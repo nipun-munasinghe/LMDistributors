@@ -46,7 +46,7 @@
             <section class="supplier-profile">
                 <h2>Your Profile</h2>
                 <div class="profile-card">
-                    <img src="images/default-profile.png" alt="Buyer Profile Picture" class="profile-pic">
+                    <img src="images/default-profile.png" alt="Supplier Profile Picture" class="profile-pic">
                     <div class="profile-info">
                         <p><strong>Name:</strong> Supplier Name</p>
                         <p><strong>Email:</strong> supplier@gmail.com</p>

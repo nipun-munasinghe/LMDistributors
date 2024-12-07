@@ -105,12 +105,12 @@ body {
     color: #fff;
 }
 
-/* Admin Profile Section */
-.admin-profile {
+/*Manager Profile Section */
+.manager-profile {
     margin-top: 30px;
 }
 
-.admin-profile h2, .quickH2 {
+.manager-profile h2, .quickH2 {
     font-size: 24px;
     color: #8B4513;
     margin-bottom: 20px;

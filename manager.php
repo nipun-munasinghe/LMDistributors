@@ -24,7 +24,7 @@
         <aside id="sidebar" class="sidebar">
             <div class="sidebar-header">
                 <h2>Manager Dashboard</h2>
-                <i class="fas fa-times" id="close-sidebar"></i>
+                <i title="close" class="fas fa-times" id="close-sidebar"></i>
             </div>
 
             <ul class="sidebar-menu">
@@ -46,8 +46,8 @@
                 <h1>Welcome ManagerName!</h1>
             </div>
 
-            <!-- Admin Profile -->
-            <section class="admin-profile">
+            <!-- Manager Profile -->
+            <section class="manager-profile">
                 <h2>Your Profile</h2>
                 <div class="profile-card">
                     <img src="images/default-profile.png" alt="Manager Profile Picture" class="profile-pic">
@@ -63,22 +63,22 @@
             <h2 class="quickH2">Quick Actions</h2>
             <div class="quick">
                 <div class="card">
-                    <a href="./admin.php"><i class="fa-solid fa-user"></i><br>My Profile</a>
+                    <a href="./manager.php" title="My Profile"><i class="fa-solid fa-user"></i><br>My Profile</a>
                 </div>
                 <div class="card">
-                    <a href="./manageProducts.php"><i class="fa-solid fa-store"></i><br>Manage Products</a>
+                    <a href="./manageProducts.php" title="Products Management"><i class="fa-solid fa-store"></i><br>Manage Products</a>
                 </div>
                 <div class="card">
-                    <a href="./manageOrders.php"><i class="fa-solid fa-cart-shopping"></i><br>Manage Orders</a>
+                    <a href="./manageOrders.php" title="Orders Management"><i class="fa-solid fa-cart-shopping"></i><br>Manage Orders</a>
                 </div>
                 <div class="card">
-                    <a href="./todayPrice.php"><i class="fa-solid fa-money-bill-1-wave"></i><br>Today's Price List</a>
+                    <a href="./todayPrice.php" title="Update Price List"><i class="fa-solid fa-money-bill-1-wave"></i><br>Today's Price List</a>
                 </div>
                 <div class="card">
-                    <a href="./viewIncome.php"><i class="fas fa-chart-line"></i><br>View Income</a>
+                    <a href="./viewIncome.php" title="analysis"><i class="fas fa-chart-line"></i><br>View Income</a>
                 </div>
                 <div class="card">
-                    <a href="./accSettings.php"><i class="fas fa-cog"></i><br>Settings</a>
+                    <a href="./accSettings.php" title="Edit Profile and settings"><i class="fas fa-cog"></i><br>Settings</a>
                 </div>
             </div>
         </div>
