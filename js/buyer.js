@@ -5,4 +5,4 @@ const mm = String(today.getMonth() + 1).padStart(2, '0');
 const dd = String(today.getDate()).padStart(2, '0');
 
 const formattedDate = `${yyyy}-${mm}-${dd}`;
-document.getElementById('orderDate').setAttribute('min', formattedDate);
+document.getElementById('date').setAttribute('min', formattedDate);

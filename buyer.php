@@ -85,14 +85,14 @@
                         </div>
                         <div class="separation">
                             <label for="orderDate">Date, the order do you want: </label>
-                            <input type="date" id="orderDate" name="orderDate" min="" required>
+                            <input type="date" id="date" name="orderDate" min="" required>
                         </div>
                         <div class="separation">
                             <label for="comments">Special Comments (optional): </label>
                             <textarea type="comments" id="comments" name="comments" placeholder="Add some special comments..."></textarea>
                         </div>
                         <center>
-                            <button type="submit" id="submitBtn" name="submitBtn" class="reqSubmitBtn">Submit <i class="fa-solid fa-paper-plane"></i></button>
+                            <button type="submit" id="submitBtn" name="submitBtn" class="reqSubmitBtn" title="Submit Details">Submit <i class="fa-solid fa-paper-plane"></i></button>
                         </center>
                     </form>
                 </center>
@@ -114,7 +114,7 @@
     </div>
 
     <!-- footer -->
-    <!-- <?php //include 'footer.php'; ?> -->
+    <?php include 'footer.php'; ?>
 
     <!-- link scripts -->
     <script src="./js/sideBar.js"></script>

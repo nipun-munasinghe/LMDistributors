@@ -10,7 +10,7 @@ body {
 .container {
     display: flex;
     height: 100vh;
-    margin-bottom: 45px;
+    margin-bottom: 800px;
 }
 
 /* Sidebar Styling */
@@ -184,6 +184,7 @@ body {
 .requestOrder {
     margin-top: 30px;
     margin-bottom: 30px;
+    animation: fadeIn 1s ease-in-out;
 }
 
 .reqForm {

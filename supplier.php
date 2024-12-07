@@ -59,8 +59,43 @@
             <div class="todayPrice">
                 <h2>L.M. Distributors' Today Price</h2>
                 <div class="priceContainer">
-                    <p>Today Price: <strong>Rs. 130.50</strong> per 1kg</p>
+                    <p>Today Price: <strong>Rs. 135.50</strong> per 1kg</p>
                 </div>
+            </div>
+
+            <div class="requestSupply">
+                <h2>Request to supply</h2>
+                <center>
+                    <form action="#" method="POST" class="reqForm">
+                        <div class="separation">
+                            <label for="supplyName">Supplier/Company name: </label>
+                            <input type="text" id="supplyName" name="supplyName" value="Supplier Name" required>
+                        </div>
+                        <div class="separation">
+                            <label for="phone">Phone number: </label>
+                            <input type="tel" id="phone" name="phone" value="0772121201" required>
+                        </div>
+                        <div class="separation">
+                            <label for="supplyQty">Quantity (kg): </label>
+                            <input type="number" id="supplyQty" name="supplyQty" min="1000" value="1000" required>
+                        </div>
+                        <div class="separation">
+                            <label for="yourPrice">Your price (Rs. per kg): </label>
+                            <input type="number" id="yourPrice" name="yourPrice" step="0.01" min="0" max="135.50" value="135.50" required>
+                        </div>
+                        <div class="separation">
+                            <label for="supplyDate">Date, you can supply: </label>
+                            <input type="date" id="date" name="supplyDate" min="" required>
+                        </div>
+                        <div class="separation">
+                            <label for="comments">Special Comments (optional): </label>
+                            <textarea type="comments" id="comments" name="comments" placeholder="Add some special comments..."></textarea>
+                        </div>
+                        <center>
+                            <button type="submit" id="submitBtn" name="submitBtn" class="reqSubmitBtn" title="Submit Details">Submit <i class="fa-solid fa-paper-plane"></i></button>
+                        </center>
+                    </form>
+                </center>
             </div>
 
             <h2 class="quickH2">Quick Actions</h2>
@@ -83,5 +118,6 @@
 
     <!-- link script -->
     <script src="./js/sideBar.js"></script>
+    <script src="./js/buyer.js"></script>
 </body>
 </html>
