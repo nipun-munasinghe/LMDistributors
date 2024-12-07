@@ -59,6 +59,14 @@ input:focus, textarea:focus {
     margin-bottom: 20px;
 }
 
+.price-display span {
+    border: none;
+    border-radius: 7px;
+    padding: 5px 10px;
+    color: #4CAF50;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
 /* Payment Options */
 h2 {
     font-size: 22px;

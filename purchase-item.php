@@ -73,6 +73,16 @@
             <!-- Card Details (Hidden by Default) -->
             <div class="card-details" id="card-details">
                 <div class="form-group">
+                    <label for="bank-name">Bank Name</label>
+                    <input type="text" id="bank-name" placeholder="Enter bank name">
+                </div>
+
+                <div class="form-group">
+                    <label for="branch">Branch Name</label>
+                    <input type="text" id="branch" placeholder="Enter branch name">
+                </div>
+
+                <div class="form-group">
                     <label for="card-number">Card Number</label>
                     <input type="text" id="card-number" placeholder="Enter card number">
                 </div>
@@ -86,10 +96,12 @@
                     <label for="cvv">CVV</label>
                     <input type="password" id="cvv" placeholder="CVV">
                 </div>
+
+                <p>Note: We do not keep your card details</p>
             </div>
 
             <!-- Submit Button -->
-            <button type="button" id="submit-btn">
+            <button type="button" id="submit-btn" name="submit-btn" title="Submit details">
                 Submit <i class="fas fa-rocket"></i>
             </button>
         </form>
