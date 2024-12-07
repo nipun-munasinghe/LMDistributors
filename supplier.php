@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buyer Profile</title>
+    <title>Supplier Profile</title>
 
     <!-- link stylesheet -->
-    <link rel="stylesheet" href="./css/buyer.css">
+    <link rel="stylesheet" href="./css/supplier.css">
 
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -23,12 +23,12 @@
         <!-- Hidden Sidebar -->
         <aside id="sidebar" class="sidebar">
             <div class="sidebar-header">
-                <h2>Buyer Dashboard</h2>
+                <h2>Supplier Dashboard</h2>
                 <i title="Close" class="fas fa-times" id="close-sidebar"></i>
             </div>
 
             <ul class="sidebar-menu">
-                <li><a href="./buyer.php"><i class="fa-solid fa-user"></i> My Profile</a></li>
+                <li><a href="./supplier.php"><i class="fa-solid fa-user"></i> My Profile</a></li>
                 <li><a href="./accSettings.php"><i class="fas fa-cog"></i> Settings</a></li>
                 <li><a href="./logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
             </ul>
@@ -39,18 +39,18 @@
             <!-- Topbar -->
             <div class="topbar">
                 <i class="fas fa-bars" id="toggle-sidebar" title="Dashboard"></i>
-                <h1>Welcome BuyerName!</h1>
+                <h1>Welcome SupplierName!</h1>
             </div>
 
-            <!-- Buyer Profile -->
-            <section class="buyer-profile">
+            <!-- Supplier Profile -->
+            <section class="supplier-profile">
                 <h2>Your Profile</h2>
                 <div class="profile-card">
                     <img src="images/default-profile.png" alt="Buyer Profile Picture" class="profile-pic">
                     <div class="profile-info">
-                        <p><strong>Name:</strong> Buyer Name</p>
-                        <p><strong>Email:</strong> buyer@gmail.com</p>
-                        <p><strong>Phone:</strong> +94 73 456 7890</p>
+                        <p><strong>Name:</strong> Supplier Name</p>
+                        <p><strong>Email:</strong> supplier@gmail.com</p>
+                        <p><strong>Phone:</strong> +94 73 456 7891</p>
                         <button class="btn edit-profile" onclick="window.location.href='./accSettings.php'" title="Edit Profile"><i class="fa-solid fa-pen"></i> Edit Profile</button>
                     </div>
                 </div>
