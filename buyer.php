@@ -62,6 +62,41 @@
                     <p>Today Price: <strong>Rs. 130.50</strong> per 1kg</p>
                 </div>
             </div>
+            
+            <div class="requestOrder">
+                <h2>Request an Order</h2>
+                <center>
+                    <form action="#" method="POST" class="reqForm">
+                        <div class="separation">
+                            <label for="orderName">Order name: </label>
+                            <input type="text" id="orderName" name="orderName" value="Buyer Name" required>
+                        </div>
+                        <div class="separation">
+                            <label for="phone">Phone number: </label>
+                            <input type="tel" id="phone" name="phone" value="0772121200" required>
+                        </div>
+                        <div class="separation">
+                            <label for="orderQty">Quantity (kg): </label>
+                            <input type="number" id="orderQty" name="orderQty" min="1000" value="1000" required>
+                        </div>
+                        <div class="separation">
+                            <label for="yourPrice">Your price (Rs. per kg): </label>
+                            <input type="number" id="yourPrice" name="yourPrice" step="0.01" min="130.50" value="130.50" required>
+                        </div>
+                        <div class="separation">
+                            <label for="orderDate">Date, the order do you want: </label>
+                            <input type="date" id="orderDate" name="orderDate" min="" required>
+                        </div>
+                        <div class="separation">
+                            <label for="comments">Special Comments (optional): </label>
+                            <textarea type="comments" id="comments" name="comments" placeholder="Add some special comments..."></textarea>
+                        </div>
+                        <center>
+                            <button type="submit" id="submitBtn" name="submitBtn" class="reqSubmitBtn">Submit <i class="fa-solid fa-paper-plane"></i></button>
+                        </center>
+                    </form>
+                </center>
+            </div>
 
             <h2 class="quickH2">Quick Actions</h2>
             <div class="quick">
@@ -78,10 +113,11 @@
         </div>
     </div>
 
-    <!-- Header -->
-    <?php include 'footer.php'; ?>
+    <!-- footer -->
+    <!-- <?php //include 'footer.php'; ?> -->
 
-    <!-- link script -->
+    <!-- link scripts -->
     <script src="./js/sideBar.js"></script>
+    <script src="./js/buyer.js"></script>
 </body>
 </html>

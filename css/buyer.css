@@ -111,7 +111,7 @@ body {
     margin-top: 30px;
 }
 
-.buyer-profile h2, .quickH2, .todayPrice h2 {
+.buyer-profile h2, .quickH2, .todayPrice h2, .requestOrder h2 {
     font-size: 24px;
     color: #8B4513;
     margin-bottom: 20px;
@@ -178,6 +178,67 @@ body {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     padding: 5px 10px;
     color: #4CAF50;
+}
+
+/* Request Order Section */
+.requestOrder {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.reqForm {
+    padding: 20px;
+    margin: 20px;
+    border: none;
+    border-radius: 10px;
+    max-width: 60%;
+    background: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.separation {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    color: #8B4513;
+    margin-bottom: 5px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #FFD700;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+textarea {
+    resize: none;
+}
+
+input:focus, textarea:focus {
+    border-color: #4CAF50;
+}
+
+.reqSubmitBtn {
+    font-weight: bold !important;
+    font-size: 16px;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.reqSubmitBtn:hover {
+    background-color: #3E8E41;
 }
 
 /* quick action cards */

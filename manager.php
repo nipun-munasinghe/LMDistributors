@@ -84,7 +84,7 @@
         </div>
     </div>
 
-    <!-- Header -->
+    <!-- Footer -->
     <?php include 'footer.php'; ?>
 
     <!-- link script -->

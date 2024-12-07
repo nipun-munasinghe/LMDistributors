@@ -3,55 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hidden Form</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-    <!-- Button to Show Form -->
-    <button id="showFormBtn">Open Form</button>
+    <h1>L M Distributors</h1>
+    
+    <form>
+        <label for="date">Select a date:</label>
+        <input type="date" id="date" name="date" min="">
+        <button type="submit">Submit</button>
+    </form>
 
-    <!-- Hidden Form -->
-    <div id="formContainer" class="hidden">
-        <form id="hiddenForm">
-            <h2>Contact Us</h2>
-            <label for="name">Name:</label>
-            <input type="text" id="name" placeholder="Enter your name" required>
+    <script>
+        // Set today's date as the minimum date
+        const today = new Date();
+        const yyyy = today.getFullYear();
+        const mm = String(today.getMonth() + 1).padStart(2, '0'); // Months are zero-based
+        const dd = String(today.getDate()).padStart(2, '0');
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" placeholder="Enter your email" required>
-
-            <label for="message">Message:</label>
-            <textarea id="message" rows="4" placeholder="Enter your message"></textarea>
-
-            <div class="buttons">
-                <button type="submit">Submit</button>
-                <button type="button" id="cancelBtn">Cancel</button>
-            </div>
-        </form>
-    </div>
-
-    <h2 class="quickH2">Quick Actions</h2>
-            <div class="quick">
-                <div class="card">
-                    <a href="./manageManagers.php"><i class="fas fa-user-tie"></i><br>Manage Managers</a>
-                </div>
-                <div class="card">
-                    <a href="./manageProducts.php"><i class="fa-solid fa-store"></i><br>Manage Products</a>
-                </div>
-                <div class="card">
-                    <a href="./manageOrders.php"><i class="fa-solid fa-cart-shopping"></i><br>Manage Orders</a>
-                </div>
-                <div class="card">
-                    <a href="./todayPrice.php"><i class="fa-solid fa-money-bill-1-wave"></i><br>Today's Price List</a>
-                </div>
-                <div class="card">
-                    <a href="./viewIncome.php"><i class="fas fa-chart-line"></i><br>View Income</a>
-                </div>
-                <div class="card">
-                    <a href="./accSettings.php"><i class="fas fa-cog"></i><br>Settings</a>
-                </div>
-            </div>
-
-    <script src="script.js"></script>
+        const formattedDate = `${yyyy}-${mm}-${dd}`;
+        document.getElementById('date').setAttribute('min', formattedDate);
+    </script>
 </body>
 </html>
