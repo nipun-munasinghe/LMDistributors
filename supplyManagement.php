@@ -47,6 +47,33 @@
                 <h1>Welcome AdminName!</h1>
             </div>
 
+            <h2 class="displayOrdersH2">All orders <i class="fa-solid fa-box-open"></i></h2>
+
+            <center>
+            <div class="displayOrders">
+                <div class="custom-scroll">
+                    <div class="content" id="scrollable-content">
+                        <table class="listTable" border="1px">
+                            <tr>
+                                <th class="orderID">Order Number</th>
+                                <th class="orderDate">Order Date</th>
+                                <th class="customerName">Customer Name</th>
+                                <th class="customerPhone1">Phone 1</th>
+                                <th class="customerPhone2">Phone 2</th>
+                                <th class="customerAddress">Address</th>
+                                <th class="tName">Product Name</th>
+                                <th class="tQuantity">Quantity</th>
+                                <th class="tPrice">Price (Rs. )</th>
+                                <th class="totalPrice">Total Price(Rs.)</th>
+                                <th class="tStatus">Status</th>
+                                <th class="tAction">Action</th>
+                            </tr>
+                            
+                        </table>
+                    </div>
+                </div>
+            </div>
+            </center>
             
 
             <h2 class="quickH2">Quick Actions</h2>
@@ -73,7 +100,8 @@
         </div>
     </div>
 
-    <!-- link script -->
+    <!-- link scripts -->
     <script src="./js/sideBar.js"></script>
+    <script src="./js/scrollBar.js"></script>
 </body>
 </html>

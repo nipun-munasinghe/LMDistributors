@@ -105,7 +105,65 @@ body {
     color: #fff;
 }
 
+/* scroll bars */
+.custom-scroll {
+    border: none;
+    border-radius: 10px;
+    background-color: #fff;
+    width: fit-content;
+    max-height: 600px;
+    height: fit-content;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1s ease-in-out;
+}
 
+.content {
+    max-height: 600px;
+    height: fit-content;
+    overflow-y: scroll; /* Enable vertical scrolling */
+    overflow-x: scroll; /* Enable horizontal scrolling */
+    scroll-behavior: smooth;
+    padding: 10px;
+    box-sizing: content-box;
+}
+
+.scrollbar {
+    width: 10px;
+    height: 100%;
+    background: #fff;
+    position: absolute;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+}
+
+/* table styles */
+.listTable {
+    border-collapse: collapse;
+    border: 1px solid #3E8E41;
+}
+
+.listTable th {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 5px;
+}
+
+.listTable td {
+    text-align: center;
+    background-color: #fff;
+    padding: 5px;
+}
+
+.tDescription {
+    max-width: 250px;
+}
+
+.tAction {
+    width: 80px;
+}
 
 
 
