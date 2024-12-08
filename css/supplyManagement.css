@@ -157,7 +157,7 @@ body {
     padding: 5px;
 }
 
-.tDescription {
+.comments {
     max-width: 250px;
 }
 
@@ -165,8 +165,26 @@ body {
     width: 80px;
 }
 
+.fa-thumbs-up {
+    color: #4CAF50;
+}
+.fa-thumbs-up:hover {
+    color: #3E8E41;
+}
 
+.fa-thumbs-down {
+    color: #378ccd;
+}
+.fa-thumbs-down:hover {
+    color: #2037e3;
+}
 
+.fa-trash-can {
+    color: red;
+}
+.fa-trash-can:hover {
+    color: rgb(149, 28, 28);
+}
 
 /* Quick Links Section */
 .quick {
@@ -174,7 +192,7 @@ body {
     justify-content: space-between;
 }
 
-.quickH2 {
+.quickH2, .displaySuppliersH2 {
     font-size: 24px;
     color: #8B4513;
     margin-bottom: 20px;

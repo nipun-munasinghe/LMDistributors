@@ -47,26 +47,100 @@
                 <h1>Welcome AdminName!</h1>
             </div>
 
-            <h2 class="displayOrdersH2">All orders <i class="fa-solid fa-box-open"></i></h2>
+            <h2 class="displaySuppliersH2">Suppliers' Management Details</h2>
 
             <center>
-            <div class="displayOrders">
+            <div class="displaySuppliers">
                 <div class="custom-scroll">
                     <div class="content" id="scrollable-content">
                         <table class="listTable" border="1px">
                             <tr>
-                                <th class="orderID">Order Number</th>
-                                <th class="orderDate">Order Date</th>
-                                <th class="customerName">Customer Name</th>
-                                <th class="customerPhone1">Phone 1</th>
-                                <th class="customerPhone2">Phone 2</th>
-                                <th class="customerAddress">Address</th>
-                                <th class="tName">Product Name</th>
-                                <th class="tQuantity">Quantity</th>
-                                <th class="tPrice">Price (Rs. )</th>
-                                <th class="totalPrice">Total Price(Rs.)</th>
+                                <th class="supplyID">Supply ID</th>
+                                <th class="supplierName">Supplier Name</th>
+                                <th class="reqDate">Requested Date</th>
+                                <th class="supplyDate">Supply Date</th>
+                                <th class="supplyQuantity">Quantity(kg)</th>
+                                <th class="ourPrice">Our Price (Rs. )</th>
+                                <th class="theirPrice">Their Price (Rs. )</th>
+                                <th class="Phone">Phone</th>
+                                <th class="comments">Comments</th>
                                 <th class="tStatus">Status</th>
                                 <th class="tAction">Action</th>
+                            </tr>
+                            <tr>
+                                <td class="supplyID">1</td>
+                                <td class="supplierName">Upali Coco Products</td>
+                                <td class="reqDate">08/12/2024</td>
+                                <td class="supplyDate">10/12/2024</td>
+                                <td class="supplyQuantity">2000</td>
+                                <td class="ourPrice">125.50</td>
+                                <td class="theirPrice">125.50</td>
+                                <td class="Phone">0788753442</td>
+                                <td class="comments">null</td>
+                                <td class="tStatus">Rejected</td>
+                                <td class="tAction"><a href="#"><i class="fa-solid fa-thumbs-up" title="Accept"></i></a> | 
+                                                    <a href="#"><i class="fa-solid fa-thumbs-down" title="Reject"></i></a> | 
+                                                    <a href="#"><i class="fa-solid fa-trash-can" title="Delete"></i></a></td>
+                            </tr>
+                            <tr>
+                                <td class="supplyID">2</td>
+                                <td class="supplierName">Aberathne</td>
+                                <td class="reqDate">09/12/2024</td>
+                                <td class="supplyDate">15/12/2024</td>
+                                <td class="supplyQuantity">2500</td>
+                                <td class="ourPrice">125.50</td>
+                                <td class="theirPrice">125.00</td>
+                                <td class="Phone">0788759466</td>
+                                <td class="comments">Lower price</td>
+                                <td class="tStatus">Accepted</td>
+                                <td class="tAction"><a href="#"><i class="fa-solid fa-thumbs-up" title="Accept"></i></a> | 
+                                                    <a href="#"><i class="fa-solid fa-thumbs-down" title="Reject"></i></a> | 
+                                                    <a href="#"><i class="fa-solid fa-trash-can" title="Delete"></i></a></td>
+                            </tr>
+                            <tr>
+                                <td class="supplyID">3</td>
+                                <td class="supplierName">Jayindi Coco Lanka</td>
+                                <td class="reqDate">09/12/2024</td>
+                                <td class="supplyDate">11/12/2024</td>
+                                <td class="supplyQuantity">10000</td>
+                                <td class="ourPrice">125.50</td>
+                                <td class="theirPrice">125.50</td>
+                                <td class="Phone">0766753442</td>
+                                <td class="comments">Ten thousand kilo grams</td>
+                                <td class="tStatus">null</td>
+                                <td class="tAction"><a href="#"><i class="fa-solid fa-thumbs-up" title="Accept"></i></a> | 
+                                                    <a href="#"><i class="fa-solid fa-thumbs-down" title="Reject"></i></a> | 
+                                                    <a href="#"><i class="fa-solid fa-trash-can" title="Delete"></i></a></td>
+                            </tr>
+                            <tr>
+                                <td class="supplyID">4</td>
+                                <td class="supplierName">Kamal Rathnasiri</td>
+                                <td class="reqDate">10/12/2024</td>
+                                <td class="supplyDate">20/12/2024</td>
+                                <td class="supplyQuantity">3600</td>
+                                <td class="ourPrice">125.50</td>
+                                <td class="theirPrice">124.50</td>
+                                <td class="Phone">0788555442</td>
+                                <td class="comments">null</td>
+                                <td class="tStatus">Accepted</td>
+                                <td class="tAction"><a href="#"><i class="fa-solid fa-thumbs-up" title="Accept"></i></a> | 
+                                                    <a href="#"><i class="fa-solid fa-thumbs-down" title="Reject"></i></a> | 
+                                                    <a href="#"><i class="fa-solid fa-trash-can" title="Delete"></i></a></td>
+                            </tr>
+                            <tr>
+                                <td class="supplyID">5</td>
+                                <td class="supplierName">Samagi Products</td>
+                                <td class="reqDate">18/12/2024</td>
+                                <td class="supplyDate">30/12/2024</td>
+                                <td class="supplyQuantity">1000</td>
+                                <td class="ourPrice">125.50</td>
+                                <td class="theirPrice">125.50</td>
+                                <td class="Phone">0788753442</td>
+                                <td class="comments">null</td>
+                                <td class="tStatus">null</td>
+                                <td class="tAction"><a href="#"><i class="fa-solid fa-thumbs-up" title="Accept"></i></a> | 
+                                                    <a href="#"><i class="fa-solid fa-thumbs-down" title="Reject"></i></a> | 
+                                                    <a href="#"><i class="fa-solid fa-trash-can" title="Delete"></i></a></td>
                             </tr>
                             
                         </table>
