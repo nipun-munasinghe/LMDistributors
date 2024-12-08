@@ -47,10 +47,10 @@
                 <h1>Welcome AdminName!</h1>
             </div>
 
-            <h2 class="displayProductH2">All orders <i class="fa-solid fa-box-open"></i></h2>
+            <h2 class="displayOrdersH2">All orders <i class="fa-solid fa-box-open"></i></h2>
 
             <center>
-            <div class="displayProducts">
+            <div class="displayOrders">
                 <div class="custom-scroll">
                     <div class="content" id="scrollable-content">
                         <table class="listTable" border="1px">
