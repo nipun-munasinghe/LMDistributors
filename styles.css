@@ -7,3 +7,42 @@ h1 {
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
 }
+
+/* styles.css */
+body {
+    margin: 0;
+    padding: 0;
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to right, #4facfe, #00f2fe);
+    font-family: Arial, sans-serif;
+    color: #fff;
+}
+
+.text-container {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    overflow: hidden;
+}
+
+#animated-text {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid #fff;
+    animation: typing 3s steps(20, end), blink 0.5s step-end infinite;
+}
+
+/* Typing effect */
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+/* Blinking cursor */
+@keyframes blink {
+    50% { border-color: transparent; }
+}
