@@ -59,7 +59,7 @@
             <div class="todayPrice">
                 <h2>L.M. Distributors' Today Price</h2>
                 <div class="priceContainer">
-                    <p>Today Price: <strong>Rs. 135.50</strong> per 1kg</p>
+                    <p>Today Price: <strong>Rs. 125.50</strong> per 1kg</p>
                 </div>
             </div>
 
@@ -81,7 +81,7 @@
                         </div>
                         <div class="separation">
                             <label for="yourPrice">Your price (Rs. per kg): </label>
-                            <input type="number" id="yourPrice" name="yourPrice" step="0.01" min="0" max="135.50" value="135.50" required>
+                            <input type="number" id="yourPrice" name="yourPrice" step="0.01" min="0" max="125.50" value="125.50" required>
                         </div>
                         <div class="separation">
                             <label for="supplyDate">Date, you can supply: </label>
