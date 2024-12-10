@@ -1,0 +1,226 @@
+/* General Styles */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #FAF3E0;
+    color: #333;
+}
+
+/* Container Styling */
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+/* Sidebar Styling */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background: #4CAF50;
+    color: #fff;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.sidebar-header {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sidebar-header h2 {
+    font-size: 18px;
+}
+
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-menu li {
+    padding: 15px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar-menu li a{
+    text-decoration: none;
+    color: #fff;
+}
+
+.sidebar-menu li:hover {
+    background-color: #3E8E41;
+}
+
+.sidebar-menu i {
+    margin-right: 10px;
+}
+
+/* Close Icon */
+#close-sidebar {
+    cursor: pointer;
+}
+
+/* Sidebar Toggle Styling */
+.sidebar.active {
+    left: 0;
+}
+
+/* Main Content Styling */
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+    margin-left: 60px;
+}
+
+/* Top-bar Styling */
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.topbar i {
+    font-size: 24px;
+    cursor: pointer;
+    color: #fff;
+}
+
+.topbar h1 {
+    color: #fff;
+}
+
+/* scroll bars */
+.custom-scroll {
+    border: none;
+    border-radius: 10px;
+    background-color: #fff;
+    width: fit-content;
+    max-height: 600px;
+    height: fit-content;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1s ease-in-out;
+}
+
+.content {
+    max-height: 600px;
+    height: fit-content;
+    overflow-y: scroll; /* Enable vertical scrolling */
+    overflow-x: scroll; /* Enable horizontal scrolling */
+    scroll-behavior: smooth;
+    padding: 10px;
+    box-sizing: content-box;
+}
+
+.scrollbar {
+    width: 10px;
+    height: 100%;
+    background: #fff;
+    position: absolute;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+}
+
+/* table styles */
+.listTable {
+    border-collapse: collapse;
+    border: 1px solid #3E8E41;
+}
+
+.listTable th {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 5px;
+}
+
+.listTable td {
+    text-align: center;
+    background-color: #fff;
+    padding: 5px;
+}
+
+.message {
+    max-width: 350px;
+}
+
+.tAction {
+    width: 80px;
+}
+
+.fa-thumbs-up {
+    color: #4CAF50;
+}
+.fa-thumbs-up:hover {
+    color: #3E8E41;
+}
+
+.fa-trash-can {
+    color: red;
+}
+.fa-trash-can:hover {
+    color: rgb(149, 28, 28);
+}
+
+/* Quick Links Section */
+.quick {
+    display: flex;
+    justify-content: space-between;
+}
+
+.quickH2, .displaySuppliersH2 {
+    font-size: 24px;
+    color: #8B4513;
+    margin-bottom: 20px;
+}
+
+.card {
+    border: none;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px;
+    width: 170px;
+    background-color: #4CAF50;
+    cursor: pointer;
+    text-align: center;
+    transition: transform 1s ease;
+}
+
+.card a {
+    text-decoration: none;
+    font-size: 25px;
+    color: #fff;
+}
+
+.card a:hover {
+    color: #FFD700;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

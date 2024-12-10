@@ -33,6 +33,7 @@
                 <li><a href="./manageProducts.php"><i class="fa-solid fa-store"></i> Manage Products</a></li>
                 <li><a href="./manageOrders.php"><i class="fa-solid fa-cart-shopping"></i> Manage Orders</a></li>
                 <li><a href="./todayPrice.php"><i class="fa-solid fa-money-bill-1-wave"></i> Today's Price List</a></li>
+                <li><a href="./buyersManagement.php"><i class="fa-solid fa-shop"></i> Mange Buyers</a></li>
                 <li><a href="./viewIncome.php"><i class="fas fa-chart-line"></i> View Income</a></li>
                 <li><a href="./accSettings.php"><i class="fas fa-cog"></i> Settings</a></li>
                 <li><a href="./logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
