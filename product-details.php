@@ -22,9 +22,7 @@
     <section class="product-details">
         <div class="product-card">
             <div class="product-image">
-                <!-- Replace with actual image -->
-                <img src="./images/sample-product.jpg" alt="Product Image" />
-                <!-- Image size: 500x500px -->
+                <img src="./images/slide2.jpg" alt="Product Image" />
             </div>
             
             <div class="product-info">
@@ -33,7 +31,7 @@
                     This high-quality coconut oil is perfect for cooking, skincare, and more. Extracted from the freshest coconuts, it ensures purity and natural goodness.
                 </p>
                 <p class="product-price">Price: Rs. 250.00</p>
-                <button class="purchase-button">Purchase Now</button>
+                <button class="purchase-button" title="Click to buy">Purchase Now</button>
             </div>
         </div>
     </section>

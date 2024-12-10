@@ -24,7 +24,7 @@
         <aside id="sidebar" class="sidebar">
             <div class="sidebar-header">
                 <h2>Admin Dashboard</h2>
-                <i class="fas fa-times" id="close-sidebar" title="Close Side Bar"></i>
+                <i class="fas fa-times" id="close-sidebar" title="Close Dashboard"></i>
             </div>
 
             <ul class="sidebar-menu">
@@ -46,7 +46,7 @@
         <div class="main-content">
             <!-- Topbar -->
             <div class="topbar">
-                <i class="fas fa-bars" id="toggle-sidebar" title="Open Side Bar"></i>
+                <i class="fas fa-bars" id="toggle-sidebar" title="Open Dashboard"></i>
                 <h1>Welcome AdminName!</h1>
             </div>
 
@@ -56,7 +56,7 @@
                     <div class="inputCard">
                         <form action="#" method="POST">
                             <input type="number" min="0" step="0.01" id="buyerPrice" name="buyerPrice" placeholder="Enter Today's Price for Buyers..." required>
-                            <button class="addBtn" id="buyerPriceBtn" name="buyerPriceBtn" type="submit" title="Add Price">Add Buyer's Price</button>
+                            <button class="addBtn" id="buyerPriceBtn" name="buyerPriceBtn" type="submit" title="Add Price for Buyers">Add Buyer's Price</button>
                         </form>
                     </div>
                     <br>
@@ -71,7 +71,7 @@
                     <div class="inputCard">
                         <form action="#" method="POST">
                             <input type="number" min="0" step="0.01" id="supplierPrice" name="supplierPrice" placeholder="Enter Today's Price for Suppliers..." required>
-                            <button class="addBtn" id="supplierPriceBtn" name="supplierPriceBtn" type="submit" title="Add Price">Add Supplier's Price</button>
+                            <button class="addBtn" id="supplierPriceBtn" name="supplierPriceBtn" type="submit" title="Add Price for Suppliers">Add Supplier's Price</button>
                         </form>
                     </div>
                     <br>

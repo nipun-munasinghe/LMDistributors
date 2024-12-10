@@ -66,6 +66,10 @@ body {
   text-decoration: none;
 }
 
+.fa-facebook-f:hover, .fa-instagram:hover, .fa-linkedin-in:hover {
+  color: #3e8e41;
+}
+
 .social-media a:hover {
   text-decoration: underline;
 }
@@ -84,7 +88,7 @@ body {
 }
 
 button:hover {
-  background-color: #8B4513;
+  background-color: #3e8e41;
 }
 
 /* Form Section */
@@ -139,7 +143,7 @@ form button {
 }
 
 form button:hover {
-  background-color: #8B4513;
+  background-color: #3e8e41;
 }
 
 /* Animations */

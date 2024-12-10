@@ -24,25 +24,17 @@
             
             <div class="bar">
                 <nav class="nav-links">
-                    <a href="./index.php">Home</a>
-                    <a href="./products.php">Products</a>
-                    <a href="./about.php">About Us</a>
-                    <a href="./contact.php">Contact Us</a>
+                    <a href="./index.php" title="Home">Home</a>
+                    <a href="./products.php" title="Products">Products</a>
+                    <a href="./about.php" title="About L.M. Distributors">About Us</a>
+                    <a href="./contact.php" title="Contact">Contact Us</a>
                 </nav>
             </div>
-            
-            <!-- <div class="mode-switch">
-                <label for="theme-toggle">
-                    <span class="fas fa-sun" id="sun-icon"></span>
-                    <input type="checkbox" id="theme-toggle">
-                    <span class="fas fa-moon" id="moon-icon"></span>
-                </label>
-            </div> -->
         </div>
 
         <div class="loginBtns">
-            <button id="hLogin" onclick="window.location.href='./login.php'">Sign In</button>
-            <button id="hLSignup" onclick="window.location.href='./register.php'">Sign Up</button>
+            <button id="hLogin" onclick="window.location.href='./login.php'" title="Login">Sign In</button>
+            <button id="hLSignup" onclick="window.location.href='./register.php'" title="Register">Sign Up</button>
         </div>
     </header>
     

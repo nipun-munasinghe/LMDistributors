@@ -24,7 +24,7 @@
         <aside id="sidebar" class="sidebar">
             <div class="sidebar-header">
                 <h2>Supplier Dashboard</h2>
-                <i title="Close" class="fas fa-times" id="close-sidebar"></i>
+                <i title="Close Dashboard" class="fas fa-times" id="close-sidebar"></i>
             </div>
 
             <ul class="sidebar-menu">
@@ -38,7 +38,7 @@
         <div class="main-content">
             <!-- Topbar -->
             <div class="topbar">
-                <i class="fas fa-bars" id="toggle-sidebar" title="Dashboard"></i>
+                <i class="fas fa-bars" id="toggle-sidebar" title="Open Dashboard"></i>
                 <h1>Welcome SupplierName!</h1>
             </div>
 

@@ -24,7 +24,7 @@
         <aside id="sidebar" class="sidebar">
             <div class="sidebar-header">
                 <h2>Admin Dashboard</h2>
-                <i class="fas fa-times" id="close-sidebar"></i>
+                <i class="fas fa-times" id="close-sidebar" title="Close Dashboard"></i>
             </div>
 
             <ul class="sidebar-menu">
@@ -46,7 +46,7 @@
         <div class="main-content">
             <!-- Topbar -->
             <div class="topbar">
-                <i class="fas fa-bars" id="toggle-sidebar"></i>
+                <i class="fas fa-bars" id="toggle-sidebar" title="Open Dashboard"></i>
                 <h1>Welcome AdminName!</h1>
             </div>
 

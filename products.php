@@ -25,29 +25,29 @@
         <!-- Search Bar -->
         <div class="search-bar">
             <input type="text" id="searchInput" placeholder="Search for products...">
-            <button id="searchButton"><i class="fas fa-search"></i></button>
+            <button id="searchButton" title="Search products"><i class="fas fa-search"></i></button>
         </div>
 
         <!-- Product Cards -->
         <div class="product-grid" id="productGrid">
             
             <div class="product-card">
-                <img src="./images/coconut1.jpg" alt="Coconut Premium Quality">
+                <img src="./images/slide1.jpg" alt="Coconut Premium Quality">
                 <h3>Premium Coconut</h3>
                 <p>Price: Rs. 500.00</p>
-                <button class="view-details"  onclick="window.location.href='./product-details.php'">View Details</button>
+                <button class="view-details" onclick="window.location.href='./product-details.php'" title="View Product">View Details</button>
             </div>
             <div class="product-card">
-                <img src="./images/coconut2.jpg" alt="Organic Coconut">
+                <img src="./images/slide2.jpg" alt="Organic Coconut">
                 <h3>Organic Coconut</h3>
                 <p>Price: Rs. 650.00</p>
-                <button class="view-details"  onclick="window.location.href='./product-details.php'">View Details</button>
+                <button class="view-details" onclick="window.location.href='./product-details.php'" title="View Product">View Details</button>
             </div>
             <div class="product-card">
-                <img src="./images/coconut3.jpg" alt="Large Coconut">
+                <img src="./images/slide3.jpg" alt="Large Coconut">
                 <h3>Large Coconut</h3>
                 <p>Price: Rs. 790.00</p>
-                <button class="view-details" onclick="window.location.href='./product-details.php'">View Details</button>
+                <button class="view-details" onclick="window.location.href='./product-details.php'" title="View Product">View Details</button>
             </div>
         </div>
     </section>

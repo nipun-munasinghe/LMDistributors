@@ -38,7 +38,7 @@
                 <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
             </div>
             
-            <center><button id="ask-button" onclick="window.location.href='./contact-msg.php'">Ask Anything?</button></center>
+            <center><button id="ask-button" onclick="window.location.href='./contact-msg.php'" title="Click to Ask">Ask Anything?</button></center>
             
         </div>
     </div>

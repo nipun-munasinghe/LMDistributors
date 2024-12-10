@@ -52,8 +52,8 @@
 
         <!-- Footer -->
         <footer class="terms-footer">
-            <p>If you have questions, please <a href="./contact.php">Contact Us</a></p>
-            <a href="./register.php" class="back-button">Back to Register</a>
+            <p>If you have questions, please <a href="./contact.php" title="Contact">Contact Us</a></p>
+            <a href="./register.php" class="back-button"  title="Register">Back to Register</a>
         </footer>
     </div>
 

@@ -54,7 +54,7 @@ body {
 }
 
 .search-bar button:hover {
-    background-color: #8B4513;
+    background-color: #3E8E41;
 }
 
 .product-grid {
@@ -112,8 +112,8 @@ body {
     transition: background-color 0.3s ease;
 }
 
-.product-card .view-details:hover {
-    background-color: #8B4513;
+.view-details:hover {
+    background-color: #3E8E41;
 }
 
 /* Keyframes for animations */

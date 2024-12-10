@@ -24,7 +24,7 @@
         <aside id="sidebar" class="sidebar">
             <div class="sidebar-header">
                 <h2>Admin Dashboard</h2>
-                <i class="fas fa-times" id="close-sidebar"></i>
+                <i class="fas fa-times" id="close-sidebar" title="Close Dashboard"></i>
             </div>
 
             <ul class="sidebar-menu">
@@ -46,13 +46,13 @@
         <div class="main-content">
             <!-- Topbar -->
             <div class="topbar">
-                <i class="fas fa-bars" id="toggle-sidebar"></i>
+                <i class="fas fa-bars" id="toggle-sidebar" title="Open Dashboard"></i>
                 <h1>Welcome AdminName!</h1>
             </div>
 
             <h2 class="hiddenFormH2">Looking for add a new product? </h2>
             <center>
-                <button type="submit" class="hiddenFormBtn" id="hiddenFormBtn" name="hiddenFormBtn"><i class="fa-solid fa-plus"></i> Add New Product</button>
+                <button type="submit" class="hiddenFormBtn" id="hiddenFormBtn" name="hiddenFormBtn" title="Add Product"><i class="fa-solid fa-plus"></i> Add New Product</button>
             </center>
 
             <div id="formContainer" class="hidden">
@@ -81,7 +81,7 @@
                     <input type="number" id="quantity" name="quantity" min="0" placeholder="Enter available product quantity" required>
 
                     <center>
-                        <button type="submit" id="submitBtn">Add</button>
+                        <button type="submit" id="submitBtn" title="Click to add product">Add</button>
                     </center>
                 </form>
             </div>

@@ -58,13 +58,6 @@
     align-items: center;
 }
 
-.header .mode-switch .fa-sun,
-.header .mode-switch .fa-moon {
-    color: #FFD700;
-    font-size: 1.2rem;
-    cursor: pointer;
-}
-
 .header #hLogin, .header #hLSignup {
     font-size: 16px;
     padding: 10px;

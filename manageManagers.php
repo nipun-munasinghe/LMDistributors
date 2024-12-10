@@ -24,7 +24,7 @@
         <aside id="sidebar" class="sidebar">
             <div class="sidebar-header">
                 <h2>Admin Dashboard</h2>
-                <i class="fas fa-times" id="close-sidebar"></i>
+                <i class="fas fa-times" id="close-sidebar" title="Close Dashboard"></i>
             </div>
 
             <ul class="sidebar-menu">
@@ -46,7 +46,7 @@
         <div class="main-content">
             <!-- Topbar -->
             <div class="topbar">
-                <i class="fas fa-bars" id="toggle-sidebar"></i>
+                <i class="fas fa-bars" id="toggle-sidebar" title="Open Dashboard"></i>
                 <h1>Welcome AdminName!</h1>
             </div>
 
@@ -80,7 +80,7 @@
                         </div>
                         
                         <center>
-                            <button type="submit" id="addBtn" name="addBtn" ><i class="fa-solid fa-user-plus"></i> Add Manager</button>
+                            <button type="submit" id="addBtn" name="addBtn" title="Click to add manager"><i class="fa-solid fa-user-plus"></i> Add Manager</button>
                         </center>
                     </form>
                 </div>
@@ -91,14 +91,14 @@
                         <div class="checkCard">
                             <form action="#" method="POST">
                                 <input type="text" id="checkmail" name="checkmail" placeholder="Enter email" required>
-                                <button id="checkMailBtn" name="checkMailBtn"><i class="fa-solid fa-magnifying-glass"></i> Check</button>
+                                <button id="checkMailBtn" name="checkMailBtn" title="Check Availability"><i class="fa-solid fa-magnifying-glass"></i> Check</button>
                                 <div class="status">
                                     <label for="status"><strong>Status: </strong>Active</label>
                                 </div>
                                 <div class="btns">
-                                    <button id="activate" name="activate">Activate <i class="fa-regular fa-thumbs-up"></i></button>
-                                    <button id="deactivate" name="deactivate">Deactivate <i class="fa-solid fa-user-lock"></i></button>
-                                    <button id="remove" name="remove">Remove <i class="fa-regular fa-trash-can"></i></button>
+                                    <button id="activate" name="activate" title="Activate">Activate <i class="fa-regular fa-thumbs-up"></i></button>
+                                    <button id="deactivate" name="deactivate" title="Deactivate">Deactivate <i class="fa-solid fa-user-lock"></i></button>
+                                    <button id="remove" name="remove" title="Remove">Remove <i class="fa-regular fa-trash-can"></i></button>
                                 </div>
                             </form>
                         </div>

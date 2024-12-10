@@ -21,7 +21,7 @@
         <div class="hero-text">
             <h2>Welcome to L. M. Distributors</h2>
             <p>Your trusted partner for high-quality<br> coconut products.</p>
-            <a href="products.php" class="btn-primary">Explore Products</a>
+            <a href="products.php" class="btn-primary" title="Browse Products">Explore Products</a>
         </div>
     </section>
 

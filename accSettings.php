@@ -24,7 +24,7 @@
         <aside id="sidebar" class="sidebar">
             <div class="sidebar-header">
                 <h2>Customer Profile</h2>
-                <i class="fas fa-times" id="close-sidebar"></i>
+                <i class="fas fa-times" id="close-sidebar" title="Close Dashboard"></i>
             </div>
             <ul class="sidebar-menu">
                 <li><a href="./admin.php" title="Your Profile"><i class="fa-solid fa-user"></i> My Profile</a></li>
@@ -40,7 +40,7 @@
                 <li><a href="./logout.php" title="Logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
             </ul>
         </aside>
-        <i class="fas fa-bars" id="toggle-sidebar"></i>
+        <i class="fas fa-bars" id="toggle-sidebar" title="Open Dashboard"></i>
 
         <section class="profile-section">
             <h2>Profile Details</h2>

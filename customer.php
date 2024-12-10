@@ -24,8 +24,9 @@
         <aside id="sidebar" class="sidebar">
             <div class="sidebar-header">
                 <h2>Customer Profile</h2>
-                <i class="fas fa-times" id="close-sidebar"></i>
+                <i class="fas fa-times" id="close-sidebar" title="Close Dashboard"></i>
             </div>
+            
             <ul class="sidebar-menu">
                 <li><a href="./customer.php"><i class="fas fa-user"></i> My Profile</a></li>
                 <li><a href="./products.php"><i class="fas fa-box-open"></i> Products</a></li>
@@ -38,7 +39,7 @@
         <div class="main-content">
             <!-- Topbar -->
             <div class="topbar">
-                <i class="fas fa-bars" id="toggle-sidebar"></i>
+                <i class="fas fa-bars" id="toggle-sidebar" title="Open Dashboard"></i>
                 <h1>Welcome CustomerName!</h1>
             </div>
 
@@ -51,7 +52,7 @@
                         <p><strong>Name:</strong> Customer Name</p>
                         <p><strong>Email:</strong> customer@gmail.com</p>
                         <p><strong>Phone:</strong> +94 78 456 7880</p>
-                        <button class="btn edit-profile" onclick="window.location.href='./accSettings.php'"><i class="fa-solid fa-pen"></i> Edit Profile</button>
+                        <button class="btn edit-profile" onclick="window.location.href='./accSettings.php'"  title="Edit Profile"><i class="fa-solid fa-pen"></i> Edit Profile</button>
                     </div>
                 </div>
             </section>
@@ -60,40 +61,38 @@
             <div class="slideshow-container">
                 <!-- Slide 1 -->
                 <div class="slide fade">
-                    <img src="./images/slide1.jpg" alt="Slide 1">
+                    <a href="./products.php"><img src="./images/slide1.jpg" alt="Slide 1"></a>
                 </div>
                 <!-- Slide 2 -->
                 <div class="slide fade">
-                    <img src="./images/slide2.jpg" alt="Slide 2">
+                    <a href="./products.php"><img src="./images/slide2.jpg" alt="Slide 2"></a>
                 </div>
                 <!-- Slide 3 -->
                 <div class="slide fade">
-                    <img src="./images/slide3.jpg" alt="Slide 3">
+                    <a href="./products.php"><img src="./images/slide3.jpg" alt="Slide 3"></a>
                 </div>
                 <!-- Slide 4 -->
                 <div class="slide fade">
-                    <img src="./images/slide4.jpg" alt="Slide 4">
+                    <a href="./products.php"><img src="./images/slide4.jpg" alt="Slide 4"></a>
                 </div>
             </div>
 
             <h2>Quick Actions</h2>
             <div class="actions">
                 <div class="card">
-                    <a href="./products.php"><i class="fas fa-box-open"></i><br>Products</a>
+                    <a href="./products.php" title="Browse Products"><i class="fas fa-box-open"></i><br>Products</a>
                 </div>
                 <div class="card">
-                    <a href="./accSettings.php"><i class="fa-solid fa-wrench"></i><br>Account Settings</a>
+                    <a href="./accSettings.php" title="Edit profile & Change password"><i class="fa-solid fa-wrench"></i><br>Account Settings</a>
                 </div>
                 <div class="card">
-                    <a href="./logout.php"><i class="fas fa-sign-out-alt"></i><br>Logout</a>
+                    <a href="./logout.php" title="Logout"><i class="fas fa-sign-out-alt"></i><br>Logout</a>
                 </div>
             </div>
-
             <br>
         </div>
     </div>
     
     <script src="./js/sideBar.js"></script>
-
 </body>
 </html>

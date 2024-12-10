@@ -12,16 +12,16 @@
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-section">
-                <h3>About Us</h3>
+                <a href="./about.php"  title="About L.M. Distributors"><h3>About Us</h3></a>
                 <p>L. M. Distributors connects suppliers and buyers with the finest coconuts in the region. 
                     We're committed to quality, freshness, and reliable service, ensuring every order meets your standards. 
                     Partner with us for a seamless coconut trading experience!</p>
             </div>
             <div class="footer-section">
                 <h3>Quick Links</h3>
-                <a href="./terms.php">Terms & Conditions</a>
-                <a href="./privacy.php">Privacy Policy</a>
-                <a href="./faq.php">FAQ</a>
+                <a href="./terms.php" title="View About">Terms & Conditions</a>
+                <a href="./privacy.php" title="View Privacy Policy">Privacy Policy</a>
+                <a href="./faq.php" title="View FAQ">FAQ</a>
             </div>
             <div class="footer-section">
                 <h3>Contact Us</h3>

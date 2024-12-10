@@ -24,7 +24,7 @@
         <aside id="sidebar" class="sidebar">
             <div class="sidebar-header">
                 <h2>Manager Dashboard</h2>
-                <i title="close" class="fas fa-times" id="close-sidebar"></i>
+                <i class="fas fa-times" id="close-sidebar" title="Close Dashboard"></i>
             </div>
 
             <ul class="sidebar-menu">
@@ -45,7 +45,7 @@
         <div class="main-content">
             <!-- Topbar -->
             <div class="topbar">
-                <i class="fas fa-bars" id="toggle-sidebar"></i>
+                <i class="fas fa-bars" id="toggle-sidebar" title="Open Dashboard"></i>
                 <h1>Welcome ManagerName!</h1>
             </div>
 
@@ -58,7 +58,7 @@
                         <p><strong>Name:</strong> Manager Name</p>
                         <p><strong>Email:</strong> manager@gmail.com</p>
                         <p><strong>Phone:</strong> +94 73 456 7890</p>
-                        <button class="btn edit-profile" onclick="window.location.href='./accSettings.php'"><i class="fa-solid fa-pen"></i> Edit Profile</button>
+                        <button class="btn edit-profile" onclick="window.location.href='./accSettings.php'" title="Edit Profile"><i class="fa-solid fa-pen"></i> Edit Profile</button>
                     </div>
                 </div>
             </section>

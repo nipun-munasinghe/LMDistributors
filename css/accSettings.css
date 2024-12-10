@@ -71,6 +71,12 @@ h1, h2 {
     cursor: pointer;
 }
 
+.fa-bars {
+    color: #4CAF50;
+    font-size: 30px;
+    margin-left: 20px;
+}
+
 /* Sidebar Toggle Styling */
 .sidebar.active {
     left: 0;
@@ -162,7 +168,8 @@ button {
 }
 
 button:hover {
-    background-color: #8B4513;
+    background-color: #3E8E41;
+    color: #FFD700;
 }
 
 /* Animations */

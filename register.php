@@ -77,12 +77,12 @@
                 <div class="input-group checkbox-group">
                     <label>
                         <input type="checkbox" id="terms" name="terms" required>
-                        I agree to the <a href="./terms.php">Terms & Conditions</a>
+                        I agree to the <a href="./terms.php" title="View T&C">Terms & Conditions</a>
                     </label>
                 </div>
 
-                <button type="submit" id="register-button">Register</button>
-                <p>Already have an account? <a href="./login.php">Sign In</a></p>
+                <button type="submit" id="register-button" title="Click to Register">Register</button>
+                <p>Already have an account? <a href="./login.php" title="Login">Sign In</a></p>
             </form>
         </div>
     </div>

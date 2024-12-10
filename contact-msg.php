@@ -31,7 +31,7 @@
             <textarea id="description" rows="6" placeholder="Write your message" required></textarea>
             
             <center>
-                <button type="submit">Submit</button>
+                <button type="submit" name="submitMessage" title="Submit Message">Submit</button>
             </center>
         </form>
     </div>

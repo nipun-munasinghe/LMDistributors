@@ -37,10 +37,10 @@
                     <label for="show-password" class="showPwd">Show Password</label>
                 </div>
         
-                <button type="button" id="next-button">
+                <button type="button" id="next-button" title="Click to Login">
                     NEXT <span class="arrow">&rarr;</span>
                 </button>
-                <p>Don't you have an account? <a href="./register.php">Sign Up</a></p>
+                <p>Don't you have an account? <a href="./register.php" title="Register">Sign Up</a></p>
             </form>
         </div>
     </div>
