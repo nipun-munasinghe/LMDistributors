@@ -172,9 +172,15 @@ body {
 .fa-edit {
     color: #4CAF50;
 }
+.fa-edit:hover {
+    color: blue;
+}
 
 .fa-trash {
     color: red;
+}
+.fa-trash:hover {
+    color: #8B4513;
 }
 
 /* quick action cards */

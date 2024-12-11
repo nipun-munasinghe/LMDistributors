@@ -83,7 +83,7 @@
                                 <td class="tPrice">500.00</td>
                                 <td class="totalPrice">2500.00</td>
                                 <td class="tStatus">Pending</td>
-                                <td class="tAction"><a href="#"><i class="fa-solid fa-edit"></i></a> | <a href="#"><i class="fa-solid fa-trash"></i></a></td>
+                                <td class="tAction"><a href="#" title="Edit status"><i class="fa-solid fa-edit"></i></a> | <a href="#" title="Delete Order"><i class="fa-solid fa-trash"></i></a></td>
                             </tr>
                             <tr>
                                 <td class="orderID">2</td>
@@ -97,7 +97,7 @@
                                 <td class="tPrice">100.00</td>
                                 <td class="totalPrice">1000.00</td>
                                 <td class="tStatus">Completed</td>
-                                <td class="tAction"><a href="#"><i class="fa-solid fa-edit"></i></a> | <a href="#"><i class="fa-solid fa-trash"></i></a></td>
+                                <td class="tAction"><a href="#" title="Edit status"><i class="fa-solid fa-edit"></i></a> | <a href="#" title="Delete Order"><i class="fa-solid fa-trash"></i></a></td>
                             </tr>
                             <tr>
                                 <td class="orderID">3</td>
@@ -111,7 +111,7 @@
                                 <td class="tPrice">500.00</td>
                                 <td class="totalPrice">500.00</td>
                                 <td class="tStatus">Shipped</td>
-                                <td class="tAction"><a href="#"><i class="fa-solid fa-edit"></i></a> | <a href="#"><i class="fa-solid fa-trash"></i></a></td>
+                                <td class="tAction"><a href="#" title="Edit Status"><i class="fa-solid fa-edit"></i></a> | <a href="#"><i class="fa-solid fa-trash" title="Delete Order"></i></a></td>
                             </tr>
                             <tr>
                                 <td class="orderID">4</td>
@@ -125,7 +125,7 @@
                                 <td class="tPrice">600.00</td>
                                 <td class="totalPrice">3000.00</td>
                                 <td class="tStatus">Pending</td>
-                                <td class="tAction"><a href="#"><i class="fa-solid fa-edit"></i></a> | <a href="#"><i class="fa-solid fa-trash"></i></a></td>
+                                <td class="tAction"><a href="#" title="Edit status"><i class="fa-solid fa-edit"></i></a> | <a href="#"><i class="fa-solid fa-trash" title="Delete Order"></i></a></td>
                             </tr>
                             <tr>
                                 <td class="orderID">5</td>
@@ -139,7 +139,7 @@
                                 <td class="tPrice">80.00</td>
                                 <td class="totalPrice">4000.00</td>
                                 <td class="tStatus">Shipped</td>
-                                <td class="tAction"><a href="#"><i class="fa-solid fa-edit"></i></a> | <a href="#"><i class="fa-solid fa-trash"></i></a></td>
+                                <td class="tAction"><a href="#" title="Edit status"><i class="fa-solid fa-edit"></i></a> | <a href="#"><i class="fa-solid fa-trash" title="Delete Order"></i></a></td>
                             </tr>
                         </table>
                     </div>
