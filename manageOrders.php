@@ -65,6 +65,7 @@
                                 <th class="customerPhone2">Phone 2</th>
                                 <th class="customerAddress">Address</th>
                                 <th class="tName">Product Name</th>
+                                <th class="productID">Product ID</th>
                                 <th class="tQuantity">Quantity</th>
                                 <th class="tPrice">Price (Rs. )</th>
                                 <th class="totalPrice">Total Price(Rs.)</th>
@@ -79,6 +80,7 @@
                                 <td class="customerPhone2">0718567899</td>
                                 <td class="customerAddress">no 125/A, big brain road, Kollupitiya, Sri Lanka.</td>
                                 <td class="tName">Coconut Oil</td>
+                                <td class="productID">4</td>
                                 <td class="tQuantity">5</td>
                                 <td class="tPrice">500.00</td>
                                 <td class="totalPrice">2500.00</td>
@@ -93,6 +95,7 @@
                                 <td class="customerPhone2">071 4567899</td>
                                 <td class="customerAddress">no 15/A, Nelum Uyana road, Kuliyapitiya, Sri Lanka.</td>
                                 <td class="tName">Coconut spoon</td>
+                                <td class="productID">6</td>
                                 <td class="tQuantity">10</td>
                                 <td class="tPrice">100.00</td>
                                 <td class="totalPrice">1000.00</td>
@@ -107,6 +110,7 @@
                                 <td class="customerPhone2">071 9567899</td>
                                 <td class="customerAddress">no 125/A, Keselgas mawatha, Chilaw, Sri Lanka.</td>
                                 <td class="tName">Coconut Mat</td>
+                                <td class="productID">2</td>
                                 <td class="tQuantity">1</td>
                                 <td class="tPrice">500.00</td>
                                 <td class="totalPrice">500.00</td>
@@ -121,6 +125,7 @@
                                 <td class="customerPhone2">+94714567949</td>
                                 <td class="customerAddress">No 12, Kaludiya pokuna road, Hiripitiya, Nugegoda, Sri Lanka.</td>
                                 <td class="tName">White Coconut Oil</td>
+                                <td class="productID">1</td>
                                 <td class="tQuantity">5</td>
                                 <td class="tPrice">600.00</td>
                                 <td class="totalPrice">3000.00</td>
@@ -135,6 +140,7 @@
                                 <td class="customerPhone2">071 4567899</td>
                                 <td class="customerAddress">18/5, A1 road, Negombo, Sri Lanka.</td>
                                 <td class="tName">Coconut water 200ml</td>
+                                <td class="productID">9</td>
                                 <td class="tQuantity">50</td>
                                 <td class="tPrice">80.00</td>
                                 <td class="totalPrice">4000.00</td>
