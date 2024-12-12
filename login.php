@@ -1,3 +1,13 @@
+<!-- backend -->
+ <?php
+    session_start();
+
+    // include the database config file
+    require_once 'config.php';
+    
+ ?>
+
+<!-- html part -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
