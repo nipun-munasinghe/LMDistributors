@@ -32,10 +32,16 @@
             </div>
         </div>
 
-        <div class="loginBtns">
+        <div class="logout">
+            <button>
+            <a href="./logout.php" title="Sign Out"><i class="fa-solid fa-right-from-bracket"></i> Sign Out</a>
+            </button>
+        </div>
+
+        <!-- <div class="loginBtns">
             <button id="hLogin" onclick="window.location.href='./login.php'" title="Login">Sign In</button>
             <button id="hLSignup" onclick="window.location.href='./register.php'" title="Register">Sign Up</button>
-        </div>
+        </div> -->
     </header>
     
 <script src="./header.js"></script>
