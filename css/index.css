@@ -52,10 +52,10 @@ body, a {
     animation-delay: 1.5s;
     background-color: #4CAF50;
     color: #fff;
-    padding: 10px;
+    padding: 10px 20px;
     text-decoration: none;
     border-radius: 50px;
-    font-size: 1rem;
+    font-size: 0.9rem;
     text-align: center;
 }
 
