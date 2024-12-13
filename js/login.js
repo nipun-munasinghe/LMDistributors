@@ -7,4 +7,4 @@ document.getElementById('show-password').addEventListener('change', function () 
     else {
       passwordInput.type = 'password';
     }
-  });
+});
