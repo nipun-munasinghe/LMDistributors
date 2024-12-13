@@ -33,28 +33,23 @@
         </div>
 
         <?php
-        session_start();
-        // Check if user is logged in
-        if(isset($_SESSION['user_fName'])) {
-            echo "<div class='logout'>
-                    <button>
-                        <a href='./logout.php' title='Sign Out'><i class='fa-solid fa-right-from-bracket'></i> Sign Out</a>
-                    </button>
-                  </div>";
-        }
-        else {
-            echo "<div class='loginBtns'>
-                    <button id='hLogin' onclick=\"window.location.href='./login.php'\" title='Login'>Sign In</button>
-                    <button id='hLSignup' onclick=\"window.location.href='./register.php'\" title='Register'>Sign Up</button>
-                  </div>";
-        }
+            session_start();
+            // Check if user is logged in
+            if(isset($_SESSION['user_fName'])) {
+                echo "<div class='logout'>
+                        <button>
+                            <a href='./logout.php' title='Sign Out'><i class='fa-solid fa-right-from-bracket'></i> Sign Out</a>
+                        </button>
+                    </div>";
+            }
+            else {
+                echo "<div class='loginBtns'>
+                        <button id='hLogin' onclick=\"window.location.href='./login.php'\" title='Login'>Sign In</button>
+                        <button id='hLSignup' onclick=\"window.location.href='./register.php'\" title='Register'>Sign Up</button>
+                    </div>";
+            }
         ?>
         
-
-        
-
     </header>
-    
-<script src="./header.js"></script>
 </body>
 </html>
