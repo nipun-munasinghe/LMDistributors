@@ -6,11 +6,60 @@
     require_once 'config.php';
 
     if(isset($_POST['next-button'])) {
-        $email = $_POST['email'];
-        $password = $_POST['password'];
+        
+        //retrieve the email and password from post method
+        $email = mysqli_real_escape_string($conn, $_POST['email']);
+        $password = mysqli_real_escape_string($conn, $_POST['password']);
 
-        $sql = "SELECT * FROM user_info WHERE email = '$email' Limit 1";
-        $result = mysqli_query($conn, $sql);
+        //input validations
+        if(!empty($email) && !empty($password)){
+            $sql = "SELECT * FROM user_info WHERE email = ? AND status = 'active'";
+            $stmt = $conn->prepare($sql);
+            $stmt->bind_param("s", $email);
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            //check if table has only one email
+            if($result-> num_rows == 1) {
+                //get the user's data
+                $row = $result->fetch_assoc();
+
+                //verify password
+                if(password_verify($password, $row['password'])) {
+
+                    //store user details in sessions
+                    $_SESSION['user_id'] = $row['id'];
+                    $_SESSION['user_fName'] = $row['fName'];
+                    $_SESSION['user_email'] = $row['email'];
+                    $_SESSION['user_phone'] = $row['phone1'];
+                    $_SESSION['user_type'] = $row['type'];
+                    $_SESSION['user_status'] = $row['status'];
+
+                    //redirect users based on their user types
+                    switch($user['type']) {
+                        case 'admin':
+                            header("Location: admin.php");
+                            break;
+                        case 'manager':
+                            header("Location: manager.php");
+                            break;
+                        case 'customer':
+                            header("Location: customer.php");
+                            break;
+                        case 'buyer':
+                            header("Location: buyer.php");
+                            break;
+                        case'supplier':
+                            header("Location: supplier.php");
+                            break;
+                        default:
+                            header("Location: login.php");
+                            break;
+                    }
+                }
+            }
+        }
+
     }
 
  ?>
@@ -54,6 +103,8 @@
                     <input type="checkbox" id="show-password" class="showPwd">
                     <label for="show-password" class="showPwd">Show Password</label>
                 </div>
+
+                <p class="incorrect-password" id="incorrect-password"></p>
         
                 <button type="submit" id="next-button" name="next-button" title="Click to Login">
                     NEXT <span class="arrow">&rarr;</span>
