@@ -32,7 +32,7 @@
             $error = "Invalid email format.";
         }
         else if ($password !== $confirmPwd) {
-            $error = "Passwords do not match.";
+            $error = "Passwords do not match. Please try again.";
         }
         else {
             //check if email already exists
