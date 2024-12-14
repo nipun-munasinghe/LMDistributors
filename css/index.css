@@ -57,6 +57,8 @@ body, a {
     border-radius: 50px;
     font-size: 0.9rem;
     text-align: center;
+    align-items: center;
+    font-weight: bold;
 }
 
 .btn-primary:hover {
