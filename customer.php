@@ -1,3 +1,22 @@
+<!-- backend -->
+ <?php
+    require_once 'config.php';
+
+    // Prevent browser caching
+    header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+    header("Cache-Control: post-check=0, pre-check=0", false);
+    header("Pragma: no-cache");
+
+// Check if the user is logged in
+// if (!isset($_SESSION['user_id'])) {
+//     header("Location: login.php");
+//     exit();
+// }
+
+
+ ?>
+
+<!-- html part -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,7 +59,7 @@
             <!-- Topbar -->
             <div class="topbar">
                 <i class="fas fa-bars" id="toggle-sidebar" title="Open Dashboard"></i>
-                <h1>Welcome CustomerName!</h1>
+                <h1>Welcome <?php echo $_SESSION['user_fName']; ?>!</h1>
             </div>
 
             <!-- Customer Profile -->
