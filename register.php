@@ -1,3 +1,70 @@
+<!-- backend -->
+<?php
+    //start sessions
+    session_start();
+    
+    //include database config file
+    require_once 'config.php';
+
+    $error = "";
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        //get form data
+        $type = trim($_POST['type']);
+        $fName = trim($_POST['first_name']);
+        $lName = trim($_POST['last_name']);
+        $dob = trim($_POST['birthday']);
+        $email = trim($_POST['email']);
+        $phone1 = trim($_POST['phone1']);
+        $phone2 = trim($_POST['phone2']);
+        $address = trim($_POST['address']);
+        $password = trim($_POST['password']);
+        $confirmPwd = trim($_POST['confirm_password']);
+        $status = 'active';
+
+        //validate form data
+        if (empty($type) || empty($fName) || empty($lName) || empty($dob) ||
+            empty($email) || empty($phone1) || empty($address) || 
+            empty($password)){
+                $error = "Please fill in all required fields.";
+        }
+        else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $error = "Invalid email format.";
+        }
+        else if ($password !== $confirmPwd) {
+            $error = "Passwords do not match.";
+        }
+        else {
+            //check if email already exists
+            $sql = "SELECT * FROM user_info WHERE email = '$email' LIMIT 1;";
+            $result = mysqli_query($conn, $sql);
+
+            if(mysqli_num_rows($result) == 0) {
+                $sql = "INSERT INTO user_info (email, password, fName, lName, 
+                                               dob, phone1, phone2, address, type, 
+                                               status) 
+                        VALUES ('$email', '$password', '$fName', '$lName',
+                                '$dob', '$phone1', '$phone2', '$address', '$type',
+                                '$status');";
+
+                if (mysqli_query($conn, $sql)) {
+                    //redirect to login page after successful registration
+                    header("Location: login.php");
+                    exit();//stop further executions
+                }
+                else {
+                    $error = "Error: ". mysqli_error($conn);
+                }
+            }
+            else {
+                $error = "Email already exists. Please try a different one.";
+            }
+        }
+        $conn->close();
+    }
+?>
+
+<!-- html part -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,7 +90,7 @@
             <h1>Join With Us</h1>
             <p>Join us and explore the world of coconut trading!</p>
             
-            <form action="./register_action.php" method="POST">
+            <form action="./register.php" method="POST">
                 <div class="input-group">
                     <label for="type">Register as:</label>
                     <select id="type" name="type" required>
@@ -74,6 +141,11 @@
                     <input type="password" id="password" name="password" placeholder="Enter your password" required>
                 </div>
 
+                <div class="input-group">
+                    <label for="confirmPassword">Re-enter Password</label>
+                    <input type="password" id="confirmPassword" name="confirm_password" placeholder="Enter your password" required>
+                </div>
+
                 <div class="input-group checkbox-group">
                     <label>
                         <input type="checkbox" id="terms" name="terms" required>
@@ -81,7 +153,11 @@
                     </label>
                 </div>
 
-                <button type="submit" id="register-button" title="Click to Register">Register</button>
+                <?php if (!empty($error)): ?>
+                    <p class="error"><?php echo $error; ?></p>
+                <?php endif; ?>
+
+                <button type="submit" id="register-button" name="registerButton" title="Click to Register">Register</button>
                 <p>Already have an account? <a href="./login.php" title="Login">Sign In</a></p>
             </form>
         </div>
