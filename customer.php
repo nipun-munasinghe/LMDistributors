@@ -1,14 +1,6 @@
 <!-- backend -->
  <?php
     require_once 'config.php';
-
-// Check if the user is logged in
-// if (!isset($_SESSION['user_id'])) {
-//     header("Location: login.php");
-//     exit();
-// }
-
-
  ?>
 
 <!-- html part -->
