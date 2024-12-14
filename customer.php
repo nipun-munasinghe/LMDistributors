@@ -1,6 +1,41 @@
 <!-- backend -->
  <?php
     require_once 'config.php';
+
+    // Check if user is logged in
+    if (isset($_SESSION['user_fName'])) {
+
+        // Get the user ID from the session
+        $user_id = $_SESSION['user_id'];
+
+        $sql = "SELECT fname, dob FROM user_info WHERE userID = $user_id;";
+        $result = mysqli_query($conn, $sql);
+
+        // Check if the query was successful
+        if ($result->num_rows == 1) {
+            // Fetch the user's data
+            $row = $result->mysqli_fetch_assoc();
+            $fName = $row['fname'];
+            $dob = $row['dob'];
+
+            //get current date
+            $currentDate = date('m-d');
+            $birthday = date('m-d', strtotime($dob));
+
+            //Check if today is user's birthday
+            if ($currentDate === $birthday) {
+                $greeting = "Happy birthday ".htmlspecialchars($_SESSION['user_fName'])."!";
+            }
+            else {
+                $greeting = "Welcome ".htmlspecialchars($_SESSION['user_fName'])."!";
+            }
+        }
+    }
+    else {
+        //if user is not logged in, redirect to login page
+        header("Location: login.php");
+        exit();
+    }
  ?>
 
 <!-- html part -->
@@ -46,10 +81,12 @@
             <!-- Topbar -->
             <div class="topbar">
                 <i class="fas fa-bars" id="toggle-sidebar" title="Open Dashboard"></i>
-                <h1>Welcome <?php if (isset($_SESSION['user_fName'])) {
+                <!-- <h1><?php //echo htmlspecialchars($greeting) ?></h1> -->
+                <h1><?php if (isset($_SESSION['user_fName'])) {
                     echo htmlspecialchars($_SESSION['user_fName']);
                 }
                 else {
+                    //if user is not logged in, redirect to login page
                     header("Location: login.php");
                     exit();
                 }; ?>!</h1>
