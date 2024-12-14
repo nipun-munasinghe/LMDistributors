@@ -2,11 +2,6 @@
  <?php
     require_once 'config.php';
 
-    // Prevent browser caching
-    header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
-    header("Cache-Control: post-check=0, pre-check=0", false);
-    header("Pragma: no-cache");
-
 // Check if the user is logged in
 // if (!isset($_SESSION['user_id'])) {
 //     header("Location: login.php");
@@ -68,9 +63,9 @@
                 <div class="profile-card">
                     <img src="images/default-profile.png" alt="Admin Profile Picture" class="profile-pic">
                     <div class="profile-info">
-                        <p><strong>Name:</strong> Customer Name</p>
-                        <p><strong>Email:</strong> customer@gmail.com</p>
-                        <p><strong>Phone:</strong> +94 78 456 7880</p>
+                        <p><strong>Name:</strong> <?php echo $_SESSION['fullName']; ?></p>
+                        <p><strong>Email:</strong> <?php echo $_SESSION['user_email']; ?></p>
+                        <p><strong>Phone:</strong> <?php echo $_SESSION['user_phone']; ?></p>
                         <button class="btn edit-profile" onclick="window.location.href='./accSettings.php'"  title="Edit Profile"><i class="fa-solid fa-pen"></i> Edit Profile</button>
                     </div>
                 </div>
