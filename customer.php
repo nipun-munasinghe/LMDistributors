@@ -46,7 +46,13 @@
             <!-- Topbar -->
             <div class="topbar">
                 <i class="fas fa-bars" id="toggle-sidebar" title="Open Dashboard"></i>
-                <h1>Welcome <?php echo $_SESSION['user_fName']; ?>!</h1>
+                <h1>Welcome <?php if (isset($_SESSION['user_fName'])) {
+                    echo htmlspecialchars($_SESSION['user_fName']);
+                }
+                else {
+                    header("Location: login.php");
+                    exit();
+                }; ?>!</h1>
             </div>
 
             <!-- Customer Profile -->
