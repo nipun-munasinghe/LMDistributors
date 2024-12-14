@@ -27,6 +27,7 @@
                     // Store user details in sessions
                     $_SESSION['user_id'] = $row['userID'];
                     $_SESSION['user_fName'] = $row['fName'];
+                    $_SESSION['fullName'] = $row['fName'] . ' ' . $row['lName'];
                     $_SESSION['user_email'] = $row['email'];
                     $_SESSION['user_phone'] = $row['phone1'];
                     $_SESSION['user_type'] = $row['type'];
