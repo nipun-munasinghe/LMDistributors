@@ -1,5 +1,6 @@
 <!-- backend -->
  <?php
+ session_start();
     require_once 'config.php';
 
     // Check if user is logged in
@@ -14,7 +15,7 @@
         // Check if the query was successful
         if ($result->num_rows == 1) {
             // Fetch the user's data
-            $row = $result->mysqli_fetch_assoc();
+            $row = mysqli_fetch_assoc($result);
             $fName = $row['fname'];
             $dob = $row['dob'];
 
@@ -81,15 +82,7 @@
             <!-- Topbar -->
             <div class="topbar">
                 <i class="fas fa-bars" id="toggle-sidebar" title="Open Dashboard"></i>
-                <!-- <h1><?php //echo htmlspecialchars($greeting) ?></h1> -->
-                <h1><?php if (isset($_SESSION['user_fName'])) {
-                    echo htmlspecialchars($_SESSION['user_fName']);
-                }
-                else {
-                    //if user is not logged in, redirect to login page
-                    header("Location: login.php");
-                    exit();
-                }; ?>!</h1>
+                <h1><?php echo htmlspecialchars($greeting) ?></h1>
             </div>
 
             <!-- Customer Profile -->
