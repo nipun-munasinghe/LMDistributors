@@ -1,3 +1,18 @@
+<!-- php part -->
+ <?php
+    //start sessions
+    session_start();
+
+    //include database config file
+    require_once 'config.php';
+
+    // Check if user is logged in
+    if (!isset($_SESSION['user_fName'])) {
+        header('Location: login.php');
+    }
+ ?>
+
+<!-- html parts -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,23 +37,7 @@
     <div class="main-content">
         <!-- Hidden Sidebar -->
         <aside id="sidebar" class="sidebar">
-            <div class="sidebar-header">
-                <h2>Customer Profile</h2>
-                <i class="fas fa-times" id="close-sidebar" title="Close Dashboard"></i>
-            </div>
-            <ul class="sidebar-menu">
-                <li><a href="./admin.php" title="Your Profile"><i class="fa-solid fa-user"></i> My Profile</a></li>
-                <li><a href="./manageManagers.php" title="Managers Management"><i class="fas fa-user-tie"></i> Manage Managers</a></li>
-                <li><a href="./manageProducts.php" title="Products Management"><i class="fa-solid fa-store"></i> Manage Products</a></li>
-                <li><a href="./manageOrders.php" title="Orders Management"><i class="fa-solid fa-cart-shopping"></i> Manage Orders</a></li>
-                <li><a href="./todayPrice.php" title="Buyers & Sellers price list"><i class="fa-solid fa-money-bill-1-wave"></i> Today's Price List</a></li>
-                <li><a href="./buyersManagement.php" title="Buyers Management"><i class="fa-solid fa-handshake"></i> Manage Buyers</a></li>
-                <li><a href="./supplyManagement.php" title="Suppliers Management"><i class="fa-solid fa-business-time"></i> Manage Suppliers</a></li>
-                <li><a href="./manageMessages.php" title="Messages Management"><i class="fa-solid fa-comment"></i> Manage Messages</a></li>
-                <li><a href="./viewIncome.php" title="View Analytics"><i class="fas fa-chart-line"></i> View Analytics</a></li>
-                <li><a href="./accSettings.php" title="Edit profile & Change password"><i class="fas fa-cog"></i> Settings</a></li>
-                <li><a href="./logout.php" title="Logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
-            </ul>
+            <?php include 'sideBar.php' ?>
         </aside>
         <i class="fas fa-bars" id="toggle-sidebar" title="Open Dashboard"></i>
 

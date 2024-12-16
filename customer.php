@@ -64,17 +64,7 @@
     <div class="container">
         <!-- Hidden Sidebar -->
         <aside id="sidebar" class="sidebar">
-            <div class="sidebar-header">
-                <h2>Customer Profile</h2>
-                <i class="fas fa-times" id="close-sidebar" title="Close Dashboard"></i>
-            </div>
-            
-            <ul class="sidebar-menu">
-                <li><a href="./customer.php"><i class="fas fa-user"></i> My Profile</a></li>
-                <li><a href="./products.php"><i class="fas fa-box-open"></i> Products</a></li>
-                <li><a href="./accSettings.php"><i class="fa-solid fa-wrench"></i> Account Settings</a></li>
-                <li><a href="./logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
-            </ul>
+            <?php include 'sideBar.php' ?>
         </aside>
 
         <!-- Main Content -->
