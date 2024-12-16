@@ -21,6 +21,7 @@
         $password = trim($_POST['password']);
         $confirmPwd = trim($_POST['confirm_password']);
         $status = 'active';
+        $image = 'images/default-profile.png';
 
         //validate form data
         if (empty($type) || empty($fName) || empty($lName) || empty($dob) ||
@@ -41,11 +42,11 @@
 
             if(mysqli_num_rows($result) == 0) {
                 $sql = "INSERT INTO user_info (email, password, fName, lName, 
-                                               dob, phone1, phone2, address, type, 
-                                               status) 
+                                               dob, phone1, phone2, address, image, 
+                                               type, status) 
                         VALUES ('$email', '$password', '$fName', '$lName',
-                                '$dob', '$phone1', '$phone2', '$address', '$type',
-                                '$status');";
+                                '$dob', '$phone1', '$phone2', '$address', '$image', 
+                                '$type', '$status');";
 
                 if (mysqli_query($conn, $sql)) {
                     //redirect to login page after successful registration
