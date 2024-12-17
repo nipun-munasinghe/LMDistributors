@@ -114,7 +114,7 @@
 
         <section class="profile-section">
             <h2>Profile Details</h2>
-            <form id="profile-form">
+            <form id="profile-form" method="POST" enctype="multipart/form-data" action="accSettings.php">
                 <div class="form-group">
                     <center>
                         <img src="<?php echo $profilePic; ?>" alt="Profile Picture" class="profile-pic" id="profile-pic-preview">
@@ -157,7 +157,7 @@
         </section>
 
         <section class="change-pwd">
-            <form>
+            <form action="accSettings.php" method="POST" enctype="multipart/form-data">
                 <h2>Password Settings</h2>
 
                 <div class="form-group">
