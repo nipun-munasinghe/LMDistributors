@@ -213,7 +213,7 @@ if (isset($_POST['pwdBtn'])) {
                     <label for="reEnterPassword">Confirm New Password</label>
                     <input type="password" id="reEnterPassword" name="reEnterPassword" placeholder="Enter new password again" required>
                 </div>
-                <p class="error"><?php echo $error; ?></p>
+                <p class="error" style="color: red; font-size: 15px; text-align: center;"><?php echo $error; ?></p>
                 <center>
                     <button type="submit" id="pwdBtn" name="pwdBtn">Change Password</button>
                 </center>
