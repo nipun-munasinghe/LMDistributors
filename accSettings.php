@@ -1,89 +1,86 @@
-<!-- php part -->
- <?php
-    //start sessions
-    session_start();
+<?php
+// Start sessions
+session_start();
 
-    //include database config file
-    require_once 'config.php';
+// Include database config file
+require_once 'config.php';
 
-    // Check if user is logged in
-    if (!isset($_SESSION['user_fName'])) {
-        header('Location: login.php');
-        exit();
-    }
+// Check if user is logged in
+if (!isset($_SESSION['user_fName'])) {
+    header('Location: login.php');
+    exit();
+}
 
-    //get user id from session
-    $user_id = $_SESSION['user_id'];
+// Get user ID from session
+$user_id = $_SESSION['user_id'];
 
-    //initiate variables
-    $firstName = $_SESSION['user_fName'];
-    $lastName = $_SESSION['user_lName'];
-    $birthday = $_SESSION['user_dob'];
-    $email =  $_SESSION['user_email'];
-    $phone1 = $_SESSION['user_phone'];
-    $phone2 = $_SESSION['user_phone2'];
-    $address = $_SESSION['user_address'];
-    $profilePic = "./images/default-profile.png"; //default profile image
+// Initiate variables
+$firstName = $_SESSION['user_fName'];
+$lastName = $_SESSION['user_lName'];
+$birthday = $_SESSION['user_dob'];
+$email = $_SESSION['user_email'];
+$phone1 = $_SESSION['user_phone'];
+$phone2 = $_SESSION['user_phone2'];
+$address = $_SESSION['user_address'];
+$profilePic = "./images/default-profile.png"; // Default profile image
 
-    //get user profile data from database
-    $sql = "SELECT * FROM users WHERE userID = $user_id";
-    $result = mysqli_query($conn, $sql);
+// Get user profile data from database
+$sql = "SELECT * FROM user_info WHERE userID = ?";
+$stmt = mysqli_prepare($conn, $sql);
+mysqli_stmt_bind_param($stmt, "i", $user_id);
+mysqli_stmt_execute($stmt);
+$result = mysqli_stmt_get_result($stmt);
 
-    if($result) {
-        $row = mysqli_fetch_assoc($result);
+if ($row = mysqli_fetch_assoc($result)) {
+    $firstName = htmlspecialchars($row['fName']);
+    $lastName = htmlspecialchars($row['lName']);
+    $birthday = htmlspecialchars($row['dob']);
+    $email = htmlspecialchars($row['email']);
+    $phone1 = htmlspecialchars($row['phone1']);
+    $phone2 = htmlspecialchars($row['phone2']);
+    $address = htmlspecialchars($row['address']);
+    $profilePic = !empty($row['image']) ? $row['image'] : $profilePic;
+}
 
-        $firstName = htmlspecialchars($row['fName']);
-        $lastName = htmlspecialchars($row['lName']);
-        $birthday = htmlspecialchars($row['dob']);
-        $email = htmlspecialchars($row['email']);
-        $phone1 = htmlspecialchars($row['phone1']);
-        $phone2 = htmlspecialchars($row['phone2']);
-        $address = htmlspecialchars($row['address']);
-        $profilePic = !empty($row['image']) ? $row['image'] : $profilePic;
-    }
+//Handle form submission for updating details
+if (isset($_POST['detailsBtn'])) {
+    $newFirstName = trim($_POST['first-name']);
+    $newLastName = trim($_POST['last-name']);
+    $newBirthday = trim($_POST['birthday']);
+    $newEmail = trim($_POST['email']);
+    $newPhone1 = trim($_POST['phone1']);
+    $newPhone2 = trim($_POST['phone2']);
+    $newAddress = trim($_POST['address']);
+    
+    // Handle profile picture upload
+    if (isset($_FILES['profile-pic']) && $_FILES['profile-pic']['error'] === UPLOAD_ERR_OK) {
+        $target_dir = "./images/profiles/";
+        $file_name = basename($_FILES['profile-pic']['name']);
+        $target_file = $target_dir . uniqid() . "-" . $file_name;
+        $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
-    //handle form submission for update details
-    if (isset($_POST['detailsBtn'])) {
-        $firstName = trim($_POST['fName']);
-        $lastName = trim($_POST['lName']);
-        $birthday = trim($_POST['dob']);
-        $email = trim($_POST['email']);
-        $phone1 = trim($_POST['phone1']);
-        $phone2 = trim($_POST['phone2']);
-        $address = trim($_POST['address']);
-
-        //handle profile pic
-        if (isset($_FILES['profile-pic']) && $_FILES['profile-pic']['error'] === UPLOAD_ERR_OK) {
-            $target_dir = "./images/profiles/";
-            $file_name = basename($_FILES['profile-pic']['name']);
-            $target_file = $target_dir.uniqid()."-".$file_name;
-            $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-
-            //Check file type
-            if (in_array($imageFileType, ['jpg', 'png', 'gif'])) {
-                if (move_uploaded_file($_FILES['profile-pic']['tmp_name'], target_file)) {
-                    $profilePic = $target_file;
-                }
+        // Check file type
+        if (in_array($imageFileType, ['jpg', 'jpeg', 'png', 'gif'])) {
+            if (move_uploaded_file($_FILES['profile-pic']['tmp_name'], $target_file)) {
+                $profilePic = $target_file;
             }
         }
-
-        //update details in the database
-        $sql = "UPDATE user_info SET fName = $firstName, lName = $lastName, 
-                dob = $birthday, email = $email, phone1 = $phone1, phone2 = $phone2,
-                address = $address, image = $profilePic WHERE userID = $user_id";
-        $result = mysqli_query($conn, $sql);
-
-        if($result) {
-            echo "<script>alert('Profile updated successfully!')</script>";
-        }
-        else {
-            echo "<script>alert('Failed to update profile. Please try again!')</script>";
-        }
     }
-    
- ?>
 
-<!-- html parts -->
+    // Update details in the database
+    $sql = "UPDATE user_info SET fName = ?, lName = ?, dob = ?, email = ?, phone1 = ?, phone2 = ?, address = ?, image = ? WHERE userID = ?";
+    $stmt = mysqli_prepare($conn, $sql);
+    mysqli_stmt_bind_param($stmt, "ssssssssi", $newFirstName, $newLastName, $newBirthday, $newEmail, $newPhone1, $newPhone2, $newAddress, $profilePic, $user_id);
+    
+    if (mysqli_stmt_execute($stmt)) {
+        echo "<script>alert('Profile updated successfully!');</script>";
+    } else {
+        echo "<script>alert('Failed to update profile. Please try again!');</script>";
+    }
+}
+?>
+
+<!-- HTML Part -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -108,10 +105,11 @@
     <div class="main-content">
         <!-- Hidden Sidebar -->
         <aside id="sidebar" class="sidebar">
-            <?php include 'sideBar.php' ?>
+            <?php include 'sideBar.php'; ?>
         </aside>
         <i class="fas fa-bars" id="toggle-sidebar" title="Open Dashboard"></i>
 
+        <!-- Profile Section -->
         <section class="profile-section">
             <h2>Profile Details</h2>
             <form id="profile-form" method="POST" enctype="multipart/form-data" action="accSettings.php">
@@ -119,7 +117,7 @@
                     <center>
                         <img src="<?php echo $profilePic; ?>" alt="Profile Picture" class="profile-pic" id="profile-pic-preview">
                     </center>
-                    <input type="file" id="profile-pic" accept="image/*">
+                    <input type="file" name="profile-pic" id="profile-pic" accept="image/*">
                 </div>
                 <div class="form-group">
                     <label for="first-name">First Name</label>
@@ -143,15 +141,14 @@
                 </div>
                 <div class="form-group">
                     <label for="phone2">Phone Number 2</label>
-                    <input type="tel" id="phone2" name="phone2" value="<?php echo $phone1; ?>" placeholder="Enter your alternate phone number">
+                    <input type="tel" id="phone2" name="phone2" value="<?php echo $phone2; ?>" placeholder="Enter your alternate phone number">
                 </div>
                 <div class="form-group">
                     <label for="address">Address</label>
                     <textarea id="address" rows="3" name="address" required><?php echo $address; ?></textarea>
                 </div>
-                
                 <center>
-                    <button type="submit" id="detailsBtn" name="detailsBtn" >Update Details</button>
+                    <button type="submit" id="detailsBtn" name="detailsBtn">Update Details</button>
                 </center>
             </form>
         </section>
