@@ -23,6 +23,7 @@ $phone1 = $_SESSION['user_phone'];
 $phone2 = $_SESSION['user_phone2'];
 $address = $_SESSION['user_address'];
 $profilePic = "./images/default-profile.png"; // Default profile image
+$error = "";
 
 // Get user profile data from database
 $sql = "SELECT * FROM user_info WHERE userID = ?";
@@ -42,7 +43,7 @@ if ($row = mysqli_fetch_assoc($result)) {
     $profilePic = !empty($row['image']) ? $row['image'] : $profilePic;
 }
 
-//Handle form submission for updating details
+// Handle form submission for updating details
 if (isset($_POST['detailsBtn'])) {
     $newFirstName = trim($_POST['first-name']);
     $newLastName = trim($_POST['last-name']);
@@ -76,6 +77,49 @@ if (isset($_POST['detailsBtn'])) {
         echo "<script>alert('Profile updated successfully!');</script>";
     } else {
         echo "<script>alert('Failed to update profile. Please try again!');</script>";
+    }
+}
+
+// Handle form submission for changing password
+if (isset($_POST['pwdBtn'])) {
+    // Fetch the stored password
+    $sql = "SELECT password FROM user_info WHERE userID = ?";
+    $stmt = mysqli_prepare($conn, $sql);
+    mysqli_stmt_bind_param($stmt, "i", $user_id);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
+
+    if ($row = mysqli_fetch_assoc($result)) {
+        $storedPwd = $row['password'];
+    }
+    else {
+        echo "<script>alert('Error fetching your current password.');</script>";
+        exit();
+    }
+
+    // Retrieve entered passwords
+    $enteredPwd = trim($_POST['currentPassword']);
+    $newPassword = trim($_POST['password']);
+    $confirmPassword = trim($_POST['reEnterPassword']);
+
+    // Verify current password
+    if ($enteredPwd !== $storedPwd) {
+        $error = "Incorrect current password!";
+    }
+    elseif ($newPassword !== $confirmPassword) {
+        $error = "Passwords do not match. Please try again.";
+    }
+    else {
+        // Update password in the database
+        $updateSql = "UPDATE user_info SET password = ? WHERE userID = ?";
+        $updateStmt = mysqli_prepare($conn, $updateSql);
+        mysqli_stmt_bind_param($updateStmt, "si", $newPassword, $user_id);
+
+        if (mysqli_stmt_execute($updateStmt)) {
+            echo "<script>alert('Password updated successfully!');</script>";
+        } else {
+            echo "<script>alert('Failed to update password. Please try again!');</script>";
+        }
     }
 }
 ?>
@@ -153,25 +197,23 @@ if (isset($_POST['detailsBtn'])) {
             </form>
         </section>
 
+        <!-- Form for password changing -->
         <section class="change-pwd">
-            <form action="accSettings.php" method="POST" enctype="multipart/form-data">
+            <form action="accSettings.php" method="POST">
                 <h2>Password Settings</h2>
-
                 <div class="form-group">
                     <label for="currentPassword">Current Password</label>
-                    <input type="password" id="currentPassword" name="currentPassword" placeholder="Enter current password">
+                    <input type="password" id="currentPassword" name="currentPassword" placeholder="Enter current password" required>
                 </div>
-
                 <div class="form-group">
                     <label for="password">New Password</label>
-                    <input type="password" id="password" name="password" placeholder="Enter new password">
+                    <input type="password" id="password" name="password" placeholder="Enter new password" required>
                 </div>
-
                 <div class="form-group">
-                    <label for="reEnterPassword">New Password Again</label>
-                    <input type="password" id="reEnterPassword" name="reEnterPassword" placeholder="Enter new password again">
+                    <label for="reEnterPassword">Confirm New Password</label>
+                    <input type="password" id="reEnterPassword" name="reEnterPassword" placeholder="Enter new password again" required>
                 </div>
-
+                <p class="error"><?php echo $error; ?></p>
                 <center>
                     <button type="submit" id="pwdBtn" name="pwdBtn">Change Password</button>
                 </center>
