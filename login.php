@@ -34,6 +34,7 @@
                     $_SESSION['user_phone'] = $row['phone1'];
                     $_SESSION['user_phone2'] = $row['phone2'];
                     $_SESSION['user_address'] = $row['address'];
+                    $_SESSION['user_image'] = $row['image'];
                     $_SESSION['user_type'] = $row['type'];
                     $_SESSION['user_status'] = $row['status'];
 
