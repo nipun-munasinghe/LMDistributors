@@ -1,45 +1,57 @@
-<!-- backend -->
- <?php
- session_start();
-    require_once 'config.php';
+<!-- Backend -->
+<?php
+session_start();
+require_once 'config.php';
 
-    // Check if user is logged in
-    if (isset($_SESSION['user_fName'])) {
+// Check if user is logged in
+if (isset($_SESSION['user_fName'])) {
 
-        // Get the user ID from the session
-        $user_id = $_SESSION['user_id'];
+    // Get the user ID from the session
+    $user_id = $_SESSION['user_id'];
 
-        $sql = "SELECT fname, dob FROM user_info WHERE userID = $user_id;";
-        $result = mysqli_query($conn, $sql);
+    // Fetch user data using prepared statement
+    $sql = "SELECT fname, lname, dob, image, email, phone1 FROM user_info WHERE userID = $user_id;";
+    $result = mysqli_query($conn, $sql);
 
-        // Check if the query was successful
-        if ($result->num_rows == 1) {
-            // Fetch the user's data
-            $row = mysqli_fetch_assoc($result);
-            $fName = $row['fname'];
-            $dob = $row['dob'];
+    // Check if query was successful
+    if ($result->num_rows == 1) {
+        // Fetch user data
+        $row = mysqli_fetch_assoc($result);
+        $fName = $row['fname'];
+        $lname = $row['lname'];
+        $dob = $row['dob'];
+        $user_image = $row['image'] ?? 'images/default-pic.png';
+        $email = $row['email'];
+        $phone = $row['phone1'];
 
-            //get current date
-            $currentDate = date('m-d');
-            $birthday = date('m-d', strtotime($dob));
+        // Save to session for use in HTML
+        $_SESSION['user_image'] = $user_image;
+        $_SESSION['fullName'] = $fName." ".$lname;
+        $_SESSION['user_email'] = $email;
+        $_SESSION['user_phone'] = $phone;
 
-            //Check if today is user's birthday
-            if ($currentDate === $birthday) {
-                $greeting = "Happy birthday ".htmlspecialchars($_SESSION['user_fName'])."!";
-            }
-            else {
-                $greeting = "Welcome ".htmlspecialchars($_SESSION['user_fName'])."!";
-            }
+        // Check for user's birthday
+        $currentDate = date('m-d');
+        $birthday = date('m-d', strtotime($dob));
+
+        if ($currentDate === $birthday) {
+            $greeting = "Happy birthday " . htmlspecialchars($_SESSION['user_fName']) . "!";
+        } else {
+            $greeting = "Welcome " . htmlspecialchars($_SESSION['user_fName']) . "!";
         }
-    }
-    else {
-        //if user is not logged in, redirect to login page
+    } else {
+        // Redirect to login if user not found
         header("Location: login.php");
         exit();
     }
- ?>
+} else {
+    // Redirect to login if user is not logged in
+    header("Location: login.php");
+    exit();
+}
+?>
 
-<!-- html part -->
+<!-- HTML Part -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,7 +59,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Customer Profile</title>
 
-    <!-- link css -->
+    <!-- CSS File -->
     <link rel="stylesheet" href="./css/customer.css">
 
     <!-- Font Awesome for Icons -->
@@ -62,9 +74,9 @@
 
     <!-- Main Container -->
     <div class="container">
-        <!-- Hidden Sidebar -->
+        <!-- Sidebar -->
         <aside id="sidebar" class="sidebar">
-            <?php include 'sideBar.php' ?>
+            <?php include 'sideBar.php'; ?>
         </aside>
 
         <!-- Main Content -->
@@ -72,23 +84,29 @@
             <!-- Topbar -->
             <div class="topbar">
                 <i class="fas fa-bars" id="toggle-sidebar" title="Open Dashboard"></i>
-                <h1><?php echo htmlspecialchars($greeting) ?></h1>
+                <h1><?php echo htmlspecialchars($greeting); ?></h1>
             </div>
 
-            <!-- Customer Profile -->
+            <!-- Customer Profile Section -->
             <section class="customer-profile">
                 <h2>Your Profile</h2>
                 <div class="profile-card">
-                    <img src="images/default-profile.png" alt="Admin Profile Picture" class="profile-pic">
+                    <!-- Display User Profile Picture -->
+                    <img src="<?php echo htmlspecialchars($_SESSION['user_image']); ?>" 
+                         alt="Profile Picture" class="profile-pic">
                     <div class="profile-info">
-                        <p><strong>Name:</strong> <?php echo $_SESSION['fullName']; ?></p>
-                        <p><strong>Email:</strong> <?php echo $_SESSION['user_email']; ?></p>
-                        <p><strong>Phone:</strong> <?php echo $_SESSION['user_phone']; ?></p>
-                        <button class="btn edit-profile" onclick="window.location.href='./accSettings.php'"  title="Edit Profile"><i class="fa-solid fa-pen"></i> Edit Profile</button>
+                        <p><strong>Name:</strong> <?php echo htmlspecialchars($_SESSION['fullName']); ?></p>
+                        <p><strong>Email:</strong> <?php echo htmlspecialchars($_SESSION['user_email']); ?></p>
+                        <p><strong>Phone:</strong> <?php echo htmlspecialchars($_SESSION['user_phone']); ?></p>
+                        <button class="btn edit-profile" 
+                                onclick="window.location.href='./accSettings.php'" title="Edit Profile">
+                            <i class="fa-solid fa-pen"></i> Edit Profile
+                        </button>
                     </div>
                 </div>
             </section>
 
+            <!-- Slideshow Section -->
             <h2>Some of Our Products</h2>
             <div class="slideshow-container">
                 <!-- Slide 1 -->
@@ -109,6 +127,7 @@
                 </div>
             </div>
 
+            <!-- Quick Actions -->
             <h2>Quick Actions</h2>
             <div class="actions">
                 <div class="card">
@@ -125,6 +144,7 @@
         </div>
     </div>
     
+    <!-- Sidebar Toggle Script -->
     <script src="./js/sideBar.js"></script>
 </body>
 </html>
