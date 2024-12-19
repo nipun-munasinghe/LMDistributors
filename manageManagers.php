@@ -4,6 +4,27 @@
     
     //include database config file
     require_once 'config.php';
+
+    //check user logs in
+    if (!isset($_SESSION['user_fName'])) {
+        //redirect to login page
+        header('Location: login.php');
+        exit();
+    }
+    else {
+        $dob = $_SESSION['user_dob'];
+        $today = date('m-d');
+        $birthday = date('m-d', strtotime($dob));
+
+        //check user's b'day
+        if($today === $birthday) {
+            $greeting = "Happy Birthday ".$_SESSION['user_fName']."!";
+        }
+        else {
+            $greeting = "Welcome ".$_SESSION['user_fName']."!";
+        }
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -30,24 +51,7 @@
     <div class="container">
         <!-- Hidden Sidebar -->
         <aside id="sidebar" class="sidebar">
-            <div class="sidebar-header">
-                <h2>Admin Dashboard</h2>
-                <i class="fas fa-times" id="close-sidebar" title="Close Dashboard"></i>
-            </div>
-
-            <ul class="sidebar-menu">
-                <li><a href="./admin.php" title="Your Profile"><i class="fa-solid fa-user"></i> My Profile</a></li>
-                <li><a href="./manageManagers.php" title="Managers Management"><i class="fas fa-user-tie"></i> Manage Managers</a></li>
-                <li><a href="./manageProducts.php" title="Products Management"><i class="fa-solid fa-store"></i> Manage Products</a></li>
-                <li><a href="./manageOrders.php" title="Orders Management"><i class="fa-solid fa-cart-shopping"></i> Manage Orders</a></li>
-                <li><a href="./todayPrice.php" title="Buyers & Sellers price list"><i class="fa-solid fa-money-bill-1-wave"></i> Today's Price List</a></li>
-                <li><a href="./buyersManagement.php" title="Buyers Management"><i class="fa-solid fa-handshake"></i> Manage Buyers</a></li>
-                <li><a href="./supplyManagement.php" title="Suppliers Management"><i class="fa-solid fa-business-time"></i> Manage Suppliers</a></li>
-                <li><a href="./manageMessages.php" title="Messages Management"><i class="fa-solid fa-comment"></i> Manage Messages</a></li>
-                <li><a href="./viewIncome.php" title="View Analytics"><i class="fas fa-chart-line"></i> View Analytics</a></li>
-                <li><a href="./accSettings.php" title="Edit profile & Change password"><i class="fas fa-cog"></i> Settings</a></li>
-                <li><a href="./logout.php" title="Logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
-            </ul>
+            <?php include 'sidebar.php'; ?>
         </aside>
 
         <!-- Main Content -->
@@ -55,32 +59,32 @@
             <!-- Topbar -->
             <div class="topbar">
                 <i class="fas fa-bars" id="toggle-sidebar" title="Open Dashboard"></i>
-                <h1>Welcome AdminName!</h1>
+                <h1><?php echo $greeting; ?></h1>
             </div>
 
             <section class="mainSeparation">
                 <div class="addManager">
                     <h2>Add Managers</h2>
-                    <form action="#" method="POST" class="addForm">
+                    <form action="manageManagers.php" method="POST" class="addForm">
                         <div class="form-group">
                             <label for="first-name">First Name</label>
-                            <input type="text" id="first-name" name="first-name" placeholder="Enter your first name" required>
+                            <input type="text" id="first-name" name="first-name" placeholder="Enter the first name of Manager" required>
                         </div>
                         <div class="form-group">
                             <label for="last-name">Last Name</label>
-                            <input type="text" id="last-name" name="last-name" placeholder="Enter your last name">
+                            <input type="text" id="last-name" name="last-name" placeholder="Enter the second name of Manager">
                         </div>
                         <div class="form-group">
                             <label for="assignWork">Assigned Work</label>
-                            <input type="text" id="assignWork" name="assignWork" placeholder="Enter the assigned work for manager">
+                            <input type="text" id="assignWork" name="assignWork" placeholder="Enter the assigned work for Manager">
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                            <input type="email" id="email" name="email" placeholder="Enter Manager's email" required>
                         </div>
                         <div class="form-group">
                             <label for="phone1">Phone Number</label>
-                            <input type="tel" id="phone1" name="phone1" placeholder="Enter your primary phone number">
+                            <input type="tel" id="phone1" name="phone1" placeholder="Enter manager's primary phone number">
                         </div>
                         <div class="form-group">
                             <label for="password">Password</label>
@@ -98,15 +102,15 @@
                         <h2>Check, Activate, Deactivate and Remove Managers</h2>
                         <div class="checkCard">
                             <form action="#" method="POST">
-                                <input type="text" id="checkmail" name="checkmail" placeholder="Enter email" required>
-                                <button id="checkMailBtn" name="checkMailBtn" title="Check Availability"><i class="fa-solid fa-magnifying-glass"></i> Check</button>
+                                <input type="text" id="checkmail" name="checkMail" placeholder="Enter email" required>
+                                <button type="submit" id="checkMailBtn" name="checkMailBtn" title="Check Availability"><i class="fa-solid fa-magnifying-glass"></i> Check</button>
                                 <div class="status">
                                     <label for="status"><strong>Status: </strong>Active</label>
                                 </div>
                                 <div class="btns">
-                                    <button id="activate" name="activate" title="Activate">Activate <i class="fa-regular fa-thumbs-up"></i></button>
-                                    <button id="deactivate" name="deactivate" title="Deactivate">Deactivate <i class="fa-solid fa-user-lock"></i></button>
-                                    <button id="remove" name="remove" title="Remove">Remove <i class="fa-regular fa-trash-can"></i></button>
+                                    <button type="submit" id="activate" name="activate" title="Activate">Activate <i class="fa-regular fa-thumbs-up"></i></button>
+                                    <button type="submit" id="deactivate" name="deactivate" title="Deactivate">Deactivate <i class="fa-solid fa-user-lock"></i></button>
+                                    <button type="submit" id="remove" name="remove" title="Remove">Remove <i class="fa-regular fa-trash-can"></i></button>
                                 </div>
                             </form>
                         </div>
