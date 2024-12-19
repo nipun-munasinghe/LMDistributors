@@ -150,8 +150,10 @@ body {
     box-sizing: border-box;
 }
 
-.addForm input:focus {
+.addForm input:focus, #checkmail:focus{
+    outline: none;
     border-color: #4CAF50;
+    background-color: #4caf4f4a;
 }
 
 #addBtn {

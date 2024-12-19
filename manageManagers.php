@@ -1,3 +1,11 @@
+<?php
+    //start sessions
+    session_start();
+    
+    //include database config file
+    require_once 'config.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
