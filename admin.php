@@ -20,7 +20,14 @@
 
         //check user's b'day
         $currentDate = date('m-d');
-        echo $currentDate;
+        $dob = date('m-d', strtotime($birthday));
+
+        if ($currentDate === $dob) {
+            $greeting = "Happy Birthday ".htmlspecialchars($fName). "!";
+        }
+        else {
+            $greeting = "Welcome ".htmlspecialchars($fName). "!";
+        }
     }
 ?>
 
@@ -56,14 +63,14 @@
             <!-- Topbar -->
             <div class="topbar">
                 <i class="fas fa-bars" id="toggle-sidebar" title="Open Dashboard"></i>
-                <h1>Welcome <?php echo $fName; ?>!</h1>
+                <h1><?php echo $greeting; ?></h1>
             </div>
 
             <!-- Admin Profile -->
             <section class="admin-profile">
                 <h2>Your Profile</h2>
                 <div class="profile-card">
-                    <img src="images/default-profile.png" alt="Admin Profile Picture" class="profile-pic">
+                    <img src="<?php echo htmlspecialchars($_SESSION['user_image']); ?>" alt="Admin Profile Picture" class="profile-pic">
                     <div class="profile-info">
                         <p><strong>Name:</strong> <?php echo $fullName; ?></p>
                         <p><strong>Email:</strong> <?php echo $email; ?></p>
