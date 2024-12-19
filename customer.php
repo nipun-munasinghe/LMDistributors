@@ -1,5 +1,6 @@
 <!-- Backend -->
 <?php
+//start sessions
 session_start();
 require_once 'config.php';
 
@@ -36,15 +37,18 @@ if (isset($_SESSION['user_fName'])) {
 
         if ($currentDate === $birthday) {
             $greeting = "Happy birthday " . htmlspecialchars($_SESSION['user_fName']) . "!";
-        } else {
+        }
+        else {
             $greeting = "Welcome " . htmlspecialchars($_SESSION['user_fName']) . "!";
         }
-    } else {
+    }
+    else {
         // Redirect to login if user not found
         header("Location: login.php");
         exit();
     }
-} else {
+}
+else {
     // Redirect to login if user is not logged in
     header("Location: login.php");
     exit();
