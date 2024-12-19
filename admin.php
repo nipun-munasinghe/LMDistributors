@@ -1,3 +1,29 @@
+<?php
+// start the sessions
+    session_start();
+
+    require_once 'config.php';
+
+    //check user logged in
+    if (!isset($_SESSION['user_fName'])) {
+        //user is not logged in
+        header('Location: login.php');
+        exit();
+    }
+    else {
+        //fetch user data from sessions
+        $fName = $_SESSION['user_fName'];
+        $fullName = $_SESSION['fullName'];
+        $email = $_SESSION['user_email'];
+        $phone = $_SESSION['user_phone'];
+        $birthday = $_SESSION['user_dob'];
+
+        //check user's b'day
+        $currentDate = date('m-d');
+        echo $currentDate;
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,24 +48,7 @@
     <div class="container">
         <!-- Hidden Sidebar -->
         <aside id="sidebar" class="sidebar">
-            <div class="sidebar-header">
-                <h2>Admin Dashboard</h2>
-                <i class="fas fa-times" id="close-sidebar" title="Close Dashboard"></i>
-            </div>
-
-            <ul class="sidebar-menu">
-                <li><a href="./admin.php" title="Your Profile"><i class="fa-solid fa-user"></i> My Profile</a></li>
-                <li><a href="./manageManagers.php" title="Managers Management"><i class="fas fa-user-tie"></i> Manage Managers</a></li>
-                <li><a href="./manageProducts.php" title="Products Management"><i class="fa-solid fa-store"></i> Manage Products</a></li>
-                <li><a href="./manageOrders.php" title="Orders Management"><i class="fa-solid fa-cart-shopping"></i> Manage Orders</a></li>
-                <li><a href="./todayPrice.php" title="Buyers & Sellers price list"><i class="fa-solid fa-money-bill-1-wave"></i> Today's Price List</a></li>
-                <li><a href="./buyersManagement.php" title="Buyers Management"><i class="fa-solid fa-handshake"></i> Manage Buyers</a></li>
-                <li><a href="./supplyManagement.php" title="Suppliers Management"><i class="fa-solid fa-business-time"></i> Manage Suppliers</a></li>
-                <li><a href="./manageMessages.php" title="Messages Management"><i class="fa-solid fa-comment"></i> Manage Messages</a></li>
-                <li><a href="./viewIncome.php" title="View Analytics"><i class="fas fa-chart-line"></i> View Analytics</a></li>
-                <li><a href="./accSettings.php" title="Edit profile & Change password"><i class="fas fa-cog"></i> Settings</a></li>
-                <li><a href="./logout.php" title="Logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
-            </ul>
+            <?php include 'sidebar.php'; ?>
         </aside>
 
         <!-- Main Content -->
@@ -47,7 +56,7 @@
             <!-- Topbar -->
             <div class="topbar">
                 <i class="fas fa-bars" id="toggle-sidebar" title="Open Dashboard"></i>
-                <h1>Welcome AdminName!</h1>
+                <h1>Welcome <?php echo $fName; ?>!</h1>
             </div>
 
             <!-- Admin Profile -->
@@ -56,9 +65,9 @@
                 <div class="profile-card">
                     <img src="images/default-profile.png" alt="Admin Profile Picture" class="profile-pic">
                     <div class="profile-info">
-                        <p><strong>Name:</strong> Admin Name</p>
-                        <p><strong>Email:</strong> admin@gmail.com</p>
-                        <p><strong>Phone:</strong> +94 70 456 7890</p>
+                        <p><strong>Name:</strong> <?php echo $fullName; ?></p>
+                        <p><strong>Email:</strong> <?php echo $email; ?></p>
+                        <p><strong>Phone:</strong> <?php echo $phone; ?></p>
                         <button class="btn edit-profile" title="Edit Profile" onclick="window.location.href='./accSettings.php'"><i class="fa-solid fa-pen"></i> Edit Profile</button>
                     </div>
                 </div>
