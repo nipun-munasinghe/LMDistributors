@@ -12,6 +12,7 @@
         exit();
     }
     else {
+        $activeStatus = "";
         $dob = $_SESSION['user_dob'];
         $today = date('m-d');
         $birthday = date('m-d', strtotime($dob));
@@ -51,10 +52,37 @@
         }
 
         //Check, Activate, Deactivate and Remove Managers
-        if($_POST['checkMailBtn']) {
+        //Check email
+        if(isset($_POST['checkMailBtn'])) {
             $email = trim($_POST['checkMail']);
 
-            $sql = "SELECT email FROM user_info WHERE email = ?"
+            $sql = "SELECT email FROM user_info WHERE email = ?";
+            $stmt = $conn->prepare($sql);
+            $stmt->bind_param("s", $email);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $manager = $result->fetch_assoc();
+
+            if($manager) {
+                $sql = "SELECT status FROM user_info WHERE email = ?";
+                $stmt = $conn->prepare($sql);
+                $stmt->bind_param("s", $email);
+                $stmt->execute();
+                $result = $stmt->get_result();
+                $status = $result->fetch_assoc();
+
+                //check user active or inactive
+                if($status['status'] == 'active') {
+                    $activeStatus = "<strong>Status: </strong><label style='color: #4CAF50'>Active</label>";
+                }
+                else {
+                    $activeStatus = "<strong>Status: </strong><label style='color: red'>Inactive</label>";
+                }
+            }
+            //if email not found print an error message
+            else {
+                $activeStatus = "<strong>Error: </strong><label style='color: red'>Email not valid. Please check again!</label>";
+            }
         }
     }
 
@@ -136,10 +164,14 @@
                         <h2>Check, Activate, Deactivate and Remove Managers</h2>
                         <div class="checkCard">
                             <form action="#" method="POST">
-                                <input type="text" id="checkmail" name="checkMail" placeholder="Enter email" required>
-                                <button type="submit" id="checkMailBtn" name="checkMailBtn" title="Check Availability"><i class="fa-solid fa-magnifying-glass"></i> Check</button>
+                                <input type="text" id="checkmail" name="checkMail" placeholder="Enter an email to check"
+                                       value="<?php echo isset($_POST['checkMail']) ? htmlspecialchars($_POST['checkMail']) : ''; ?>"
+                                       required>
+                                <button type="submit" id="checkMailBtn" name="checkMailBtn" title="Check Availability">
+                                    <i class="fa-solid fa-magnifying-glass"></i> Check
+                                </button>
                                 <div class="status">
-                                    <label for="status"><strong>Status: </strong>Active</label>
+                                    <p for="status"><?php echo $activeStatus; ?></p>
                                 </div>
                                 <div class="btns">
                                     <button type="submit" id="activate" name="activate" title="Activate">Activate <i class="fa-regular fa-thumbs-up"></i></button>
