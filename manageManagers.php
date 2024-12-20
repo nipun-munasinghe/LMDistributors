@@ -32,6 +32,21 @@
             $email = trim($_POST['email']);
             $phone1 = trim($_POST['phone1']);
             $password = trim($_POST['password']);
+            $status = 'active';
+            $image = './images/default-profile.png';
+            $type = 'manager';
+
+            $sql = "INSERT INTO user_info (email, password, fName, lName, phone1, image, type, assignType, status)
+                    VALUES ('$email', '$password', '$fName', '$lName', '$phone1', '$image', '$type', '$assignWork', '$status');";
+
+            $result = mysqli_query($conn, $sql);
+
+            if($result) {
+                echo "<script>alert('Manager added successfully!');</script>";
+            }
+            else {
+                echo "<script>alert('Failed to add manager. Please try again!');</script>";
+            }
         }
     }
 
