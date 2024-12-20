@@ -23,6 +23,16 @@
         else {
             $greeting = "Welcome ".$_SESSION['user_fName']."!";
         }
+
+        //add managers
+        if(isset($_POST['addBtn'])) {
+            $fName = trim($_POST['first-name']);
+            $lName = trim($_POST['last-name']);
+            $assignWork = trim($_POST['assignWork']);
+            $email = trim($_POST['email']);
+            $phone1 = trim($_POST['phone1']);
+            $password = trim($_POST['password']);
+        }
     }
 
 ?>
