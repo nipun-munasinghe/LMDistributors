@@ -41,12 +41,20 @@
 
             $result = mysqli_query($conn, $sql);
 
+            //check if query was successful
             if($result) {
                 echo "<script>alert('Manager added successfully!');</script>";
             }
             else {
                 echo "<script>alert('Failed to add manager. Please try again!');</script>";
             }
+        }
+
+        //Check, Activate, Deactivate and Remove Managers
+        if($_POST['checkMailBtn']) {
+            $email = trim($_POST['checkMail']);
+
+            $sql = "SELECT email FROM user_info WHERE email = ?"
         }
     }
 
@@ -123,6 +131,7 @@
                 </div>
 
                 <div class="rightSide">
+                    <!-- Check, Activate, Deactivate and Remove Managers -->
                     <div class="checkManager">
                         <h2>Check, Activate, Deactivate and Remove Managers</h2>
                         <div class="checkCard">
