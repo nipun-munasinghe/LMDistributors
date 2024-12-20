@@ -52,7 +52,6 @@
         }
 
         //Check, Activate, Deactivate and Remove Managers
-        //Check email
         if(isset($_POST['checkMailBtn'])) {
             $email = trim($_POST['checkMail']);
 
@@ -63,6 +62,7 @@
             $result = $stmt->get_result();
             $manager = $result->fetch_assoc();
 
+            //Check email
             if($manager) {
                 $sql = "SELECT status FROM user_info WHERE email = ?";
                 $stmt = $conn->prepare($sql);
@@ -83,6 +83,23 @@
             else {
                 $activeStatus = "<strong>Error: </strong><label style='color: red'>Email not valid. Please check again!</label>";
             }
+        }
+
+        //Active managers
+        if(isset($_POST['activate'])) {
+            $email = trim($_POST['checkMail']);
+
+            $sql = "UPDATE user_info SET status = 'active' WHERE email = ?";
+            $stmt = $conn->prepare($sql);
+            $stmt->bind_param("s", $email);
+
+            if ($stmt->execute()) {
+                echo "<script>alert('Manager successfully activated!');</script>";
+            }
+            else {
+                echo "<script>alert('Failed to activate manager. Please try again!');</script>";
+            }
+            
         }
     }
 
