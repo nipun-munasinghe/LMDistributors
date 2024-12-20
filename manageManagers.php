@@ -94,15 +94,31 @@
             $stmt->bind_param("s", $email);
 
             if ($stmt->execute()) {
-                echo "<script>alert('Manager successfully activated!');</script>";
+                echo "<script>alert('Manager activated successfully!');</script>";
+
             }
             else {
                 echo "<script>alert('Failed to activate manager. Please try again!');</script>";
             }
             
         }
-    }
 
+        //deactivate manager
+        if(isset($_POST['deactivate'])) {
+            $email = trim($_POST['checkMail']);
+
+            $sql = "UPDATE user_info SET status = 'inactive' WHERE email = ?";
+            $stmt = $conn->prepare($sql);
+            $stmt->bind_param("s", $email);
+
+            if ($stmt->execute()) {
+                echo "<script>alert('Manager account deactivated!');</script>";
+            }
+            else {
+                echo "<script>alert('Failed to deactivate manager. Please try again!');</script>";
+            }
+        }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -180,7 +196,7 @@
                     <div class="checkManager">
                         <h2>Check, Activate, Deactivate and Remove Managers</h2>
                         <div class="checkCard">
-                            <form action="#" method="POST">
+                            <form action="manageManagers.php" method="POST">
                                 <input type="text" id="checkmail" name="checkMail" placeholder="Enter an email to check"
                                        value="<?php echo isset($_POST['checkMail']) ? htmlspecialchars($_POST['checkMail']) : ''; ?>"
                                        required>
