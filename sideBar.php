@@ -3,7 +3,7 @@
     if($_SESSION['user_type'] == 'customer') {
         
         echo "<div class='sidebar-header'>
-                <h2>Customer Profile</h2>
+                <h2>Customer Dashboard</h2>
                 <i class='fas fa-times' id='close-sidebar' title='Close Dashboard'></i>
             </div>
             <ul class='sidebar-menu'>
@@ -18,7 +18,7 @@
     else if($_SESSION['user_type'] == 'buyer') {
         
         echo "<div class='sidebar-header'>
-                <h2>Buyer Profile</h2>
+                <h2>Buyer Dashboard</h2>
                 <i class='fas fa-times' id='close-sidebar' title='Close Dashboard'></i>
             </div>
             <ul class='sidebar-menu'>
@@ -33,7 +33,7 @@
     else if($_SESSION['user_type'] == 'supplier') {
         
         echo "<div class='sidebar-header'>
-                <h2>Supplier Profile</h2>
+                <h2>Supplier Dashboard</h2>
                 <i class='fas fa-times' id='close-sidebar' title='Close Dashboard'></i>
             </div>
             <ul class='sidebar-menu'>
@@ -47,7 +47,7 @@
     else if($_SESSION['user_type'] == 'manager') {
         
         echo "<div class='sidebar-header'>
-                <h2>Manager Profile</h2>
+                <h2>Manager Dashboard</h2>
                 <i class='fas fa-times' id='close-sidebar' title='Close Dashboard'></i>
             </div>
             <ul class='sidebar-menu'>
@@ -68,7 +68,7 @@
     else if($_SESSION['user_type'] == 'admin') {
         
         echo "<div class='sidebar-header'>
-                <h2>Customer Profile</h2>
+                <h2>Admin Dashboard</h2>
                 <i class='fas fa-times' id='close-sidebar' title='Close Dashboard'></i>
             </div>
             <ul class='sidebar-menu'>
