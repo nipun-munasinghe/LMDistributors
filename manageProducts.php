@@ -12,7 +12,58 @@ if(!isset($_SESSION['user_fName'])) {
     exit();
 }
 else {
+    $dob = $_SESSION['user_dob'];
+    $today = date('m-d');
+    $birthday = date('m-d', strtotime($dob));
 
+    if($birthday == $today) {
+        $greeting = "Happy Birthday ".htmlspecialchars($_SESSION['user_fName']). "!";
+    }
+    else {
+        $greeting = "Welcome ".htmlspecialchars($_SESSION['user_fName'])."!";
+    }
+
+    // add product form
+    if(isset($_POST['submitBtn'])) {
+        $productName = trim($_POST['productName']);
+        $description = trim($_POST['description']);
+        $productPrice = trim($_POST['price']);
+        $category = trim($_POST['category']);
+        $quantity = trim($_POST['quantity']);
+
+        //handle product image upload
+        if(isset($_FILES['productImg']) && $_FILES['productImg']['error'] === UPLOAD_ERR_OK) {
+            $targetDir = "./images/products/";
+            $fileName = basename($_FILES['productImg']['name']);
+            $targetFile = $targetDir. uniqid(). "-". $fileName;
+            $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
+
+            //check file type
+            if(in_array($imageFileType, ['jpg', 'jpeg', 'png', 'gif'])) {
+                if(move_uploaded_file($_FILES['productImg']['tmp_name'], $targetFile)) {
+                    $productImage = $targetFile;
+                }
+            }
+        }
+        // $sql = "INSERT INTO product (name, description, price, image, category, quantity)
+        //         VALUES ('?', '?', '?', '?', '?', '?')";
+        // $stmt = $conn->prepare($sql);
+
+        // if (!empty($uploadFilePath)) {
+        //     $stmt->bind_param("ssdssi", $productName, $description, $price, $uploadFilePath, $category, $quantity);
+        // } else {
+        //     $stmt->bind_param("ssdsi", $productName, $description, $price, $category, $quantity);
+        // }
+
+        // $result = $stmt->execute();
+
+        // if($result) {
+        //     echo "<script>alert('Product added successfully!');</script>";
+        // }
+        // else {
+        //     echo "<script>alert('Failed to add product. Please try again!');</script>";
+        // }
+    }
 }
 ?>
 
@@ -48,7 +99,7 @@ else {
             <!-- Topbar -->
             <div class="topbar">
                 <i class="fas fa-bars" id="toggle-sidebar" title="Open Dashboard"></i>
-                <h1>Welcome AdminName!</h1>
+                <h1><?php echo $greeting; ?></h1>
             </div>
 
             <h2 class="hiddenFormH2">Looking for add a new product? </h2>
@@ -57,7 +108,7 @@ else {
             </center>
 
             <div id="formContainer" class="hidden">
-                <form id="hiddenForm">
+                <form id="hiddenForm" action="manageProducts.php" method="POST">
                     <div class="formUpper">
                         <h2>Add Product</h2>
                         <i class="fas fa-times" id="cancelForm"></i>
@@ -69,7 +120,7 @@ else {
                     <label for="description">Description:</label>
                     <textarea id="description" name="description" rows="3" placeholder="Enter a small description"></textarea>
 
-                    <label for="price">Price:</label>
+                    <label for="price">Price(Rs.):</label>
                     <input type="number" id="price" name="price" placeholder="Enter product price" min="0" step="0.01" required>
 
                     <label for="productImg">Product Image:</label>
@@ -82,7 +133,7 @@ else {
                     <input type="number" id="quantity" name="quantity" min="0" placeholder="Enter available product quantity" required>
 
                     <center>
-                        <button type="submit" id="submitBtn" title="Click to add product">Add</button>
+                        <button type="submit" id="submitBtn" title="Click to add product" name="submitBtn">Add</button>
                     </center>
                 </form>
             </div>
