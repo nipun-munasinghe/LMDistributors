@@ -63,7 +63,7 @@ else {
 
             <div class="bodySeparation">
                 <div class="toBuyers">
-                    <h2><i class="fa-regular fa-handshake"></i> Price For Buyers</h2>
+                    <h2><i class="fa-regular fa-handshake"></i> Price For Buyers  <i class="fa-solid fa-arrow-up"></i></h2>
                     <div class="inputCard">
                         <form action="#" method="POST">
                             <input type="number" min="0" step="0.01" id="buyerPrice" name="buyerPrice" placeholder="Enter Today's Price for Buyers..." required>
@@ -78,7 +78,7 @@ else {
                 </div>
 
                 <div class="toSuppliers">
-                    <h2><i class="fa-solid fa-cubes"></i> Price For Suppliers</h2>
+                    <h2><i class="fa-solid fa-cubes"></i> Price For Suppliers  <i class="fa-solid fa-arrow-down"></i></h2>
                     <div class="inputCard">
                         <form action="#" method="POST">
                             <input type="number" min="0" step="0.01" id="supplierPrice" name="supplierPrice" placeholder="Enter Today's Price for Suppliers..." required>

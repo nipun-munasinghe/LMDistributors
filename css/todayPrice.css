@@ -185,6 +185,10 @@ body {
     margin: 0;
 }
 
+.fa-arrow-up, .fa-arrow-down {
+    color: #4CAF50;
+}
+
 /* quick action cards */
 .quick {
     display: flex;
