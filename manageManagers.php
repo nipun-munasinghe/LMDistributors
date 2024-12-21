@@ -118,6 +118,22 @@
                 echo "<script>alert('Failed to deactivate manager. Please try again!');</script>";
             }
         }
+
+        //remove manager
+        if(isset($_POST['remove'])) {
+            $email = trim($_POST['checkMail']);
+
+            $sql = "DELETE FROM user_info WHERE email = ?";
+            $stmt = $conn->prepare($sql);
+            $stmt-> bind_param("s", $email);
+
+            if($stmt->execute()) {
+                echo "<script>alert('Manager removed successfully!'); window.location.href='manageManagers.php';</script>";
+            }
+            else {
+                echo "<script>alert('Failed to remove manager. Please try again!');</script>";
+            }
+        }
     }
 ?>
 
