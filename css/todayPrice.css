@@ -142,6 +142,12 @@ body {
     box-sizing: border-box;
 }
 
+.inputCard input:focus{
+    outline: none;
+    border-color: #4CAF50;
+    background-color: #4caf4f51;
+}
+
 .inputCard button, .inputCard button {
     padding: 9px 5px;
     color: #fff;
@@ -171,6 +177,12 @@ body {
 
 .displayCard .priceLabel {
     font-size: 20px;
+}
+
+.inputCard input[type="number"]::-webkit-inner-spin-button, /*hide arrows from inputs*/
+.inputCard input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 /* quick action cards */
