@@ -134,6 +134,10 @@
                 echo "<script>alert('Failed to remove manager. Please try again!');</script>";
             }
         }
+
+        //fetch manager list
+        $sql = "SELECT * FROM user_info WHERE type = 'manager';";
+        $result = mysqli_query($conn, $sql);
     }
 ?>
 
@@ -245,30 +249,19 @@
                                         <th class="tPhone">Phone Number</th>
                                         <th class="tStatus">Status</th>
                                     </tr>
+                                    <?php while($row = $result->fetch_assoc()): ?>
                                     <tr>
-                                        <td>Susantha</td>
-                                        <td>Perera</td>
-                                        <td>Product Manager</td>
-                                        <td>manager.susantha@gmail.com</td>
-                                        <td>0772274083</td>
-                                        <td>Active</td>
+                                        <td><?php echo $row['fName']; ?></td>
+                                        <td><?php echo $row['lName']; ?></td>
+                                        <td><?php echo $row['assignType']; ?></td>
+                                        <td><?php echo $row['email']; ?></td>
+                                        <td><?php echo $row['phone1']; ?></td>
+                                        <td><?php echo $row['status'] == 'active'
+                                                    ? "<span style='color: #4CAF50;'>Active</span>"
+                                                    : "<span style='color: #f44336; font-style: italic; text-align: center;'>Deactivated</span>";
+                                            ?></td>
                                     </tr>
-                                    <tr>
-                                        <td>Siriwardhana</td>
-                                        <td>Silvage</td>
-                                        <td>Supply Manager</td>
-                                        <td>manager.silvas@gmail.com</td>
-                                        <td>0712514562</td>
-                                        <td>Non-Active</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Ishini</td>
-                                        <td>Maneesha</td>
-                                        <td>Order Manager</td>
-                                        <td>manager.ishini@gmail.com</td>
-                                        <td>0712512587</td>
-                                        <td>Active</td>
-                                    </tr>
+                                    <?php endwhile; ?>
                                 </table>
                             </div>
                         </div>
