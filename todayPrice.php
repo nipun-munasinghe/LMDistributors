@@ -23,6 +23,32 @@ else {
     else {
         $greeting = "Welcome ".htmlspecialchars($_SESSION['user_fName'])."!";
     }
+
+    // Price For Buyers
+    if(isset($_POST['buyerPriceBtn'])) {
+        $buyerPrice = trim($_POST['buyerPrice']);
+        $today = date('Y-m-d');
+
+        $sql = "UPDATE buyerprice SET price = ?, date = ? WHERE bPID = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("dsi", $buyerPrice, $today, $bPID);
+        $bPID = 1;
+        $result = $stmt->execute();
+
+        if ($result) {
+            echo "<script>alert('Buyer price updated successfully!');</script>";
+        }
+        else {
+            echo "<script>alert('Failed to update buyer price. Please try again!');</script>";
+        }
+    }
+    $sql = "SELECT price FROM buyerprice WHERE bPID = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $bPID);
+    $bPID = 1;
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $buyerPrice = $result->fetch_assoc();
 }
 ?>
 
@@ -65,7 +91,7 @@ else {
                 <div class="toBuyers">
                     <h2><i class="fa-regular fa-handshake"></i> Price For Buyers  <i class="fa-solid fa-arrow-up"></i></h2>
                     <div class="inputCard">
-                        <form action="#" method="POST">
+                        <form action="todayPrice.php" method="POST">
                             <input type="number" min="0" step="0.01" id="buyerPrice" name="buyerPrice" placeholder="Enter Today's Price for Buyers..." required>
                             <button class="addBtn" id="buyerPriceBtn" name="buyerPriceBtn" type="submit" title="Add Price for Buyers">Add Buyer's Price</button>
                         </form>
@@ -73,7 +99,7 @@ else {
                     <br>
                     <div class="displayCard">
                         <p class="priceLabel">Today's Price for Buyers:</p>
-                        <div class="displayPrices"><p>Rs. <strong>150.00</strong> Per kg</p></div>
+                        <div class="displayPrices"><p>Rs. <strong><?php echo $buyerPrice['price']; ?></strong> Per kg</p></div>
                     </div>
                 </div>
 
