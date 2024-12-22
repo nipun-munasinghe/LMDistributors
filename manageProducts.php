@@ -158,7 +158,8 @@ else {
                                 <td class="tName"><?php echo $row['name'] ?></td>
                                 <td class="tDescription"><?php echo $row['description'] ?></td>
                                 <td class="tPrice"><?php echo $row['price'] ?></td>
-                                <td class="tProductImg"><?php echo $row['image'] ?></td>
+                                <td class="tProductImg"><img src="<?php echo $row['image'] ?>" 
+                                    alt="Product Image" class="productImg"></td>
                                 <td class="tCategory"><?php echo $row['category'] ?></td>
                                 <td class="tQuantity"><?php echo $row['quantity'] ?></td>
                                 <td class="tAction">
@@ -172,6 +173,36 @@ else {
                 </div>
             </div>
             </center>
+
+            <!-- hidden form for edit details and update -->
+            <div id="editModal" class="modal hidden">
+                <div class="modal-content">
+                    <span class="close-btn">&times;</span>
+                    <h2 class="editH2">Edit Product</h2>
+                    <form id="editForm" method="POST" action="updateProduct.php">
+                        <input type="hidden" id="editProductID" name="productID">
+                        
+                        <label for="editProductName">Product Name:</label>
+                        <input type="text" id="editProductName" name="productName" required>
+                        
+                        <label for="editDescription">Description:</label>
+                        <textarea id="editDescription" name="description" rows="3"></textarea>
+                        
+                        <label for="editPrice">Price (Rs.):</label>
+                        <input type="number" id="editPrice" name="price" step="0.01" required>
+                        
+                        <label for="editCategory">Category:</label>
+                        <input type="text" id="editCategory" name="category">
+                        
+                        <label for="editQuantity">Quantity:</label>
+                        <input type="number" id="editQuantity" name="quantity" min="0" required>
+                        
+                        <center>
+                            <button type="submit" id="updateBtn" name="updateBtn">Update</button>
+                        </center>
+                    </form>
+                </div>
+            </div>
             
             <h2 class="quickH2">Quick Actions</h2>
             <div class="quick">
