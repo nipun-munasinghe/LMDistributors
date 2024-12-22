@@ -30,9 +30,10 @@ else {
         $productPrice = trim($_POST['price']);
         $category = trim($_POST['category']);
         $quantity = trim($_POST['quantity']);
+        $productImage = NULL;
 
         //handle product image upload
-        if(isset($_FILES['productImg']) && $_FILES['productImg']['error'] === UPLOAD_ERR_OK) {
+        /*if(isset($_FILES['productImg']) && $_FILES['productImg']['error'] === UPLOAD_ERR_OK) {
             $targetDir = "./images/products/";
             $fileName = basename($_FILES['productImg']['name']);
             $targetFile = $targetDir. uniqid(). "-". $fileName;
@@ -45,25 +46,21 @@ else {
                 }
             }
         }
-        // $sql = "INSERT INTO product (name, description, price, image, category, quantity)
-        //         VALUES ('?', '?', '?', '?', '?', '?')";
-        // $stmt = $conn->prepare($sql);
-
-        // if (!empty($uploadFilePath)) {
-        //     $stmt->bind_param("ssdssi", $productName, $description, $price, $uploadFilePath, $category, $quantity);
-        // } else {
-        //     $stmt->bind_param("ssdsi", $productName, $description, $price, $category, $quantity);
-        // }
-
-        // $result = $stmt->execute();
-
-        // if($result) {
-        //     echo "<script>alert('Product added successfully!');</script>";
-        // }
-        // else {
-        //     echo "<script>alert('Failed to add product. Please try again!');</script>";
-        // }
+        $sql = "INSERT INTO product (name, description, price, image, category, quantity)
+                VALUES ('$productName', '$description', '$productImage', '$category', '$quantity');"
+        $result = mysqli_query($conn, $sql);
+        
+        if($result) {
+            echo "<script>alert('Product added successfully!');</script>";
+        }
+        else {
+            echo "<script>alert('Failed to add product. Please try again!');</script>";
+        }*/
     }
+
+    //fetch details for display on table
+    $sql = "SELECT * FROM product";
+    $result = mysqli_query($conn, $sql);
 }
 ?>
 
@@ -155,45 +152,9 @@ else {
                                 <th class="tQuantity">Quantity</th>
                                 <th class="tAction">Action</th>
                             </tr>
+                            <?php while($row = $result->fetch_assoc()): ?>
                             <tr>
-                                <td class="productID">1</td>
-                                <td class="tName">Coconut Oil</td>
-                                <td class="tDescription">High-quality coconut oil</td>
-                                <td class="tPrice">550.00</td>
-                                <td class="tProductImg"><img src="./images/slide1.jpg" alt="Product Image" class="productImg"></td>
-                                <td class="tCategory">Coconut Oil</td>
-                                <td class="tQuantity">100 liters</td>
-                                <td class="tAction"><a href="#"><i class="fa-solid fa-edit"></i></a> | <a href="#"><i class="fa-solid fa-trash"></i></a></td>
-                            </tr>
-                            <tr>
-                                <td class="productID">2</td>
-                                <td class="tName">White Coconut Oil</td>
-                                <td class="tDescription">High-quality white coconut oil</td>
-                                <td class="tPrice">650.00</td>
-                                <td class="tProductImg"><img src="./images/slide3.jpg" alt="Product Image" class="productImg"></td>
-                                <td class="tCategory">Coconut Oil</td>
-                                <td class="tQuantity">160 liters</td>
-                                <td class="tAction"><a href="#"><i class="fa-solid fa-edit"></i></a> | <a href="#"><i class="fa-solid fa-trash"></i></a></td>
-                            </tr>
-                            <tr>
-                                <td class="productID">3</td>
-                                <td class="tName">Coconut Spoon</td>
-                                <td class="tDescription">High-quality coconut spoon</td>
-                                <td class="tPrice">100.00</td>
-                                <td class="tProductImg"><img src="./images/slide2.jpg" alt="Product Image" class="productImg"></td>
-                                <td class="tCategory">Coconut Products</td>
-                                <td class="tQuantity">238 quantities</td>
-                                <td class="tAction"><a href="#"><i class="fa-solid fa-edit"></i></a> | <a href="#"><i class="fa-solid fa-trash"></i></a></td>
-                            </tr>
-                            <tr>
-                                <td class="productID">4</td>
-                                <td class="tName">Coconut Leaf Mat</td>
-                                <td class="tDescription">High-quality coconut Mat</td>
-                                <td class="tPrice">950.00</td>
-                                <td class="tProductImg"><img src="./images/beach-background-with-two-coconuts.jpg" alt="Product Image" class="productImg"></td>
-                                <td class="tCategory">Coconut Products</td>
-                                <td class="tQuantity">100 quantities</td>
-                                <td class="tAction"><a href="#"><i class="fa-solid fa-edit"></i></a> | <a href="#"><i class="fa-solid fa-trash"></i></a></td>
+                                <td > </td>
                             </tr>
                         </table>
                     </div>
