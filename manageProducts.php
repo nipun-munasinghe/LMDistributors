@@ -154,8 +154,19 @@ else {
                             </tr>
                             <?php while($row = $result->fetch_assoc()): ?>
                             <tr>
-                                <td > </td>
+                                <td class="productID"><?php echo $row['productid'] ?></td>
+                                <td class="tName"><?php echo $row['name'] ?></td>
+                                <td class="tDescription"><?php echo $row['description'] ?></td>
+                                <td class="tPrice"><?php echo $row['price'] ?></td>
+                                <td class="tProductImg"><?php echo $row['image'] ?></td>
+                                <td class="tCategory"><?php echo $row['category'] ?></td>
+                                <td class="tQuantity"><?php echo $row['quantity'] ?></td>
+                                <td class="tAction">
+                                    <a href="#" title="Edit"><i class="fa-solid fa-edit"></i></a> | 
+                                    <a href="#"><i class="fa-solid fa-trash" title="Delete Product"></i></a>
+                                </td>
                             </tr>
+                            <?php endwhile; ?>
                         </table>
                     </div>
                 </div>
