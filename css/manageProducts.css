@@ -134,7 +134,13 @@ body {
     justify-content: space-between;
 }
 
+#cancelForm {
+    font-size: 20px;
+    color: #aaa
+}
+
 #cancelForm:hover {
+    color: red;
     cursor: pointer;
 }
 
@@ -179,7 +185,6 @@ body {
     -webkit-appearance: none;
     margin: 0;
 }
-
 
 #submitBtn {
     border: none;
@@ -280,7 +285,7 @@ body {
     scale: 1.2;
 }
 
-/* Modal Styles */
+/* Hidden form for edit details Styles */
 .modal {
     display: none; /* Hidden by default */
     position: fixed;
@@ -290,6 +295,7 @@ body {
     width: 100%;
     height: 100%;
     overflow: auto;
+    align-items: center;
     background-color: rgba(0, 0, 0, 0.5);
 }
 
@@ -298,7 +304,7 @@ body {
     margin: 15% auto;
     padding: 20px;
     border-radius: 8px;
-    width: 50%;
+    width: 30%;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
@@ -312,6 +318,58 @@ body {
 
 .close-btn:hover {
     color: red;
+}
+
+#editForm label {
+    color: #8B4513;
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+}
+
+#editForm input, #editForm textarea {
+    width: 96%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 2px solid #FFD700;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+#editForm textarea {
+    resize: none;
+    font-family: poppins;
+}
+
+#editForm input:focus, #editForm textarea:focus {
+    outline: none;
+    border-color: #4CAF50;
+    background-color: #4caf4f51;
+}
+
+#editPrice::-webkit-inner-spin-button,
+#editPrice::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+#updateBtn {
+    border: none;
+    border-radius: 8px;
+    padding: 8px 16px;
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #4CAF50;
+    transition: transform 0.8s ease;
+}
+
+#updateBtn:hover {
+    cursor: pointer;
+    color: #FFD700;
+    background-color: #3E8E41;
+    transform: scale(1.1);
 }
 
 /* quick action cards */
