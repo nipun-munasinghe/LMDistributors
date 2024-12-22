@@ -61,6 +61,29 @@ else {
     //fetch details for display on table
     $sql = "SELECT * FROM product";
     $result = mysqli_query($conn, $sql);
+
+    // update product form
+    if (isset($_POST['updateBtn'])) {
+        $productID = $_POST['productID'];
+        $productName = $_POST['productName'];
+        $description = $_POST['description'];
+        $price = $_POST['price'];
+        $category = $_POST['category'];
+        $quantity = $_POST['quantity'];
+    
+        // Update the product in the database
+        $sql = "UPDATE product 
+                SET name = ?, description = ?, price = ?, category = ?, quantity = ?
+                WHERE productid = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("ssdssi", $productName, $description, $price, $category, $quantity, $productID);
+    
+        if ($stmt->execute()) {
+            echo "<script>alert('Product updated successfully!'); window.location.href = 'manageProducts.php';</script>";
+        } else {
+            echo "<script>alert('Failed to update product. Please try again!'); window.location.href = 'manageProducts.php';</script>";
+        }
+    }
 }
 ?>
 
@@ -179,7 +202,7 @@ else {
                 <div class="modal-content">
                     <span class="close-btn">&times;</span>
                     <h2 class="editH2">Edit Product</h2>
-                    <form id="editForm" method="POST" action="updateProduct.php">
+                    <form id="editForm" method="POST" action="manageProducts.php">
                         <input type="hidden" id="editProductID" name="productID">
                         
                         <label for="editProductName">Product Name:</label>
