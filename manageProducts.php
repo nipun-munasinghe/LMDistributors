@@ -84,6 +84,32 @@ else {
             echo "<script>alert('Failed to update product. Please try again!'); window.location.href = 'manageProducts.php';</script>";
         }
     }
+
+    // Handle product deletion
+    if (isset($_GET['deleteID'])) {
+        // Validate and sanitize the deleteID from GET parameter
+        $deleteID = intval($_GET['deleteID']); // Ensure deleteID is an integer
+    
+        // Prepare the DELETE query
+        $sql = "DELETE FROM product WHERE productid = ?";
+        $stmt = $conn->prepare($sql);
+    
+        if ($stmt) { // Check if prepare() was successful
+            $stmt->bind_param("i", $deleteID);
+    
+            // Execute the query
+            if ($stmt->execute()) {
+                // Success message
+                echo "<script>alert('Product deleted successfully!'); window.location.href = 'manageProducts.php';</script>";
+            } else {
+                // Error message for execution failure
+                echo "<script>alert('Failed to delete product. Error: " . htmlspecialchars($stmt->error) . "'); window.location.href = 'manageProducts.php';</script>";
+            }
+        } else {
+            // Error message for query preparation failure
+            echo "<script>alert('Failed to prepare the delete query. Please try again!'); window.location.href = 'manageProducts.php';</script>";
+        }
+    }    
 }
 ?>
 
@@ -187,7 +213,11 @@ else {
                                 <td class="tQuantity"><?php echo $row['quantity'] ?></td>
                                 <td class="tAction">
                                     <a href="#" title="Edit"><i class="fa-solid fa-edit"></i></a> | 
-                                    <a href="#"><i class="fa-solid fa-trash" title="Delete Product"></i></a>
+                                    <a href="manageProducts.php?deleteID=<?php echo $row['productid']; ?>" 
+                                        title="Delete Product" 
+                                        onclick="return confirm('Are you sure you want to delete this product?');">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </a>
                                 </td>
                             </tr>
                             <?php endwhile; ?>
