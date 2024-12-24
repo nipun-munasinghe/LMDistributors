@@ -160,7 +160,7 @@ else {
                         <i class="fas fa-times" id="cancelForm"></i>
                     </div>
 
-                    <label for="productName">Product Name:</label>
+                    <label for="productName">Product ID:</label>
                     <input type="text" id="productName" name="productName" placeholder="Enter product name" required>
 
                     <label for="description">Description:</label>
