@@ -160,7 +160,7 @@ else {
                         <i class="fas fa-times" id="cancelForm"></i>
                     </div>
 
-                    <label for="productName">Product ID:</label>
+                    <label for="productName">Product Name:</label>
                     <input type="text" id="productName" name="productName" placeholder="Enter product name" required>
 
                     <label for="description">Description:</label>
@@ -192,7 +192,7 @@ else {
                     <div class="content" id="scrollable-content">
                         <table class="listTable" border="1px">
                             <tr>
-                                <th class="productID">Product Number</th>
+                                <th class="productID">Product ID</th>
                                 <th class="tName">Product Name</th>
                                 <th class="tDescription">Product Description</th>
                                 <th class="tPrice">Price (Rs. )</th>
