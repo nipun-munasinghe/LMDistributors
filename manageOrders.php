@@ -1,3 +1,34 @@
+<?php
+//start sessions
+session_start();
+
+// connect config file
+include_once 'config.php';
+
+// Check if user is logged in
+    if(!isset($_SESSION['user_fName'])) {
+        //user is not logged in redirect to login page
+        header('Location: login.php');
+        exit();
+    }
+    else {
+        $dob = $_SESSION['user_dob'];
+        $today = date('m-d');
+        $birthday = date('m-d', strtotime($dob));
+        //check user's birthday
+        if($birthday == $today) {
+            $greeting = "Happy Birthday ".htmlspecialchars($_SESSION['user_fName']). "!";
+        }
+        else {
+            $greeting = "Welcome ".htmlspecialchars($_SESSION['user_fName'])."!";
+        }
+
+        // Fetch all orders from the database
+        $sql = "SELECT * FROM orders";
+        $result = $conn->query($sql);
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,24 +53,7 @@
     <div class="container">
         <!-- Hidden Sidebar -->
         <aside id="sidebar" class="sidebar">
-            <div class="sidebar-header">
-                <h2>Admin Dashboard</h2>
-                <i class="fas fa-times" id="close-sidebar" title="Close Dashboard"></i>
-            </div>
-
-            <ul class="sidebar-menu">
-                <li><a href="./admin.php" title="Your Profile"><i class="fa-solid fa-user"></i> My Profile</a></li>
-                <li><a href="./manageManagers.php" title="Managers Management"><i class="fas fa-user-tie"></i> Manage Managers</a></li>
-                <li><a href="./manageProducts.php" title="Products Management"><i class="fa-solid fa-store"></i> Manage Products</a></li>
-                <li><a href="./manageOrders.php" title="Orders Management"><i class="fa-solid fa-cart-shopping"></i> Manage Orders</a></li>
-                <li><a href="./todayPrice.php" title="Buyers & Sellers price list"><i class="fa-solid fa-money-bill-1-wave"></i> Today's Price List</a></li>
-                <li><a href="./buyersManagement.php" title="Buyers Management"><i class="fa-solid fa-handshake"></i> Manage Buyers</a></li>
-                <li><a href="./supplyManagement.php" title="Suppliers Management"><i class="fa-solid fa-business-time"></i> Manage Suppliers</a></li>
-                <li><a href="./manageMessages.php" title="Messages Management"><i class="fa-solid fa-comment"></i> Manage Messages</a></li>
-                <li><a href="./viewIncome.php" title="View Analytics"><i class="fas fa-chart-line"></i> View Analytics</a></li>
-                <li><a href="./accSettings.php" title="Edit profile & Change password"><i class="fas fa-cog"></i> Settings</a></li>
-                <li><a href="./logout.php" title="Logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
-            </ul>
+            <?php include 'sidebar.php'; ?>
         </aside>
 
         <!-- Main Content -->
@@ -47,7 +61,7 @@
             <!-- Topbar -->
             <div class="topbar">
                 <i class="fas fa-bars" id="toggle-sidebar" title="Open Dashboard"></i>
-                <h1>Welcome AdminName!</h1>
+                <h1><?php echo $greeting; ?></h1>
             </div>
 
             <h2 class="displayOrdersH2">All orders <i class="fa-solid fa-box-open"></i></h2>
@@ -86,66 +100,6 @@
                                 <td class="totalPrice">2500.00</td>
                                 <td class="tStatus">Pending</td>
                                 <td class="tAction"><a href="#" title="Edit status"><i class="fa-solid fa-edit"></i></a> | <a href="#" title="Delete Order"><i class="fa-solid fa-trash"></i></a></td>
-                            </tr>
-                            <tr>
-                                <td class="orderID">2</td>
-                                <td class="orderDate">2024-08-15</td>
-                                <td class="customerName">Shehan Gihethma</td>
-                                <td class="customerPhone1">077 2431661</td>
-                                <td class="customerPhone2">071 4567899</td>
-                                <td class="customerAddress">no 15/A, Nelum Uyana road, Kuliyapitiya, Sri Lanka.</td>
-                                <td class="tName">Coconut spoon</td>
-                                <td class="productID">6</td>
-                                <td class="tQuantity">10</td>
-                                <td class="tPrice">100.00</td>
-                                <td class="totalPrice">1000.00</td>
-                                <td class="tStatus">Completed</td>
-                                <td class="tAction"><a href="#" title="Edit status"><i class="fa-solid fa-edit"></i></a> | <a href="#" title="Delete Order"><i class="fa-solid fa-trash"></i></a></td>
-                            </tr>
-                            <tr>
-                                <td class="orderID">3</td>
-                                <td class="orderDate">2024-09-25</td>
-                                <td class="customerName">Nurawi Gihethmini</td>
-                                <td class="customerPhone1">077 2430661</td>
-                                <td class="customerPhone2">071 9567899</td>
-                                <td class="customerAddress">no 125/A, Keselgas mawatha, Chilaw, Sri Lanka.</td>
-                                <td class="tName">Coconut Mat</td>
-                                <td class="productID">2</td>
-                                <td class="tQuantity">1</td>
-                                <td class="tPrice">500.00</td>
-                                <td class="totalPrice">500.00</td>
-                                <td class="tStatus">Shipped</td>
-                                <td class="tAction"><a href="#" title="Edit Status"><i class="fa-solid fa-edit"></i></a> | <a href="#"><i class="fa-solid fa-trash" title="Delete Order"></i></a></td>
-                            </tr>
-                            <tr>
-                                <td class="orderID">4</td>
-                                <td class="orderDate">2024-09-28</td>
-                                <td class="customerName">Sumudi Samarakoon</td>
-                                <td class="customerPhone1">+94772431610</td>
-                                <td class="customerPhone2">+94714567949</td>
-                                <td class="customerAddress">No 12, Kaludiya pokuna road, Hiripitiya, Nugegoda, Sri Lanka.</td>
-                                <td class="tName">White Coconut Oil</td>
-                                <td class="productID">1</td>
-                                <td class="tQuantity">5</td>
-                                <td class="tPrice">600.00</td>
-                                <td class="totalPrice">3000.00</td>
-                                <td class="tStatus">Pending</td>
-                                <td class="tAction"><a href="#" title="Edit status"><i class="fa-solid fa-edit"></i></a> | <a href="#"><i class="fa-solid fa-trash" title="Delete Order"></i></a></td>
-                            </tr>
-                            <tr>
-                                <td class="orderID">5</td>
-                                <td class="orderDate">2024-11-11</td>
-                                <td class="customerName">Sihali Weerarathna</td>
-                                <td class="customerPhone1">077 2431661</td>
-                                <td class="customerPhone2">071 4567899</td>
-                                <td class="customerAddress">18/5, A1 road, Negombo, Sri Lanka.</td>
-                                <td class="tName">Coconut water 200ml</td>
-                                <td class="productID">9</td>
-                                <td class="tQuantity">50</td>
-                                <td class="tPrice">80.00</td>
-                                <td class="totalPrice">4000.00</td>
-                                <td class="tStatus">Shipped</td>
-                                <td class="tAction"><a href="#" title="Edit status"><i class="fa-solid fa-edit"></i></a> | <a href="#"><i class="fa-solid fa-trash" title="Delete Order"></i></a></td>
                             </tr>
                         </table>
                     </div>
