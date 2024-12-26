@@ -24,8 +24,12 @@ include_once 'config.php';
         }
 
         // Fetch all orders from the database
-        $sql = "SELECT * FROM orders";
+        $sql = "SELECT * FROM `order`";
         $result = $conn->query($sql);
+        if (!$result) {
+            die("Query failed: " . mysqli_error($conn));
+        }
+        
     }
 ?>
 
@@ -72,7 +76,7 @@ include_once 'config.php';
                     <div class="content" id="scrollable-content">
                         <table class="listTable" border="1px">
                             <tr>
-                                <th class="orderID">Order Number</th>
+                                <th class="orderID">Order ID</th>
                                 <th class="orderDate">Order Date</th>
                                 <th class="customerName">Customer Name</th>
                                 <th class="customerPhone1">Phone 1</th>
@@ -86,21 +90,24 @@ include_once 'config.php';
                                 <th class="tStatus">Status</th>
                                 <th class="tAction">Action</th>
                             </tr>
+                            <?php while($row = $result->fetch_assoc()): ?>
                             <tr>
-                                <td class="orderID">1</td>
-                                <td class="orderDate">2024-05-15</td>
-                                <td class="customerName">Shehara Gihethmi</td>
-                                <td class="customerPhone1">0777431661</td>
-                                <td class="customerPhone2">0718567899</td>
-                                <td class="customerAddress">no 125/A, big brain road, Kollupitiya, Sri Lanka.</td>
-                                <td class="tName">Coconut Oil</td>
-                                <td class="productID">4</td>
-                                <td class="tQuantity">5</td>
-                                <td class="tPrice">500.00</td>
-                                <td class="totalPrice">2500.00</td>
-                                <td class="tStatus">Pending</td>
-                                <td class="tAction"><a href="#" title="Edit status"><i class="fa-solid fa-edit"></i></a> | <a href="#" title="Delete Order"><i class="fa-solid fa-trash"></i></a></td>
+                                <td class="orderID"><?php echo htmlspecialchars($row['orderID']); ?></td>
+                                <td class="orderDate"><?php echo $row['date']; ?></td>
+                                <td class="customerName"><?php echo $row['name']; ?></td>
+                                <td class="customerPhone1"><?php echo $row['phone1']; ?></td>
+                                <td class="customerPhone2"><?php echo empty($row['phone2']) ? $row['phone2'] : NULL; ?></td>
+                                <td class="customerAddress"><?php echo $row['address']; ?></td>
+                                <td class="tName"><?php echo $row['productName']; ?></td>
+                                <td class="productID"><?php echo $row['productid']; ?></td>
+                                <td class="tQuantity"><?php echo $row['quantity']; ?></td>
+                                <td class="tPrice"><?php echo $row['itemPrice']; ?></td>
+                                <td class="totalPrice"><?php echo $row['totalPrice']; ?></td>
+                                <td class="tStatus"><?php echo $row['status']; ?></td>
+                                <td class="tAction"><a href="#" title="Edit status"><i class="fa-solid fa-edit"></i></a> | 
+                                <a href="#" title="Delete Order"><i class="fa-solid fa-trash"></i></a></td>
                             </tr>
+                            <?php endwhile; ?>
                         </table>
                     </div>
                 </div>
