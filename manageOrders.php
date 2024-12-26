@@ -30,6 +30,7 @@ include_once 'config.php';
             die("Query failed: " . mysqli_error($conn));
         }
         
+        
     }
 ?>
 
@@ -104,8 +105,13 @@ include_once 'config.php';
                                 <td class="tPrice"><?php echo $row['itemPrice']; ?></td>
                                 <td class="totalPrice"><?php echo $row['totalPrice']; ?></td>
                                 <td class="tStatus"><?php echo $row['status']; ?></td>
-                                <td class="tAction"><a href="#" title="Edit status"><i class="fa-solid fa-edit"></i></a> | 
-                                <a href="#" title="Delete Order"><i class="fa-solid fa-trash"></i></a></td>
+                                <td class="tAction">
+                                    <a href="#" onclick="toggleStatus(<?php echo $row['orderID']; ?>, '<?php echo $row['status']; ?>')"
+                                        title="Edit status">
+                                        <i class="fa-solid fa-edit"></i>
+                                    </a> | 
+                                    <a href="#" title="Delete Order"><i class="fa-solid fa-trash"></i></a>
+                                </td>
                             </tr>
                             <?php endwhile; ?>
                         </table>
