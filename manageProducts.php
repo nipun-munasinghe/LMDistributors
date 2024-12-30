@@ -213,13 +213,11 @@ else {
                                 <td class="tQuantity"><?php echo $row['quantity'] ?></td>
                                 <td class="tAction">
                                     <a href="#" title="Edit"><i class="fa-solid fa-edit"></i></a> | 
-                                    <a href="manageProducts.php?deleteID=<?php //echo $row['productid']; ?>" 
+                                    <a href="manageProducts.php?deleteID=<?php echo $row['productid']; ?>" 
                                         title="Delete Product" 
                                         onclick="return confirm('Are you sure you want to delete this product?');">
                                         <i class="fa-solid fa-trash"></i>
                                     </a>
-                                    <!-- <button type="submit"><i class="fa-solid fa-edit"></i></button>
-                                    <button type="submit"><i class="fa-solid fa-trash"></i></button> -->
                                 </td>
                             </tr>
                             <?php endwhile; ?>
