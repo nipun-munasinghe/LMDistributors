@@ -97,7 +97,7 @@ include_once 'config.php';
                                 <td class="orderDate"><?php echo $row['date']; ?></td>
                                 <td class="customerName"><?php echo $row['name']; ?></td>
                                 <td class="customerPhone1"><?php echo $row['phone1']; ?></td>
-                                <td class="customerPhone2"><?php echo empty($row['phone2']) ? $row['phone2'] : NULL; ?></td>
+                                <td class="customerPhone2"><?php echo !empty($row['phone2']) ? htmlspecialchars($row['phone2']) : 'N/A'; ?></td>
                                 <td class="customerAddress"><?php echo $row['address']; ?></td>
                                 <td class="tName"><?php echo $row['productName']; ?></td>
                                 <td class="productID"><?php echo $row['productid']; ?></td>
