@@ -169,6 +169,12 @@ body {
     width: 80px;
 }
 
+/* action button styles */
+/* .actionBtns {
+    border: none !important;
+    background-color: transparent;
+} */
+
 .fa-edit {
     color: #4CAF50;
 }

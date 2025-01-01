@@ -97,7 +97,7 @@ include_once 'config.php';
                                 <td class="orderDate"><?php echo $row['date']; ?></td>
                                 <td class="customerName"><?php echo $row['name']; ?></td>
                                 <td class="customerPhone1"><?php echo $row['phone1']; ?></td>
-                                <td class="customerPhone2"><?php echo !empty($row['phone2']) ? htmlspecialchars($row['phone2']) : 'N/A'; ?></td>
+                                <td class="customerPhone2"><?php echo !empty($row['phone2']) ? htmlspecialchars($row['phone2']) : 'None'; ?></td>
                                 <td class="customerAddress"><?php echo $row['address']; ?></td>
                                 <td class="tName"><?php echo $row['productName']; ?></td>
                                 <td class="productID"><?php echo $row['productid']; ?></td>
@@ -106,11 +106,13 @@ include_once 'config.php';
                                 <td class="totalPrice"><?php echo $row['totalPrice']; ?></td>
                                 <td class="tStatus"><?php echo $row['status']; ?></td>
                                 <td class="tAction">
-                                    <a href="#" onclick="toggleStatus(<?php echo $row['orderID']; ?>, '<?php echo $row['status']; ?>')"
+                                    <!-- <a href="#" onclick="toggleStatus(<?php// echo $row['orderID']; ?>, '<?php //echo $row['status']; ?>')"
                                         title="Edit status">
                                         <i class="fa-solid fa-edit"></i>
                                     </a> | 
-                                    <a href="#" title="Delete Order"><i class="fa-solid fa-trash"></i></a>
+                                    <a href="#" title="Delete Order"><i class="fa-solid fa-trash"></i></a> -->
+                                    <button type="submit" name = "editOrderBtn" class = "actionBtns" id="editOrderBtn"><i class="fa-solid fa-edit"></i></button> | 
+                                    <button type="submit" name = "deleteOrderBtn" class = "actionBtns" id="deleteOrderBtn"><i class="fa-solid fa-trash"></i></button>
                                 </td>
                             </tr>
                             <?php endwhile; ?>
