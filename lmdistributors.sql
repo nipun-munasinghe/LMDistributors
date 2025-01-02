@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 02, 2025 at 09:25 AM
+-- Generation Time: Jan 02, 2025 at 07:02 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -37,7 +37,7 @@ CREATE TABLE `buyer` (
   `theirPrice` decimal(10,2) NOT NULL,
   `phone` varchar(15) NOT NULL,
   `comments` text DEFAULT NULL,
-  `status` enum('pending','completed','cancelled') NOT NULL
+  `status` enum('Not Selected','Accepted','Rejected') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -45,8 +45,8 @@ CREATE TABLE `buyer` (
 --
 
 INSERT INTO `buyer` (`buyID`, `name`, `reqDate`, `wantedDate`, `quantity`, `ourPrice`, `theirPrice`, `phone`, `comments`, `status`) VALUES
-(1, 'Buyer 1', '2024-12-05', '2024-12-15', 50, 1, 55.00, '0773456789', 'Urgent delivery required.', 'pending'),
-(2, 'Amal Perera', '2024-12-01', '2024-12-05', 30, 1, 55.00, '0771122334', 'Urgent delivery needed.', ''),
+(1, 'Buyer 1', '2024-12-05', '2024-12-15', 50, 1, 55.00, '0773456789', 'Urgent delivery required.', 'Accepted'),
+(2, 'Amal Perera', '2024-12-01', '2024-12-05', 30, 1, 55.00, '0771122334', 'Urgent delivery needed.', 'Accepted'),
 (3, 'Nimal Jayawardena', '2024-12-02', '2024-12-06', 50, 2, 53.50, '0762233445', 'Regular order.', ''),
 (4, 'Kamal Silva', '2024-12-03', '2024-12-07', 25, 3, 52.00, '0713344556', 'Requesting bulk discount.', ''),
 (5, 'Anuradha Wickramasinghe', '2024-12-04', '2024-12-08', 20, 4, 51.50, '0784455667', 'Please deliver early morning.', ''),
@@ -74,18 +74,7 @@ CREATE TABLE `buyerprice` (
 --
 
 INSERT INTO `buyerprice` (`bPID`, `price`, `date`) VALUES
-(1, 45.00, '2024-12-29'),
-(2, 48.50, NULL),
-(3, 45.00, NULL),
-(4, 48.50, NULL),
-(5, 47.00, NULL),
-(6, 46.50, NULL),
-(7, 44.00, NULL),
-(8, 43.00, NULL),
-(9, 49.50, NULL),
-(10, 50.00, NULL),
-(11, 51.00, NULL),
-(12, 42.00, NULL);
+(1, 45.50, '2025-01-02');
 
 -- --------------------------------------------------------
 
@@ -236,18 +225,7 @@ CREATE TABLE `supplyerprice` (
 --
 
 INSERT INTO `supplyerprice` (`sPID`, `price`, `date`) VALUES
-(1, 30.00, '2024-12-31'),
-(2, 32.50, NULL),
-(3, 30.00, NULL),
-(4, 32.50, NULL),
-(5, 31.00, NULL),
-(6, 29.50, NULL),
-(7, 33.00, NULL),
-(8, 28.00, NULL),
-(9, 34.00, NULL),
-(10, 35.50, NULL),
-(11, 36.00, NULL),
-(12, 27.50, NULL);
+(1, 38.00, '2025-01-02');
 
 -- --------------------------------------------------------
 
@@ -279,14 +257,15 @@ INSERT INTO `user_info` (`userID`, `email`, `password`, `fName`, `lName`, `dob`,
 (1, 'admin@lm.com', 'hashedpassword', 'Admin', 'User', '1985-05-10', '0771234567', NULL, 'Colombo 01, Sri Lanka', NULL, 'admin', NULL, 'active'),
 (4, 'admin1@lm.com', 'hashedpassword1', 'Kasun', 'Perera', '1985-06-15', '0771234567', NULL, 'Colombo 01, Sri Lanka', NULL, 'admin', NULL, 'active'),
 (5, 'admin2@lm.com', 'hashedpassword2', 'Chamari', 'Fernando', '1986-08-25', '0769876543', NULL, 'Kandy, Sri Lanka', NULL, 'admin', NULL, 'active'),
-(6, 'manager1@lm.com', 'hashedpassword3', 'Lalith', 'Wijesinghe', '1990-03-10', '0713456789', NULL, 'Galle, Sri Lanka', NULL, 'manager', NULL, 'active'),
-(7, 'manager2@lm.com', 'hashedpassword4', 'Dulani', 'Silva', '1991-04-18', '0726543210', NULL, 'Matara, Sri Lanka', NULL, 'manager', NULL, 'active'),
+(6, 'manager1@lm.com', 'hashedpassword3', 'Lalith', 'Wijesinghe', '1990-03-10', '0713456789', NULL, 'Galle, Sri Lanka', NULL, 'manager', 'Logistics', 'active'),
+(7, 'manager2@lm.com', 'hashedpassword4', 'Dulani', 'Silva', '1991-04-18', '0726543210', '0701293218', 'Nattandiya, Sri Lanka', NULL, 'manager', 'Sales Manager', 'active'),
 (8, 'customer1@lm.com', 'hashedpassword5', 'Suresh', 'Bandara', '1995-07-12', '0756784321', NULL, 'Kurunegala, Sri Lanka', NULL, 'customer', NULL, 'active'),
 (9, 'customer2@lm.com', 'hashedpassword6', 'Amali', 'Rathnayake', '1994-11-22', '0777896543', NULL, 'Jaffna, Sri Lanka', NULL, 'customer', NULL, 'active'),
 (10, 'supplier1@lm.com', 'hashedpassword7', 'Ruwan', 'Jayasinghe', '1992-02-25', '0712345678', NULL, 'Nuwara Eliya, Sri Lanka', NULL, 'supplier', NULL, 'active'),
 (11, 'supplier2@lm.com', 'hashedpassword8', 'Nimali', 'Samarasinghe', '1989-12-10', '0765432178', NULL, 'Batticaloa, Sri Lanka', NULL, 'supplier', NULL, 'active'),
 (12, 'buyer1@lm.com', 'hashedpassword9', 'Nuwan', 'Fernando', '1996-01-15', '0786781234', NULL, 'Anuradhapura, Sri Lanka', NULL, 'buyer', NULL, 'active'),
-(13, 'buyer2@lm.com', 'hashedpassword10', 'Nirmala', 'De Silva', '1993-05-05', '0729871234', NULL, 'Ratnapura, Sri Lanka', NULL, 'buyer', NULL, 'active');
+(13, 'buyer2@lm.com', 'hashedpassword10', 'Nirmala', 'De Silva', '1993-05-05', '0729871234', NULL, 'Ratnapura, Sri Lanka', NULL, 'buyer', NULL, 'active'),
+(14, 'nimmimanager@gmail.com', 'nimmi@32321', 'Nimmi', 'Swetha', '0000-00-00', '0772131210', NULL, '', './images/default-profile.png', 'manager', 'Order Manager', 'inactive');
 
 --
 -- Indexes for dumped tables
@@ -393,7 +372,7 @@ ALTER TABLE `supplyerprice`
 -- AUTO_INCREMENT for table `user_info`
 --
 ALTER TABLE `user_info`
-  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- Constraints for dumped tables
