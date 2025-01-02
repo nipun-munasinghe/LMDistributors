@@ -22,16 +22,11 @@ include_once 'config.php';
         else {
             $greeting = "Welcome ".htmlspecialchars($_SESSION['user_fName'])."!";
         }
-
-        // Fetch all orders from the database
-        $sql = "SELECT * FROM `order`";
-        $result = $conn->query($sql);
-        if (!$result) {
-            die("Query failed: " . mysqli_error($conn));
-        }
         
+        //edit order status part
         if (isset($_POST['editOrderBtn'])) {
-            $orderID = $_POST['orderID']; // Get the orderID from the form
+            // Get the orderID from the form
+            $orderID = $_POST['orderID'];
         
             // Prepare the SQL to fetch the current status
             $sql = "SELECT `status` FROM `order` WHERE `orderID` = ?";
@@ -64,14 +59,32 @@ include_once 'config.php';
             else {
                 echo "<script>alert('Order not found.');</script>";
             }
+        }
         
-            // Re-fetch the orders after the update
-            $sql = "SELECT * FROM `order`";
-            $result = $conn->query($sql);
-            if (!$result) {
-                die("Query failed: " . mysqli_error($conn));
+        //delete order part
+        if (isset($_POST['deleteOrderBtn'])) {
+            $orderID = $_POST['orderID'];
+        
+            // Prepare the SQL to delete the order
+            $deleteSql = "DELETE FROM `order` WHERE `orderID` = ?";
+            $deleteStmt = $conn->prepare($deleteSql);
+            $deleteStmt->bind_param("i", $orderID);
+            $deleteStmt->execute();
+        
+            if ($deleteStmt->affected_rows > 0) {
+                echo "<script>alert('Order deleted successfully!');</script>";
             }
-        }        
+            else {
+                echo "<script>alert('Failed to delete order.');</script>";
+            }
+        }
+
+        // Fetch all orders from the database
+        $sql = "SELECT * FROM `order`";
+        $result = $conn->query($sql);
+        if (!$result) {
+            die("Query failed: " . mysqli_error($conn));
+        }
     }
 ?>
 
