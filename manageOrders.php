@@ -64,8 +64,14 @@ include_once 'config.php';
             else {
                 echo "<script>alert('Order not found.');</script>";
             }
-        }
         
+            // Re-fetch the orders after the update
+            $sql = "SELECT * FROM `order`";
+            $result = $conn->query($sql);
+            if (!$result) {
+                die("Query failed: " . mysqli_error($conn));
+            }
+        }        
     }
 ?>
 
