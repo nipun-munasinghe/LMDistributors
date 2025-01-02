@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 29, 2024 at 06:09 PM
+-- Generation Time: Jan 02, 2025 at 09:25 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -74,7 +74,7 @@ CREATE TABLE `buyerprice` (
 --
 
 INSERT INTO `buyerprice` (`bPID`, `price`, `date`) VALUES
-(1, 45.00, NULL),
+(1, 45.00, '2024-12-29'),
 (2, 48.50, NULL),
 (3, 45.00, NULL),
 (4, 48.50, NULL),
@@ -144,17 +144,11 @@ CREATE TABLE `order` (
 --
 
 INSERT INTO `order` (`orderID`, `date`, `name`, `phone1`, `phone2`, `address`, `productName`, `productid`, `quantity`, `itemPrice`, `totalPrice`, `status`) VALUES
-(1, '2024-12-10', 'Jane Smith', '0769876543', NULL, 'Galle, Sri Lanka', 'Coconut A', 1, 20, 50.00, 1000.00, 'completed'),
-(2, '2024-12-10', 'Amali Rathnayake', '0777896543', NULL, 'Jaffna, Sri Lanka', 'Coconut A', 1, 10, 50.00, 500.00, 'completed'),
-(3, '2024-12-12', 'Suresh Bandara', '0756784321', NULL, 'Kurunegala, Sri Lanka', 'Coconut B', 2, 20, 40.00, 800.00, 'pending'),
-(4, '2024-12-14', 'Kasun Perera', '0771234567', NULL, 'Colombo 01, Sri Lanka', 'Coconut C', 3, 30, 30.00, 900.00, 'cancelled'),
-(5, '2024-12-15', 'Dulani Silva', '0726543210', NULL, 'Matara, Sri Lanka', 'Coconut Husk', 4, 50, 15.00, 750.00, 'completed'),
+(2, '2024-12-10', 'Amali Rathnayake', '0777896543', '0771233218', 'Jaffna, Sri Lanka', 'Coconut A', 1, 10, 50.00, 500.00, 'completed'),
 (6, '2024-12-16', 'Nuwan Fernando', '0786781234', NULL, 'Anuradhapura, Sri Lanka', 'Coconut Oil', 5, 5, 100.00, 500.00, 'pending'),
 (7, '2024-12-18', 'Lalith Wijesinghe', '0713456789', NULL, 'Galle, Sri Lanka', 'Coconut Milk', 6, 12, 80.00, 960.00, 'completed'),
-(8, '2024-12-19', 'Chamari Fernando', '0769876543', NULL, 'Kandy, Sri Lanka', 'Coconut Powder', 7, 15, 60.00, 900.00, 'completed'),
 (9, '2024-12-20', 'Nirmala De Silva', '0729871234', NULL, 'Ratnapura, Sri Lanka', 'King Coconut', 8, 25, 20.00, 500.00, 'completed'),
-(10, '2024-12-21', 'Ruwan Jayasinghe', '0712345678', NULL, 'Nuwara Eliya, Sri Lanka', 'Coconut Shells', 9, 40, 10.00, 400.00, 'pending'),
-(11, '2024-12-22', 'Nimali Samarasinghe', '0765432178', NULL, 'Batticaloa, Sri Lanka', 'Coconut Charcoal', 10, 20, 25.00, 500.00, 'completed');
+(10, '2024-12-21', 'Ruwan Jayasinghe', '0712345678', NULL, 'Nuwara Eliya, Sri Lanka', 'Coconut Shells', 9, 40, 10.00, 400.00, 'pending');
 
 -- --------------------------------------------------------
 
@@ -179,8 +173,7 @@ CREATE TABLE `product` (
 INSERT INTO `product` (`productid`, `name`, `description`, `price`, `image`, `category`, `quantity`) VALUES
 (1, 'Coconut A', 'High-quality coconuts.', 50.00, NULL, 'Fresh', 200),
 (2, 'Coconut B', 'Medium-quality coconuts.', 40.00, NULL, 'Fresh', 150),
-(3, 'Coconut A', 'High-quality coconuts.', 50.00, NULL, 'Fresh', 200),
-(4, 'Coconut B', 'Medium-quality coconuts.', 40.00, NULL, 'Fresh', 150),
+(3, 'Coconut D', 'Quality coconuts.', 35.00, NULL, 'Fresh', 120),
 (5, 'Coconut C', 'Low-quality coconuts.', 30.00, NULL, 'Fresh', 300),
 (6, 'Coconut Husk', 'Quality coconut husks.', 15.00, NULL, 'Husk', 500),
 (7, 'Coconut Oil', 'Pure coconut oil.', 100.00, NULL, 'Oil', 50),
@@ -243,7 +236,7 @@ CREATE TABLE `supplyerprice` (
 --
 
 INSERT INTO `supplyerprice` (`sPID`, `price`, `date`) VALUES
-(1, 30.00, NULL),
+(1, 30.00, '2024-12-31'),
 (2, 32.50, NULL),
 (3, 30.00, NULL),
 (4, 32.50, NULL),
@@ -284,8 +277,6 @@ CREATE TABLE `user_info` (
 
 INSERT INTO `user_info` (`userID`, `email`, `password`, `fName`, `lName`, `dob`, `phone1`, `phone2`, `address`, `image`, `type`, `assignType`, `status`) VALUES
 (1, 'admin@lm.com', 'hashedpassword', 'Admin', 'User', '1985-05-10', '0771234567', NULL, 'Colombo 01, Sri Lanka', NULL, 'admin', NULL, 'active'),
-(2, 'manager1@lm.com', 'hashedpassword', 'John', 'Doe', '1990-04-15', '0712345678', NULL, 'Kandy, Sri Lanka', NULL, 'manager', NULL, 'active'),
-(3, 'customer1@lm.com', 'hashedpassword', 'Jane', 'Smith', '1995-03-22', '0769876543', NULL, 'Galle, Sri Lanka', NULL, 'customer', NULL, 'active'),
 (4, 'admin1@lm.com', 'hashedpassword1', 'Kasun', 'Perera', '1985-06-15', '0771234567', NULL, 'Colombo 01, Sri Lanka', NULL, 'admin', NULL, 'active'),
 (5, 'admin2@lm.com', 'hashedpassword2', 'Chamari', 'Fernando', '1986-08-25', '0769876543', NULL, 'Kandy, Sri Lanka', NULL, 'admin', NULL, 'active'),
 (6, 'manager1@lm.com', 'hashedpassword3', 'Lalith', 'Wijesinghe', '1990-03-10', '0713456789', NULL, 'Galle, Sri Lanka', NULL, 'manager', NULL, 'active'),
