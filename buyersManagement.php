@@ -96,9 +96,11 @@ else {
                                 <td class="Phone"><?php echo htmlspecialchars($row['phone']); ?></td>
                                 <td class="comments"><?php echo htmlspecialchars($row['comments']); ?></td>
                                 <td class="tStatus"><?php echo htmlspecialchars($row['status']); ?></td>
-                                <td class="tAction"><a href="#"><i class="fa-solid fa-thumbs-up" title="Accept"></i></a> | 
-                                                    <a href="#"><i class="fa-solid fa-thumbs-down" title="Reject"></i></a> | 
-                                                    <a href="#"><i class="fa-solid fa-trash-can" title="Delete"></i></a></td>
+                                <td class="tAction">
+                                    <button type="submit" class="actionBtns" name="acceptBtn"><i class="fa-solid fa-thumbs-up" title="Accept"></i></button> | 
+                                    <button type="submit" class="actionBtns" name="rejectBtn"><i class="fa-solid fa-thumbs-down" title="Reject"></i></button> | 
+                                    <button type="submit" class="actionBtns" name="deleteBtn"><i class="fa-solid fa-trash-can" title="Delete"></i></button>
+                                </td>
                             </tr>
                             <?php endwhile;?>
                         </table>
