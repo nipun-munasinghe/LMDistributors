@@ -30,6 +30,41 @@ include_once 'config.php';
             die("Query failed: " . mysqli_error($conn));
         }
         
+        if (isset($_POST['editOrderBtn'])) {
+            $orderID = $_POST['orderID']; // Get the orderID from the form
+        
+            // Prepare the SQL to fetch the current status
+            $sql = "SELECT `status` FROM `order` WHERE `orderID` = ?";
+            $stmt = $conn->prepare($sql);
+            $stmt->bind_param("i", $orderID);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $row = $result->fetch_assoc();
+        
+            if ($row) {
+                // Get the current status
+                $currentStatus = $row['status'];
+        
+                // Toggle the status
+                $newStatus = ($currentStatus == "pending") ? "completed" : "pending";
+        
+                // Update the status in the database
+                $updateSql = "UPDATE `order` SET `status` = ? WHERE `orderID` = ?";
+                $updateStmt = $conn->prepare($updateSql);
+                $updateStmt->bind_param("si", $newStatus, $orderID);
+                $updateStmt->execute();
+        
+                if ($updateStmt->affected_rows > 0) {
+                    echo "<script>alert('Order status updated successfully!');</script>";
+                }
+                else {
+                    echo "<script>alert('Failed to update order status.');</script>";
+                }
+            }
+            else {
+                echo "<script>alert('Order not found.');</script>";
+            }
+        }
         
     }
 ?>
@@ -106,13 +141,20 @@ include_once 'config.php';
                                 <td class="totalPrice"><?php echo $row['totalPrice']; ?></td>
                                 <td class="tStatus"><?php echo $row['status']; ?></td>
                                 <td class="tAction">
-                                    <!-- <a href="#" onclick="toggleStatus(<?php// echo $row['orderID']; ?>, '<?php //echo $row['status']; ?>')"
-                                        title="Edit status">
-                                        <i class="fa-solid fa-edit"></i>
-                                    </a> | 
-                                    <a href="#" title="Delete Order"><i class="fa-solid fa-trash"></i></a> -->
-                                    <button type="submit" name = "editOrderBtn" class = "actionBtns" id="editOrderBtn"><i class="fa-solid fa-edit"></i></button> | 
-                                    <button type="submit" name = "deleteOrderBtn" class = "actionBtns" id="deleteOrderBtn"><i class="fa-solid fa-trash"></i></button>
+                                    <!-- Edit Button -->
+                                    <form method="POST" action="">
+                                        <input type="hidden" name="orderID" value="<?php echo htmlspecialchars($row['orderID']); ?>">
+                                        <button type="submit" name="editOrderBtn" class="actionBtns" id="editOrderBtn" title="Edit Order">
+                                            <i class="fa-solid fa-edit"></i>
+                                        </button>
+                                    </form>
+                                    <!-- Delete Button -->
+                                    <form method="POST" action="">
+                                        <input type="hidden" name="orderID" value="<?php echo htmlspecialchars($row['orderID']); ?>">
+                                        <button type="submit" name="deleteOrderBtn" class="actionBtns" id="deleteOrderBtn" title="Delete Order">
+                                            <i class="fa-solid fa-trash"></i>
+                                        </button>
+                                    </form>
                                 </td>
                             </tr>
                             <?php endwhile; ?>
