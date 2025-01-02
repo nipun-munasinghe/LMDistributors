@@ -163,7 +163,7 @@ include_once 'config.php';
                                     <!-- Edit Button -->
                                     <form method="POST" action="">
                                         <input type="hidden" name="orderID" value="<?php echo htmlspecialchars($row['orderID']); ?>">
-                                        <button type="submit" name="editOrderBtn" class="actionBtns" id="editOrderBtn" title="Edit Order">
+                                        <button type="submit" name="editOrderBtn" class="actionBtns" id="editOrderBtn" title="Edit Status">
                                             <i class="fa-solid fa-edit"></i>
                                         </button>
                                     </form>

@@ -165,15 +165,11 @@ body {
     max-width: 250px;
 }
 
-.tAction {
-    width: 80px;
-}
-
 /* action button styles */
-/* .actionBtns {
+.actionBtns {
     border: none !important;
     background-color: transparent;
-} */
+}
 
 .fa-edit {
     color: #4CAF50;
