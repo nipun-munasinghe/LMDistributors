@@ -22,6 +22,10 @@ else {
     else {
         $greeting = "Welcome ".htmlspecialchars($_SESSION['user_fName'])."!";
     }
+
+    //query to fetch buyers data
+    $query = "SELECT * FROM `buyer`";
+    $result = mysqli_query($conn, $query);
 }
 ?>
 
@@ -80,81 +84,23 @@ else {
                                 <th class="tStatus">Status</th>
                                 <th class="tAction">Action</th>
                             </tr>
+                            <?php while($row = $result->fetch_assoc()): ?>
                             <tr>
-                                <td class="buyID">1</td>
-                                <td class="buyerName">Jayindi Coconut Products</td>
-                                <td class="reqDate">08/12/2024</td>
-                                <td class="wantedDate">10/12/2024</td>
-                                <td class="buyQuantity">2000</td>
-                                <td class="ourPrice">130.50</td>
-                                <td class="theirPrice">130.50</td>
-                                <td class="Phone">0788753442</td>
-                                <td class="comments">null</td>
-                                <td class="tStatus">Rejected</td>
+                                <td class="buyID"><?php echo htmlspecialchars($row['buyID']); ?></td>
+                                <td class="buyerName"><?php echo htmlspecialchars($row['name']); ?></td>
+                                <td class="reqDate"><?php echo htmlspecialchars($row['reqDate']); ?></td>
+                                <td class="wantedDate"><?php echo htmlspecialchars($row['wantedDate']); ?></td>
+                                <td class="buyQuantity"><?php echo htmlspecialchars($row['quantity']); ?></td>
+                                <td class="ourPrice"><?php echo htmlspecialchars($row['ourPrice']); ?></td>
+                                <td class="theirPrice"><?php echo htmlspecialchars($row['theirPrice']); ?></td>
+                                <td class="Phone"><?php echo htmlspecialchars($row['phone']); ?></td>
+                                <td class="comments"><?php echo htmlspecialchars($row['comments']); ?></td>
+                                <td class="tStatus"><?php echo htmlspecialchars($row['status']); ?></td>
                                 <td class="tAction"><a href="#"><i class="fa-solid fa-thumbs-up" title="Accept"></i></a> | 
                                                     <a href="#"><i class="fa-solid fa-thumbs-down" title="Reject"></i></a> | 
                                                     <a href="#"><i class="fa-solid fa-trash-can" title="Delete"></i></a></td>
                             </tr>
-                            <tr>
-                                <td class="buyID">2</td>
-                                <td class="buyerName">Kamalsiri Hewage</td>
-                                <td class="reqDate">08/12/2024</td>
-                                <td class="wantedDate">11/12/2024</td>
-                                <td class="buyQuantity">3000</td>
-                                <td class="ourPrice">130.50</td>
-                                <td class="theirPrice">131.50</td>
-                                <td class="Phone">0788763492</td>
-                                <td class="comments">Higher Price</td>
-                                <td class="tStatus">Accepted</td>
-                                <td class="tAction"><a href="#"><i class="fa-solid fa-thumbs-up" title="Accept"></i></a> | 
-                                                    <a href="#"><i class="fa-solid fa-thumbs-down" title="Reject"></i></a> | 
-                                                    <a href="#"><i class="fa-solid fa-trash-can" title="Delete"></i></a></td>
-                            </tr>
-                            <tr>
-                                <td class="buyID">3</td>
-                                <td class="buyerName">Negombo Coco Products</td>
-                                <td class="reqDate">08/12/2024</td>
-                                <td class="wantedDate">12/12/2024</td>
-                                <td class="buyQuantity">8000</td>
-                                <td class="ourPrice">130.50</td>
-                                <td class="theirPrice">130.50</td>
-                                <td class="Phone">0788753654</td>
-                                <td class="comments">Eight thousand coconuts</td>
-                                <td class="tStatus">Accepted</td>
-                                <td class="tAction"><a href="#"><i class="fa-solid fa-thumbs-up" title="Accept"></i></a> | 
-                                                    <a href="#"><i class="fa-solid fa-thumbs-down" title="Reject"></i></a> | 
-                                                    <a href="#"><i class="fa-solid fa-trash-can" title="Delete"></i></a></td>
-                            </tr>
-                            <tr>
-                                <td class="buyID">4</td>
-                                <td class="buyerName">Himanthara Coco Products</td>
-                                <td class="reqDate">08/12/2024</td>
-                                <td class="wantedDate">15/12/2024</td>
-                                <td class="buyQuantity">10000</td>
-                                <td class="ourPrice">130.50</td>
-                                <td class="theirPrice">133.50</td>
-                                <td class="Phone">0788753440</td>
-                                <td class="comments">We give highest price for your coconuts</td>
-                                <td class="tStatus">Accepted</td>
-                                <td class="tAction"><a href="#"><i class="fa-solid fa-thumbs-up" title="Accept"></i></a> | 
-                                                    <a href="#"><i class="fa-solid fa-thumbs-down" title="Reject"></i></a> | 
-                                                    <a href="#"><i class="fa-solid fa-trash-can" title="Delete"></i></a></td>
-                            </tr>
-                            <tr>
-                                <td class="buyID">5</td>
-                                <td class="buyerName">Valentine mills</td>
-                                <td class="reqDate">08/12/2024</td>
-                                <td class="wantedDate">15/12/2024</td>
-                                <td class="buyQuantity">1000</td>
-                                <td class="ourPrice">130.50</td>
-                                <td class="theirPrice">130.50</td>
-                                <td class="Phone">0788753482</td>
-                                <td class="comments">null</td>
-                                <td class="tStatus">null</td>
-                                <td class="tAction"><a href="#"><i class="fa-solid fa-thumbs-up" title="Accept"></i></a> | 
-                                                    <a href="#"><i class="fa-solid fa-thumbs-down" title="Reject"></i></a> | 
-                                                    <a href="#"><i class="fa-solid fa-trash-can" title="Delete"></i></a></td>
-                            </tr>
+                            <?php endwhile;?>
                         </table>
                     </div>
                 </div>
