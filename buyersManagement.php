@@ -1,3 +1,30 @@
+<?php
+//start sessions
+session_start();
+
+//connect to database
+include_once 'config.php';
+
+// Check if user is logged in
+if(!isset($_SESSION['user_fName'])) {
+    //user is not logged in, redirect to login page
+    header('Location: login.php');
+    exit();
+}
+else {
+    $dob = $_SESSION['user_dob'];
+    $today = date('m-d');
+    $birthday = date('m-d', strtotime($dob));
+    //check user's birthday
+    if($birthday == $today) {
+        $greeting = "Happy Birthday ".htmlspecialchars($_SESSION['user_fName']). "!";
+    }
+    else {
+        $greeting = "Welcome ".htmlspecialchars($_SESSION['user_fName'])."!";
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,24 +49,7 @@
     <div class="container">
         <!-- Hidden Sidebar -->
         <aside id="sidebar" class="sidebar">
-            <div class="sidebar-header">
-                <h2>Admin Dashboard</h2>
-                <i class="fas fa-times" id="close-sidebar" title="Close Dashboard"></i>
-            </div>
-
-            <ul class="sidebar-menu">
-                <li><a href="./admin.php" title="Your Profile"><i class="fa-solid fa-user"></i> My Profile</a></li>
-                <li><a href="./manageManagers.php" title="Managers Management"><i class="fas fa-user-tie"></i> Manage Managers</a></li>
-                <li><a href="./manageProducts.php" title="Products Management"><i class="fa-solid fa-store"></i> Manage Products</a></li>
-                <li><a href="./manageOrders.php" title="Orders Management"><i class="fa-solid fa-cart-shopping"></i> Manage Orders</a></li>
-                <li><a href="./todayPrice.php" title="Buyers & Sellers price list"><i class="fa-solid fa-money-bill-1-wave"></i> Today's Price List</a></li>
-                <li><a href="./buyersManagement.php" title="Buyers Management"><i class="fa-solid fa-handshake"></i> Manage Buyers</a></li>
-                <li><a href="./supplyManagement.php" title="Suppliers Management"><i class="fa-solid fa-business-time"></i> Manage Suppliers</a></li>
-                <li><a href="./manageMessages.php" title="Messages Management"><i class="fa-solid fa-comment"></i> Manage Messages</a></li>
-                <li><a href="./viewIncome.php" title="View Analytics"><i class="fas fa-chart-line"></i> View Analytics</a></li>
-                <li><a href="./accSettings.php" title="Edit profile & Change password"><i class="fas fa-cog"></i> Settings</a></li>
-                <li><a href="./logout.php" title="Logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
-            </ul>
+            <?php include 'sidebar.php'; ?>
         </aside>
 
         <!-- Main Content -->
@@ -47,7 +57,7 @@
             <!-- Topbar -->
             <div class="topbar">
                 <i class="fas fa-bars" id="toggle-sidebar" title="Open Dashboard"></i>
-                <h1>Welcome AdminName!</h1>
+                <h1><?php echo $greeting; ?></h1>
             </div>
 
             <h2 class="displaySuppliersH2">Buyers' Management Details</h2>
