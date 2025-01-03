@@ -159,7 +159,7 @@ include_once 'config.php';
                                 <td class="tPrice"><?php echo $row['itemPrice']; ?></td>
                                 <td class="totalPrice"><?php echo $row['totalPrice']; ?></td>
                                 <td class="tStatus"><?php echo $row['status']; ?></td>
-                                <td class="tAction">
+                                <td class="tAction actionBtn">
                                     <!-- Edit Button -->
                                     <form method="POST" action="">
                                         <input type="hidden" name="orderID" value="<?php echo htmlspecialchars($row['orderID']); ?>">
