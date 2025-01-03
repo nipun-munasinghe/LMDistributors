@@ -23,22 +23,57 @@ else {
         $greeting = "Welcome ".htmlspecialchars($_SESSION['user_fName'])."!";
     }
 
-    if(isset($_POST['acceptBtn'])) {
+    // accept button
+    if (isset($_POST['acceptBtn'])) {
         $buyID = $_POST['buyID'];
-
-        // prepare sql query to accept
+    
+        // Prepare SQL query to accept
         $acceptSql = "UPDATE `buyer` SET `status` = 'Accepted' WHERE `buyID` = ?";
         $acceptStmt = $conn->prepare($acceptSql);
         $acceptStmt->bind_param("i", $buyID);
         $acceptStmt->execute();
+    
+        // Redirect to prevent resubmission
+        header("Location: buyersManagement.php");
+        exit();
     }
-
-    if(isset($_POST['rejectBtn'])) {
+    
+    // reject button
+    if (isset($_POST['rejectBtn'])) {
+        $buyID = $_POST['buyID'];
+    
+        // Prepare SQL query to reject
         $rejectSql = "UPDATE `buyer` SET `status` = 'Rejected' WHERE `buyID` = ?";
         $rejectStmt = $conn->prepare($rejectSql);
-        $rejectStmt->bind_param("i", $_POST['buyID']);
+        $rejectStmt->bind_param("i", $buyID);
         $rejectStmt->execute();
+    
+        // Redirect to prevent resubmission
+        header("Location: buyersManagement.php");
+        exit();
     }
+    
+    // delete button
+    if (isset($_POST['deleteBtn'])) {
+        $buyID = $_POST['buyID'];
+    
+        // Prepare SQL query to delete
+        $deleteSql = "DELETE FROM `buyer` WHERE `buyID` = ?";
+        $deleteStmt = $conn->prepare($deleteSql);
+        $deleteStmt->bind_param("i", $buyID);
+        $deleteStmt->execute();
+
+        if ($deleteStmt->affected_rows > 0) {
+            echo "<script>alert('Order deleted successfully!');</script>";
+        }
+        else {
+            echo "<script>alert('Failed to delete order.');</script>";
+        }
+    
+        // Redirect to prevent resubmission
+        header("Location: buyersManagement.php");
+        exit();
+    }    
 
     //query to fetch buyers data
     $query = "SELECT * FROM `buyer`";
@@ -132,7 +167,7 @@ else {
                                         </button>
                                     </form>
                                     <!-- delete btn -->
-                                    <form method="POST" action="">
+                                    <form method="POST" action="" onsubmit="return confirmDelete();">
                                         <input type="hidden" name="buyID" value="<?php echo htmlspecialchars($row['buyID']); ?>">
                                         <button type="submit" class="actionBtn" name="deleteBtn">
                                             <i class="fa-solid fa-trash-can" title="Delete"></i>
@@ -175,5 +210,10 @@ else {
     <!-- link scripts -->
     <script src="./js/sideBar.js"></script>
     <script src="./js/scrollBar.js"></script>
+    <script>
+        function confirmDelete() {
+            return confirm('Are you sure you want to delete this order?');
+        }
+    </script>
 </body>
 </html>
