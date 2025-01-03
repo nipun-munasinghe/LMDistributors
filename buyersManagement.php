@@ -23,9 +23,28 @@ else {
         $greeting = "Welcome ".htmlspecialchars($_SESSION['user_fName'])."!";
     }
 
+    if(isset($_POST['acceptBtn'])) {
+        $buyID = $_POST['buyID'];
+
+        // prepare sql query to accept
+        $acceptSql = "UPDATE `buyer` SET `status` = 'Accepted' WHERE `buyID` = ?";
+        $acceptStmt = $conn->prepare($acceptSql);
+        $acceptStmt->bind_param("i", $buyID);
+        $acceptStmt->execute();
+        if($acceptStmt->affected_rows > 0) {
+            echo "<script>alert('Buyer accepted successfully!');</script>";
+        }
+        else {
+            echo "<script>alert('Failed to accept buyer. Please try again!');</script>";
+        }
+    }
+
     //query to fetch buyers data
     $query = "SELECT * FROM `buyer`";
     $result = mysqli_query($conn, $query);
+    if (!$result) {
+        die("Query failed: " . mysqli_error($conn));
+    }
 }
 ?>
 
@@ -97,9 +116,27 @@ else {
                                 <td class="comments"><?php echo htmlspecialchars($row['comments']); ?></td>
                                 <td class="tStatus"><?php echo htmlspecialchars($row['status']); ?></td>
                                 <td class="tAction actionBtns">
-                                    <button type="submit" class="actionBtn" name="acceptBtn"><i class="fa-solid fa-thumbs-up" title="Accept"></i></button> | 
-                                    <button type="submit" class="actionBtn" name="rejectBtn"><i class="fa-solid fa-thumbs-down" title="Reject"></i></button> | 
-                                    <button type="submit" class="actionBtn" name="deleteBtn"><i class="fa-solid fa-trash-can" title="Delete"></i></button>
+                                    <!-- accept btn -->
+                                    <form method="POST" action="">
+                                        <input type="hidden" name="buyID" value="<?php echo htmlspecialchars($row['buyID']);?>">
+                                        <button type="submit" class="actionBtn" name="acceptBtn">
+                                            <i class="fa-solid fa-thumbs-up" title="Accept"></i>
+                                        </button>
+                                    </form>
+                                    <!-- reject btn -->
+                                    <form method="POST" action="">
+                                        <input type="hidden" name="buyID" value="<?php echo htmlspecialchars($row['buyID']); ?>">
+                                        <button type="submit" class="actionBtn" name="rejectBtn">
+                                            <i class="fa-solid fa-thumbs-down" title="Reject"></i>
+                                        </button>
+                                    </form>
+                                    <!-- delete btn -->
+                                    <form method="POST" action="">
+                                        <input type="hidden" name="buyID" value="<?php echo htmlspecialchars($row['buyID']); ?>">
+                                        <button type="submit" class="actionBtn" name="deleteBtn">
+                                            <i class="fa-solid fa-trash-can" title="Delete"></i>
+                                        </button>
+                                    </form>
                                 </td>
                             </tr>
                             <?php endwhile;?>
