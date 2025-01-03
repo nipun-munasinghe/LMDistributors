@@ -31,12 +31,13 @@ else {
         $acceptStmt = $conn->prepare($acceptSql);
         $acceptStmt->bind_param("i", $buyID);
         $acceptStmt->execute();
-        if($acceptStmt->affected_rows > 0) {
-            echo "<script>alert('Buyer accepted successfully!');</script>";
-        }
-        else {
-            echo "<script>alert('Failed to accept buyer. Please try again!');</script>";
-        }
+    }
+
+    if(isset($_POST['rejectBtn'])) {
+        $rejectSql = "UPDATE `buyer` SET `status` = 'Rejected' WHERE `buyID` = ?";
+        $rejectStmt = $conn->prepare($rejectSql);
+        $rejectStmt->bind_param("i", $_POST['buyID']);
+        $rejectStmt->execute();
     }
 
     //query to fetch buyers data
