@@ -49,12 +49,9 @@ include_once 'config.php';
                 $updateStmt->bind_param("si", $newStatus, $orderID);
                 $updateStmt->execute();
         
-                if ($updateStmt->affected_rows > 0) {
-                    echo "<script>alert('Order status updated successfully!');</script>";
-                }
-                else {
-                    echo "<script>alert('Failed to update order status.');</script>";
-                }
+                // Redirect to prevent resubmission
+                header("Location: manageOrders.php");
+                exit();
             }
             else {
                 echo "<script>alert('Order not found.');</script>";
@@ -77,6 +74,10 @@ include_once 'config.php';
             else {
                 echo "<script>alert('Failed to delete order.');</script>";
             }
+
+            // Redirect to prevent resubmission
+            header("Location: manageOrders.php");
+            exit();
         }
 
         // Fetch all orders from the database
@@ -132,7 +133,7 @@ include_once 'config.php';
                         <table class="listTable" border="1px">
                             <tr>
                                 <th class="orderID">Order ID</th>
-                                <th class="orderDate">Order Date</th>
+                                <th class="orderDate">Ordered Date</th>
                                 <th class="customerName">Customer Name</th>
                                 <th class="customerPhone1">Phone 1</th>
                                 <th class="customerPhone2">Phone 2</th>
@@ -168,7 +169,7 @@ include_once 'config.php';
                                         </button>
                                     </form>
                                     <!-- Delete Button -->
-                                    <form method="POST" action="">
+                                    <form method="POST" action="" onsubmit="return confirmDelete();">
                                         <input type="hidden" name="orderID" value="<?php echo htmlspecialchars($row['orderID']); ?>">
                                         <button type="submit" name="deleteOrderBtn" class="actionBtns" id="deleteOrderBtn" title="Delete Order">
                                             <i class="fa-solid fa-trash"></i>
@@ -210,5 +211,10 @@ include_once 'config.php';
     <!-- link script -->
     <script src="./js/sideBar.js"></script>
     <script src="./js/scrollBar.js"></script>
+    <script>
+        function confirmDelete() {
+            return confirm('Are you sure you want to delete this order?');
+        }
+    </script>
 </body>
 </html>
