@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 04, 2025 at 06:20 PM
+-- Generation Time: Jan 04, 2025 at 07:24 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -49,7 +49,7 @@ INSERT INTO `buyer` (`buyID`, `name`, `reqDate`, `wantedDate`, `quantity`, `ourP
 (3, 'Nimal Jayawardena', '2024-12-02', '2024-12-06', 500, 54.00, 53.50, '0762233445', 'Regular order.', 'Rejected'),
 (4, 'Kamal Silva', '2024-12-03', '2024-12-07', 25000, 53.00, 52.00, '0713344556', 'Requesting bulk discount.', 'Not Selected'),
 (5, 'Anuradha Wickramasinghe', '2024-12-04', '2024-12-08', 2000, 52.00, 51.50, '0784455667', 'Please deliver early morning.', 'Accepted'),
-(6, 'Ishara Wijesinghe', '2024-12-05', '2024-12-09', 350, 54.00, 54.00, '0725566778', 'Order for resale.', 'Rejected'),
+(6, 'Ishara Wijesinghe', '2024-12-05', '2024-12-09', 350, 54.00, 54.00, '0725566778', '', 'Rejected'),
 (7, 'Priyanthi Perera', '2024-12-06', '2024-12-10', 4000, 50.00, 53.00, '0776677889', 'Add packaging instructions.', 'Accepted'),
 (9, 'Nadeesha Fernando', '2024-12-08', '2024-12-12', 4500, 58.00, 55.50, '0718899001', 'Need an invoice.', 'Rejected'),
 (10, 'Madhawa Jayasinghe', '2024-12-09', '2024-12-13', 3000, 52.50, 52.50, '0789901122', 'Urgent order.', 'Rejected');
@@ -190,13 +190,12 @@ CREATE TABLE `supplier` (
 --
 
 INSERT INTO `supplier` (`supplyID`, `name`, `reqDate`, `supplyDate`, `quantity`, `ourPrice`, `theirPrice`, `phone`, `comments`, `status`) VALUES
-(1, 'Supplier 1', '2024-12-01', '2024-12-08', 10000, 48.00, 35.00, '0758765432', '', 'Accepted'),
 (2, 'Ranjith Silva', '2024-12-01', '2024-12-03', 800, 29.00, 28.50, '0711234567', 'Need early payment.', 'Rejected'),
 (3, 'Chandana Perera', '2024-12-02', '2024-12-04', 600, 50.00, 49.00, '0762345678', 'First-time supplier.', 'Accepted'),
 (4, 'Jayani Fernando', '2024-12-03', '2024-12-05', 10000, 51.00, 50.50, '0773456789', 'Offering a discount.', 'Not Selected'),
 (5, 'Samitha Bandara', '2024-12-04', '2024-12-06', 5000, 48.00, 39.00, '0724567890', 'Delivery by own vehicle.', 'Accepted'),
-(6, 'Nishantha Wijesinghe', '2024-12-05', '2024-12-07', 700, 55.00, 54.50, '0755678901', 'Requesting advance payment.', 'Rejected'),
-(7, 'Amali Jayawardena', '2024-12-06', '2024-12-08', 4000, 46.00, 38.00, '0716789012', 'New supply route.', 'Not Selected'),
+(6, 'Nishantha Wijesinghe', '2024-12-05', '2024-12-07', 700, 55.00, 54.50, '0755678901', '', 'Rejected'),
+(7, 'Amali Jayawardena', '2024-12-06', '2024-12-08', 4000, 46.00, 38.00, '0716789012', 'New supply route.', 'Accepted'),
 (8, 'Ravindra Rathnayake', '2024-12-07', '2024-12-09', 9800, 47.00, 43.50, '0787890123', 'Bulk supply offer.', 'Accepted'),
 (9, 'Sumudu Liyanage', '2024-12-08', '2024-12-10', 6500, 38.00, 37.00, '0768901234', 'Need transport assistance.', 'Rejected'),
 (10, 'Kusal Dissanayake', '2024-12-09', '2024-12-11', 5500, 39.00, 35.00, '0779012345', 'Please confirm quantity.', 'Accepted'),
