@@ -104,10 +104,27 @@
                                 <td class="tStatus">
                                     <?php echo htmlspecialchars($row['status']); ?>
                                 </td>
-                                <td class="tAction">
-                                    <a href="#"><i class="fa-solid fa-thumbs-up" title="Accept"></i></a> | 
-                                    <a href="#"><i class="fa-solid fa-thumbs-down" title="Reject"></i></a> | 
-                                    <a href="#"><i class="fa-solid fa-trash-can" title="Delete"></i></a>
+                                <td class="tAction actionBtns">
+                                    <form method="POST" action="">
+                                        <input type="hidden" name="id" value="<?php echo htmlspecialchars($row['supplyID']);?>">
+                                        <button type="submit" class="actionBtn" name="acceptBtn">
+                                            <i class="fa-solid fa-thumbs-up" title="Accept"></i>
+                                        </button>
+                                    </form>
+
+                                    <form method="POST" action="">
+                                        <input type="hidden" name="id" value="<?php echo htmlspecialchars($row['supplyID']);?>">
+                                        <button type="submit" class="actionBtn" name="rejectBtn">
+                                            <i class="fa-solid fa-thumbs-down" title="Reject"></i>
+                                        </button>
+                                    </form>
+
+                                    <form method="POST" action="">
+                                        <input type="hidden" name="id" value="<?php echo htmlspecialchars($row['supplyID']);?>">
+                                        <button type="submit" class="actionBtn" name="deleteBtn">
+                                            <i class="fa-solid fa-trash-can" title="Delete"></i>
+                                        </button>
+                                    </form>
                                 </td>
                             </tr>
                             <?php endwhile;?>
