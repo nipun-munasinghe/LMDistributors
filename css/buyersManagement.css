@@ -161,6 +161,24 @@ body {
     max-width: 250px;
 }
 
+.theirPrice {
+    font-weight: bold;
+}
+
+.acceptStatus {
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+.rejectStatus {
+    color: red;
+    font-weight: bold;
+}
+
+.notSetStatus {
+    color: grey;
+}
+
 .tAction {
     width: 80px;
 }

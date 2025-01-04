@@ -150,7 +150,18 @@ else {
                                 <td class="theirPrice"><?php echo htmlspecialchars($row['theirPrice']); ?></td>
                                 <td class="Phone"><?php echo htmlspecialchars($row['phone']); ?></td>
                                 <td class="comments"><?php echo htmlspecialchars($row['comments']); ?></td>
-                                <td class="tStatus"><?php echo htmlspecialchars($row['status']); ?></td>
+                                <td class="tStatus"><?php 
+                                                        if (htmlspecialchars($row['status']) == 'Accepted') {
+                                                                echo "<p class='acceptStatus'>Accepted</p>";
+                                                            }
+                                                        else if (htmlspecialchars($row['status']) == 'Rejected') {
+                                                            echo "<p class='rejectStatus'>Rejected</p>";
+                                                        }
+                                                        else {
+                                                            echo "<p class='notSetStatus'><em>Not selected</em></p>";
+                                                        }
+                                                    ?>
+                                </td>
                                 <td class="tAction actionBtns">
                                     <!-- accept btn -->
                                     <form method="POST" action="">
