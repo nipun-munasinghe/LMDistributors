@@ -53,7 +53,22 @@
         // Redirect to prevent resubmission
         header("Location: supplyManagement.php");
         exit();
-    }    
+    }
+    
+    // reject button
+    if (isset($_POST['rejectBtn'])) {
+        $supplyID = $_POST['supplyID'];
+    
+        // Prepare SQL query to reject
+        $rejectSql = "UPDATE `supplier` SET `status` = 'Rejected' WHERE `supplyID` = ?";
+        $rejectStmt = $conn->prepare($rejectSql);
+        $rejectStmt->bind_param("i", $supplyID);
+        $rejectStmt->execute();
+    
+        // Redirect to prevent resubmission
+        header("Location: supplyManagement.php");
+        exit();
+    }
 
     // query to get all suppliers
     $query = "SELECT * FROM supplier";
