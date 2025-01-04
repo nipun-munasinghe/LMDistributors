@@ -165,25 +165,37 @@ body {
     width: 80px;
 }
 
+.actionBtn {
+    border: none !important;
+    background-color: transparent !important;
+    font-size: 15px;
+}
+
 .fa-thumbs-up {
     color: #4CAF50;
+    cursor: pointer;
 }
 .fa-thumbs-up:hover {
     color: #3E8E41;
+    scale: 1.2;
 }
 
 .fa-thumbs-down {
     color: #378ccd;
+    cursor: pointer;
 }
 .fa-thumbs-down:hover {
     color: #2037e3;
+    scale: 1.2;
 }
 
 .fa-trash-can {
     color: red;
+    cursor: pointer;
 }
 .fa-trash-can:hover {
     color: rgb(149, 28, 28);
+    scale: 1.2;
 }
 
 /* Quick Links Section */
