@@ -165,6 +165,18 @@ body {
     width: 80px;
 }
 
+/* action button styles */
+.actionBtn {
+    border: none !important;
+    background-color: transparent;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.actionBtn:hover {
+    scale: 1.2;
+}
+
 .fa-thumbs-up {
     color: #4CAF50;
 }
