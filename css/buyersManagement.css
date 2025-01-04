@@ -161,6 +161,11 @@ body {
     max-width: 250px;
 }
 
+.none {
+    color: grey;
+    font-style: italic;
+}
+
 .theirPrice {
     font-weight: bold;
 }

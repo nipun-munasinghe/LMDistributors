@@ -149,7 +149,9 @@ else {
                                 <td class="ourPrice"><?php echo htmlspecialchars($row['ourPrice']); ?></td>
                                 <td class="theirPrice"><?php echo htmlspecialchars($row['theirPrice']); ?></td>
                                 <td class="Phone"><?php echo htmlspecialchars($row['phone']); ?></td>
-                                <td class="comments"><?php echo htmlspecialchars($row['comments']); ?></td>
+                                <td class="comments">
+                                    <?php echo !empty(htmlspecialchars($row['comments'])) ? htmlspecialchars($row['comments']) : "<em class='none'>None</em>"; ?>
+                                </td>
                                 <td class="tStatus"><?php 
                                                         if (htmlspecialchars($row['status']) == 'Accepted') {
                                                                 echo "<p class='acceptStatus'>Accepted</p>";
