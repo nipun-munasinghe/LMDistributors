@@ -261,6 +261,14 @@ body {
     max-width: 250px;
 }
 
+.tQuantity {
+    font-weight: bold;
+}
+
+.lowQty {
+    color: red;
+}
+
 .tDescription {
     max-width: 250px;
 }
@@ -270,10 +278,11 @@ body {
 }
 
 .fa-edit {
-    color: blue
+    color: #4CAF50;
 }
 
 .fa-edit:hover {
+    color: blue;
     scale: 1.2;
 }
 
@@ -282,6 +291,7 @@ body {
 }
 
 .fa-trash:hover {
+    color: #8B4513;
     scale: 1.2;
 }
 

@@ -210,7 +210,9 @@ else {
                                 <td class="tProductImg"><img src="<?php echo $row['image'] ?>" 
                                     alt="Product Image" class="productImg"></td>
                                 <td class="tCategory"><?php echo $row['category'] ?></td>
-                                <td class="tQuantity"><?php echo $row['quantity'] ?></td>
+                                <td class="tQuantity">
+                                    <?php echo $row['quantity'] <= 10 ? "<p class='lowQty'>".$row['quantity']."</p>" : $row['quantity'] ; ?>
+                                </td>
                                 <td class="tAction">
                                     <a href="#" title="Edit"><i class="fa-solid fa-edit"></i></a> | 
                                     <a href="manageProducts.php?deleteID=<?php echo $row['productid']; ?>" 
