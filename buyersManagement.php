@@ -153,7 +153,7 @@ else {
                                 <td class="tStatus"><?php 
                                                         if (htmlspecialchars($row['status']) == 'Accepted') {
                                                                 echo "<p class='acceptStatus'>Accepted</p>";
-                                                            }
+                                                        }
                                                         else if (htmlspecialchars($row['status']) == 'Rejected') {
                                                             echo "<p class='rejectStatus'>Rejected</p>";
                                                         }

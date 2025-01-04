@@ -141,7 +141,7 @@ include_once 'config.php';
                                 <th class="tName">Product Name</th>
                                 <th class="productID">Product ID</th>
                                 <th class="tQuantity">Quantity</th>
-                                <th class="tPrice">Price (Rs. )</th>
+                                <th class="tPrice">Price (Rs.)</th>
                                 <th class="totalPrice">Total Price(Rs.)</th>
                                 <th class="tStatus">Status</th>
                                 <th class="tAction">Action</th>
@@ -152,14 +152,18 @@ include_once 'config.php';
                                 <td class="orderDate"><?php echo $row['date']; ?></td>
                                 <td class="customerName"><?php echo $row['name']; ?></td>
                                 <td class="customerPhone1"><?php echo $row['phone1']; ?></td>
-                                <td class="customerPhone2"><?php echo !empty($row['phone2']) ? htmlspecialchars($row['phone2']) : 'None'; ?></td>
+                                <td class="customerPhone2">
+                                    <?php echo !empty($row['phone2']) ? htmlspecialchars($row['phone2']) : '<em>None</em>'; ?>
+                                </td>
                                 <td class="customerAddress"><?php echo $row['address']; ?></td>
                                 <td class="tName"><?php echo $row['productName']; ?></td>
                                 <td class="productID"><?php echo $row['productid']; ?></td>
                                 <td class="tQuantity"><?php echo $row['quantity']; ?></td>
                                 <td class="tPrice"><?php echo $row['itemPrice']; ?></td>
                                 <td class="totalPrice"><?php echo $row['totalPrice']; ?></td>
-                                <td class="tStatus"><?php echo $row['status']; ?></td>
+                                <td class="tStatus">
+                                    <?php echo $row['status'] == 'completed' ? "<p class='completeStatus'>Completed</p>" : "<em class='pendingStatus'>Pending...</em>"; ?>
+                                </td>
                                 <td class="tAction actionBtn">
                                     <!-- Edit Button -->
                                     <form method="POST" action="">
