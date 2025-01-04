@@ -16,6 +16,13 @@
         $dob = $_SESSION['user_dob'];
         $today = date('m-d');
         $birthday = date('m-d', strtotime($dob));
+
+        if($birthday == $today) {
+            $greeting = "Happy birthday ". htmlspecialchars($_SESSION['user_fName'])."!";
+        }
+        else {
+            $greeting = "Welcome ". htmlspecialchars($_SESSION['user_fName'])."!";
+        }
     }
 ?>
 
@@ -51,7 +58,7 @@
             <!-- Topbar -->
             <div class="topbar">
                 <i class="fas fa-bars" id="toggle-sidebar" title="Open Dashboard"></i>
-                <h1><?php $greeting ?></h1>
+                <h1><?php echo $greeting; ?></h1>
             </div>
 
             <h2 class="displayH2">Messages Details</h2>
