@@ -25,6 +25,36 @@
         }
     }
 
+    // accept button
+    if (isset($_POST['acceptBtn'])) {
+        // Validate and retrieve supplyID
+        if (isset($_POST['supplyID']) && is_numeric($_POST['supplyID'])) {
+            $supplyID = $_POST['supplyID'];
+        }
+        else {
+            die("Invalid Supply ID");
+        }
+        
+        // Prepare SQL query to accept
+        $acceptSql = "UPDATE `supplier` SET `status` = 'Accepted' WHERE `supplyID` = ?";
+        $acceptStmt = $conn->prepare($acceptSql);
+        
+        // Check if the prepared statement was successful
+        if (!$acceptStmt) {
+            die("Error preparing statement: " . $conn->error);
+        }
+        
+        // Bind and execute the statement
+        $acceptStmt->bind_param("i", $supplyID);
+        if (!$acceptStmt->execute()) {
+            die("Error executing query: " . $acceptStmt->error);
+        }
+        
+        // Redirect to prevent resubmission
+        header("Location: supplyManagement.php");
+        exit();
+    }    
+
     // query to get all suppliers
     $query = "SELECT * FROM supplier";
     $result = mysqli_query($conn, $query);
@@ -99,28 +129,28 @@
                                 <td class="theirPrice"><?php echo htmlspecialchars($row['theirPrice']); ?></td>
                                 <td class="Phone"><?php echo htmlspecialchars($row['phone']); ?></td>
                                 <td class="comments">
-                                    <?php echo !empty(htmlspecialchars($row['comments'])) ? htmlspecialchars($row['comments']) : "<em>None</em>"; ?>
+                                    <?php echo !empty(htmlspecialchars($row['comments'])) ? htmlspecialchars($row['comments']) : "<em class='none'>None</em>"; ?>
                                 </td>
                                 <td class="tStatus">
                                     <?php echo htmlspecialchars($row['status']); ?>
                                 </td>
                                 <td class="tAction actionBtns">
                                     <form method="POST" action="">
-                                        <input type="hidden" name="id" value="<?php echo htmlspecialchars($row['supplyID']);?>">
+                                        <input type="hidden" name="supplyID" value="<?php echo htmlspecialchars($row['supplyID']);?>">
                                         <button type="submit" class="actionBtn" name="acceptBtn">
                                             <i class="fa-solid fa-thumbs-up" title="Accept"></i>
                                         </button>
                                     </form>
 
                                     <form method="POST" action="">
-                                        <input type="hidden" name="id" value="<?php echo htmlspecialchars($row['supplyID']);?>">
+                                        <input type="hidden" name="supplyID" value="<?php echo htmlspecialchars($row['supplyID']);?>">
                                         <button type="submit" class="actionBtn" name="rejectBtn">
                                             <i class="fa-solid fa-thumbs-down" title="Reject"></i>
                                         </button>
                                     </form>
 
                                     <form method="POST" action="">
-                                        <input type="hidden" name="id" value="<?php echo htmlspecialchars($row['supplyID']);?>">
+                                        <input type="hidden" name="supplyID" value="<?php echo htmlspecialchars($row['supplyID']);?>">
                                         <button type="submit" class="actionBtn" name="deleteBtn">
                                             <i class="fa-solid fa-trash-can" title="Delete"></i>
                                         </button>
