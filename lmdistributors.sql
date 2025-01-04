@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 02, 2025 at 07:02 PM
+-- Generation Time: Jan 04, 2025 at 08:01 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -33,7 +33,7 @@ CREATE TABLE `buyer` (
   `reqDate` date NOT NULL,
   `wantedDate` date NOT NULL,
   `quantity` int(11) NOT NULL,
-  `ourPrice` int(11) DEFAULT NULL,
+  `ourPrice` decimal(10,2) DEFAULT NULL,
   `theirPrice` decimal(10,2) NOT NULL,
   `phone` varchar(15) NOT NULL,
   `comments` text DEFAULT NULL,
@@ -45,17 +45,14 @@ CREATE TABLE `buyer` (
 --
 
 INSERT INTO `buyer` (`buyID`, `name`, `reqDate`, `wantedDate`, `quantity`, `ourPrice`, `theirPrice`, `phone`, `comments`, `status`) VALUES
-(1, 'Buyer 1', '2024-12-05', '2024-12-15', 50, 1, 55.00, '0773456789', 'Urgent delivery required.', 'Accepted'),
-(2, 'Amal Perera', '2024-12-01', '2024-12-05', 30, 1, 55.00, '0771122334', 'Urgent delivery needed.', 'Accepted'),
-(3, 'Nimal Jayawardena', '2024-12-02', '2024-12-06', 50, 2, 53.50, '0762233445', 'Regular order.', ''),
-(4, 'Kamal Silva', '2024-12-03', '2024-12-07', 25, 3, 52.00, '0713344556', 'Requesting bulk discount.', ''),
-(5, 'Anuradha Wickramasinghe', '2024-12-04', '2024-12-08', 20, 4, 51.50, '0784455667', 'Please deliver early morning.', ''),
-(6, 'Ishara Wijesinghe', '2024-12-05', '2024-12-09', 35, 5, 54.00, '0725566778', 'Order for resale.', ''),
-(7, 'Priyanthi Perera', '2024-12-06', '2024-12-10', 40, 6, 53.00, '0776677889', 'Add packaging instructions.', ''),
-(8, 'Sunil Bandara', '2024-12-07', '2024-12-11', 60, 7, 50.50, '0767788990', 'Please confirm availability.', ''),
-(9, 'Nadeesha Fernando', '2024-12-08', '2024-12-12', 45, 8, 55.50, '0718899001', 'Need an invoice.', ''),
-(10, 'Madhawa Jayasinghe', '2024-12-09', '2024-12-13', 30, 9, 52.50, '0789901122', 'Urgent order.', ''),
-(11, 'Tharindu Rajapaksha', '2024-12-10', '2024-12-14', 70, 10, 50.00, '0720011233', 'Large quantity order.', '');
+(2, 'Amal Perera', '2024-12-01', '2024-12-05', 3500, 54.00, 55.00, '0771122334', 'Urgent delivery needed.', 'Accepted'),
+(3, 'Nimal Jayawardena', '2024-12-02', '2024-12-06', 500, 54.00, 53.50, '0762233445', 'Regular order.', 'Rejected'),
+(4, 'Kamal Silva', '2024-12-03', '2024-12-07', 25000, 53.00, 52.00, '0713344556', 'Requesting bulk discount.', 'Not Selected'),
+(5, 'Anuradha Wickramasinghe', '2024-12-04', '2024-12-08', 2000, 52.00, 51.50, '0784455667', 'Please deliver early morning.', 'Accepted'),
+(6, 'Ishara Wijesinghe', '2024-12-05', '2024-12-09', 350, 54.00, 54.00, '0725566778', 'Order for resale.', 'Rejected'),
+(7, 'Priyanthi Perera', '2024-12-06', '2024-12-10', 4000, 50.00, 53.00, '0776677889', 'Add packaging instructions.', 'Accepted'),
+(9, 'Nadeesha Fernando', '2024-12-08', '2024-12-12', 4500, 58.00, 55.50, '0718899001', 'Need an invoice.', 'Rejected'),
+(10, 'Madhawa Jayasinghe', '2024-12-09', '2024-12-13', 3000, 52.50, 52.50, '0789901122', 'Urgent order.', 'Rejected');
 
 -- --------------------------------------------------------
 
@@ -255,7 +252,7 @@ CREATE TABLE `user_info` (
 
 INSERT INTO `user_info` (`userID`, `email`, `password`, `fName`, `lName`, `dob`, `phone1`, `phone2`, `address`, `image`, `type`, `assignType`, `status`) VALUES
 (1, 'admin@lm.com', 'hashedpassword', 'Admin', 'User', '1985-05-10', '0771234567', NULL, 'Colombo 01, Sri Lanka', NULL, 'admin', NULL, 'active'),
-(4, 'admin1@lm.com', 'hashedpassword1', 'Kasun', 'Perera', '1985-06-15', '0771234567', NULL, 'Colombo 01, Sri Lanka', NULL, 'admin', NULL, 'active'),
+(4, 'admin1@lm.com', 'hashedpassword1', 'Kasun', 'Perera', '1985-06-15', '0771234567', '', 'Colombo 01, Sri Lanka', './images/profiles/6776e2c90845b-admin1.jpg', 'admin', NULL, 'active'),
 (5, 'admin2@lm.com', 'hashedpassword2', 'Chamari', 'Fernando', '1986-08-25', '0769876543', NULL, 'Kandy, Sri Lanka', NULL, 'admin', NULL, 'active'),
 (6, 'manager1@lm.com', 'hashedpassword3', 'Lalith', 'Wijesinghe', '1990-03-10', '0713456789', NULL, 'Galle, Sri Lanka', NULL, 'manager', 'Logistics', 'active'),
 (7, 'manager2@lm.com', 'hashedpassword4', 'Dulani', 'Silva', '1991-04-18', '0726543210', '0701293218', 'Nattandiya, Sri Lanka', NULL, 'manager', 'Sales Manager', 'active'),
@@ -265,7 +262,8 @@ INSERT INTO `user_info` (`userID`, `email`, `password`, `fName`, `lName`, `dob`,
 (11, 'supplier2@lm.com', 'hashedpassword8', 'Nimali', 'Samarasinghe', '1989-12-10', '0765432178', NULL, 'Batticaloa, Sri Lanka', NULL, 'supplier', NULL, 'active'),
 (12, 'buyer1@lm.com', 'hashedpassword9', 'Nuwan', 'Fernando', '1996-01-15', '0786781234', NULL, 'Anuradhapura, Sri Lanka', NULL, 'buyer', NULL, 'active'),
 (13, 'buyer2@lm.com', 'hashedpassword10', 'Nirmala', 'De Silva', '1993-05-05', '0729871234', NULL, 'Ratnapura, Sri Lanka', NULL, 'buyer', NULL, 'active'),
-(14, 'nimmimanager@gmail.com', 'nimmi@32321', 'Nimmi', 'Swetha', '0000-00-00', '0772131210', NULL, '', './images/default-profile.png', 'manager', 'Order Manager', 'inactive');
+(14, 'nimmimanager@gmail.com', 'nimmi@32321', 'Nimmi', 'Swetha', '0000-00-00', '0772131210', NULL, '', './images/default-profile.png', 'manager', 'Order Manager', 'inactive'),
+(15, 'hojijo4160@iteradev.com', 'hira1221', 'Hiranya', 'Fernando', '2002-09-03', '0771234599', '0756784778', 'Mahabage, Ja-Ela', 'images/default-profile.png', 'customer', NULL, 'active');
 
 --
 -- Indexes for dumped tables
@@ -372,17 +370,11 @@ ALTER TABLE `supplyerprice`
 -- AUTO_INCREMENT for table `user_info`
 --
 ALTER TABLE `user_info`
-  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- Constraints for dumped tables
 --
-
---
--- Constraints for table `buyer`
---
-ALTER TABLE `buyer`
-  ADD CONSTRAINT `buyer_ibfk_1` FOREIGN KEY (`ourPrice`) REFERENCES `buyerprice` (`bPID`);
 
 --
 -- Constraints for table `order`
