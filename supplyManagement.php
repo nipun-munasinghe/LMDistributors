@@ -162,7 +162,17 @@
                                     <?php echo !empty(htmlspecialchars($row['comments'])) ? htmlspecialchars($row['comments']) : "<em class='none'>None</em>"; ?>
                                 </td>
                                 <td class="tStatus">
-                                    <?php echo htmlspecialchars($row['status']); ?>
+                                    <?php
+                                        if(htmlspecialchars($row['status']) == 'Accepted') {
+                                            echo "<p class='acceptStatus'>".htmlspecialchars($row['status'])."</p>";
+                                        }
+                                        else if(htmlspecialchars($row['status']) == 'Rejected') {
+                                            echo "<p class='rejectStatus'>".htmlspecialchars($row['status'])."</p>";
+                                        }
+                                        else {
+                                            echo "<p class='pendingStatus'>".htmlspecialchars($row['status'])."</p>";
+                                        }
+                                    ?>
                                 </td>
                                 <td class="tAction actionBtns">
                                     <form method="POST" action="">

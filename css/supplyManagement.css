@@ -157,8 +157,33 @@ body {
     padding: 5px;
 }
 
+.theirPrice {
+    font-weight: bold;
+}
+
 .comments {
     max-width: 250px;
+}
+
+.none {
+    color: gray;
+    font-style: italic;
+}
+
+.acceptStatus {
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+.rejectStatus {
+    color: red;
+    font-weight: bold;
+}
+
+.pendingStatus {
+    color: gray;
+    font-style: italic;
+    font-weight: bold;
 }
 
 .tAction {
