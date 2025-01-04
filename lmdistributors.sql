@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 04, 2025 at 03:57 PM
+-- Generation Time: Jan 04, 2025 at 06:20 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -178,11 +178,11 @@ CREATE TABLE `supplier` (
   `reqDate` date NOT NULL,
   `supplyDate` date NOT NULL,
   `quantity` int(11) NOT NULL,
-  `ourPrice` int(11) DEFAULT NULL,
+  `ourPrice` decimal(10,2) DEFAULT NULL,
   `theirPrice` decimal(10,2) NOT NULL,
   `phone` varchar(15) NOT NULL,
   `comments` text DEFAULT NULL,
-  `status` enum('pending','completed','cancelled') NOT NULL
+  `status` enum('Not Selected','Accepted','Rejected') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -190,17 +190,17 @@ CREATE TABLE `supplier` (
 --
 
 INSERT INTO `supplier` (`supplyID`, `name`, `reqDate`, `supplyDate`, `quantity`, `ourPrice`, `theirPrice`, `phone`, `comments`, `status`) VALUES
-(1, 'Supplier 1', '2024-12-01', '2024-12-08', 100, 1, 35.00, '0758765432', 'Delivery to Colombo warehouse.', 'completed'),
-(2, 'Ranjith Silva', '2024-12-01', '2024-12-03', 80, 1, 28.50, '0711234567', 'Need early payment.', ''),
-(3, 'Chandana Perera', '2024-12-02', '2024-12-04', 60, 2, 29.00, '0762345678', 'First-time supplier.', ''),
-(4, 'Jayani Fernando', '2024-12-03', '2024-12-05', 100, 3, 27.50, '0773456789', 'Offering a discount.', ''),
-(5, 'Samitha Bandara', '2024-12-04', '2024-12-06', 50, 4, 30.00, '0724567890', 'Delivery by own vehicle.', ''),
-(6, 'Nishantha Wijesinghe', '2024-12-05', '2024-12-07', 70, 5, 29.50, '0755678901', 'Requesting advance payment.', ''),
-(7, 'Amali Jayawardena', '2024-12-06', '2024-12-08', 40, 6, 28.00, '0716789012', 'New supply route.', ''),
-(8, 'Ravindra Rathnayake', '2024-12-07', '2024-12-09', 90, 7, 30.50, '0787890123', 'Bulk supply offer.', ''),
-(9, 'Sumudu Liyanage', '2024-12-08', '2024-12-10', 65, 8, 29.00, '0768901234', 'Need transport assistance.', ''),
-(10, 'Kusal Dissanayake', '2024-12-09', '2024-12-11', 55, 9, 30.00, '0779012345', 'Please confirm quantity.', ''),
-(11, 'Sarath Rathnayake', '2024-12-10', '2024-12-12', 75, 10, 29.50, '0720123456', 'Offer valid for next week.', '');
+(1, 'Supplier 1', '2024-12-01', '2024-12-08', 10000, 48.00, 35.00, '0758765432', '', 'Accepted'),
+(2, 'Ranjith Silva', '2024-12-01', '2024-12-03', 800, 29.00, 28.50, '0711234567', 'Need early payment.', 'Rejected'),
+(3, 'Chandana Perera', '2024-12-02', '2024-12-04', 600, 50.00, 49.00, '0762345678', 'First-time supplier.', 'Accepted'),
+(4, 'Jayani Fernando', '2024-12-03', '2024-12-05', 10000, 51.00, 50.50, '0773456789', 'Offering a discount.', 'Not Selected'),
+(5, 'Samitha Bandara', '2024-12-04', '2024-12-06', 5000, 48.00, 39.00, '0724567890', 'Delivery by own vehicle.', 'Accepted'),
+(6, 'Nishantha Wijesinghe', '2024-12-05', '2024-12-07', 700, 55.00, 54.50, '0755678901', 'Requesting advance payment.', 'Rejected'),
+(7, 'Amali Jayawardena', '2024-12-06', '2024-12-08', 4000, 46.00, 38.00, '0716789012', 'New supply route.', 'Not Selected'),
+(8, 'Ravindra Rathnayake', '2024-12-07', '2024-12-09', 9800, 47.00, 43.50, '0787890123', 'Bulk supply offer.', 'Accepted'),
+(9, 'Sumudu Liyanage', '2024-12-08', '2024-12-10', 6500, 38.00, 37.00, '0768901234', 'Need transport assistance.', 'Rejected'),
+(10, 'Kusal Dissanayake', '2024-12-09', '2024-12-11', 5500, 39.00, 35.00, '0779012345', 'Please confirm quantity.', 'Accepted'),
+(11, 'Sarath Rathnayake', '2024-12-10', '2024-12-12', 7500, 51.00, 48.50, '0720123456', 'Offer valid for next week.', 'Not Selected');
 
 -- --------------------------------------------------------
 
@@ -379,12 +379,6 @@ ALTER TABLE `user_info`
 --
 ALTER TABLE `order`
   ADD CONSTRAINT `order_ibfk_1` FOREIGN KEY (`productid`) REFERENCES `product` (`productid`) ON DELETE CASCADE;
-
---
--- Constraints for table `supplier`
---
-ALTER TABLE `supplier`
-  ADD CONSTRAINT `supplier_ibfk_1` FOREIGN KEY (`ourPrice`) REFERENCES `supplyerprice` (`sPID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
