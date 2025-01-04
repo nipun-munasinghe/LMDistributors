@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 04, 2025 at 08:01 AM
+-- Generation Time: Jan 04, 2025 at 03:57 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -132,9 +132,7 @@ CREATE TABLE `order` (
 INSERT INTO `order` (`orderID`, `date`, `name`, `phone1`, `phone2`, `address`, `productName`, `productid`, `quantity`, `itemPrice`, `totalPrice`, `status`) VALUES
 (2, '2024-12-10', 'Amali Rathnayake', '0777896543', '0771233218', 'Jaffna, Sri Lanka', 'Coconut A', 1, 10, 50.00, 500.00, 'completed'),
 (6, '2024-12-16', 'Nuwan Fernando', '0786781234', NULL, 'Anuradhapura, Sri Lanka', 'Coconut Oil', 5, 5, 100.00, 500.00, 'pending'),
-(7, '2024-12-18', 'Lalith Wijesinghe', '0713456789', NULL, 'Galle, Sri Lanka', 'Coconut Milk', 6, 12, 80.00, 960.00, 'completed'),
-(9, '2024-12-20', 'Nirmala De Silva', '0729871234', NULL, 'Ratnapura, Sri Lanka', 'King Coconut', 8, 25, 20.00, 500.00, 'completed'),
-(10, '2024-12-21', 'Ruwan Jayasinghe', '0712345678', NULL, 'Nuwara Eliya, Sri Lanka', 'Coconut Shells', 9, 40, 10.00, 400.00, 'pending');
+(10, '2024-12-21', 'Ruwan Jayasinghe', '0712345678', NULL, 'Nuwara Eliya, Sri Lanka', 'Coconut Shells', 9, 40, 10.00, 400.00, 'completed');
 
 -- --------------------------------------------------------
 
@@ -159,13 +157,12 @@ CREATE TABLE `product` (
 INSERT INTO `product` (`productid`, `name`, `description`, `price`, `image`, `category`, `quantity`) VALUES
 (1, 'Coconut A', 'High-quality coconuts.', 50.00, NULL, 'Fresh', 200),
 (2, 'Coconut B', 'Medium-quality coconuts.', 40.00, NULL, 'Fresh', 150),
-(3, 'Coconut D', 'Quality coconuts.', 35.00, NULL, 'Fresh', 120),
 (5, 'Coconut C', 'Low-quality coconuts.', 30.00, NULL, 'Fresh', 300),
 (6, 'Coconut Husk', 'Quality coconut husks.', 15.00, NULL, 'Husk', 500),
-(7, 'Coconut Oil', 'Pure coconut oil.', 100.00, NULL, 'Oil', 50),
+(7, 'Coconut Oil', 'Pure coconut oil.', 100.00, NULL, 'Oil', 10),
 (8, 'Coconut Milk', 'Fresh coconut milk packs.', 80.00, NULL, 'Milk', 100),
 (9, 'Coconut Powder', 'Desiccated coconut powder.', 60.00, NULL, 'Powder', 75),
-(10, 'King Coconut', 'Fresh king coconuts.', 20.00, NULL, 'Fresh', 250),
+(10, 'King Coconut', 'Fresh king coconuts.', 20.00, NULL, 'Fresh', 9),
 (11, 'Coconut Shells', 'Polished coconut shells.', 10.00, NULL, 'Shell', 400),
 (12, 'Coconut Charcoal', 'Charcoal made from coconut shells.', 25.00, NULL, 'Charcoal', 150);
 
@@ -243,27 +240,28 @@ CREATE TABLE `user_info` (
   `image` varchar(255) DEFAULT NULL,
   `type` enum('admin','manager','customer','supplier','buyer') NOT NULL,
   `assignType` varchar(50) DEFAULT NULL,
-  `status` enum('active','inactive') NOT NULL
+  `status` enum('active','inactive') NOT NULL,
+  `last_logout` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `user_info`
 --
 
-INSERT INTO `user_info` (`userID`, `email`, `password`, `fName`, `lName`, `dob`, `phone1`, `phone2`, `address`, `image`, `type`, `assignType`, `status`) VALUES
-(1, 'admin@lm.com', 'hashedpassword', 'Admin', 'User', '1985-05-10', '0771234567', NULL, 'Colombo 01, Sri Lanka', NULL, 'admin', NULL, 'active'),
-(4, 'admin1@lm.com', 'hashedpassword1', 'Kasun', 'Perera', '1985-06-15', '0771234567', '', 'Colombo 01, Sri Lanka', './images/profiles/6776e2c90845b-admin1.jpg', 'admin', NULL, 'active'),
-(5, 'admin2@lm.com', 'hashedpassword2', 'Chamari', 'Fernando', '1986-08-25', '0769876543', NULL, 'Kandy, Sri Lanka', NULL, 'admin', NULL, 'active'),
-(6, 'manager1@lm.com', 'hashedpassword3', 'Lalith', 'Wijesinghe', '1990-03-10', '0713456789', NULL, 'Galle, Sri Lanka', NULL, 'manager', 'Logistics', 'active'),
-(7, 'manager2@lm.com', 'hashedpassword4', 'Dulani', 'Silva', '1991-04-18', '0726543210', '0701293218', 'Nattandiya, Sri Lanka', NULL, 'manager', 'Sales Manager', 'active'),
-(8, 'customer1@lm.com', 'hashedpassword5', 'Suresh', 'Bandara', '1995-07-12', '0756784321', NULL, 'Kurunegala, Sri Lanka', NULL, 'customer', NULL, 'active'),
-(9, 'customer2@lm.com', 'hashedpassword6', 'Amali', 'Rathnayake', '1994-11-22', '0777896543', NULL, 'Jaffna, Sri Lanka', NULL, 'customer', NULL, 'active'),
-(10, 'supplier1@lm.com', 'hashedpassword7', 'Ruwan', 'Jayasinghe', '1992-02-25', '0712345678', NULL, 'Nuwara Eliya, Sri Lanka', NULL, 'supplier', NULL, 'active'),
-(11, 'supplier2@lm.com', 'hashedpassword8', 'Nimali', 'Samarasinghe', '1989-12-10', '0765432178', NULL, 'Batticaloa, Sri Lanka', NULL, 'supplier', NULL, 'active'),
-(12, 'buyer1@lm.com', 'hashedpassword9', 'Nuwan', 'Fernando', '1996-01-15', '0786781234', NULL, 'Anuradhapura, Sri Lanka', NULL, 'buyer', NULL, 'active'),
-(13, 'buyer2@lm.com', 'hashedpassword10', 'Nirmala', 'De Silva', '1993-05-05', '0729871234', NULL, 'Ratnapura, Sri Lanka', NULL, 'buyer', NULL, 'active'),
-(14, 'nimmimanager@gmail.com', 'nimmi@32321', 'Nimmi', 'Swetha', '0000-00-00', '0772131210', NULL, '', './images/default-profile.png', 'manager', 'Order Manager', 'inactive'),
-(15, 'hojijo4160@iteradev.com', 'hira1221', 'Hiranya', 'Fernando', '2002-09-03', '0771234599', '0756784778', 'Mahabage, Ja-Ela', 'images/default-profile.png', 'customer', NULL, 'active');
+INSERT INTO `user_info` (`userID`, `email`, `password`, `fName`, `lName`, `dob`, `phone1`, `phone2`, `address`, `image`, `type`, `assignType`, `status`, `last_logout`) VALUES
+(1, 'admin@lm.com', 'hashedpassword', 'Admin', 'User', '1985-05-10', '0771234567', NULL, 'Colombo 01, Sri Lanka', NULL, 'admin', NULL, 'active', NULL),
+(4, 'admin1@lm.com', 'hashedpassword1', 'Kasun', 'Perera', '1985-06-15', '0771234567', '', 'Colombo 01, Sri Lanka', './images/profiles/6776e2c90845b-admin1.jpg', 'admin', NULL, 'active', '2025-01-04 20:26:13'),
+(5, 'admin2@lm.com', 'hashedpassword2', 'Chamari', 'Fernando', '1986-08-25', '0769876543', NULL, 'Kandy, Sri Lanka', NULL, 'admin', NULL, 'active', NULL),
+(6, 'manager1@lm.com', 'hashedpassword3', 'Lalith', 'Wijesinghe', '1990-03-10', '0713456789', NULL, 'Galle, Sri Lanka', NULL, 'manager', 'Logistics', 'active', NULL),
+(7, 'manager2@lm.com', 'hashedpassword4', 'Dulani', 'Silva', '1991-04-18', '0726543210', '0701293218', 'Nattandiya, Sri Lanka', NULL, 'manager', 'Sales Manager', 'active', NULL),
+(8, 'customer1@lm.com', 'hashedpassword5', 'Suresh', 'Bandara', '1995-07-12', '0756784321', NULL, 'Kurunegala, Sri Lanka', NULL, 'customer', NULL, 'active', NULL),
+(9, 'customer2@lm.com', 'hashedpassword6', 'Amali', 'Rathnayake', '1994-11-22', '0777896543', NULL, 'Jaffna, Sri Lanka', NULL, 'customer', NULL, 'active', NULL),
+(10, 'supplier1@lm.com', 'hashedpassword7', 'Ruwan', 'Jayasinghe', '1992-02-25', '0712345678', NULL, 'Nuwara Eliya, Sri Lanka', NULL, 'supplier', NULL, 'active', NULL),
+(11, 'supplier2@lm.com', 'hashedpassword8', 'Nimali', 'Samarasinghe', '1989-12-10', '0765432178', NULL, 'Batticaloa, Sri Lanka', NULL, 'supplier', NULL, 'active', NULL),
+(12, 'buyer1@lm.com', 'hashedpassword9', 'Nuwan', 'Fernando', '1996-01-15', '0786781234', NULL, 'Anuradhapura, Sri Lanka', NULL, 'buyer', NULL, 'active', NULL),
+(13, 'buyer2@lm.com', 'hashedpassword10', 'Nirmala', 'De Silva', '1993-05-05', '0729871234', NULL, 'Ratnapura, Sri Lanka', NULL, 'buyer', NULL, 'active', NULL),
+(14, 'nimmimanager@gmail.com', 'nimmi@32321', 'Nimmi', 'Swetha', '0000-00-00', '0772131210', NULL, '', './images/default-profile.png', 'manager', 'Order Manager', 'inactive', NULL),
+(15, 'hojijo4160@iteradev.com', 'hira1221', 'Hiranya', 'Fernando', '2002-09-03', '0771234599', '0756784778', 'Mahabage, Ja-Ela', 'images/default-profile.png', 'customer', NULL, 'active', NULL);
 
 --
 -- Indexes for dumped tables
