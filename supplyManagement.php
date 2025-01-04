@@ -24,6 +24,13 @@
             $greeting = "Welcome ".htmlspecialchars($_SESSION['user_fName'])."!";
         }
     }
+
+    // query to get all suppliers
+    $query = "SELECT * FROM supplier";
+    $result = mysqli_query($conn, $query);
+    if(!$result) {
+        die("Query failed: ".mysqli_error($conn));
+    }
 ?>
 
 <!DOCTYPE html>
@@ -81,23 +88,29 @@
                                 <th class="tStatus">Status</th>
                                 <th class="tAction">Action</th>
                             </tr>
+                            <?php while($row = $result->fetch_assoc()):?>
                             <tr>
-                                <td class="supplyID">1</td>
-                                <td class="supplierName">Upali Coco Products</td>
-                                <td class="reqDate">08/12/2024</td>
-                                <td class="supplyDate">10/12/2024</td>
-                                <td class="supplyQuantity">2000</td>
-                                <td class="ourPrice">125.50</td>
-                                <td class="theirPrice">125.50</td>
-                                <td class="Phone">0788753442</td>
-                                <td class="comments">null</td>
-                                <td class="tStatus">Rejected</td>
+                                <td class="supplyID"><?php echo htmlspecialchars($row['supplyID']); ?></td>
+                                <td class="supplierName"><?php echo htmlspecialchars($row['name']); ?></td>
+                                <td class="reqDate"><?php echo htmlspecialchars($row['reqDate']); ?></td>
+                                <td class="supplyDate"><?php echo htmlspecialchars($row['supplyDate']); ?></td>
+                                <td class="supplyQuantity"><?php echo htmlspecialchars($row['quantity']); ?></td>
+                                <td class="ourPrice"><?php echo htmlspecialchars($row['ourPrice']); ?></td>
+                                <td class="theirPrice"><?php echo htmlspecialchars($row['theirPrice']); ?></td>
+                                <td class="Phone"><?php echo htmlspecialchars($row['phone']); ?></td>
+                                <td class="comments">
+                                    <?php echo !empty(htmlspecialchars($row['comments'])) ? htmlspecialchars($row['comments']) : "<em>None</em>"; ?>
+                                </td>
+                                <td class="tStatus">
+                                    <?php echo htmlspecialchars($row['status']); ?>
+                                </td>
                                 <td class="tAction">
                                     <a href="#"><i class="fa-solid fa-thumbs-up" title="Accept"></i></a> | 
                                     <a href="#"><i class="fa-solid fa-thumbs-down" title="Reject"></i></a> | 
                                     <a href="#"><i class="fa-solid fa-trash-can" title="Delete"></i></a>
                                 </td>
                             </tr>
+                            <?php endwhile;?>
                         </table>
                     </div>
                 </div>
