@@ -1,3 +1,23 @@
+<?php
+    // start sessions
+    session_start();
+
+    // include database config file
+    include_once 'config.php';
+
+    // check user is logged or not
+    if(!isset($_SESSION['user_fName'])) {
+        // user is not logged in, redirect to login page
+        header('Location: login.php');
+        exit();
+    }
+    else {
+        
+    }
+
+    
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
