@@ -4,6 +4,11 @@
     // Unset all of the session variables
     $_SESSION = array();
 
+    // Close the database connection
+    if (isset($conn)) {
+        mysqli_close($conn);
+    }
+
     //destroy sessions
     session_destroy();
 
