@@ -70,6 +70,21 @@
         exit();
     }
 
+    // delete button
+    if (isset($_POST['deleteBtn'])) {
+        $supplyID = $_POST['supplyID'];
+    
+        // Prepare SQL query to delete
+        $deleteSql = "DELETE FROM `supplier` WHERE `supplyID` = ?";
+        $deleteStmt = $conn->prepare($deleteSql);
+        $deleteStmt->bind_param("i", $supplyID);
+        $deleteStmt->execute();
+    
+        // Redirect to prevent resubmission
+        header("Location: supplyManagement.php");
+        exit();
+    }  
+
     // query to get all suppliers
     $query = "SELECT * FROM supplier";
     $result = mysqli_query($conn, $query);
@@ -164,7 +179,7 @@
                                         </button>
                                     </form>
 
-                                    <form method="POST" action="">
+                                    <form method="POST" action="" onsubmit="return confirmDelete();">
                                         <input type="hidden" name="supplyID" value="<?php echo htmlspecialchars($row['supplyID']);?>">
                                         <button type="submit" class="actionBtn" name="deleteBtn">
                                             <i class="fa-solid fa-trash-can" title="Delete"></i>
@@ -207,5 +222,10 @@
     <!-- link scripts -->
     <script src="./js/sideBar.js"></script>
     <script src="./js/scrollBar.js"></script>
+    <script>
+        function confirmDelete() {
+            return confirm('Are you sure you want to delete this order?');
+        }
+    </script>
 </body>
 </html>
