@@ -24,9 +24,47 @@
             $greeting = "Welcome ". htmlspecialchars($_SESSION['user_fName'])."!";
         }
 
-        //Status Button
-        if(isset($_POST['statusBtn'])) {
+        // Status Button
+        if (isset($_POST['statusBtn'])) {
+            $messageID = $_POST['messageID'];
 
+            // Fetch the current status
+            $fetchStatusSql = "SELECT `status` FROM `message` WHERE `messageID` = ?";
+            $fetchStatusStmt = $conn->prepare($fetchStatusSql);
+            $fetchStatusStmt->bind_param("i", $messageID);
+            $fetchStatusStmt->execute();
+            $result = $fetchStatusStmt->get_result();
+
+            if ($result->num_rows > 0) {
+                $row = $result->fetch_assoc();
+                $currentStatus = $row['status'];
+
+                // Determine the new status
+                switch ($currentStatus) {
+                    case 'unread':
+                        $newStatus = 'read';
+                        break;
+                    case 'read':
+                        $newStatus = 'replied';
+                        break;
+                    default:
+                        $newStatus = 'unread'; // Reset to Unread if invalid status
+                        break;
+                }
+
+                // Update the status in the database
+                $updateStatusSql = "UPDATE `message` SET `status` = ? WHERE `messageID` = ?";
+                $updateStatusStmt = $conn->prepare($updateStatusSql);
+                $updateStatusStmt->bind_param("si", $newStatus, $messageID);
+                $updateStatusStmt->execute();
+
+                // Redirect to prevent resubmission
+                header("Location: manageMessages.php");
+                exit();
+            }
+            else {
+                echo "Message ID not found.";
+            }
         }
 
         // delete button
