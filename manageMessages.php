@@ -23,6 +23,12 @@
         else {
             $greeting = "Welcome ". htmlspecialchars($_SESSION['user_fName'])."!";
         }
+
+        $sql = "SELECT * FROM `message`;";
+        $result = mysqli_query($conn, $sql);
+        if(!$result) {
+            die("Error - Query failed: ".mysqli_error($conn));
+        }
     }
 ?>
 
@@ -76,60 +82,19 @@
                                 <th class="tStatus">Status</th>
                                 <th class="tAction">Action</th>
                             </tr>
+                            <?php while ($row = $result->fetch_assoc()): ?>
                             <tr>
-                                <td class="messageID">1</td>
-                                <td class="messageName">Savindu Rajapksha</td>
-                                <td class="email">savindu.r@gmail.com</td>
-                                <td class="message">I want to know, do you can supply our ordered products without late?</td>
-                                <td class="tStatus">Just asked</td>
-                                <td class="tAction"><a href="#"><i class="fa-solid fa-thumbs-up" title="Replied"></i></a> | 
-                                                    <a href="#"><i class="fa-solid fa-trash-can" title="Delete"></i></a></td>
+                                <td class="messageID"><?php echo htmlspecialchars($row['messageID']) ?></td>
+                                <td class="messageName"><?php echo htmlspecialchars($row['name']) ?></td>
+                                <td class="email"><?php echo htmlspecialchars($row['email']) ?></td>
+                                <td class="message"><?php echo htmlspecialchars($row['message']) ?></td>
+                                <td class="tStatus"><?php echo htmlspecialchars($row['status']) ?></td>
+                                <td class="tAction">
+                                    <a href="#"><i class="fa-solid fa-thumbs-up" title="Replied"></i></a> | 
+                                    <a href="#"><i class="fa-solid fa-trash-can" title="Delete"></i></a>
+                                </td>
                             </tr>
-                            <tr>
-                                <td class="messageID">2</td>
-                                <td class="messageName">Kavindu Ramanayaka</td>
-                                <td class="email">kavindu.r@gmail.com</td>
-                                <td class="message">Do you have coconut milk products?</td>
-                                <td class="tStatus">Replied</td>
-                                <td class="tAction"><a href="#"><i class="fa-solid fa-thumbs-up" title="Replied"></i></a> | 
-                                                    <a href="#"><i class="fa-solid fa-trash-can" title="Delete"></i></a></td>
-                            </tr>
-                            <tr>
-                                <td class="messageID">3</td>
-                                <td class="messageName">K Manchanayaka</td>
-                                <td class="email">manchanayaka898@gmail.com</td>
-                                <td class="message">Can I pay with paypal for products?</td>
-                                <td class="tStatus">Just asked</td>
-                                <td class="tAction"><a href="#"><i class="fa-solid fa-thumbs-up" title="Replied"></i></a> | 
-                                                    <a href="#"><i class="fa-solid fa-trash-can" title="Delete"></i></a></td>
-                            </tr>
-                            <tr>
-                                <td class="messageID">4</td>
-                                <td class="messageName">Priyantha Mahaulpathagama</td>
-                                <td class="email">priya1234@gmail.com</td>
-                                <td class="message">Can I supply 500 coconuts for lower price for you?</td>
-                                <td class="tStatus">Replied</td>
-                                <td class="tAction"><a href="#"><i class="fa-solid fa-thumbs-up" title="Replied"></i></a> | 
-                                                    <a href="#"><i class="fa-solid fa-trash-can" title="Delete"></i></a></td>
-                            </tr>
-                            <tr>
-                                <td class="messageID">5</td>
-                                <td class="messageName">Jehan Fernando</td>
-                                <td class="email">purchase.in.lanka.international@gmail.com</td>
-                                <td class="message">Can I have a validation form to resell your products from our company?</td>
-                                <td class="tStatus">Just asked</td>
-                                <td class="tAction"><a href="#"><i class="fa-solid fa-thumbs-up" title="Replied"></i></a> | 
-                                                    <a href="#"><i class="fa-solid fa-trash-can" title="Delete"></i></a></td>
-                            </tr>
-                            <tr>
-                                <td class="messageID">6</td>
-                                <td class="messageName">Dhanushka Dambagolla</td>
-                                <td class="email">dhanu5566@gmail.com</td>
-                                <td class="message">Can I exchange a product after I get it?</td>
-                                <td class="tStatus">Just asked</td>
-                                <td class="tAction"><a href="#"><i class="fa-solid fa-thumbs-up" title="Replied"></i></a> | 
-                                                    <a href="#"><i class="fa-solid fa-trash-can" title="Delete"></i></a></td>
-                            </tr>
+                            <?php endwhile; ?>
                         </table>
                     </div>
                 </div>
