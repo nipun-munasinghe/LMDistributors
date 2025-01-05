@@ -24,6 +24,26 @@
             $greeting = "Welcome ". htmlspecialchars($_SESSION['user_fName'])."!";
         }
 
+        //Status Button
+        if(isset($_POST['statusBtn'])) {
+
+        }
+
+        // delete button
+        if (isset($_POST['deleteBtn'])) {
+            $messageID = $_POST['messageID'];
+        
+            // Prepare SQL query to delete
+            $deleteSql = "DELETE FROM `message` WHERE `messageID` = ?";
+            $deleteStmt = $conn->prepare($deleteSql);
+            $deleteStmt->bind_param("i", $messageID);
+            $deleteStmt->execute();
+        
+            // Redirect to prevent resubmission
+            header("Location: manageMessages.php");
+            exit();
+        }
+
         $sql = "SELECT * FROM `message`;";
         $result = mysqli_query($conn, $sql);
         if(!$result) {
@@ -90,8 +110,18 @@
                                 <td class="message"><?php echo htmlspecialchars($row['message']) ?></td>
                                 <td class="tStatus"><?php echo htmlspecialchars($row['status']) ?></td>
                                 <td class="tAction">
-                                    <a href="#"><i class="fa-solid fa-thumbs-up" title="Replied"></i></a> | 
-                                    <a href="#"><i class="fa-solid fa-trash-can" title="Delete"></i></a>
+                                    <form method="post" action="">
+                                        <input type="hidden" name="messageID" value="<?php echo htmlspecialchars($row['messageID']);?>">
+                                        <button type="submit" name="statusBtn">
+                                            <i class="fa-solid fa-thumbs-up" title="Click to change status"></i>
+                                        </button>
+                                    </form>
+                                    <form method="post" action="" onsubmit="return confirmDelete();">
+                                        <input type="hidden" name="messageID" value="<?php echo htmlspecialchars($row['messageID']);?>">
+                                        <button type="submit" name="deleteBtn">
+                                        <i class="fa-solid fa-trash-can" title="Click to Delete"></i>
+                                        </button>
+                                    </form>
                                 </td>
                             </tr>
                             <?php endwhile; ?>
@@ -129,5 +159,10 @@
     <!-- link scripts -->
     <script src="./js/sideBar.js"></script>
     <script src="./js/scrollBar.js"></script>
+    <script>
+        function confirmDelete() {
+            return confirm('Are you sure you want to delete this message?');
+        }
+    </script>
 </body>
 </html>
