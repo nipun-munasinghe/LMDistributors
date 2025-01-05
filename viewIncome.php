@@ -28,15 +28,22 @@
         // Get the total number of products in the database
         $productQuery = "SELECT COUNT(`productid`) AS totalProducts FROM `product`";
         $productResult = mysqli_query($conn, $productQuery);
-
         if (!$productResult) {
             die("Query failed: " . mysqli_error($conn));
         }
-
         // Fetch the product count from the result
         $productData = mysqli_fetch_assoc($productResult);
         $totalProducts = $productData['totalProducts'];
 
+        // Get the total number of orders in the database
+        $orderQuery = "SELECT COUNT(`orderID`) AS totalOrders FROM `order`";
+        $orderResult = mysqli_query($conn, $orderQuery);
+        if (!$orderResult) {
+            die("Query failed: ". mysqli_error($conn));
+        }
+        // Fetch the order count from the result
+        $orderData = mysqli_fetch_assoc($orderResult);
+        $totalOrders = $orderData['totalOrders'];
     }
 ?>
 
@@ -85,7 +92,7 @@
                         </div>
                         <div class="analyzeContainer">
                             <p class="analyzeLabel">Total Orders</p>
-                            <p class="analyzeDisplay" id="totalOrders">: 128</p>
+                            <p class="analyzeDisplay" id="totalOrders">: <?php echo $totalOrders; ?></p>
                         </div>
                         <div class="analyzeContainer">
                             <p class="analyzeLabel">Total income from Orders (Rs.)</p>
@@ -94,6 +101,7 @@
                     </div>
 
                     <div class="analyzeOutContainer">
+                        <h2>Coconut Orders & Supplies</h2>
                         <div class="analyzeContainer">
                             <p class="analyzeLabel">Accepted Supplies</p>
                             <p class="analyzeDisplay" id="acceptedSupplies">: 201</p>
