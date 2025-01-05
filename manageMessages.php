@@ -159,17 +159,17 @@
                                         }
                                     ?>
                                 </td>
-                                <td class="tAction">
+                                <td class="tAction actionBtns">
                                     <form method="post" action="">
                                         <input type="hidden" name="messageID" value="<?php echo htmlspecialchars($row['messageID']);?>">
-                                        <button type="submit" name="statusBtn">
+                                        <button type="submit" name="statusBtn" class="actionBtn">
                                             <i class="fa-solid fa-thumbs-up" title="Click to change status"></i>
                                         </button>
                                     </form>
                                     <form method="post" action="" onsubmit="return confirmDelete();">
                                         <input type="hidden" name="messageID" value="<?php echo htmlspecialchars($row['messageID']);?>">
-                                        <button type="submit" name="deleteBtn">
-                                        <i class="fa-solid fa-trash-can" title="Click to Delete"></i>
+                                        <button type="submit" name="deleteBtn" class="actionBtn">
+                                            <i class="fa-solid fa-trash-can" title="Click to Delete"></i>
                                         </button>
                                     </form>
                                 </td>

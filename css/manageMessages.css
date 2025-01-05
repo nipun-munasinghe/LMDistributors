@@ -161,22 +161,47 @@ body {
     max-width: 350px;
 }
 
+.unread {
+    color: grey;
+    font-weight: bold;
+}
+
+.read {
+    color: #ff8c00;
+    font-weight: bold;
+}
+
+.replied {
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+/* action button styles */
 .tAction {
     width: 80px;
 }
 
+.actionBtn {
+    border: none !important;
+    background-color: transparent;
+}
+
 .fa-thumbs-up {
     color: #4CAF50;
+    cursor: pointer;
 }
 .fa-thumbs-up:hover {
     color: #3E8E41;
+    scale: 1.2;
 }
 
 .fa-trash-can {
     color: red;
+    cursor: pointer;
 }
 .fa-trash-can:hover {
     color: rgb(149, 28, 28);
+    scale: 1.2;
 }
 
 /* Quick Links Section */
