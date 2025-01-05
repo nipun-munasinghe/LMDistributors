@@ -146,7 +146,19 @@
                                 <td class="messageName"><?php echo htmlspecialchars($row['name']) ?></td>
                                 <td class="email"><?php echo htmlspecialchars($row['email']) ?></td>
                                 <td class="message"><?php echo htmlspecialchars($row['message']) ?></td>
-                                <td class="tStatus"><?php echo htmlspecialchars($row['status']) ?></td>
+                                <td class="tStatus">
+                                    <?php
+                                        if(htmlspecialchars($row['status']) == 'unread') {
+                                            echo "<em class='unread'>Unread</em>";
+                                        }
+                                        else if(htmlspecialchars($row['status']) == 'read') {
+                                            echo "<p class='read'>Read</p>";
+                                        }
+                                        else {
+                                            echo "<p class='replied'>Replied</p>";
+                                        }
+                                    ?>
+                                </td>
                                 <td class="tAction">
                                     <form method="post" action="">
                                         <input type="hidden" name="messageID" value="<?php echo htmlspecialchars($row['messageID']);?>">
