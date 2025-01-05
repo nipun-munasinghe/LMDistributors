@@ -18,17 +18,24 @@
         // check user's birthday
         if($birthday == $today) {
             // birthday message
-            $greeting = "Happy birthday ".$_SESSION['user_fName']."!";
+            $greeting = "Happy birthday ".htmlspecialchars($_SESSION['user_fName'])."!";
         }
         else {
             // welcome message
-            $greeting = "Welcome ".$_SESSION['user_fName']."!";
+            $greeting = "Welcome ".htmlspecialchars($_SESSION['user_fName'])."!";
         }
 
         // Get the total number of products in the database
-        $productQuery = "SELECT COUNT(`productid`) FROM `product`";
-        $productCount = mysqli_query($conn, $productQuery);
+        $productQuery = "SELECT COUNT(`productid`) AS totalProducts FROM `product`";
+        $productResult = mysqli_query($conn, $productQuery);
 
+        if (!$productResult) {
+            die("Query failed: " . mysqli_error($conn));
+        }
+
+        // Fetch the product count from the result
+        $productData = mysqli_fetch_assoc($productResult);
+        $totalProducts = $productData['totalProducts'];
 
     }
 ?>
@@ -74,7 +81,7 @@
                         <h2>Total Analysis <i class="fa-solid fa-chart-column"></i></h2>
                         <div class="analyzeContainer">
                             <p class="analyzeLabel">Our Total Products</p>
-                            <p class="analyzeDisplay" id="totalProducts">: 56</p>
+                            <p class="analyzeDisplay" id="totalProducts">: <?php echo $totalProducts; ?></p>
                         </div>
                         <div class="analyzeContainer">
                             <p class="analyzeLabel">Total Orders</p>
