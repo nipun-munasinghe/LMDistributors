@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 04, 2025 at 07:24 PM
+-- Generation Time: Jan 05, 2025 at 10:18 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -84,7 +84,7 @@ CREATE TABLE `message` (
   `name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `message` text NOT NULL,
-  `status` enum('unread','read') NOT NULL
+  `status` enum('unread','read','replied') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -92,17 +92,16 @@ CREATE TABLE `message` (
 --
 
 INSERT INTO `message` (`messageID`, `name`, `email`, `message`, `status`) VALUES
-(1, 'Visitor 1', 'visitor@example.com', 'I would like more details about your products.', 'unread'),
-(2, 'Kasun Perera', 'kasun@example.com', 'I have a query about product availability.', ''),
-(3, 'Chamari Fernando', 'chamari@example.com', 'Can I change my order details?', ''),
-(4, 'Lalith Wijesinghe', 'lalith@example.com', 'Please share the updated price list.', ''),
-(5, 'Dulani Silva', 'dulani@example.com', 'How can I become a supplier?', ''),
-(6, 'Suresh Bandara', 'suresh@example.com', 'Need help with login issues.', ''),
-(7, 'Amali Rathnayake', 'amali@example.com', 'Please confirm my last order status.', ''),
-(8, 'Ruwan Jayasinghe', 'ruwan@example.com', 'Is bulk discount available?', ''),
-(9, 'Nimali Samarasinghe', 'nimali@example.com', 'Can I update my profile information?', ''),
-(10, 'Nuwan Fernando', 'nuwan@example.com', 'Requesting a copy of my invoice.', ''),
-(11, 'Nirmala De Silva', 'nirmala@example.com', 'Need assistance with payment options.', '');
+(2, 'Kasun Perera', 'kasun@example.com', 'I have a query about product availability.', 'replied'),
+(3, 'Chamari Fernando', 'chamari@example.com', 'Can I change my order details?', 'read'),
+(4, 'Lalith Wijesinghe', 'lalith@example.com', 'Please share the updated price list.', 'unread'),
+(5, 'Dulani Silva', 'dulani@example.com', 'How can I become a supplier?', 'replied'),
+(6, 'Suresh Bandara', 'suresh@example.com', 'Need help with login issues.', 'unread'),
+(7, 'Amali Rathnayake', 'amali@example.com', 'Please confirm my last order status.', 'read'),
+(8, 'Ruwan Jayasinghe', 'ruwan@example.com', 'Is bulk discount available?', 'unread'),
+(9, 'Nimali Samarasinghe', 'nimali@example.com', 'Can I update my profile information?', 'replied'),
+(10, 'Nuwan Fernando', 'nuwan@example.com', 'Requesting a copy of my invoice.', 'read'),
+(11, 'Nirmala De Silva', 'nirmala@example.com', 'Need assistance with payment options.', 'unread');
 
 -- --------------------------------------------------------
 
@@ -249,7 +248,7 @@ CREATE TABLE `user_info` (
 
 INSERT INTO `user_info` (`userID`, `email`, `password`, `fName`, `lName`, `dob`, `phone1`, `phone2`, `address`, `image`, `type`, `assignType`, `status`, `last_logout`) VALUES
 (1, 'admin@lm.com', 'hashedpassword', 'Admin', 'User', '1985-05-10', '0771234567', NULL, 'Colombo 01, Sri Lanka', NULL, 'admin', NULL, 'active', NULL),
-(4, 'admin1@lm.com', 'hashedpassword1', 'Kasun', 'Perera', '1985-06-15', '0771234567', '', 'Colombo 01, Sri Lanka', './images/profiles/6776e2c90845b-admin1.jpg', 'admin', NULL, 'active', '2025-01-04 20:26:13'),
+(4, 'admin1@lm.com', 'hashedpassword1', 'Kasun', 'Perera', '1985-06-15', '0771234567', '', 'Colombo 01, Sri Lanka', './images/profiles/6776e2c90845b-admin1.jpg', 'admin', NULL, 'active', '2025-01-05 00:08:43'),
 (5, 'admin2@lm.com', 'hashedpassword2', 'Chamari', 'Fernando', '1986-08-25', '0769876543', NULL, 'Kandy, Sri Lanka', NULL, 'admin', NULL, 'active', NULL),
 (6, 'manager1@lm.com', 'hashedpassword3', 'Lalith', 'Wijesinghe', '1990-03-10', '0713456789', NULL, 'Galle, Sri Lanka', NULL, 'manager', 'Logistics', 'active', NULL),
 (7, 'manager2@lm.com', 'hashedpassword4', 'Dulani', 'Silva', '1991-04-18', '0726543210', '0701293218', 'Nattandiya, Sri Lanka', NULL, 'manager', 'Sales Manager', 'active', NULL),
