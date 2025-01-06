@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 05, 2025 at 10:18 AM
+-- Generation Time: Jan 06, 2025 at 09:02 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -51,7 +51,7 @@ INSERT INTO `buyer` (`buyID`, `name`, `reqDate`, `wantedDate`, `quantity`, `ourP
 (5, 'Anuradha Wickramasinghe', '2024-12-04', '2024-12-08', 2000, 52.00, 51.50, '0784455667', 'Please deliver early morning.', 'Accepted'),
 (6, 'Ishara Wijesinghe', '2024-12-05', '2024-12-09', 350, 54.00, 54.00, '0725566778', '', 'Rejected'),
 (7, 'Priyanthi Perera', '2024-12-06', '2024-12-10', 4000, 50.00, 53.00, '0776677889', 'Add packaging instructions.', 'Accepted'),
-(9, 'Nadeesha Fernando', '2024-12-08', '2024-12-12', 4500, 58.00, 55.50, '0718899001', 'Need an invoice.', 'Rejected'),
+(9, 'Nadeesha Fernando', '2024-12-08', '2024-12-12', 4500, 58.00, 55.50, '0718899001', 'Need an invoice.', 'Accepted'),
 (10, 'Madhawa Jayasinghe', '2024-12-09', '2024-12-13', 3000, 52.50, 52.50, '0789901122', 'Urgent order.', 'Rejected');
 
 -- --------------------------------------------------------
@@ -247,17 +247,17 @@ CREATE TABLE `user_info` (
 --
 
 INSERT INTO `user_info` (`userID`, `email`, `password`, `fName`, `lName`, `dob`, `phone1`, `phone2`, `address`, `image`, `type`, `assignType`, `status`, `last_logout`) VALUES
-(1, 'admin@lm.com', 'hashedpassword', 'Admin', 'User', '1985-05-10', '0771234567', NULL, 'Colombo 01, Sri Lanka', NULL, 'admin', NULL, 'active', NULL),
-(4, 'admin1@lm.com', 'hashedpassword1', 'Kasun', 'Perera', '1985-06-15', '0771234567', '', 'Colombo 01, Sri Lanka', './images/profiles/6776e2c90845b-admin1.jpg', 'admin', NULL, 'active', '2025-01-05 00:08:43'),
-(5, 'admin2@lm.com', 'hashedpassword2', 'Chamari', 'Fernando', '1986-08-25', '0769876543', NULL, 'Kandy, Sri Lanka', NULL, 'admin', NULL, 'active', NULL),
-(6, 'manager1@lm.com', 'hashedpassword3', 'Lalith', 'Wijesinghe', '1990-03-10', '0713456789', NULL, 'Galle, Sri Lanka', NULL, 'manager', 'Logistics', 'active', NULL),
-(7, 'manager2@lm.com', 'hashedpassword4', 'Dulani', 'Silva', '1991-04-18', '0726543210', '0701293218', 'Nattandiya, Sri Lanka', NULL, 'manager', 'Sales Manager', 'active', NULL),
-(8, 'customer1@lm.com', 'hashedpassword5', 'Suresh', 'Bandara', '1995-07-12', '0756784321', NULL, 'Kurunegala, Sri Lanka', NULL, 'customer', NULL, 'active', NULL),
-(9, 'customer2@lm.com', 'hashedpassword6', 'Amali', 'Rathnayake', '1994-11-22', '0777896543', NULL, 'Jaffna, Sri Lanka', NULL, 'customer', NULL, 'active', NULL),
-(10, 'supplier1@lm.com', 'hashedpassword7', 'Ruwan', 'Jayasinghe', '1992-02-25', '0712345678', NULL, 'Nuwara Eliya, Sri Lanka', NULL, 'supplier', NULL, 'active', NULL),
-(11, 'supplier2@lm.com', 'hashedpassword8', 'Nimali', 'Samarasinghe', '1989-12-10', '0765432178', NULL, 'Batticaloa, Sri Lanka', NULL, 'supplier', NULL, 'active', NULL),
-(12, 'buyer1@lm.com', 'hashedpassword9', 'Nuwan', 'Fernando', '1996-01-15', '0786781234', NULL, 'Anuradhapura, Sri Lanka', NULL, 'buyer', NULL, 'active', NULL),
-(13, 'buyer2@lm.com', 'hashedpassword10', 'Nirmala', 'De Silva', '1993-05-05', '0729871234', NULL, 'Ratnapura, Sri Lanka', NULL, 'buyer', NULL, 'active', NULL),
+(1, 'admin@lm.com', 'hashedpassword', 'Admin', 'User', '1985-05-10', '0771234567', NULL, 'Colombo 01, Sri Lanka', './images/default-profile.png', 'admin', NULL, 'active', NULL),
+(4, 'admin1@lm.com', 'adminkasun3@', 'Kasun', 'Perera', '1985-06-15', '0771234567', '', 'Colombo 01, Sri Lanka', './images/profiles/6776e2c90845b-admin1.jpg', 'admin', NULL, 'active', '2025-01-06 13:00:29'),
+(5, 'admin2@lm.com', 'hashedpassword2', 'Chamari', 'Fernando', '1986-08-25', '0769876543', NULL, 'Kandy, Sri Lanka', './images/default-profile.png', 'admin', NULL, 'active', NULL),
+(6, 'manager1@lm.com', 'hashedpassword3', 'Lalith', 'Wijesinghe', '1990-03-10', '0713456789', NULL, 'Galle, Sri Lanka', './images/default-profile.png', 'manager', 'Logistics', 'active', '2025-01-06 13:31:36'),
+(7, 'manager2@lm.com', 'hashedpassword4', 'Dulani', 'Silva', '1991-04-18', '0726543210', '0701293218', 'Nattandiya, Sri Lanka', './images/default-profile.png', 'manager', 'Sales Manager', 'inactive', NULL),
+(8, 'customer1@lm.com', 'hashedpassword5', 'Suresh', 'Bandara', '1995-07-12', '0756784321', NULL, 'Kurunegala, Sri Lanka', './images/default-profile.png', 'customer', NULL, 'active', NULL),
+(9, 'customer2@lm.com', 'hashedpassword6', 'Amali', 'Rathnayake', '1994-11-22', '0777896543', NULL, 'Jaffna, Sri Lanka', './images/default-profile.png', 'customer', NULL, 'active', NULL),
+(10, 'supplier1@lm.com', 'hashedpassword7', 'Ruwan', 'Jayasinghe', '1992-02-25', '0712345676', NULL, 'Nuwara Eliya, Sri Lanka', './images/default-profile.png', 'supplier', NULL, 'active', NULL),
+(11, 'supplier2@lm.com', 'hashedpassword8', 'Nimali', 'Samarasinghe', '1989-12-10', '0765432178', NULL, 'Batticaloa, Sri Lanka', './images/default-profile.png', 'supplier', NULL, 'active', NULL),
+(12, 'buyer1@lm.com', 'hashedpassword9', 'Nuwan', 'Fernando', '1996-01-15', '0786781234', NULL, 'Anuradhapura, Sri Lanka', './images/default-profile.png', 'buyer', NULL, 'active', NULL),
+(13, 'buyer2@lm.com', 'hashedpassword10', 'Nirmala', 'De Silva', '1993-05-05', '0729871234', NULL, 'Ratnapura, Sri Lanka', './images/default-profile.png', 'buyer', NULL, 'active', NULL),
 (14, 'nimmimanager@gmail.com', 'nimmi@32321', 'Nimmi', 'Swetha', '0000-00-00', '0772131210', NULL, '', './images/default-profile.png', 'manager', 'Order Manager', 'inactive', NULL),
 (15, 'hojijo4160@iteradev.com', 'hira1221', 'Hiranya', 'Fernando', '2002-09-03', '0771234599', '0756784778', 'Mahabage, Ja-Ela', 'images/default-profile.png', 'customer', NULL, 'active', NULL);
 
