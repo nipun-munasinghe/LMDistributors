@@ -10,7 +10,7 @@ body {
 .container {
     display: flex;
     height: 100vh;
-    margin-bottom: 70px;
+    margin-bottom: 120px;
 }
 
 /* Sidebar Styling */
