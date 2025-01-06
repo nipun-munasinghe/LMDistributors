@@ -1,3 +1,32 @@
+<?php
+    // start sessions
+    session_start();
+
+    // include database config file
+    include_once 'config.php';
+
+    // check user is logged or not
+    if(!isset($_SESSION['user_fName'])) {
+        // user is not logged in, redirect to login page
+        header('Location: login.php');
+        exit();
+    }
+    else {
+        $dob = $_SESSION['user_dob'];
+        $today = date('m-d');
+        $birthday = date('m-d', strtotime($dob));
+        // check user's birthday
+        if($birthday == $today) {
+            // display birthday message
+            $greeting = "Happy birthday ".$_SESSION['user_fName']."!";
+        }
+        else {
+            // display welcome message
+            $greeting = "Welcome ".$_SESSION['user_fName']."!";
+        }
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,16 +51,7 @@
     <div class="container">
         <!-- Hidden Sidebar -->
         <aside id="sidebar" class="sidebar">
-            <div class="sidebar-header">
-                <h2>Buyer Dashboard</h2>
-                <i title="Close" class="fas fa-times" id="close-sidebar" title="Close Dashboard"></i>
-            </div>
-
-            <ul class="sidebar-menu">
-                <li><a href="./buyer.php"><i class="fa-solid fa-user"></i> My Profile</a></li>
-                <li><a href="./accSettings.php"><i class="fas fa-cog"></i> Settings</a></li>
-                <li><a href="./logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
-            </ul>
+            <?php include 'sidebar.php'; ?>
         </aside>
 
         <!-- Main Content -->
@@ -39,18 +59,18 @@
             <!-- Topbar -->
             <div class="topbar">
                 <i class="fas fa-bars" id="toggle-sidebar" title="Open Dashboard"></i>
-                <h1>Welcome BuyerName!</h1>
+                <h1><?php echo $greeting; ?></h1>
             </div>
 
             <!-- Buyer Profile -->
             <section class="buyer-profile">
                 <h2>Your Profile</h2>
                 <div class="profile-card">
-                    <img src="images/default-profile.png" alt="Buyer Profile Picture" class="profile-pic">
+                    <img src="<?php echo htmlspecialchars($_SESSION['user_image']); ?>" alt="Buyer Profile Picture" class="profile-pic">
                     <div class="profile-info">
-                        <p><strong>Name:</strong> Buyer Name</p>
-                        <p><strong>Email:</strong> buyer@gmail.com</p>
-                        <p><strong>Phone:</strong> +94 73 456 7890</p>
+                        <p><strong>Name:</strong> <?php echo htmlspecialchars($_SESSION['fullName'])?></p>
+                        <p><strong>Email:</strong> <?php echo htmlspecialchars($_SESSION['user_email'])?></p>
+                        <p><strong>Phone:</strong> <?php echo htmlspecialchars($_SESSION['user_phone'])?></p>
                         <button class="btn edit-profile" onclick="window.location.href='./accSettings.php'" title="Edit Profile"><i class="fa-solid fa-pen"></i> Edit Profile</button>
                     </div>
                 </div>
