@@ -54,6 +54,26 @@
         // Fetch the income from the result
         $incomeData = mysqli_fetch_assoc($incomeResult);
         $totalLocalIncome = $incomeData['totalIncome'];
+
+        //calculate accepted supplies from suppliers
+        $acceptedQuery = "SELECT COUNT(`supplyID`) AS acceptedSupplies FROM `supplier` WHERE `status` = 'Accepted';";
+        $acceptedResult = mysqli_query($conn, $acceptedQuery);
+        if (!$acceptedResult) {
+            die("Query failed: ". mysqli_error($conn));
+        }
+        // Fetch the accepted order count from the result
+        $acceptedData = mysqli_fetch_assoc($acceptedResult);
+        $totalAcceptedSupplies = $acceptedData['acceptedSupplies'];
+
+        // Calculate accepted orders from buyers
+        $acceptedOrdersQuery = "SELECT COUNT(`buyID`) AS acceptedOrders FROM `buyer` WHERE `status` = 'Accepted';";
+        $acceptedOrdersResult = mysqli_query($conn, $acceptedOrdersQuery);
+        if (!$acceptedOrdersResult) {
+            die("Query failed: ". mysqli_error($conn));
+        }
+        // Fetch the accepted order count from the result
+        $acceptedOrdersData = mysqli_fetch_assoc($acceptedOrdersResult);
+        $totalAcceptedOrders = $acceptedOrdersData['acceptedOrders'];
     }
 ?>
 
@@ -114,11 +134,11 @@
                         <h2>Coconut Orders & Supplies</h2>
                         <div class="analyzeContainer">
                             <p class="analyzeLabel">Accepted Supplies from Suppliers</p>
-                            <p class="analyzeDisplay" id="acceptedSupplies">: 201</p>
+                            <p class="analyzeDisplay" id="acceptedSupplies">: <?php echo $totalAcceptedSupplies; ?></p>
                         </div>
                         <div class="analyzeContainer">
                             <p class="analyzeLabel">Accepted Orders from Buyers</p>
-                            <p class="analyzeDisplay" id="acceptedOrders">: 261</p>
+                            <p class="analyzeDisplay" id="acceptedOrders">: <?php echo $totalAcceptedOrders; ?></p>
                         </div>
                     </div>
                 </center>
