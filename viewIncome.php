@@ -141,6 +141,26 @@
                             <p class="analyzeDisplay" id="acceptedOrders">: <?php echo $totalAcceptedOrders; ?></p>
                         </div>
                     </div>
+
+                    <div class="analyzeOutContainer">
+                        <h2>Messages Overview</h2>
+                        <div class="analyzeContainer">
+                            <p class="analyzeLabel">Total Messages</p>
+                            <p class="analyzeDisplay">: <?php echo $totalAcceptedSupplies; ?></p>
+                        </div>
+                        <div class="analyzeContainer">
+                            <p class="analyzeLabel">Unread Messages</p>
+                            <p class="analyzeDisplay">: <?php echo $totalAcceptedOrders; ?></p>
+                        </div>
+                        <div class="analyzeContainer">
+                            <p class="analyzeLabel">Read but not replied Messages</p>
+                            <p class="analyzeDisplay">: <?php echo $totalAcceptedOrders; ?></p>
+                        </div>
+                        <div class="analyzeContainer">
+                            <p class="analyzeLabel">Replied Messages</p>
+                            <p class="analyzeDisplay">: <?php echo $totalAcceptedOrders; ?></p>
+                        </div>
+                    </div>
                 </center>
             </div>
             
