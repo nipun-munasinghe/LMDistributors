@@ -44,6 +44,16 @@
         // Fetch the order count from the result
         $orderData = mysqli_fetch_assoc($orderResult);
         $totalOrders = $orderData['totalOrders'];
+
+        // Get the total income from selling products
+        $incomeQuery = "SELECT SUM(`totalPrice`) AS totalIncome FROM `order`;";
+        $incomeResult = mysqli_query($conn, $incomeQuery);
+        if (!$incomeResult) {
+            die("Query failed: ". mysqli_error($conn));
+        }
+        // Fetch the income from the result
+        $incomeData = mysqli_fetch_assoc($incomeResult);
+        $totalLocalIncome = $incomeData['totalIncome'];
     }
 ?>
 
@@ -95,19 +105,19 @@
                             <p class="analyzeDisplay" id="totalOrders">: <?php echo $totalOrders; ?></p>
                         </div>
                         <div class="analyzeContainer">
-                            <p class="analyzeLabel">Total income from Orders (Rs.)</p>
-                            <p class="analyzeDisplay" id="totalPrice">: <u>49525.00</u></p>
+                            <p class="analyzeLabel">Total income from selling products</p>
+                            <p class="analyzeDisplay" id="totalPrice">: <u><?php echo 'Rs. '.$totalLocalIncome; ?></u></p>
                         </div>
                     </div>
 
                     <div class="analyzeOutContainer">
                         <h2>Coconut Orders & Supplies</h2>
                         <div class="analyzeContainer">
-                            <p class="analyzeLabel">Accepted Supplies</p>
+                            <p class="analyzeLabel">Accepted Supplies from Suppliers</p>
                             <p class="analyzeDisplay" id="acceptedSupplies">: 201</p>
                         </div>
                         <div class="analyzeContainer">
-                            <p class="analyzeLabel">Accepted Orders</p>
+                            <p class="analyzeLabel">Accepted Orders from Buyers</p>
                             <p class="analyzeDisplay" id="acceptedOrders">: 261</p>
                         </div>
                     </div>
