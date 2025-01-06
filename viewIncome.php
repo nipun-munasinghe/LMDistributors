@@ -26,7 +26,7 @@
         }
 
         // Get the total number of products in the database
-        $productQuery = "SELECT COUNT(`productid`) AS totalProducts FROM `product`";
+        $productQuery = "SELECT COUNT(`productid`) AS totalProducts FROM `product`;";
         $productResult = mysqli_query($conn, $productQuery);
         if (!$productResult) {
             die("Query failed: " . mysqli_error($conn));
@@ -36,7 +36,7 @@
         $totalProducts = $productData['totalProducts'];
 
         // Get the total number of orders in the database
-        $orderQuery = "SELECT COUNT(`orderID`) AS totalOrders FROM `order`";
+        $orderQuery = "SELECT COUNT(`orderID`) AS totalOrders FROM `order`;";
         $orderResult = mysqli_query($conn, $orderQuery);
         if (!$orderResult) {
             die("Query failed: ". mysqli_error($conn));
@@ -74,6 +74,39 @@
         // Fetch the accepted order count from the result
         $acceptedOrdersData = mysqli_fetch_assoc($acceptedOrdersResult);
         $totalAcceptedOrders = $acceptedOrdersData['acceptedOrders'];
+
+        // Calculate total messages
+        $messageQuery = "SELECT COUNT(`messageID`) AS totalMessages FROM `message`;";
+        $messageResult = mysqli_query($conn, $messageQuery);
+        if (!$messageResult) {
+            die("Query failed: ". mysqli_error($conn));
+        }
+        // Fetch the message count from the result
+        $messageData = mysqli_fetch_assoc($messageResult);
+        $totalMessages = $messageData['totalMessages'];
+
+        // Calculate unread messages
+        $unreadMessageQuery = "SELECT COUNT(`messageID`) AS unreadMessages FROM `message` WHERE `status` = 'unread';";
+        $unreadMessageResult = mysqli_query($conn, $unreadMessageQuery);
+        if (!$unreadMessageResult) {
+            die("Query failed: ". mysqli_error($conn));
+        }
+        // Fetch the unread message count from the result
+        $unreadMessageData = mysqli_fetch_assoc($unreadMessageResult);
+        $totalUnreadMessages = $unreadMessageData['unreadMessages'];
+
+        // Calculate read messages
+        $readMessageQuery = "SELECT COUNT(`messageID`) AS readMessages FROM `message` WHERE `status` = 'read';";
+        $readMessageResult = mysqli_query($conn, $readMessageQuery);
+        if (!$readMessageResult) {
+            die("Query failed: ". mysqli_error($conn));
+        }
+        // Fetch the read message count from the result
+        $readMessageData = mysqli_fetch_assoc($readMessageResult);
+        $totalReadMessages = $readMessageData['readMessages'];
+
+        // Calculate replied messages
+        $totalRepliedMessages = $totalMessages - ($totalReadMessages + $totalUnreadMessages);
     }
 ?>
 
@@ -146,19 +179,19 @@
                         <h2>Messages Overview</h2>
                         <div class="analyzeContainer">
                             <p class="analyzeLabel">Total Messages</p>
-                            <p class="analyzeDisplay">: <?php echo $totalAcceptedSupplies; ?></p>
+                            <p class="analyzeDisplay">: <?php echo $totalMessages; ?></p>
                         </div>
                         <div class="analyzeContainer">
                             <p class="analyzeLabel">Unread Messages</p>
-                            <p class="analyzeDisplay">: <?php echo $totalAcceptedOrders; ?></p>
+                            <p class="analyzeDisplay">: <?php echo $totalUnreadMessages; ?></p>
                         </div>
                         <div class="analyzeContainer">
                             <p class="analyzeLabel">Read but not replied Messages</p>
-                            <p class="analyzeDisplay">: <?php echo $totalAcceptedOrders; ?></p>
+                            <p class="analyzeDisplay">: <?php echo $totalReadMessages; ?></p>
                         </div>
                         <div class="analyzeContainer">
                             <p class="analyzeLabel">Replied Messages</p>
-                            <p class="analyzeDisplay">: <?php echo $totalAcceptedOrders; ?></p>
+                            <p class="analyzeDisplay">: <?php echo $totalRepliedMessages; ?></p>
                         </div>
                     </div>
                 </center>
