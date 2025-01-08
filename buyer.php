@@ -34,6 +34,21 @@
 
         $todayPriceRow = mysqli_fetch_assoc($todayPriceResult);
         $todayPrice = $todayPriceRow['price'];
+
+        //Fetch details from user_info
+        $userID = $_SESSION['user_id'];
+
+        $sql = "SELECT * FROM user_info WHERE `userID` = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("i", $userID);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $row = $result->fetch_assoc();
+
+        // request order form
+        if (isset($_POST['submitBtn'])) {
+
+        }
     }
 ?>
 
@@ -89,21 +104,22 @@
             <div class="todayPrice">
                 <h2>L.M. Distributors' Today Price</h2>
                 <div class="priceContainer">
-                    <p>Today Price: <strong>Rs. <?php echo $todayPrice; ?></strong> per 1kg</p>
+                    <p>Today Price: <strong>Rs. <?php echo htmlspecialchars($todayPrice); ?></strong> per 1kg</p>
                 </div>
             </div>
             
             <div class="requestOrder">
                 <h2>Request an Order</h2>
                 <center>
-                    <form action="#" method="POST" class="reqForm">
+                    <form action="buyer.php" method="POST" class="reqForm">
                         <div class="separation">
                             <label for="orderName">Order name: </label>
-                            <input type="text" id="orderName" name="orderName" value="Buyer Name" required>
+                            <input type="text" id="orderName" name="orderName" 
+                                   value="<?php echo htmlspecialchars($row['fName']).' '.htmlspecialchars($row['lName']); ?>" required>
                         </div>
                         <div class="separation">
                             <label for="phone">Phone number: </label>
-                            <input type="tel" id="phone" name="phone" value="0772121200" required>
+                            <input type="tel" id="phone" name="phone" value="<?php echo htmlspecialchars($row['phone1']); ?>" required>
                         </div>
                         <div class="separation">
                             <label for="orderQty">Quantity (kg): </label>
@@ -111,18 +127,21 @@
                         </div>
                         <div class="separation">
                             <label for="yourPrice">Your price (Rs. per kg): </label>
-                            <input type="number" id="yourPrice" name="yourPrice" step="0.01" min="130.50" value="130.50" required>
+                            <input type="number" id="yourPrice" name="yourPrice" step="0.01" 
+                                   min="<?php echo htmlspecialchars($todayPrice); ?>" value="<?php echo htmlspecialchars($todayPrice); ?>" required>
                         </div>
                         <div class="separation">
                             <label for="orderDate">Date, the order do you want: </label>
-                            <input type="date" id="date" name="orderDate" min="" required>
+                            <input type="date" id="date" name="orderDate" min="<?php echo date('Y-m-d'); ?>" value="<?php echo date('Y-m-d'); ?>" required>
                         </div>
                         <div class="separation">
                             <label for="comments">Special Comments (optional): </label>
                             <textarea type="comments" id="comments" name="comments" placeholder="Add some special comments..."></textarea>
                         </div>
                         <center>
-                            <button type="submit" id="submitBtn" name="submitBtn" class="reqSubmitBtn" title="Submit Details">Submit <i class="fa-solid fa-paper-plane"></i></button>
+                            <button type="submit" id="submitBtn" name="submitBtn" class="reqSubmitBtn" title="Submit Details">
+                                Submit <i class="fa-solid fa-paper-plane"></i>
+                            </button>
                         </center>
                     </form>
                 </center>
