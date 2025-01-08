@@ -1,3 +1,31 @@
+<?php
+    // start sessions
+    session_start();
+
+    // include database config file
+    include_once 'config.php';
+
+    // check user is logged or not
+    if(!isset($_SESSION['user_fName'])) {
+        // user is not logged in, redirect to login page
+        header('Location: login.php');
+        exit();
+    }
+    else {
+        // check user's birthday
+        $dob = $_SESSION['user_dob'];
+        $today = date('m-d');
+        $birthday = date('m-d', strtotime($dob));
+
+        if($birthday == $today) {
+            $greeting = "Happy birthday ".htmlspecialchars($_SESSION['user_fName'])."!";
+        }
+        else {
+            $greeting = "Welcome ".htmlspecialchars($_SESSION['user_fName'])."!";
+        }
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,16 +50,7 @@
     <div class="container">
         <!-- Hidden Sidebar -->
         <aside id="sidebar" class="sidebar">
-            <div class="sidebar-header">
-                <h2>Supplier Dashboard</h2>
-                <i title="Close Dashboard" class="fas fa-times" id="close-sidebar"></i>
-            </div>
-
-            <ul class="sidebar-menu">
-                <li><a href="./supplier.php"><i class="fa-solid fa-user"></i> My Profile</a></li>
-                <li><a href="./accSettings.php"><i class="fas fa-cog"></i> Settings</a></li>
-                <li><a href="./logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
-            </ul>
+            <?php include 'sidebar.php'; ?>
         </aside>
 
         <!-- Main Content -->
@@ -39,18 +58,18 @@
             <!-- Topbar -->
             <div class="topbar">
                 <i class="fas fa-bars" id="toggle-sidebar" title="Open Dashboard"></i>
-                <h1>Welcome SupplierName!</h1>
+                <h1><?php echo $greeting; ?></h1>
             </div>
 
             <!-- Supplier Profile -->
             <section class="supplier-profile">
                 <h2>Your Profile</h2>
                 <div class="profile-card">
-                    <img src="images/default-profile.png" alt="Supplier Profile Picture" class="profile-pic">
+                    <img src="<?php echo htmlspecialchars($_SESSION['user_image']); ?>" alt="Supplier Profile Picture" class="profile-pic">
                     <div class="profile-info">
-                        <p><strong>Name:</strong> Supplier Name</p>
-                        <p><strong>Email:</strong> supplier@gmail.com</p>
-                        <p><strong>Phone:</strong> +94 73 456 7891</p>
+                        <p><strong>Name:</strong> <?php echo htmlspecialchars($_SESSION['fullName'])?></p>
+                        <p><strong>Email:</strong> <?php echo htmlspecialchars($_SESSION['user_email'])?></p>
+                        <p><strong>Phone:</strong> <?php echo htmlspecialchars($_SESSION['user_phone'])?></p>
                         <button class="btn edit-profile" onclick="window.location.href='./accSettings.php'" title="Edit Profile"><i class="fa-solid fa-pen"></i> Edit Profile</button>
                     </div>
                 </div>
