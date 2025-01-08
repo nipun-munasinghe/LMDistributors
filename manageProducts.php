@@ -80,7 +80,8 @@ else {
     
         if ($stmt->execute()) {
             echo "<script>alert('Product updated successfully!'); window.location.href = 'manageProducts.php';</script>";
-        } else {
+        }
+        else {
             echo "<script>alert('Failed to update product. Please try again!'); window.location.href = 'manageProducts.php';</script>";
         }
     }
@@ -101,11 +102,13 @@ else {
             if ($stmt->execute()) {
                 // Success message
                 echo "<script>alert('Product deleted successfully!'); window.location.href = 'manageProducts.php';</script>";
-            } else {
+            }
+            else {
                 // Error message for execution failure
                 echo "<script>alert('Failed to delete product. Error: " . htmlspecialchars($stmt->error) . "'); window.location.href = 'manageProducts.php';</script>";
             }
-        } else {
+        }
+        else {
             // Error message for query preparation failure
             echo "<script>alert('Failed to prepare the delete query. Please try again!'); window.location.href = 'manageProducts.php';</script>";
         }
