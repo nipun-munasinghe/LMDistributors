@@ -42,6 +42,35 @@
         $stmt->execute();
         $result = $stmt->get_result();
         $row = $result->fetch_assoc();
+
+        // request order form
+        if (isset($_POST['submitBtn'])) {
+            $supplyName = htmlspecialchars($_POST['supplyName']);
+            $reqDate = date('Y-m-d');
+            $supplyDate = $_POST['supplyDate'];
+            $supplyQty = intval($_POST['supplyQty']);
+            $theirPrice = floatval($_POST['yourPrice']);
+            $phone = htmlspecialchars($_POST['phone']);
+            $comments = htmlspecialchars($_POST['comments']);
+            $status = 'Not Selected';
+        
+            // Insert the data into the database
+            $sql = "INSERT INTO supplier (`name`, reqDate, supplyDate, quantity, ourPrice, theirPrice, phone, comments, `status`) 
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            $stmt = $conn->prepare($sql);
+            $stmt->bind_param("sssiddiss", $supplyName, $reqDate, $supplyDate, $supplyQty, $todayPrice, $theirPrice, $phone, $comments, $status);
+            $stmt->execute();
+        
+            if ($stmt->affected_rows > 0) {
+                echo "<script>
+                        alert('Request placed successfully!');
+                        window.location.href = 'supplier.php';
+                      </script>";
+            }
+            else {
+                echo "Failed to place the request: " . $conn->error;
+            }
+        }
     }
 ?>
 
@@ -104,7 +133,7 @@
             <div class="requestSupply">
                 <h2>Request to supply</h2>
                 <center>
-                    <form action="#" method="POST" class="reqForm">
+                    <form action="supplier.php" method="POST" class="reqForm">
                         <div class="separation">
                             <label for="supplyName">Supplier/Company name: </label>
                             <input type="text" id="supplyName" name="supplyName" 
