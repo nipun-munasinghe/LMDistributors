@@ -47,8 +47,33 @@
 
         // request order form
         if (isset($_POST['submitBtn'])) {
-
+            $orderName = htmlspecialchars($_POST['orderName']);
+            $reqDate = date('Y-m-d');
+            $orderDate = $_POST['orderDate'];
+            $orderQty = intval($_POST['orderQty']);
+            $theirPrice = floatval($_POST['yourPrice']);
+            $phone = htmlspecialchars($_POST['phone']);
+            $comments = htmlspecialchars($_POST['comments']);
+            $status = 'Not Selected';
+        
+            // Insert the data into the database
+            $sql = "INSERT INTO buyer (`name`, reqDate, wantedDate, quantity, ourPrice, theirPrice, phone, comments, `status`) 
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            $stmt = $conn->prepare($sql);
+            $stmt->bind_param("sssiddiss", $orderName, $reqDate, $orderDate, $orderQty, $todayPrice, $theirPrice, $phone, $comments, $status);
+            $stmt->execute();
+        
+            if ($stmt->affected_rows > 0) {
+                echo "<script>
+                        alert('Order placed successfully!');
+                        window.location.href = 'buyer.php';
+                      </script>";
+            }
+            else {
+                echo "Failed to place the order: " . $conn->error;
+            }
         }
+        
     }
 ?>
 
