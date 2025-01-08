@@ -23,6 +23,16 @@
         else {
             $greeting = "Welcome ".htmlspecialchars($_SESSION['user_fName'])."!";
         }
+
+        // get today's price from the database
+        $todayPriceSql = "SELECT price FROM supplyerprice";
+        $todayPriceResult = mysqli_query($conn, $todayPriceSql);
+        if (!$todayPriceResult) {
+            die("Query failed: " . mysqli_error($conn));
+        }
+
+        $todayPriceRow = mysqli_fetch_assoc($todayPriceResult);
+        $todayPrice = $todayPriceRow['price'];
     }
 ?>
 
@@ -78,7 +88,7 @@
             <div class="todayPrice">
                 <h2>L.M. Distributors' Today Price</h2>
                 <div class="priceContainer">
-                    <p>Today Price: <strong>Rs. 125.50</strong> per 1kg</p>
+                    <p>Today Price: <strong>Rs. <?php echo htmlspecialchars($todayPrice); ?></strong> per 1kg</p>
                 </div>
             </div>
 
