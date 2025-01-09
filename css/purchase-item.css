@@ -41,6 +41,7 @@ input, textarea {
     border: 2px solid #FFD700;
     border-radius: 5px;
     box-sizing: border-box;
+    outline: none !important;
 }
 
 textarea {
@@ -49,6 +50,7 @@ textarea {
 
 input:focus, textarea:focus {
     border-color: #4CAF50;
+    background-color: #4caf4f2a;
 }
 
 /* Total Price */
@@ -93,6 +95,10 @@ h2 {
     border-radius: 5px;
     margin-top: 20px;
     display: none;
+}
+
+.note {
+    color: red;
 }
 
 /* Submit Button */
