@@ -53,8 +53,8 @@
                 <h1><?php echo htmlspecialchars($product['name']); ?></h1>
                 <p class="product-description"><?php echo htmlspecialchars($product['description']); ?></p>
                 <p class="product-price">Rs. <?php echo number_format($product['price'], 2); ?></p>
-                <button class="purchase-button" title="Click to buy" 
-                        onclick="window.location.href='purchase-item.php?productid=<?php echo $row['productid']; ?>'">
+                <button class="purchase-button" 
+                        onclick="window.location.href='purchase-item.php?productid=<?php echo $product['productid']; ?>'">
                     Purchase Now
                 </button>
             </div>
