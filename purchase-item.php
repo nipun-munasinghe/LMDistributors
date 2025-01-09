@@ -1,3 +1,12 @@
+<?php
+    // start sessions
+    session_start();
+
+    // include database config file
+    include_once 'config.php';
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,33 +31,33 @@
     <section class="purchase-section">
         <h1>Purchase Item</h1>
 
-        <form id="purchase-form">
+        <form action="purchase-item" method="POST" id="purchase-form">
             <!-- Name -->
             <div class="form-group">
                 <label for="name">Name</label>
-                <input type="text" id="name" placeholder="Enter your name" required>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
             </div>
 
             <!-- Phone Numbers -->
             <div class="form-group">
                 <label for="phone1">Phone Number 1</label>
-                <input type="tel" id="phone1" placeholder="Enter phone number" required>
+                <input type="tel" id="phone1" name="phone1" placeholder="Enter phone number" required>
             </div>
             <div class="form-group">
                 <label for="phone2">Phone Number 2</label>
-                <input type="tel" id="phone2" placeholder="Enter alternate phone number">
+                <input type="tel" id="phone2" name="phone2" placeholder="Enter alternate phone number">
             </div>
 
             <!-- Address -->
             <div class="form-group">
                 <label for="address">Address</label>
-                <textarea id="address" rows="3" placeholder="Enter your address" required></textarea>
+                <textarea id="address" name="address" rows="3" placeholder="Enter your address" required></textarea>
             </div>
 
             <!-- Quantity -->
             <div class="form-group">
                 <label for="quantity">Quantity</label>
-                <input type="number" id="quantity" min="1" value="1" required>
+                <input type="number" id="quantity" name="quantity" min="1" value="1" required>
             </div>
 
             <!-- Total Price -->
@@ -74,35 +83,35 @@
             <div class="card-details" id="card-details">
                 <div class="form-group">
                     <label for="bank-name">Bank Name</label>
-                    <input type="text" id="bank-name" placeholder="Enter bank name">
+                    <input type="text" id="bank-name" name="bank-name" placeholder="Enter bank name">
                 </div>
 
                 <div class="form-group">
                     <label for="branch">Branch Name</label>
-                    <input type="text" id="branch" placeholder="Enter branch name">
+                    <input type="text" id="branch" name="branch" placeholder="Enter branch name">
                 </div>
 
                 <div class="form-group">
                     <label for="card-number">Card Number</label>
-                    <input type="text" id="card-number" placeholder="Enter card number">
+                    <input type="text" id="card-number" name="card-number" placeholder="Enter card number">
                 </div>
 
                 <div class="form-group">
                     <label for="expiry-date">Expiry Date</label>
-                    <input type="text" id="expiry-date" placeholder="MM/YY">
+                    <input type="text" id="expiry-date" name="expiry-date" placeholder="MM/YY">
                 </div>
 
                 <div class="form-group">
                     <label for="cvv">CVV</label>
-                    <input type="password" id="cvv" placeholder="CVV">
+                    <input type="password" id="cvv" name="cvv" placeholder="CVV">
                 </div>
 
-                <p>Note: We do not keep your card details</p>
+                <p class="note">Note: We do not keep your card details</p>
             </div>
 
             <!-- Submit Button -->
             <button type="button" id="submit-btn" name="submit-btn" title="Submit details">
-                Submit <i class="fas fa-rocket"></i>
+                Submit <i class="fas fa-paper-plane"></i>
             </button>
         </form>
     </section>
