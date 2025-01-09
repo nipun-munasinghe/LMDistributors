@@ -4,6 +4,26 @@
 
     // Include database configuration
     include_once 'config.php';
+
+    if (isset($_GET['productid'])) {
+        $productid = intval($_GET['productid']); // Sanitize input
+
+        // Fetch the product details from the database
+        $sql = "SELECT * FROM product WHERE productid = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("i", $productid);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        // Check if the product exists
+        if ($result->num_rows > 0) {
+            $product = $result->fetch_assoc();
+        } else {
+            // Redirect to an error page or display a message if the product is not found
+            header("Location: error.php?error=ProductNotFound");
+            exit();
+        }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -30,15 +50,15 @@
     <section class="product-details">
         <div class="product-card">
             <div class="product-image">
-                <img src="./images/slide2.jpg" alt="Product Image" />
+                <img src="<?php echo htmlspecialchars($product['image']); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>" />
             </div>
             
             <div class="product-info">
-                <h1>Premium Coconut Oil</h1>
+                <h1><?php echo htmlspecialchars($product['name']); ?></h1>
                 <p class="product-description">
-                    This high-quality coconut oil is perfect for cooking, skincare, and more. Extracted from the freshest coconuts, it ensures purity and natural goodness.
+                <?php echo htmlspecialchars($product['description']); ?>
                 </p>
-                <p class="product-price">Price: Rs. 250.00</p>
+                <p class="product-price">Rs. <?php echo number_format($product['price'], 2); ?></p>
                 <button class="purchase-button" title="Click to buy">Purchase Now</button>
             </div>
         </div>
