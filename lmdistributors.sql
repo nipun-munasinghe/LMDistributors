@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 06, 2025 at 09:02 AM
+-- Generation Time: Jan 09, 2025 at 09:44 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -52,7 +52,8 @@ INSERT INTO `buyer` (`buyID`, `name`, `reqDate`, `wantedDate`, `quantity`, `ourP
 (6, 'Ishara Wijesinghe', '2024-12-05', '2024-12-09', 350, 54.00, 54.00, '0725566778', '', 'Rejected'),
 (7, 'Priyanthi Perera', '2024-12-06', '2024-12-10', 4000, 50.00, 53.00, '0776677889', 'Add packaging instructions.', 'Accepted'),
 (9, 'Nadeesha Fernando', '2024-12-08', '2024-12-12', 4500, 58.00, 55.50, '0718899001', 'Need an invoice.', 'Accepted'),
-(10, 'Madhawa Jayasinghe', '2024-12-09', '2024-12-13', 3000, 52.50, 52.50, '0789901122', 'Urgent order.', 'Rejected');
+(10, 'Madhawa Jayasinghe', '2024-12-09', '2024-12-13', 3000, 52.50, 52.50, '0789901122', 'Urgent order.', 'Rejected'),
+(18, 'Nuwan Fernando', '2025-01-08', '2025-01-08', 1000, 45.50, 45.50, '786781234', '', 'Not Selected');
 
 -- --------------------------------------------------------
 
@@ -101,7 +102,9 @@ INSERT INTO `message` (`messageID`, `name`, `email`, `message`, `status`) VALUES
 (8, 'Ruwan Jayasinghe', 'ruwan@example.com', 'Is bulk discount available?', 'unread'),
 (9, 'Nimali Samarasinghe', 'nimali@example.com', 'Can I update my profile information?', 'replied'),
 (10, 'Nuwan Fernando', 'nuwan@example.com', 'Requesting a copy of my invoice.', 'read'),
-(11, 'Nirmala De Silva', 'nirmala@example.com', 'Need assistance with payment options.', 'unread');
+(11, 'Nirmala De Silva', 'nirmala@example.com', 'Need assistance with payment options.', 'unread'),
+(12, 'Nipun Munasinghe', 'nipunlakmal884@gmail.com', 'Can I get a discount for a bulk order please?', 'unread'),
+(13, 'Lakindu Gunasekara', 'lakindugunasekara@gmail.com', 'Can I get the order tomorrow please?', 'unread');
 
 -- --------------------------------------------------------
 
@@ -154,13 +157,13 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`productid`, `name`, `description`, `price`, `image`, `category`, `quantity`) VALUES
-(1, 'Coconut A', 'High-quality coconuts.', 50.00, NULL, 'Fresh', 200),
-(2, 'Coconut B', 'Medium-quality coconuts.', 40.00, NULL, 'Fresh', 150),
-(5, 'Coconut C', 'Low-quality coconuts.', 30.00, NULL, 'Fresh', 300),
-(6, 'Coconut Husk', 'Quality coconut husks.', 15.00, NULL, 'Husk', 500),
-(7, 'Coconut Oil', 'Pure coconut oil.', 100.00, NULL, 'Oil', 10),
-(8, 'Coconut Milk', 'Fresh coconut milk packs.', 80.00, NULL, 'Milk', 100),
-(9, 'Coconut Powder', 'Desiccated coconut powder.', 60.00, NULL, 'Powder', 75),
+(1, 'Coconut A', 'High-quality and fresh coconuts.', 50.00, './images/coconut-still-life.jpg', 'Fresh', 200),
+(2, 'Coconut B', 'Medium-quality coconuts.', 40.00, './images/slide1.jpg', 'Fresh', 150),
+(5, 'Coconut C', 'Low-quality coconuts.', 30.00, './images/slide2.jpg', 'Fresh', 300),
+(6, 'Coconut Husk', 'Quality coconut husks.', 15.00, './images/slide3.jpg', 'Husk', 500),
+(7, 'Coconut Oil', 'Pure coconut oil.', 100.00, './images/slide4.jpg', 'Oil', 10),
+(8, 'Coconut Milk', 'Fresh coconut milk packs.', 80.00, './images/tropical-coconut-cocktail-decorated-plumeria-table.jpg', 'Milk', 100),
+(9, 'Coconut Powder', 'Desiccated coconut powder.', 60.00, './images/beach-background-with-two-coconuts.jpg', 'Powder', 75),
 (10, 'King Coconut', 'Fresh king coconuts.', 20.00, NULL, 'Fresh', 9),
 (11, 'Coconut Shells', 'Polished coconut shells.', 10.00, NULL, 'Shell', 400),
 (12, 'Coconut Charcoal', 'Charcoal made from coconut shells.', 25.00, NULL, 'Charcoal', 150);
@@ -198,7 +201,8 @@ INSERT INTO `supplier` (`supplyID`, `name`, `reqDate`, `supplyDate`, `quantity`,
 (8, 'Ravindra Rathnayake', '2024-12-07', '2024-12-09', 9800, 47.00, 43.50, '0787890123', 'Bulk supply offer.', 'Accepted'),
 (9, 'Sumudu Liyanage', '2024-12-08', '2024-12-10', 6500, 38.00, 37.00, '0768901234', 'Need transport assistance.', 'Rejected'),
 (10, 'Kusal Dissanayake', '2024-12-09', '2024-12-11', 5500, 39.00, 35.00, '0779012345', 'Please confirm quantity.', 'Accepted'),
-(11, 'Sarath Rathnayake', '2024-12-10', '2024-12-12', 7500, 51.00, 48.50, '0720123456', 'Offer valid for next week.', 'Not Selected');
+(11, 'Sarath Rathnayake', '2024-12-10', '2024-12-12', 7500, 51.00, 48.50, '0720123456', 'Offer valid for next week.', 'Not Selected'),
+(12, 'Ruwan Jayasinghe', '2025-01-08', '2025-02-01', 1005, 41.00, 40.00, '712345676', '', 'Not Selected');
 
 -- --------------------------------------------------------
 
@@ -217,7 +221,7 @@ CREATE TABLE `supplyerprice` (
 --
 
 INSERT INTO `supplyerprice` (`sPID`, `price`, `date`) VALUES
-(1, 38.00, '2025-01-02');
+(1, 41.00, '2025-01-02');
 
 -- --------------------------------------------------------
 
@@ -248,15 +252,15 @@ CREATE TABLE `user_info` (
 
 INSERT INTO `user_info` (`userID`, `email`, `password`, `fName`, `lName`, `dob`, `phone1`, `phone2`, `address`, `image`, `type`, `assignType`, `status`, `last_logout`) VALUES
 (1, 'admin@lm.com', 'hashedpassword', 'Admin', 'User', '1985-05-10', '0771234567', NULL, 'Colombo 01, Sri Lanka', './images/default-profile.png', 'admin', NULL, 'active', NULL),
-(4, 'admin1@lm.com', 'adminkasun3@', 'Kasun', 'Perera', '1985-06-15', '0771234567', '', 'Colombo 01, Sri Lanka', './images/profiles/6776e2c90845b-admin1.jpg', 'admin', NULL, 'active', '2025-01-06 13:00:29'),
+(4, 'admin1@lm.com', 'adminkasun3@', 'Kasun', 'Perera', '1985-06-15', '0771234567', '', 'Colombo 01, Sri Lanka', './images/profiles/6776e2c90845b-admin1.jpg', 'admin', NULL, 'active', '2025-01-08 17:34:10'),
 (5, 'admin2@lm.com', 'hashedpassword2', 'Chamari', 'Fernando', '1986-08-25', '0769876543', NULL, 'Kandy, Sri Lanka', './images/default-profile.png', 'admin', NULL, 'active', NULL),
-(6, 'manager1@lm.com', 'hashedpassword3', 'Lalith', 'Wijesinghe', '1990-03-10', '0713456789', NULL, 'Galle, Sri Lanka', './images/default-profile.png', 'manager', 'Logistics', 'active', '2025-01-06 13:31:36'),
+(6, 'manager1@lm.com', 'hashedpassword3', 'Lalith', 'Wijesinghe', '1990-03-10', '0713456789', NULL, 'Galle, Sri Lanka', './images/default-profile.png', 'manager', 'Logistics', 'active', '2025-01-09 11:33:59'),
 (7, 'manager2@lm.com', 'hashedpassword4', 'Dulani', 'Silva', '1991-04-18', '0726543210', '0701293218', 'Nattandiya, Sri Lanka', './images/default-profile.png', 'manager', 'Sales Manager', 'inactive', NULL),
-(8, 'customer1@lm.com', 'hashedpassword5', 'Suresh', 'Bandara', '1995-07-12', '0756784321', NULL, 'Kurunegala, Sri Lanka', './images/default-profile.png', 'customer', NULL, 'active', NULL),
+(8, 'customer1@lm.com', 'hashedpassword5', 'Suresh', 'Bandara', '1995-07-12', '0756784321', NULL, 'Kurunegala, Sri Lanka', './images/default-profile.png', 'customer', NULL, 'active', '2025-01-09 14:13:20'),
 (9, 'customer2@lm.com', 'hashedpassword6', 'Amali', 'Rathnayake', '1994-11-22', '0777896543', NULL, 'Jaffna, Sri Lanka', './images/default-profile.png', 'customer', NULL, 'active', NULL),
-(10, 'supplier1@lm.com', 'hashedpassword7', 'Ruwan', 'Jayasinghe', '1992-02-25', '0712345676', NULL, 'Nuwara Eliya, Sri Lanka', './images/default-profile.png', 'supplier', NULL, 'active', NULL),
+(10, 'supplier1@lm.com', 'hashedpassword7', 'Ruwan', 'Jayasinghe', '1992-02-25', '0712345676', NULL, 'Nuwara Eliya, Sri Lanka', './images/default-profile.png', 'supplier', NULL, 'active', '2025-01-08 17:33:27'),
 (11, 'supplier2@lm.com', 'hashedpassword8', 'Nimali', 'Samarasinghe', '1989-12-10', '0765432178', NULL, 'Batticaloa, Sri Lanka', './images/default-profile.png', 'supplier', NULL, 'active', NULL),
-(12, 'buyer1@lm.com', 'hashedpassword9', 'Nuwan', 'Fernando', '1996-01-15', '0786781234', NULL, 'Anuradhapura, Sri Lanka', './images/default-profile.png', 'buyer', NULL, 'active', NULL),
+(12, 'buyer1@lm.com', 'hashedpassword9', 'Nuwan', 'Fernando', '1996-01-15', '0786781234', NULL, 'Anuradhapura, Sri Lanka', './images/default-profile.png', 'buyer', NULL, 'active', '2025-01-08 16:31:04'),
 (13, 'buyer2@lm.com', 'hashedpassword10', 'Nirmala', 'De Silva', '1993-05-05', '0729871234', NULL, 'Ratnapura, Sri Lanka', './images/default-profile.png', 'buyer', NULL, 'active', NULL),
 (14, 'nimmimanager@gmail.com', 'nimmi@32321', 'Nimmi', 'Swetha', '0000-00-00', '0772131210', NULL, '', './images/default-profile.png', 'manager', 'Order Manager', 'inactive', NULL),
 (15, 'hojijo4160@iteradev.com', 'hira1221', 'Hiranya', 'Fernando', '2002-09-03', '0771234599', '0756784778', 'Mahabage, Ja-Ela', 'images/default-profile.png', 'customer', NULL, 'active', NULL);
@@ -324,7 +328,7 @@ ALTER TABLE `user_info`
 -- AUTO_INCREMENT for table `buyer`
 --
 ALTER TABLE `buyer`
-  MODIFY `buyID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `buyID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `buyerprice`
@@ -336,7 +340,7 @@ ALTER TABLE `buyerprice`
 -- AUTO_INCREMENT for table `message`
 --
 ALTER TABLE `message`
-  MODIFY `messageID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `messageID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `order`
@@ -354,7 +358,7 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT for table `supplier`
 --
 ALTER TABLE `supplier`
-  MODIFY `supplyID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `supplyID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `supplyerprice`
