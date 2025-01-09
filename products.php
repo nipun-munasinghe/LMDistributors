@@ -1,6 +1,16 @@
 <?php
     //start sessions
     session_start();
+
+    // Include database configuration
+    include_once 'config.php';
+
+    // Fetch products from the database
+    $sql = "SELECT * FROM product WHERE quantity > 0";
+    $result = mysqli_query($conn, $sql);
+    if(!$result) {
+        die("Error - Query failed: ".mysqli_error($conn));
+    }
 ?>
 
 <!DOCTYPE html>
@@ -35,25 +45,16 @@
 
         <!-- Product Cards -->
         <div class="product-grid" id="productGrid">
-            
-            <div class="product-card">
-                <img src="./images/slide1.jpg" alt="Coconut Premium Quality">
-                <h3>Premium Coconut</h3>
-                <p>Price: Rs. 500.00</p>
-                <button class="view-details" onclick="window.location.href='./product-details.php'" title="View Product">View Details</button>
-            </div>
-            <div class="product-card">
-                <img src="./images/slide2.jpg" alt="Organic Coconut">
-                <h3>Organic Coconut</h3>
-                <p>Price: Rs. 650.00</p>
-                <button class="view-details" onclick="window.location.href='./product-details.php'" title="View Product">View Details</button>
-            </div>
-            <div class="product-card">
-                <img src="./images/slide3.jpg" alt="Large Coconut">
-                <h3>Large Coconut</h3>
-                <p>Price: Rs. 790.00</p>
-                <button class="view-details" onclick="window.location.href='./product-details.php'" title="View Product">View Details</button>
-            </div>
+            <?php while ($row = $result->fetch_assoc()): ?>
+                <div class="product-card">
+                    <img src="<?php echo htmlspecialchars($row['image']);?>" alt="<?php echo htmlspecialchars($row['name']);?>">
+                    <h3><?php echo htmlspecialchars($row['name']);?></h3>
+                    <p>Rs. <?php echo number_format($row['price'], 2);?></p>
+                    <button class="view-details" onclick="window.location.href='./product-details.php'">
+                        View Details
+                    </button>
+                </div>
+            <?php endwhile; ?>
         </div>
     </section>
 
