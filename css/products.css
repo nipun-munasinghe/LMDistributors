@@ -10,7 +10,7 @@ body {
 
 .product-container {
     max-width: 1200px;
-    margin: 40px auto;
+    margin: -20px auto 40px;
     padding: 20px;
     text-align: center;
     animation: fadeInDown 1s ease-in-out;
