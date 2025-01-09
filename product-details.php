@@ -6,7 +6,7 @@
     include_once 'config.php';
 
     if (isset($_GET['productid'])) {
-        $productid = intval($_GET['productid']); // Sanitize input
+        $productid = intval($_GET['productid']);
 
         // Fetch the product details from the database
         $sql = "SELECT * FROM product WHERE productid = ?";
@@ -18,10 +18,6 @@
         // Check if the product exists
         if ($result->num_rows > 0) {
             $product = $result->fetch_assoc();
-        } else {
-            // Redirect to an error page or display a message if the product is not found
-            header("Location: error.php?error=ProductNotFound");
-            exit();
         }
     }
 ?>
@@ -55,11 +51,12 @@
             
             <div class="product-info">
                 <h1><?php echo htmlspecialchars($product['name']); ?></h1>
-                <p class="product-description">
-                <?php echo htmlspecialchars($product['description']); ?>
-                </p>
+                <p class="product-description"><?php echo htmlspecialchars($product['description']); ?></p>
                 <p class="product-price">Rs. <?php echo number_format($product['price'], 2); ?></p>
-                <button class="purchase-button" title="Click to buy">Purchase Now</button>
+                <button class="purchase-button" title="Click to buy" 
+                        onclick="window.location.href='purchase-item.php?productid=<?php echo $row['productid']; ?>'">
+                    Purchase Now
+                </button>
             </div>
         </div>
     </section>
