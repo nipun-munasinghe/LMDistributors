@@ -1,3 +1,8 @@
+<?php
+    //start sessions
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +22,7 @@
 
     <div class="policy-container">
         <h1>Privacy Policy</h1>
-        <p>We value your privacy and are committed to protecting your personal information. This Privacy Policy outlines how we collect, use, and safeguard your data when you interact with our platform.</p>
+        <p id="privacyMainPara">We value your privacy and are committed to protecting your personal information. This Privacy Policy outlines how we collect, use, and safeguard your data when you interact with our platform.</p>
         <div class="policy-section">
             <h2>1. Information we collect</h2>
             <p>We may collect personal information such as your name, email address, contact details, and payment information to provide a seamless experience.</p>
