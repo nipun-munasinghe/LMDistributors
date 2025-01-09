@@ -50,7 +50,7 @@
                     <img src="<?php echo htmlspecialchars($row['image']);?>" alt="<?php echo htmlspecialchars($row['name']);?>">
                     <h3><?php echo htmlspecialchars($row['name']);?></h3>
                     <p>Rs. <?php echo number_format($row['price'], 2);?></p>
-                    <button class="view-details" onclick="window.location.href='./product-details.php'">
+                    <button class="view-details" onclick="window.location.href=\'./product-details.php?productid='.htmlspecialchars($row['productid']).'\'">
                         View Details
                     </button>
                 </div>
