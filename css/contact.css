@@ -91,7 +91,7 @@ button:hover {
   background-color: #3e8e41;
 }
 
-/* Form Section */
+/* Form Section in contact-msg.php*/
 .form-container {
   margin: 30px auto;
   max-width: 800px;
@@ -115,9 +115,11 @@ form label {
   display: block;
   margin: 10px 0 5px;
   font-weight: bold;
+  color: #8B4513;
 }
 
 form input, form textarea {
+  outline: none !important;
   width: 100%;
   padding: 10px;
   margin-bottom: 15px;
@@ -135,7 +137,8 @@ form button {
   width: 50%;
   background-color: #4CAF50;
   color: white;
-  font-size: 16px;
+  font-size: 18px;
+  font-weight: bold;
   border: none;
   padding: 10px;
   border-radius: 5px;
