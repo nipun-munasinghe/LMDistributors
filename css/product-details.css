@@ -81,7 +81,7 @@ body {
 
 .purchase-button:hover {
     background-color: #3E8E41;
-    transform: scale(1.05);
+    transform: scale(1.03);
 }
 
 /* Animations */
