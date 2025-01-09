@@ -1,3 +1,33 @@
+<?php
+    // start sessions
+    session_start();
+
+    // Include database config file
+    require_once 'config.php';
+
+    if(isset($_POST['submitMessage'])) {
+        $name = $_POST['name'];
+        $email = $_POST['email'];
+        $description = $_POST['description'];
+        $status = 'unread';
+
+        // Prepare the SQL query
+        $sql = "INSERT INTO `message` (`name`, `email`, `message`, `status`) VALUES (?,?,?,?)";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("ssss", $name, $email, $description, $status);
+        // Execute the query
+        if($stmt->execute()) {
+            // Message sent successfully
+            echo "<script>alert('Message sent successfully!'); 
+                  window.location.href = 'contact-msg.php';</script>";
+        }
+        else {
+            // Error occurred
+            echo "<script>alert('Error occurred while sending message. Please try again.');</script>";
+        }
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,18 +50,20 @@
     
     <div class="form-container" id="form-section">
         <h2>Ask anything?</h2>
-        <form>
+        <form method="POST" action="contact-msg.php">
             <label for="name">Your Name</label>
-            <input type="text" id="name" placeholder="Enter your name" required>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
 
             <label for="email">Your Email</label>
-            <input type="email" id="email" placeholder="Enter your email" required>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
 
             <label for="description">Message</label>
-            <textarea id="description" rows="6" placeholder="Write your message" required></textarea>
+            <textarea id="description" name="description" rows="6" placeholder="Write your message" required></textarea>
             
             <center>
-                <button type="submit" name="submitMessage" title="Submit Message">Submit</button>
+                <button type="submit" name="submitMessage" title="Submit Message">
+                    Submit Message <i class="fa-regular fa-paper-plane"></i>
+                </button>
             </center>
         </form>
     </div>
