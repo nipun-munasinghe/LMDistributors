@@ -1,10 +1,36 @@
 <?php
-    // start sessions
+    // Start sessions
     session_start();
 
-    // include database config file
+    // Include database config file
     include_once 'config.php';
 
+    // Check if user is logged in
+    if(isset($_SESSION['user_fName'])) {
+        // if (isset($_GET['productid'])) {
+        //     $productid = intval($_GET['productid']);
+    
+        //     // Fetch the product details from the database
+        //     $sql = "SELECT * FROM product WHERE productid = ?";
+        //     $stmt = $conn->prepare($sql);
+        //     $stmt->bind_param("i", $productid);
+        //     $stmt->execute();
+        //     $result = $stmt->get_result();
+    
+        //     // Check if the product exists
+        //     if ($result->num_rows > 0) {
+        //         $product = $result->fetch_assoc();
+        //     }
+        // }
+    }
+    else {
+        echo "<script>
+                alert('Please login to purchase this product');
+                window.location.href = 'products.php';
+              </script>";
+    }
+
+    
 ?>
 
 <!DOCTYPE html>
@@ -31,7 +57,7 @@
     <section class="purchase-section">
         <h1>Purchase Item</h1>
 
-        <form action="purchase-item" method="POST" id="purchase-form">
+        <form action="purchase-item.php?productid=<?php echo $productid; ?>" method="POST" id="purchase-form">
             <!-- Name -->
             <div class="form-group">
                 <label for="name">Name</label>
@@ -61,7 +87,7 @@
             </div>
 
             <!-- Total Price -->
-            <p class="price-display">Total Price: Rs. <span id="price">25</span></p>
+            <p class="price-display">Total Price: Rs. <span id="totalPriceDisplay">25.00</span></p>
 
             <!-- Payment Method -->
             <h2>Select Payment Method</h2>
@@ -110,8 +136,8 @@
             </div>
 
             <!-- Submit Button -->
-            <button type="button" id="submit-btn" name="submit-btn" title="Submit details">
-                Submit <i class="fas fa-paper-plane"></i>
+            <button type="submit" id="submit-btn" name="submit-btn" title="Submit details">
+                Submit <i class="fas fa-plane"></i>
             </button>
         </form>
     </section>
