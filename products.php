@@ -47,7 +47,7 @@
         <div class="product-grid" id="productGrid">
             <?php while ($row = $result->fetch_assoc()): ?>
                 <div class="product-card">
-                    <img src="<?php echo htmlspecialchars($row['image']);?>" alt="<?php echo htmlspecialchars($row['name']);?>">
+                    <img src="./images/products/<?php echo htmlspecialchars($row['image']);?>" alt="<?php echo htmlspecialchars($row['name']);?>">
                     <h3><?php echo htmlspecialchars($row['name']);?></h3>
                     <p>Rs. <?php echo number_format($row['price'], 2);?></p>
                     <button class="view-details" 
