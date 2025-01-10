@@ -12,7 +12,9 @@
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-section">
-                <a href="./about.php"  title="About L.M. Distributors"><h3>About Us</h3></a>
+                <a href="./about.php"  title="About L.M. Distributors" id="aboutBoth">
+                    <img src="./images/LMDistributors-logo-01.png" alt="L.M. Distributors Logo" id="aboutImg"><h3> About Us</h3>
+                </a>
                 <p>L. M. Distributors connects suppliers and buyers with the finest coconuts in the region. 
                     We're committed to quality, freshness, and reliable service, ensuring every order meets your standards. 
                     Partner with us for a seamless coconut trading experience!</p>

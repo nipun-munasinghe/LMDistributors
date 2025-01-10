@@ -11,6 +11,17 @@
     margin: auto;
 }
 
+.footer .footer-container #aboutBoth{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#aboutImg {
+    width: 28px;
+    height: 28px;
+}
+
 .footer .footer-section h3 {
     font-weight: 600;
     margin-bottom: 10px;
