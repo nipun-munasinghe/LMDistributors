@@ -86,7 +86,9 @@
 
             <!-- Total Price -->
             <p id="unitPrice" style="display:none;"><?php echo number_format(40,2) ?></p>
-            <p class="price-display">Total Price: Rs. <span id="totalPriceDisplay">25.00</span></p>
+            <p class="price-display">
+                Total Price: Rs. <span id="totalPriceDisplay"><?php echo number_format(40,2) ?></span>
+            </p>
 
             <!-- Payment Method -->
             <h2>Select Payment Method</h2>
