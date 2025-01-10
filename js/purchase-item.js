@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const quantityInput = document.getElementById('quantity');
-    const priceDisplay = document.getElementById('price');
+    const priceDisplay = document.getElementById('totalPriceDisplay');
     const paymentOptions = document.querySelectorAll('input[name="payment-method"]');
     const cardDetails = document.getElementById('card-details');
     const submitButton = document.getElementById('submit-btn');
@@ -19,7 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
         option.addEventListener('change', () => {
             if (option.value === 'card') {
                 cardDetails.style.display = 'block';
-            } else {
+            }
+            else {
                 cardDetails.style.display = 'none';
             }
         });
