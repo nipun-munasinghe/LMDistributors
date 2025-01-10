@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 09, 2025 at 09:44 AM
+-- Generation Time: Jan 10, 2025 at 10:06 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -157,16 +157,16 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`productid`, `name`, `description`, `price`, `image`, `category`, `quantity`) VALUES
-(1, 'Coconut A', 'High-quality and fresh coconuts.', 50.00, './images/coconut-still-life.jpg', 'Fresh', 200),
-(2, 'Coconut B', 'Medium-quality coconuts.', 40.00, './images/slide1.jpg', 'Fresh', 150),
-(5, 'Coconut C', 'Low-quality coconuts.', 30.00, './images/slide2.jpg', 'Fresh', 300),
-(6, 'Coconut Husk', 'Quality coconut husks.', 15.00, './images/slide3.jpg', 'Husk', 500),
-(7, 'Coconut Oil', 'Pure coconut oil.', 100.00, './images/slide4.jpg', 'Oil', 10),
-(8, 'Coconut Milk', 'Fresh coconut milk packs.', 80.00, './images/tropical-coconut-cocktail-decorated-plumeria-table.jpg', 'Milk', 100),
-(9, 'Coconut Powder', 'Desiccated coconut powder.', 60.00, './images/beach-background-with-two-coconuts.jpg', 'Powder', 75),
-(10, 'King Coconut', 'Fresh king coconuts.', 20.00, NULL, 'Fresh', 9),
-(11, 'Coconut Shells', 'Polished coconut shells.', 10.00, NULL, 'Shell', 400),
-(12, 'Coconut Charcoal', 'Charcoal made from coconut shells.', 25.00, NULL, 'Charcoal', 150);
+(1, 'Coconut A', 'High-quality and fresh coconuts.', 50.00, 'coconutA.jpg', 'Fresh', 200),
+(2, 'Coconut B', 'Medium-quality coconuts.', 40.00, 'coconutB.jpg', 'Fresh', 150),
+(5, 'Coconut C', 'Low-quality coconuts.', 30.00, 'coconutC.jpg', 'Fresh', 300),
+(6, 'Coconut Husk', 'Quality coconut husks.', 15.00, 'coconutHusks.jpg', 'Husk', 500),
+(7, 'Coconut Oil', 'Pure coconut oil.', 100.00, 'coconut-oil.jpg', 'Oil', 10),
+(8, 'Coconut Milk', 'Fresh coconut milk packs.', 80.00, 'coconutMilk.jpg', 'Milk', 100),
+(9, 'Coconut Powder', 'Desiccated coconut powder.', 60.00, 'coco-powder.jpg', 'Powder', 75),
+(10, 'King Coconut', 'Fresh king coconuts.', 20.00, 'king-coconut-4029424_1280.jpg', 'Fresh', 9),
+(11, 'Coconut Shells', 'Polished coconut shells.', 10.00, 'shell-341565_1280.jpg', 'Shell', 400),
+(12, 'Coconut Charcoal', 'Charcoal made from coconut shells.', 25.00, 'CoconutCharcoal.jpg', 'Charcoal', 150);
 
 -- --------------------------------------------------------
 
@@ -254,13 +254,13 @@ INSERT INTO `user_info` (`userID`, `email`, `password`, `fName`, `lName`, `dob`,
 (1, 'admin@lm.com', 'hashedpassword', 'Admin', 'User', '1985-05-10', '0771234567', NULL, 'Colombo 01, Sri Lanka', './images/default-profile.png', 'admin', NULL, 'active', NULL),
 (4, 'admin1@lm.com', 'adminkasun3@', 'Kasun', 'Perera', '1985-06-15', '0771234567', '', 'Colombo 01, Sri Lanka', './images/profiles/6776e2c90845b-admin1.jpg', 'admin', NULL, 'active', '2025-01-08 17:34:10'),
 (5, 'admin2@lm.com', 'hashedpassword2', 'Chamari', 'Fernando', '1986-08-25', '0769876543', NULL, 'Kandy, Sri Lanka', './images/default-profile.png', 'admin', NULL, 'active', NULL),
-(6, 'manager1@lm.com', 'hashedpassword3', 'Lalith', 'Wijesinghe', '1990-03-10', '0713456789', NULL, 'Galle, Sri Lanka', './images/default-profile.png', 'manager', 'Logistics', 'active', '2025-01-09 11:33:59'),
+(6, 'manager1@lm.com', 'hashedpassword3', 'Sandeepani', 'Wijesinghe', '1990-03-20', '0713456789', '', 'Galle, Sri Lanka', './images/profiles/67818801a10a9-manager1.jpg', 'manager', 'Logistics', 'active', '2025-01-11 02:21:37'),
 (7, 'manager2@lm.com', 'hashedpassword4', 'Dulani', 'Silva', '1991-04-18', '0726543210', '0701293218', 'Nattandiya, Sri Lanka', './images/default-profile.png', 'manager', 'Sales Manager', 'inactive', NULL),
-(8, 'customer1@lm.com', 'hashedpassword5', 'Suresh', 'Bandara', '1995-07-12', '0756784321', NULL, 'Kurunegala, Sri Lanka', './images/default-profile.png', 'customer', NULL, 'active', '2025-01-09 14:13:20'),
+(8, 'customer1@lm.com', 'hashedpassword5', 'Sureshani', 'Bandara', '1995-07-12', '0756784321', '', 'Kurunegala, Sri Lanka', './images/profiles/6781877c37e52-customer2.jpg', 'customer', NULL, 'active', '2025-01-11 02:18:28'),
 (9, 'customer2@lm.com', 'hashedpassword6', 'Amali', 'Rathnayake', '1994-11-22', '0777896543', NULL, 'Jaffna, Sri Lanka', './images/default-profile.png', 'customer', NULL, 'active', NULL),
-(10, 'supplier1@lm.com', 'hashedpassword7', 'Ruwan', 'Jayasinghe', '1992-02-25', '0712345676', NULL, 'Nuwara Eliya, Sri Lanka', './images/default-profile.png', 'supplier', NULL, 'active', '2025-01-08 17:33:27'),
+(10, 'supplier1@lm.com', 'hashedpassword7', 'Ruwini', 'Jayasinghe', '1992-02-25', '0712345676', '', 'Nuwara Eliya, Sri Lanka', './images/profiles/6781889894230-supplier1.jpg', 'supplier', NULL, 'active', '2025-01-11 02:24:22'),
 (11, 'supplier2@lm.com', 'hashedpassword8', 'Nimali', 'Samarasinghe', '1989-12-10', '0765432178', NULL, 'Batticaloa, Sri Lanka', './images/default-profile.png', 'supplier', NULL, 'active', NULL),
-(12, 'buyer1@lm.com', 'hashedpassword9', 'Nuwan', 'Fernando', '1996-01-15', '0786781234', NULL, 'Anuradhapura, Sri Lanka', './images/default-profile.png', 'buyer', NULL, 'active', '2025-01-08 16:31:04'),
+(12, 'buyer1@lm.com', 'hashedpassword9', 'Nuwan', 'Fernando', '1996-01-15', '0786781235', '', 'Anuradhapura, Sri Lanka', './images/profiles/678187d0b087f-manager2.jpg', 'buyer', NULL, 'active', '2025-01-11 02:19:41'),
 (13, 'buyer2@lm.com', 'hashedpassword10', 'Nirmala', 'De Silva', '1993-05-05', '0729871234', NULL, 'Ratnapura, Sri Lanka', './images/default-profile.png', 'buyer', NULL, 'active', NULL),
 (14, 'nimmimanager@gmail.com', 'nimmi@32321', 'Nimmi', 'Swetha', '0000-00-00', '0772131210', NULL, '', './images/default-profile.png', 'manager', 'Order Manager', 'inactive', NULL),
 (15, 'hojijo4160@iteradev.com', 'hira1221', 'Hiranya', 'Fernando', '2002-09-03', '0771234599', '0756784778', 'Mahabage, Ja-Ela', 'images/default-profile.png', 'customer', NULL, 'active', NULL);
