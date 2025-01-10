@@ -19,12 +19,12 @@
             </div>
             <div class="footer-section">
                 <h3>Quick Links</h3>
-                <a href="./terms.php" title="View About">Terms & Conditions</a>
+                <a href="./terms.php" title="View T&C">Terms & Conditions</a>
                 <a href="./privacy.php" title="View Privacy Policy">Privacy Policy</a>
                 <a href="./faq.php" title="View FAQ">FAQ</a>
             </div>
             <div class="footer-section">
-                <h3>Contact Us</h3>
+                <a href="./about.php"  title="Contact Us"><h3>Contact Us</h3></a>
                 <p><i class="fas fa-phone"></i> +94 76 7100 181</p>
                 <p><i class="fas fa-envelope"></i> info@lm-distributors.com</p>
             </div>
