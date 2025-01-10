@@ -9,7 +9,32 @@
     if(isset($_SESSION['user_fName'])) {
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['productid'])) {
             $productid = intval($_POST['productid']);
-            echo "Product ID: " . $productid;
+            
+            // Fetch the product details from the database
+            $sql = "SELECT * FROM product WHERE productid =?";
+            $stmt = $conn->prepare($sql);
+            $stmt->bind_param("i", $productid);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $row = $result->fetch_assoc();
+
+            $unitPrice = number_format($row['price'],2);
+            $productName = $row['name'];
+            $productQTY = $row['quantity'];
+
+            if(isset($_POST['submit-btn'])) {
+                $date = date('Y-m-d');
+                $orderName = trim($_POST['name']);
+                $phone1 = trim($_POST['phone1']);
+                $phone2 = trim($_POST['phone2']);
+                $address = trim($_POST['address']);
+                $quantity = intval($_POST['quantity']);
+                $status = 'pending';
+            }
+            
+            // echo "<script>
+            //         window.location.href = 'purchase-item.php';
+            //       </script>";
         }
         else {
             echo "No product selected.";
@@ -77,9 +102,9 @@
             </div>
 
             <!-- Total Price -->
-            <p id="unitPrice" style="display:none;"><?php echo number_format(40,2) ?></p>
+            <p id="unitPrice" style="display:none;"><?php echo $unitPrice; ?></p>
             <p class="price-display">
-                Total Price: Rs. <span id="totalPriceDisplay"><?php echo number_format(40,2) ?></span>
+                Total Price: Rs. <span id="totalPriceDisplay"><?php echo $unitPrice; ?></span>
             </p>
 
             <!-- Payment Method -->
