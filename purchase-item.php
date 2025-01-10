@@ -29,8 +29,6 @@
                 window.location.href = 'products.php';
               </script>";
     }
-
-    
 ?>
 
 <!DOCTYPE html>
@@ -87,6 +85,7 @@
             </div>
 
             <!-- Total Price -->
+            <p id="unitPrice" style="display:none;"><?php echo number_format(40,2) ?></p>
             <p class="price-display">Total Price: Rs. <span id="totalPriceDisplay">25.00</span></p>
 
             <!-- Payment Method -->
