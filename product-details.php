@@ -46,7 +46,7 @@
     <section class="product-details">
         <div class="product-card">
             <div class="product-image">
-                <img src="<?php echo htmlspecialchars($product['image']); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>" />
+                <img src="./images/products/<?php echo htmlspecialchars($product['image']); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>" />
             </div>
             
             <div class="product-info">
