@@ -7,21 +7,13 @@
 
     // Check if user is logged in
     if(isset($_SESSION['user_fName'])) {
-        // if (isset($_GET['productid'])) {
-        //     $productid = intval($_GET['productid']);
-    
-        //     // Fetch the product details from the database
-        //     $sql = "SELECT * FROM product WHERE productid = ?";
-        //     $stmt = $conn->prepare($sql);
-        //     $stmt->bind_param("i", $productid);
-        //     $stmt->execute();
-        //     $result = $stmt->get_result();
-    
-        //     // Check if the product exists
-        //     if ($result->num_rows > 0) {
-        //         $product = $result->fetch_assoc();
-        //     }
-        // }
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['productid'])) {
+            $productid = intval($_POST['productid']);
+            echo "Product ID: " . $productid;
+        }
+        else {
+            echo "No product selected.";
+        }
     }
     else {
         echo "<script>

@@ -53,10 +53,12 @@
                 <h1><?php echo htmlspecialchars($product['name']); ?></h1>
                 <p class="product-description"><?php echo htmlspecialchars($product['description']); ?></p>
                 <p class="product-price">Rs. <?php echo number_format($product['price'], 2); ?></p>
-                <button class="purchase-button" 
-                        onclick="window.location.href='purchase-item.php?productid=<?php echo $product['productid']; ?>'">
-                    Purchase Now
-                </button>
+                
+                <!-- Purchase Button -->
+                <form action="purchase-item.php" method="POST">
+                    <input type="hidden" name="productid" value="<?php echo htmlspecialchars($product['productid']); ?>">
+                    <button type="submit" class="purchase-button">Purchase Now</button>
+                </form>
             </div>
         </div>
     </section>
