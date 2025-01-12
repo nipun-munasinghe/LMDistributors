@@ -16,6 +16,15 @@
             $stmt->bind_param("i", $productid);
             $stmt->execute();
             $result = $stmt->get_result();
+
+            if ($result->num_rows === 0) {
+                echo "<script>
+                    alert('Invalid product selected.');
+                    window.location.href = 'products.php';
+                </script>";
+                exit;
+            }
+
             $row = $result->fetch_assoc();
 
             $unitPrice = number_format($row['price'],2);
@@ -29,12 +38,20 @@
                 $phone2 = trim($_POST['phone2']);
                 $address = trim($_POST['address']);
                 $quantity = intval($_POST['quantity']);
+                $totalPrice = number_format($unitPrice*$quantity,2);
                 $status = 'pending';
+
+                // insert data into database
+                $sql = "INSERT INTO order(`date`, `name`, `phone1`, `phone2`, `address`, productName, productid, quantity, itemPrice, totalPrice, `status`)
+                        VALUES (?,?,?,?,?,?,?,?,?,?,?);";
+                $stmt = $conn->prepare($sql);
+                $stmt->bind_param("ssiissiidds", $date, $orderName, $phone1, $phone2, $address, $productName, $productid, $quantity, $unitPrice, $totalPrice, $status);
+                $stmt->execute();
+                
+                echo "<script>
+                        window.location.href = 'purchase-item.php';
+                      </script>";
             }
-            
-            // echo "<script>
-            //         window.location.href = 'purchase-item.php';
-            //       </script>";
         }
         else {
             echo "No product selected.";
