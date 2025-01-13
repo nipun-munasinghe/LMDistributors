@@ -34,7 +34,7 @@
 
     <section class="info">
         <h2 class="animate__animated animate__fadeInUp">Why Choose Us?</h2>
-        <p class="animate__animated animate__fadeInUp animate__delay-1s">At L. M. Distributors, we take pride in delivering 
+        <p class="animate__animated animate__fadeInUp animate__delay-1s infoP">At L. M. Distributors, we take pride in delivering 
             <strong>premium-quality coconuts</strong> carefully sourced from the finest farms, ensuring unmatched taste and natural goodness. 
             Whether you're a buyer, supplier, or coconut enthusiast, we guarantee an experience that prioritizes freshness, quality, 
             and sustainability.</p>
@@ -59,6 +59,38 @@
             </div>
         </div>
     </section>
+
+    <!-- staff cards -->
+    <section class="staff">
+        <h2 class="animate__animated animate__fadeInUp">Meet Our Managers</h2>
+        <p class="animate__animated animate__fadeInUp animate__delay-2s">Our experienced team of managers ensures smooth operations and exceptional service quality at L. M. Distributors.</p>
+        
+        <div class="staff-cards">
+            <!-- Manager 1 -->
+            <div class="staff-card animate__animated animate__zoomIn animate__delay-3s">
+                <img src="./images/bohemian-man-with-his-arms-crossed.jpg" alt="Manager 1">
+                <h4>Noel Fernando</h4>
+                <p>Operations Manager</p>
+                <p>With 10+ years of experience, Noel specializes in supply chain management and ensures timely delivery of quality products.</p>
+            </div>
+            <!-- Manager 2 -->
+            <div class="staff-card animate__animated animate__zoomIn animate__delay-4s">
+                <img src="./images/manager1.jpg" alt="Manager 3">
+                <h4>Nurawi Wijesinghe</h4>
+                <p>Customer Relations Manager</p>
+                <p>Nurawi is dedicated to building lasting relationships with our clients by ensuring exceptional service.</p>
+            </div>
+            <!-- Manager 3 -->
+            <div class="staff-card animate__animated animate__zoomIn animate__delay-5s">
+                <img src="./images/attendant.jpg" alt="Manager 2">
+                <h4>Asitha Perera</h4>
+                <p>Quality Assurance Manager</p>
+                <p>Asitha ensures all products meet the highest standards, maintaining our reputation for premium quality.</p>
+            </div>
+            
+        </div>
+    </section>
+
 
     <?php include 'footer.php'; ?>
 

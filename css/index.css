@@ -77,6 +77,10 @@ body, a {
     margin: 10px 0;
 }
 
+.infoP {
+    color: #8B4513;
+}
+
 .info-cards {
     display: flex;
     justify-content: space-between;
@@ -102,5 +106,66 @@ body, a {
 
 .card:hover {
     transform: scale(1.03);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Staff Section */
+.staff {
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-top: 50px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.staff h2 {
+    margin: 10px 0;
+    color: #333;
+}
+
+.staff p {
+    margin: 10px 0;
+    color: #8B4513;
+}
+
+.staff-cards {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.staff-card {
+    flex: 1;
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    transition: transform 1.5s ease-in-out, box-shadow 0.5s ease-in-out;
+    background-color: #f9f9f9;
+}
+
+.staff-card img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 15px;
+}
+
+.staff-card h4 {
+    font-size: 1.2rem;
+    color: #4CAF50;
+    margin: 10px 0;
+}
+
+.staff-card p {
+    color: #666;
+    font-size: 0.9rem;
+    margin: 5px 0;
+}
+
+.staff-card:hover {
+    transform: scale(1.05);
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
 }
