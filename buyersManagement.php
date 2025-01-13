@@ -76,7 +76,7 @@ else {
     }    
 
     //query to fetch buyers data
-    $query = "SELECT * FROM `buyer`";
+    $query = "SELECT * FROM `buyer` ORDER BY `buyID` DESC";
     $result = mysqli_query($conn, $query);
     if (!$result) {
         die("Query failed: " . mysqli_error($conn));
