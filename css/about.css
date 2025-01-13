@@ -35,9 +35,9 @@ body {
     align-items: center;
     gap: 20px;
     padding: 20px;
-    border: 2px solid #FFD700;
+    border: none;
     border-radius: 15px;
-    background-color: #FFF8DC;
+    background-color: #f9f9f9;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     animation: slideIn 1s ease-in-out;
 }
@@ -57,6 +57,7 @@ body {
 .about-text p {
     margin-bottom: 15px;
     line-height: 1.6;
+    color: #666 !important;
 }
 
 .about-image {
