@@ -82,7 +82,7 @@
             exit();
         }
 
-        $sql = "SELECT * FROM `message`;";
+        $sql = "SELECT * FROM `message` ORDER BY `messageID` DESC;";
         $result = mysqli_query($conn, $sql);
         if(!$result) {
             die("Error - Query failed: ".mysqli_error($conn));
