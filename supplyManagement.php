@@ -86,7 +86,7 @@
     }  
 
     // query to get all suppliers
-    $query = "SELECT * FROM supplier";
+    $query = "SELECT * FROM supplier ORDER BY `supplyID` DESC";
     $result = mysqli_query($conn, $query);
     if(!$result) {
         die("Query failed: ".mysqli_error($conn));
