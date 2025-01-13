@@ -7,7 +7,7 @@
 
     // Check if user is logged in
     if(isset($_SESSION['user_fName'])) {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['productid'])) {
+        /*if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['productid'])) {
             $productid = intval($_POST['productid']);
             
             // Fetch the product details from the database
@@ -55,7 +55,7 @@
         }
         else {
             echo "No product selected.";
-        }
+        }*/
     }
     else {
         echo "<script>
