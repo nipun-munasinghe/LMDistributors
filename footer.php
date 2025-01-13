@@ -34,7 +34,7 @@
         
         <div class="footer-bottom">
             <hr>
-            <p>&copy; 2024 L. M. Distributors. All rights reserved.</p>
+            <p>&copy; <?php echo date("Y") ?> L. M. Distributors. All rights reserved.</p>
         </div>
     </footer>
 </body>
