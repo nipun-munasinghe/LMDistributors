@@ -81,7 +81,7 @@ include_once 'config.php';
         }
 
         // Fetch all orders from the database
-        $sql = "SELECT * FROM `order`";
+        $sql = "SELECT * FROM `order` ORDER BY `orderID` DESC";
         $result = $conn->query($sql);
         if (!$result) {
             die("Query failed: " . mysqli_error($conn));
