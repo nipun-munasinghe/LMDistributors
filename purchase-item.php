@@ -41,11 +41,19 @@
                 $totalPrice = number_format($unitPrice*$quantity,2);
                 $status = 'pending';
 
-                // insert data into database
+                // insert order data into database
                 $sql = "INSERT INTO order(`date`, `name`, `phone1`, `phone2`, `address`, productName, productid, quantity, itemPrice, totalPrice, `status`)
                         VALUES (?,?,?,?,?,?,?,?,?,?,?);";
                 $stmt = $conn->prepare($sql);
                 $stmt->bind_param("ssiissiidds", $date, $orderName, $phone1, $phone2, $address, $productName, $productid, $quantity, $unitPrice, $totalPrice, $status);
+                $stmt->execute();
+
+                // calculate & insert available quantity after an order
+                $newQuantity = $productQTY - $quantity;
+
+                $sql = "UPDATE product SET quantity =? WHERE productid =?";
+                $stmt = $conn->prepare($sql);
+                $stmt->bind_param("ii", $newQuantity, $productid);
                 $stmt->execute();
                 
                 echo "<script>
