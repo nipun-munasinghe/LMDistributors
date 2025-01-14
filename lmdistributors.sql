@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 10, 2025 at 10:06 PM
+-- Generation Time: Jan 14, 2025 at 08:05 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -103,7 +103,7 @@ INSERT INTO `message` (`messageID`, `name`, `email`, `message`, `status`) VALUES
 (9, 'Nimali Samarasinghe', 'nimali@example.com', 'Can I update my profile information?', 'replied'),
 (10, 'Nuwan Fernando', 'nuwan@example.com', 'Requesting a copy of my invoice.', 'read'),
 (11, 'Nirmala De Silva', 'nirmala@example.com', 'Need assistance with payment options.', 'unread'),
-(12, 'Nipun Munasinghe', 'nipunlakmal884@gmail.com', 'Can I get a discount for a bulk order please?', 'unread'),
+(12, 'Nipun Munasinghe', 'nipunlakmal884@gmail.com', 'Can I get a discount for a bulk order please?', 'replied'),
 (13, 'Lakindu Gunasekara', 'lakindugunasekara@gmail.com', 'Can I get the order tomorrow please?', 'unread');
 
 -- --------------------------------------------------------
@@ -252,11 +252,11 @@ CREATE TABLE `user_info` (
 
 INSERT INTO `user_info` (`userID`, `email`, `password`, `fName`, `lName`, `dob`, `phone1`, `phone2`, `address`, `image`, `type`, `assignType`, `status`, `last_logout`) VALUES
 (1, 'admin@lm.com', 'hashedpassword', 'Admin', 'User', '1985-05-10', '0771234567', NULL, 'Colombo 01, Sri Lanka', './images/default-profile.png', 'admin', NULL, 'active', NULL),
-(4, 'admin1@lm.com', 'adminkasun3@', 'Kasun', 'Perera', '1985-06-15', '0771234567', '', 'Colombo 01, Sri Lanka', './images/profiles/6776e2c90845b-admin1.jpg', 'admin', NULL, 'active', '2025-01-08 17:34:10'),
+(4, 'admin1@lm.com', 'adminkasun3@', 'Kasun', 'Perera', '1985-06-15', '0771234567', '', 'Colombo 01, Sri Lanka', './images/profiles/6776e2c90845b-admin1.jpg', 'admin', NULL, 'active', '2025-01-13 13:53:02'),
 (5, 'admin2@lm.com', 'hashedpassword2', 'Chamari', 'Fernando', '1986-08-25', '0769876543', NULL, 'Kandy, Sri Lanka', './images/default-profile.png', 'admin', NULL, 'active', NULL),
-(6, 'manager1@lm.com', 'hashedpassword3', 'Sandeepani', 'Wijesinghe', '1990-03-20', '0713456789', '', 'Galle, Sri Lanka', './images/profiles/67818801a10a9-manager1.jpg', 'manager', 'Logistics', 'active', '2025-01-11 02:21:37'),
+(6, 'manager1@lm.com', 'hashedpassword3', 'Nurawi', 'Wijesinghe', '1990-03-20', '0713456789', '', 'Galle, Sri Lanka', './images/profiles/67818801a10a9-manager1.jpg', 'manager', 'Logistics', 'active', '2025-01-11 02:21:37'),
 (7, 'manager2@lm.com', 'hashedpassword4', 'Dulani', 'Silva', '1991-04-18', '0726543210', '0701293218', 'Nattandiya, Sri Lanka', './images/default-profile.png', 'manager', 'Sales Manager', 'inactive', NULL),
-(8, 'customer1@lm.com', 'hashedpassword5', 'Sureshani', 'Bandara', '1995-07-12', '0756784321', '', 'Kurunegala, Sri Lanka', './images/profiles/6781877c37e52-customer2.jpg', 'customer', NULL, 'active', '2025-01-11 02:18:28'),
+(8, 'customer1@lm.com', 'hashedpassword5', 'Sureshani', 'Bandara', '1995-07-12', '0756784321', '', 'Kurunegala, Sri Lanka', './images/profiles/6781877c37e52-customer2.jpg', 'customer', NULL, 'active', '2025-01-13 23:23:51'),
 (9, 'customer2@lm.com', 'hashedpassword6', 'Amali', 'Rathnayake', '1994-11-22', '0777896543', NULL, 'Jaffna, Sri Lanka', './images/default-profile.png', 'customer', NULL, 'active', NULL),
 (10, 'supplier1@lm.com', 'hashedpassword7', 'Ruwini', 'Jayasinghe', '1992-02-25', '0712345676', '', 'Nuwara Eliya, Sri Lanka', './images/profiles/6781889894230-supplier1.jpg', 'supplier', NULL, 'active', '2025-01-11 02:24:22'),
 (11, 'supplier2@lm.com', 'hashedpassword8', 'Nimali', 'Samarasinghe', '1989-12-10', '0765432178', NULL, 'Batticaloa, Sri Lanka', './images/default-profile.png', 'supplier', NULL, 'active', NULL),
