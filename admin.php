@@ -5,12 +5,7 @@
     require_once 'config.php';
 
     //check user logged in
-    if (!isset($_SESSION['user_fName'])) {
-        //user is not logged in
-        header('Location: login.php');
-        exit();
-    }
-    else {
+    if (isset($_SESSION['user_fName']) && $_SESSION['user_type'] == 'admin') {
         //fetch user data from sessions
         $fName = $_SESSION['user_fName'];
         $fullName = $_SESSION['fullName'];
@@ -28,6 +23,11 @@
         else {
             $greeting = "Welcome ".htmlspecialchars($fName). "!";
         }
+    }
+    else {
+        //user is not logged in
+        header('Location: login.php');
+        exit();
     }
 ?>
 
