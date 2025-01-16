@@ -6,12 +6,7 @@
     include_once 'config.php';
 
     // check user is logged or not
-    if(!isset($_SESSION['user_fName'])) {
-        // user is not logged in, redirect to login page
-        header('Location: login.php');
-        exit();
-    }
-    else {
+    if(isset($_SESSION['user_fName']) && ($_SESSION['user_type'] == 'admin' || $_SESSION['user_type'] == 'manager')) {
         //check user's birthday
         $dob = $_SESSION['user_dob'];
         $today = date('m-d');
@@ -87,6 +82,11 @@
         if(!$result) {
             die("Error - Query failed: ".mysqli_error($conn));
         }
+    }
+    else {
+        // user is not logged in, redirect to login page
+        header('Location: login.php');
+        exit();
     }
 ?>
 
