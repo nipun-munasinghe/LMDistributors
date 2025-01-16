@@ -6,12 +6,7 @@
     require_once 'config.php';
 
     //check user logs in
-    if (!isset($_SESSION['user_fName'])) {
-        //redirect to login page
-        header('Location: login.php');
-        exit();
-    }
-    else {
+    if (isset($_SESSION['user_fName']) && $_SESSION['user_type'] == 'admin') {
         $activeStatus = "";
         $dob = $_SESSION['user_dob'];
         $today = date('m-d');
@@ -138,6 +133,11 @@
         //fetch manager list
         $sql = "SELECT * FROM user_info WHERE type = 'manager';";
         $result = mysqli_query($conn, $sql);
+    }
+    else {
+        //redirect to login page
+        header('Location: login.php');
+        exit();
     }
 ?>
 
