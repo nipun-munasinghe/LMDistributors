@@ -5,7 +5,7 @@ session_start();
 require_once 'config.php';
 
 // Check if user is logged in
-if (isset($_SESSION['user_fName'])) {
+if (isset($_SESSION['user_fName']) && $_SESSION['user_type'] == 'customer') {
 
     // Get the user ID from the session
     $user_id = $_SESSION['user_id'];
