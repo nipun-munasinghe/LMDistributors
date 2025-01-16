@@ -6,12 +6,7 @@
     include_once 'config.php';
 
     // check user is logged or not
-    if(!isset($_SESSION['user_fName'])) {
-        // user is not logged in, redirect to login page
-        header('Location: login.php');
-        exit();
-    }
-    else {
+    if(isset($_SESSION['user_fName']) && $_SESSION['user_type'] == 'manager') {
         $dob = $_SESSION['user_dob'];
         $today = date('m-d');
         $birthday = date('m-d', strtotime($dob));
@@ -24,6 +19,11 @@
             // welcome user with welcome message
             $greeting = 'Welcome '.htmlspecialchars($_SESSION['user_fName'].'!');
         }
+    }
+    else {
+        // user is not logged in, redirect to login page
+        header('Location: login.php');
+        exit();
     }
 ?>
 
