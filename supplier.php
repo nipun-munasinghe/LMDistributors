@@ -6,12 +6,7 @@
     include_once 'config.php';
 
     // check user is logged or not
-    if(!isset($_SESSION['user_fName'])) {
-        // user is not logged in, redirect to login page
-        header('Location: login.php');
-        exit();
-    }
-    else {
+    if(isset($_SESSION['user_fName']) && $_SESSION['user_type'] == 'supplier') {
         // check user's birthday
         $dob = $_SESSION['user_dob'];
         $today = date('m-d');
@@ -71,6 +66,11 @@
                 echo "Failed to place the request: " . $conn->error;
             }
         }
+    }
+    else {
+        // user is not logged in, redirect to login page
+        header('Location: login.php');
+        exit();
     }
 ?>
 
