@@ -6,12 +6,7 @@
     include_once 'config.php';
 
     // check user is logged or not
-    if(!isset($_SESSION['user_fName'])) {
-        // user is not logged in, redirect to login page
-        header('Location: login.php');
-        exit();
-    }
-    else {
+    if(isset($_SESSION['user_fName']) && ($_SESSION['user_type'] == 'admin' || $_SESSION['user_type'] == 'manager')) {
         $dob = $_SESSION['user_dob'];
         $today = date('m-d');
         $birthday = date('m-d', strtotime($dob));
@@ -23,74 +18,81 @@
         else {
             $greeting = "Welcome ".htmlspecialchars($_SESSION['user_fName'])."!";
         }
-    }
 
-    // accept button
-    if (isset($_POST['acceptBtn'])) {
-        // Validate and retrieve supplyID
-        if (isset($_POST['supplyID']) && is_numeric($_POST['supplyID'])) {
+         // accept button
+        if (isset($_POST['acceptBtn'])) {
+            // Validate and retrieve supplyID
+            if (isset($_POST['supplyID']) && is_numeric($_POST['supplyID'])) {
+                $supplyID = $_POST['supplyID'];
+            }
+            else {
+                die("Invalid Supply ID");
+            }
+            
+            // Prepare SQL query to accept
+            $acceptSql = "UPDATE `supplier` SET `status` = 'Accepted' WHERE `supplyID` = ?";
+            $acceptStmt = $conn->prepare($acceptSql);
+            
+            // Check if the prepared statement was successful
+            if (!$acceptStmt) {
+                die("Error preparing statement: " . $conn->error);
+            }
+            
+            // Bind and execute the statement
+            $acceptStmt->bind_param("i", $supplyID);
+            if (!$acceptStmt->execute()) {
+                die("Error executing query: " . $acceptStmt->error);
+            }
+            
+            // Redirect to prevent resubmission
+            header("Location: supplyManagement.php");
+            exit();
+        }
+        
+        // reject button
+        if (isset($_POST['rejectBtn'])) {
             $supplyID = $_POST['supplyID'];
-        }
-        else {
-            die("Invalid Supply ID");
-        }
         
-        // Prepare SQL query to accept
-        $acceptSql = "UPDATE `supplier` SET `status` = 'Accepted' WHERE `supplyID` = ?";
-        $acceptStmt = $conn->prepare($acceptSql);
+            // Prepare SQL query to reject
+            $rejectSql = "UPDATE `supplier` SET `status` = 'Rejected' WHERE `supplyID` = ?";
+            $rejectStmt = $conn->prepare($rejectSql);
+            $rejectStmt->bind_param("i", $supplyID);
+            $rejectStmt->execute();
         
-        // Check if the prepared statement was successful
-        if (!$acceptStmt) {
-            die("Error preparing statement: " . $conn->error);
+            // Redirect to prevent resubmission
+            header("Location: supplyManagement.php");
+            exit();
         }
+
+        // delete button
+        if (isset($_POST['deleteBtn'])) {
+            $supplyID = $_POST['supplyID'];
         
-        // Bind and execute the statement
-        $acceptStmt->bind_param("i", $supplyID);
-        if (!$acceptStmt->execute()) {
-            die("Error executing query: " . $acceptStmt->error);
+            // Prepare SQL query to delete
+            $deleteSql = "DELETE FROM `supplier` WHERE `supplyID` = ?";
+            $deleteStmt = $conn->prepare($deleteSql);
+            $deleteStmt->bind_param("i", $supplyID);
+            $deleteStmt->execute();
+        
+            // Redirect to prevent resubmission
+            header("Location: supplyManagement.php");
+            exit();
+        }  
+
+        // query to get all suppliers
+        $query = "SELECT * FROM supplier ORDER BY `supplyID` DESC";
+        $result = mysqli_query($conn, $query);
+        if(!$result) {
+            die("Query failed: ".mysqli_error($conn));
         }
-        
-        // Redirect to prevent resubmission
-        header("Location: supplyManagement.php");
-        exit();
     }
-    
-    // reject button
-    if (isset($_POST['rejectBtn'])) {
-        $supplyID = $_POST['supplyID'];
-    
-        // Prepare SQL query to reject
-        $rejectSql = "UPDATE `supplier` SET `status` = 'Rejected' WHERE `supplyID` = ?";
-        $rejectStmt = $conn->prepare($rejectSql);
-        $rejectStmt->bind_param("i", $supplyID);
-        $rejectStmt->execute();
-    
-        // Redirect to prevent resubmission
-        header("Location: supplyManagement.php");
+    else {
+        // user is not logged in, redirect to login page
+        header('Location: login.php');
         exit();
     }
 
-    // delete button
-    if (isset($_POST['deleteBtn'])) {
-        $supplyID = $_POST['supplyID'];
-    
-        // Prepare SQL query to delete
-        $deleteSql = "DELETE FROM `supplier` WHERE `supplyID` = ?";
-        $deleteStmt = $conn->prepare($deleteSql);
-        $deleteStmt->bind_param("i", $supplyID);
-        $deleteStmt->execute();
-    
-        // Redirect to prevent resubmission
-        header("Location: supplyManagement.php");
-        exit();
-    }  
-
-    // query to get all suppliers
-    $query = "SELECT * FROM supplier ORDER BY `supplyID` DESC";
-    $result = mysqli_query($conn, $query);
-    if(!$result) {
-        die("Query failed: ".mysqli_error($conn));
-    }
+   
 ?>
 
 <!DOCTYPE html>
