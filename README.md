@@ -22,7 +22,6 @@ A Coconut and coconut-based products Buying and Selling Platform with advanced f
 - **Icons:** awasomefonts.com
 
 
-
 ## Installation
 
 1. Clone the repository to your local machine:
@@ -216,5 +215,5 @@ Contributions are welcome! If you want to improve this website, feel free to for
 
 - Developer: Nipun Munasinghe
 - LinkedIn: [Nipun Lakmal](https://www.linkedin.com/in/nipun-lakmal-b5b3652bb?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app)
-- Email: nipunlakmal884@gmail.com
+- Email: [nipunlakmal884@gmail.com](mailto:nipunlakmal884@gmail.com)
 - GitHub: [nipun-munasinghe](https://github.com/nipun-munasinghe)
