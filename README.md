@@ -189,6 +189,7 @@ ii. Products
 5. **Supplier**
 - Email - *supplier1@lm.com*
 - Password - *hashedpassword7*
+  
 ## Future Improvements
 
 - Implement password hashing option.
@@ -199,6 +200,15 @@ ii. Products
 - Implement a 2FA mechanism using email or an authenticator app to increase login security.
 - Allow customers to track their orders through status updates (e.g., Processing, Dispatched, Delivered).
 - Integrate payment options (PayPal, Stripe) to handle transactions securely.
+
+## Color Reference
+
+| Color             | Hex                                                                |
+| ----------------- | ------------------------------------------------------------------ |
+| Fruit Salad | #4CAF50  |
+| Copper Canyon | #8B4513 |
+| Gold | #FFD700 |
+
 ## Acknowledgements
 
 - Animations: [Animate.css](https://animate.style/)
