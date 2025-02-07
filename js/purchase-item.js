@@ -34,6 +34,8 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
             alert('Item purchased successfully!');
             submitButton.classList.remove('animate');
+            window.location.href = 'purchase-item.php';
         }, 1500);
+        
     });
 });

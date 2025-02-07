@@ -113,3 +113,8 @@
     text-decoration: none;
     transition: color 0.3s;
 }
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+    
+}

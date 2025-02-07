@@ -7,7 +7,7 @@
 
     // Check if user is logged in
     if(isset($_SESSION['user_fName'])) {
-        /*if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['productid'])) {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['productid'])) {
             $productid = intval($_POST['productid']);
             
             // Fetch the product details from the database
@@ -63,7 +63,7 @@
         }
         else {
             echo "No product selected.";
-        }*/
+        }
     }
     else {
         echo "<script>
@@ -101,23 +101,28 @@
             <!-- Name -->
             <div class="form-group">
                 <label for="name">Name</label>
-                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                <input type="text" id="name" name="name" value="<?php echo $_SESSION['fullName']; ?>" required>
             </div>
 
             <!-- Phone Numbers -->
             <div class="form-group">
                 <label for="phone1">Phone Number 1</label>
-                <input type="tel" id="phone1" name="phone1" placeholder="Enter phone number" required>
+                <input type="tel" id="phone1" name="phone1" value="<?php echo $_SESSION['user_phone']; ?>" required>
             </div>
             <div class="form-group">
                 <label for="phone2">Phone Number 2</label>
-                <input type="tel" id="phone2" name="phone2" placeholder="Enter alternate phone number">
+                <?php if (empty($_SESSION['user_phone2'])) { ?>
+                    <input type="tel" id="phone2" name="phone2" placeholder="Enter alternate phone number">
+                <?php } 
+                else { ?>
+                    <input type="tel" id="phone2" name="phone2" value="<?php echo htmlspecialchars($_SESSION['user_phone2']); ?>">
+                <?php } ?>
             </div>
 
             <!-- Address -->
             <div class="form-group">
                 <label for="address">Address</label>
-                <textarea id="address" name="address" rows="3" placeholder="Enter your address" required></textarea>
+                <textarea id="address" name="address" rows="3" required><?php echo $_SESSION['user_address']; ?></textarea>
             </div>
 
             <!-- Quantity -->

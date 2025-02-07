@@ -56,7 +56,7 @@
                 
                 <!-- Purchase Button -->
                 <form action="purchase-item.php" method="POST">
-                    <input type="hidden" name="productid" value="<?php echo htmlspecialchars($product['productid']); ?>">
+                    <input type="hidden" name="productid" value="<?php echo $productid ?>">
                     <button type="submit" class="purchase-button">Purchase Now</button>
                 </form>
             </div>

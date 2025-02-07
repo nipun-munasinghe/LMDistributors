@@ -28,10 +28,10 @@ if(isset($_SESSION['user_fName']) && ($_SESSION['user_type'] == 'admin' || $_SES
         $productImage = NULL;
 
         //handle product image upload
-        /*if(isset($_FILES['productImg']) && $_FILES['productImg']['error'] === UPLOAD_ERR_OK) {
+        if(isset($_FILES['productImg']) && $_FILES['productImg']['error'] === UPLOAD_ERR_OK) {
             $targetDir = "./images/products/";
             $fileName = basename($_FILES['productImg']['name']);
-            $targetFile = $targetDir. uniqid(). "-". $fileName;
+            $targetFile = uniqid(). "-". $fileName;
             $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
 
             //check file type
@@ -42,7 +42,7 @@ if(isset($_SESSION['user_fName']) && ($_SESSION['user_type'] == 'admin' || $_SES
             }
         }
         $sql = "INSERT INTO product (name, description, price, image, category, quantity)
-                VALUES ('$productName', '$description', '$productImage', '$category', '$quantity');"
+                VALUES ('$productName', '$description', '$productPrice', '$productImage', '$category', '$quantity');";
         $result = mysqli_query($conn, $sql);
         
         if($result) {
@@ -50,7 +50,7 @@ if(isset($_SESSION['user_fName']) && ($_SESSION['user_type'] == 'admin' || $_SES
         }
         else {
             echo "<script>alert('Failed to add product. Please try again!');</script>";
-        }*/
+        }
     }
 
     //fetch details for display on table
@@ -157,7 +157,7 @@ else {
             </center>
 
             <div id="formContainer" class="hidden">
-                <form id="hiddenForm" action="manageProducts.php" method="POST">
+                <form id="hiddenForm" action="manageProducts.php" method="POST" enctype="multipart/form-data">
                     <div class="formUpper">
                         <h2>Add Product</h2>
                         <i class="fas fa-times" id="cancelForm"></i>
