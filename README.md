@@ -22,7 +22,6 @@ A Coconut and coconut-based products Buying and Selling Platform with advanced f
 - **Icons:** awasomefonts.com
 
 
-
 ## Installation
 
 1. Clone the repository to your local machine:
@@ -190,6 +189,7 @@ ii. Products
 5. **Supplier**
 - Email - *supplier1@lm.com*
 - Password - *hashedpassword7*
+  
 ## Future Improvements
 
 - Implement password hashing option.
@@ -200,6 +200,15 @@ ii. Products
 - Implement a 2FA mechanism using email or an authenticator app to increase login security.
 - Allow customers to track their orders through status updates (e.g., Processing, Dispatched, Delivered).
 - Integrate payment options (PayPal, Stripe) to handle transactions securely.
+
+## Color Reference
+
+| Color             | Hex                                                                |
+| ----------------- | ------------------------------------------------------------------ |
+| Fruit Salad | #4CAF50  |
+| Copper Canyon | #8B4513 |
+| Gold | #FFD700 |
+
 ## Acknowledgements
 
 - Animations: [Animate.css](https://animate.style/)
@@ -216,5 +225,5 @@ Contributions are welcome! If you want to improve this website, feel free to for
 
 - Developer: Nipun Munasinghe
 - LinkedIn: [Nipun Lakmal](https://www.linkedin.com/in/nipun-lakmal-b5b3652bb?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app)
-- Email: nipunlakmal884@gmail.com
+- Email: [nipunlakmal884@gmail.com](mailto:nipunlakmal884@gmail.com)
 - GitHub: [nipun-munasinghe](https://github.com/nipun-munasinghe)
