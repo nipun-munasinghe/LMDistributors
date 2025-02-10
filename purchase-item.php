@@ -7,7 +7,7 @@
 
     // Check if user is logged in
     if(isset($_SESSION['user_fName'])) {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['productid'])) {
+        if (isset($_POST['purchase-button'])) {
             $productid = intval($_POST['productid']);
             
             // Fetch the product details from the database
@@ -30,39 +30,39 @@
             $unitPrice = number_format($row['price'],2);
             $productName = $row['name'];
             $productQTY = $row['quantity'];
-
-            if(isset($_POST['submit-btn'])) {
-                $date = date('Y-m-d');
-                $orderName = trim($_POST['name']);
-                $phone1 = trim($_POST['phone1']);
-                $phone2 = trim($_POST['phone2']);
-                $address = trim($_POST['address']);
-                $quantity = intval($_POST['quantity']);
-                $totalPrice = number_format($unitPrice*$quantity,2);
-                $status = 'pending';
-
-                // insert order data into database
-                $sql = "INSERT INTO order(`date`, `name`, `phone1`, `phone2`, `address`, productName, productid, quantity, itemPrice, totalPrice, `status`)
-                        VALUES (?,?,?,?,?,?,?,?,?,?,?);";
-                $stmt = $conn->prepare($sql);
-                $stmt->bind_param("ssiissiidds", $date, $orderName, $phone1, $phone2, $address, $productName, $productid, $quantity, $unitPrice, $totalPrice, $status);
-                $stmt->execute();
-
-                // calculate & insert available quantity after an order
-                $newQuantity = $productQTY - $quantity;
-
-                $sql = "UPDATE product SET quantity =? WHERE productid =?";
-                $stmt = $conn->prepare($sql);
-                $stmt->bind_param("ii", $newQuantity, $productid);
-                $stmt->execute();
-                
-                echo "<script>
-                        window.location.href = 'purchase-item.php';
-                      </script>";
-            }
         }
-        else {
-            echo "No product selected.";
+
+        if(isset($_POST['submit-btn'])) {
+            $date = date('Y-m-d');
+            $orderName = trim($_POST['name']);
+            $phone1 = trim($_POST['phone1']);
+            $phone2 = trim($_POST['phone2']);
+            $address = trim($_POST['address']);
+            $quantity = intval($_POST['quantity']);
+            $unitPrice = doubleval($_POST['unitprice']);
+            $totalPrice = number_format($unitPrice*$quantity,2);
+            $productid = intval($_POST['prodid']);
+            $status = 'pending';
+            $productName = $_POST['prodname'];
+
+            // insert order data into database
+            $sql = "INSERT INTO `order`(`date`, `name`, `phone1`, `phone2`, `address`, `productName`, `productid`, `quantity`, `itemPrice`, `totalPrice`, `status`)
+                    VALUES (?,?,?,?,?,?,?,?,?,?,?);";
+            $stmt = $conn->prepare($sql);
+            $stmt->bind_param("ssiissiidds", $date, $orderName, $phone1, $phone2, $address, $productName, $productid, $quantity, $unitPrice, $totalPrice, $status);
+            $stmt->execute();
+
+            // calculate & insert available quantity after an order
+            $newQuantity = $productQTY - $quantity;
+
+            $sql = "UPDATE product SET quantity =? WHERE productid =?";
+            $stmt = $conn->prepare($sql);
+            $stmt->bind_param("ii", $newQuantity, $productid);
+            $stmt->execute();
+            
+            echo "<script>
+                    window.location.href = 'purchase-item.php';
+                  </script>";
         }
     }
     else {
@@ -97,7 +97,7 @@
     <section class="purchase-section">
         <h1>Purchase Item</h1>
 
-        <form action="purchase-item.php?productid=<?php echo $productid; ?>" method="POST" id="purchase-form">
+        <form action="purchase-item.php" method="POST" id="purchase-form">
             <!-- Name -->
             <div class="form-group">
                 <label for="name">Name</label>
@@ -187,6 +187,9 @@
             <button type="submit" id="submit-btn" name="submit-btn" title="Submit details">
                 Submit <i class="fas fa-plane"></i>
             </button>
+            <input type="hidden" name="prodid" value="<?php echo $productid; ?>">
+            <input type="hidden" name="unitprice" value="<?php echo $unitPrice ; ?>">
+            <input type="hidden" name="prodname" value="<?php echo $productName ; ?>">
         </form>
     </section>
 
