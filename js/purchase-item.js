@@ -27,15 +27,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Animate submit button
-    submitButton.addEventListener('click', () => {
+    submitButton.addEventListener('click', (event) => {
+        event.preventDefault(); // Prevent form submission immediately
         submitButton.classList.add('animate');
 
-        // Simulate submission
         setTimeout(() => {
             alert('Item purchased successfully!');
-            submitButton.classList.remove('animate');
-            window.location.href = 'purchase-item.php';
+
+            //Redirect to products page after submitting
+            window.location.href = 'products.php';
+
+            setTimeout(() => {
+                document.getElementById('purchase-form').submit();
+            }, 500);
         }, 1500);
-        
     });
 });

@@ -32,6 +32,8 @@
             $productQTY = $row['quantity'];
         }
 
+        $productQTY = $row['quantity'];
+
         if(isset($_POST['submit-btn'])) {
             $date = date('Y-m-d');
             $orderName = trim($_POST['name']);
@@ -59,10 +61,6 @@
             $stmt = $conn->prepare($sql);
             $stmt->bind_param("ii", $newQuantity, $productid);
             $stmt->execute();
-            
-            echo "<script>
-                    window.location.href = 'purchase-item.php';
-                  </script>";
         }
     }
     else {
@@ -134,7 +132,7 @@
             <!-- Total Price -->
             <p id="unitPrice" style="display:none;"><?php echo $unitPrice; ?></p>
             <p class="price-display">
-                Total Price: Rs. <span id="totalPriceDisplay"><?php echo $unitPrice; ?></span>
+                Total Price: Rs. <span id="totalPriceDisplay"><?php echo number_format($row['price'],2); ?></span>
             </p>
 
             <!-- Payment Method -->
