@@ -146,7 +146,7 @@
                     </div>
                 </div>
                 <div class="product-info">
-                    <h4>Coconut Water</h4>
+                    <h4>Coconut Milk</h4>
                     <p>Refreshing natural hydration</p>
                 </div>
             </div>
