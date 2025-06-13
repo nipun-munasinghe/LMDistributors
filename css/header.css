@@ -1,3 +1,7 @@
+/* ===================================
+             DESKTOP STYLES 
+   ================================= */
+
 .header {
     background: linear-gradient(to bottom, #4caf4fdd, rgba(76, 175, 79, 0));
     padding: 5px 20px 2px 20px;
@@ -26,16 +30,29 @@
 
 .header .logo {
     display: flex;
+    align-items: center;
+}
+
+.header .logo h1 {
+    margin: 0;
+    font-size: 1.5rem;
 }
 
 .header .logo img {
     width: 50px;
-    margin: auto;
+    height: 50px;
+    object-fit: contain;
     padding-right: 15px;
     padding-top: 20px;
 }
 
 /* nav bar */
+.header .nav-links {
+    display: flex;
+    align-items: center;
+    padding: 8px 20px;
+}
+
 .header .nav-links a {
     color: #fff;
     text-decoration: none;
@@ -55,17 +72,18 @@
     margin-left: 20px;
 }
 
-.header {
+/* buttons */
+.loginBtns {
     display: flex;
-    align-items: center;
+    gap: 5px;
 }
 
-/* buttons */
 .header #hLogin, .header #hLSignup {
     font-size: 16px;
     padding: 10px;
     border-radius: 8px;
     cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .header #hLogin {
@@ -83,7 +101,6 @@
     border: 2px solid #4CAF50;
     background-color: white;
     color: #4CAF50;
-    margin-left: 5px;
 }
 
 .header #hLSignup:hover {
@@ -96,25 +113,255 @@
     font-size: 16px;
     font-weight: bold;
     background: linear-gradient(to bottom, #4caf4fed, rgba(76, 175, 79, 0));
-    top: 10px;
-    padding: 4px 20px;
+    padding: 10px 20px;
     border: 2px solid #fff;
     border-radius: 8px;
     cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .logout a {
     color: #fff;
     text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .logout a:hover {
     color: #FFD700;
-    text-decoration: none;
     transition: color 0.3s;
 }
 
-/* Responsive Styles */
+/* ===================================
+   MOBILE MENU TOGGLE (HIDDEN ON DESKTOP)
+   ================================= */
+
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    z-index: 1001;
+    padding: 5px;
+}
+
+.mobile-menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 3px 0;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+}
+
+.mobile-menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+
+.mobile-menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Mobile Navigation Menu (hidden by default) */
+.mobile-nav-menu {
+    display: none;
+}
+
+/* ===================================
+        MOBILE RESPONSIVE STYLES
+   ================================= */
+
+/* Tablet and below */
 @media screen and (max-width: 768px) {
+    .header {
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+        padding: 10px 15px;
+    }
     
+    .header.menu-open {
+        background: linear-gradient(to bottom, #4caf4f, #4caf4fdd);
+    }
+    
+    .header-container {
+        justify-content: space-between;
+    }
+    
+    .header .logo img {
+        width: 40px;
+        height: 40px;
+        padding-top: 10px;
+        padding-right: 10px;
+    }
+    
+    .header .logo h1 {
+        font-size: 1.2rem;
+    }
+    
+    /* Hide desktop navigation */
+    .header .bar {
+        display: none;
+    }
+    
+    /* Hide desktop login buttons */
+    .loginBtns, .logout {
+        display: none;
+    }
+    
+    /* Show mobile toggle */
+    .mobile-menu-toggle {
+        display: flex;
+    }
+    
+    /* Show mobile navigation menu */
+    .mobile-nav-menu {
+        display: block;
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background: linear-gradient(to bottom, #4caf4f, #2e7d32);
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        z-index: 999;
+        padding-top: 50px;
+        text-align: center;
+    }
+    
+    .mobile-nav-menu.active {
+        transform: translateX(0);
+    }
+    
+    .mobile-nav-links {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        margin-bottom: 40px;
+    }
+    
+    .mobile-nav-links a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 1.2rem;
+        font-weight: 600;
+        padding: 15px 30px;
+        width: 80%;
+        max-width: 300px;
+        background: rgba(255, 255, 255, 0.1);
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        border-radius: 12px;
+        margin: 0 auto;
+        display: block;
+        transition: all 0.3s ease;
+    }
+    
+    .mobile-nav-links a:hover {
+        background: rgba(255, 215, 0, 0.2);
+        border-color: #FFD700;
+        color: #FFD700;
+    }
+    
+    /* Mobile auth buttons */
+    .mobile-auth-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+    }
+    
+    .mobile-login, .mobile-signup, .mobile-logout {
+        width: 80%;
+        max-width: 300px;
+        padding: 15px 20px;
+        font-size: 1rem;
+        border-radius: 12px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+    
+    .mobile-login {
+        border: 2px solid white;
+        background-color: #4CAF50;
+        color: white;
+    }
+    
+    .mobile-login:hover {
+        border-color: #FFD700;
+        color: #FFD700;
+    }
+    
+    .mobile-signup {
+        border: 2px solid #4CAF50;
+        background-color: white;
+        color: #4CAF50;
+    }
+    
+    .mobile-signup:hover {
+        background-color: #FFD700;
+        color: #4CAF50;
+    }
+    
+    .mobile-logout {
+        border: 2px solid #fff;
+        background: linear-gradient(to bottom, #4caf4fed, rgba(76, 175, 79, 0));
+        color: white;
+    }
+    
+    .mobile-logout:hover {
+        border-color: #FFD700;
+    }
+    
+    .mobile-logout a {
+        color: #fff;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        justify-content: center;
+    }
+    
+    .mobile-logout a:hover {
+        color: #FFD700;
+    }
+    
+    /* Add body padding to account for fixed header */
+    body {
+        padding-top: 70px;
+    }
+}
+
+/* Small Mobile */
+@media screen and (max-width: 480px) {
+    .header {
+        padding: 8px 10px;
+    }
+    
+    .header .logo h1 {
+        font-size: 1rem;
+    }
+    
+    .header .logo img {
+        width: 35px;
+        height: 35px;
+        padding-top: 8px;
+        padding-right: 8px;
+    }
+    
+    .mobile-nav-menu {
+        top: 60px;
+        height: calc(100vh - 60px);
+    }
+    
+    body {
+        padding-top: 60px;
+    }
 }
