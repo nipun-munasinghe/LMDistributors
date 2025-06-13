@@ -319,7 +319,7 @@
                     <div class="quote-icon">
                         <i class="fas fa-quote-left"></i>
                     </div>
-                    <p>"The quality of coconuts from L. M. Distributors is exceptional. Their commitment to freshness and timely delivery has made them our preferred supplier for years."</p>
+                    <p>"As a successful restaurant owner, I choose the quality of coconuts from L. M. Distributors is exceptional. Their commitment to freshness and timely delivery has made them our preferred supplier for years."</p>
                     <div class="testimonial-author">
                         <img src="./images/profiles/6781889894230-supplier1.jpg" alt="Testimonial Author">
                         <div class="author-info">
@@ -335,12 +335,60 @@
                     <div class="quote-icon">
                         <i class="fas fa-quote-left"></i>
                     </div>
-                    <p>"As a retailer, I appreciate their consistent quality and professional approach. Their coconut products are always in high demand among my customers."</p>
+                    <p>"As always choosing a very good and quality product, I appreciate their consistent quality and professional approach. Their coconut products are always in high demand among my customers."</p>
                     <div class="testimonial-author">
                         <img src="./images/profiles/6781877c37e52-customer2.jpg" alt="Testimonial Author">
                         <div class="author-info">
                             <h4>Bubi Mendis</h4>
                             <p>Retail Store Owner</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-item">
+                <div class="testimonial-content">
+                    <div class="quote-icon">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <p>"I appreciate their exceptional coconut oil and fresh products. Their coconut ingredients enhance our authentic dishes and are always praised by our diners for superior taste and quality."</p>
+                    <div class="testimonial-author">
+                        <img src="./images/profiles/avatar-3.png" alt="Testimonial Author">
+                        <div class="author-info">
+                            <h4>Mehesini Peris</h4>
+                            <p>Restaurant Owner</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-item">
+                <div class="testimonial-content">
+                    <div class="quote-icon">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <p>"I appreciate their organic coconut range and reliable service. Their coconut products are always popular with health-conscious customers who value pure, natural ingredients."</p>
+                    <div class="testimonial-author">
+                        <img src="./images/profiles/avatar-1.png" alt="Testimonial Author">
+                        <div class="author-info">
+                            <h4>Sihal Fernando</h4>
+                            <p>Health Store Manager</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-item">
+                <div class="testimonial-content">
+                    <div class="quote-icon">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <p>"I appreciate their premium coconut flour and desiccated coconut. Their coconut products give our cakes exceptional texture and are always cakes with their products requested by customers for special orders."</p>
+                    <div class="testimonial-author">
+                        <img src="./images/profiles/avatar-4.png" alt="Testimonial Author">
+                        <div class="author-info">
+                            <h4>Ishini Weegoda</h4>
+                            <p>Bakery Owner</p>
                         </div>
                     </div>
                 </div>

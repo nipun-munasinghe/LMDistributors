@@ -1190,7 +1190,6 @@ section {
     padding: 40px;
     border-radius: var(--border-radius);
     position: relative;
-    box-shadow: var(--box-shadow);
 }
 
 .quote-icon {
