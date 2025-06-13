@@ -254,10 +254,13 @@ function initCounterAnimations() {
                 const updateCounter = () => {
                     if (current < target) {
                         current += increment;
-                        counter.textContent = Math.ceil(current);
-                        requestAnimationFrame(updateCounter);
+                        counter.textContent = Math.ceil(current-1) + '+';
                     } else {
-                        counter.textContent = target;
+                        counter.textContent = target + '+';
+                    }
+                    
+                    if (current < target) {
+                        requestAnimationFrame(updateCounter);
                     }
                 };
                 
