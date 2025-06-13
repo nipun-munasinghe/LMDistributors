@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
             alert('Item purchased successfully!');
 
             //Redirect to products page after submitting
-            window.location.href = 'products.php';
+            // window.location.href = 'products.php';
 
             setTimeout(() => {
                 document.getElementById('purchase-form').submit();

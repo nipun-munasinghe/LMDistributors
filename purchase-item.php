@@ -32,7 +32,7 @@
             $productQTY = $row['quantity'];
         }
 
-        $productQTY = $row['quantity'];
+        $productQTY;
 
         if(isset($_POST['submit-btn'])) {
             $date = date('Y-m-d');
@@ -53,6 +53,9 @@
             $stmt = $conn->prepare($sql);
             $stmt->bind_param("ssiissiidds", $date, $orderName, $phone1, $phone2, $address, $productName, $productid, $quantity, $unitPrice, $totalPrice, $status);
             $stmt->execute();
+
+            // Ensure quantity is available
+            $productQTY = intval($_POST['productQTY']);
 
             // calculate & insert available quantity after an order
             $newQuantity = $productQTY - $quantity;
@@ -110,7 +113,7 @@
             <div class="form-group">
                 <label for="phone2">Phone Number 2</label>
                 <?php if (empty($_SESSION['user_phone2'])) { ?>
-                    <input type="tel" id="phone2" name="phone2" placeholder="Enter alternate phone number">
+                    <input type="tel" id="phone2" name="phone2" placeholder="Enter alternate phone number" value="">
                 <?php } 
                 else { ?>
                     <input type="tel" id="phone2" name="phone2" value="<?php echo htmlspecialchars($_SESSION['user_phone2']); ?>">
