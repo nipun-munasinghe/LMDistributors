@@ -140,48 +140,48 @@
             
             <div class="product-item">
                 <div class="product-image">
-                    <img src="./images/products/coconutMilk.jpg" alt="Coconut Water">
+                    <img src="./images/products/coconutMilk.jpg" alt="Coconut Milk">
                     <div class="product-overlay">
                         <a href="products.php?id=3" class="view-product">View Details</a>
                     </div>
                 </div>
                 <div class="product-info">
                     <h4>Coconut Milk</h4>
-                    <p>Refreshing natural hydration</p>
+                    <p>Refreshing natural milk</p>
                 </div>
             </div>
 
             <div class="product-item">
                 <div class="product-image">
-                    <img src="./images/products/coconutA.jpg" alt="Fresh Coconut">
+                    <img src="./images/products/king-coconut-4029424_1280.jpg" alt="King Coconut">
                     <div class="product-overlay">
-                        <a href="products.php?id=1" class="view-product">View Details</a>
+                        <a href="products.php?id=10" class="view-product">View Details</a>
                     </div>
                 </div>
                 <div class="product-info">
-                    <h4>Fresh Coconuts</h4>
-                    <p>Premium quality young coconuts</p>
+                    <h4>King Coconut</h4>
+                    <p>Premium quality king coconuts</p>
                 </div>
             </div>
             
             <div class="product-item">
                 <div class="product-image">
-                    <img src="./images/products/coconut-oil.jpg" alt="Coconut Oil">
+                    <img src="./images/products/CoconutCharcoal.jpg" alt="Coconut charcoal">
                     <div class="product-overlay">
-                        <a href="products.php?id=2" class="view-product">View Details</a>
+                        <a href="products.php?id=12" class="view-product">View Details</a>
                     </div>
                 </div>
                 <div class="product-info">
-                    <h4>Virgin Coconut Oil</h4>
-                    <p>100% pure and organic</p>
+                    <h4>Coconut Charcoal</h4>
+                    <p>100% pure and organic coconut charcoal</p>
                 </div>
             </div>
             
             <div class="product-item">
                 <div class="product-image">
-                    <img src="./images/products/coconutMilk.jpg" alt="Coconut Water">
+                    <img src="./images/products/coco-water.jpg" alt="Coconut Water">
                     <div class="product-overlay">
-                        <a href="products.php?id=3" class="view-product">View Details</a>
+                        <a href="products.php?id=6" class="view-product">View Details</a>
                     </div>
                 </div>
                 <div class="product-info">
@@ -416,74 +416,5 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
     <script src="./js/index.js"></script>
-    
-    <script>
-        // Initialize AOS
-        AOS.init({
-            duration: 800,
-            easing: 'ease-in-out',
-            once: true
-        });
-        
-        // Counter animation
-        const counters = document.querySelectorAll('.counter');
-        counters.forEach(counter => {
-            const target = +counter.getAttribute('data-target');
-            const increment = target / 100;
-            
-            const updateCounter = () => {
-                const value = +counter.innerText;
-                if (value < target) {
-                    counter.innerText = Math.ceil(value + increment);
-                    setTimeout(updateCounter, 20);
-                } else {
-                    counter.innerText = target;
-                }
-            };
-            
-            updateCounter();
-        });
-        
-        // Initialize carousels
-        $(document).ready(function(){
-            $('.product-carousel').slick({
-                slidesToShow: 3,
-                slidesToScroll: 1,
-                autoplay: true,
-                autoplaySpeed: 3000,
-                dots: true,
-                responsive: [
-                    {
-                        breakpoint: 992,
-                        settings: {
-                            slidesToShow: 2
-                        }
-                    },
-                    {
-                        breakpoint: 576,
-                        settings: {
-                            slidesToShow: 1
-                        }
-                    }
-                ]
-            });
-            
-            $('.testimonial-carousel').slick({
-                slidesToShow: 2,
-                slidesToScroll: 1,
-                autoplay: true,
-                autoplaySpeed: 4000,
-                dots: true,
-                responsive: [
-                    {
-                        breakpoint: 768,
-                        settings: {
-                            slidesToShow: 1
-                        }
-                    }
-                ]
-            });
-        });
-    </script>
 </body>
 </html>
