@@ -31,17 +31,18 @@
 </head>
 <body>
 
-    <?php include 'header.php'; ?>
+    <div class="headerFile>
+        <?php include 'header.php'; ?>
+    </div>
 
     <section class="hero">
-        <div class="hero-overlay"></div>
         <div class="hero-image">
             <img src="./images/banner1.jpg" alt="Coconut Farms">
         </div>
         <div class="hero-content">
             <div class="hero-text animate__animated animate__fadeInRight">
-                <h1>Welcome to L. M. Distributors</h1>
-                <p>Your trusted partner for high-quality<br> coconut products.</p>
+                <h1>L. M. Distributors</h1>
+                <p>Your trusted partner for high-quality coconut products.</p>
                 <div class="hero-buttons">
                     <a href="products.php" class="btn-primary" title="Browse Products">
                         <span>Explore</span>
