@@ -1,4 +1,4 @@
-![Landing Page](./images/landing-page.png)
+![Landing Page](images/landing-page.png)
 # L. M. Distributors 🥥
 
 A Coconut and coconut-based products Buying and Selling Platform with advanced features for admins, managers, customers, suppliers, and buyers.
