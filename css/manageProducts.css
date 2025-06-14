@@ -261,6 +261,15 @@ body {
     max-width: 250px;
 }
 
+.productImg {
+    max-width: 120px;
+    max-height: 80px;
+    width: 120px;
+    height: 80px;
+    object-fit: cover;
+    display: block;
+}
+
 .tQuantity {
     font-weight: bold;
 }

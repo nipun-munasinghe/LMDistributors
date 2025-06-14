@@ -210,7 +210,7 @@ else {
                                 <td class="tName"><?php echo $row['name'] ?></td>
                                 <td class="tDescription"><?php echo $row['description'] ?></td>
                                 <td class="tPrice"><?php echo $row['price'] ?></td>
-                                <td class="tProductImg"><img src="<?php echo $row['image'] ?>" 
+                                <td class="tProductImg"><img src="./images/products/<?php echo $row['image'] ?>" 
                                     alt="Product Image" class="productImg"></td>
                                 <td class="tCategory"><?php echo $row['category'] ?></td>
                                 <td class="tQuantity">
